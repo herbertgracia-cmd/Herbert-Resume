@@ -62,7 +62,10 @@ The chat button appears on the site once the key is set.
    npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
    ```
 
-The form appears under Contact once both are set. Read messages in Supabase's **Table editor → contact_messages**.
+The form appears under Contact once both are set. In Supabase's **Table Editor**:
+
+- **contact_messages**: messages from the contact form. Tick `is_read` once you've replied.
+- **chat_questions**: every question recruiters ask the AI chat, with its answer (only filled in once the Nvidia chat is turned on too). No names or emails are stored.
 
 The `service_role` key only lives in Cloudflare and is never sent to the browser. Keep it out of git.
 
@@ -76,7 +79,7 @@ For `npm run dev`, copy `.dev.vars.example` to `.dev.vars` and fill in the keys 
 | --- | --- |
 | `public/` | The website: `index.html`, `styles.css`, `app.js`, and `content.json` (your resume) |
 | `src/worker.js` | Cloudflare Worker: serves the site and handles `/api/status`, `/api/chat`, `/api/contact` |
-| `supabase/schema.sql` | Database table for contact messages |
+| `supabase/schema.sql` | Database tables for contact messages and chat questions |
 | `wrangler.toml` | Cloudflare settings |
 
 There's no build step or framework: plain HTML, CSS, and JavaScript.

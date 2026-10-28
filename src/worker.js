@@ -5,7 +5,7 @@ const MAX_QUESTION = 500;
 const MAX_HISTORY = 6;
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     try {
@@ -17,7 +17,7 @@ export default {
         });
       }
       if (url.pathname === "/api/chat" && request.method === "POST") {
-        return await handleChat(request, env);
+        return await handleChat(request, env, ctx);
       }
       if (url.pathname === "/api/contact" && request.method === "POST") {
         return await handleContact(request, env);
@@ -35,7 +35,7 @@ export default {
 };
 
 // "Ask about Herbert": answers recruiter questions using only content.json.
-async function handleChat(request, env) {
+async function handleChat(request, env, ctx) {
   if (!env.NVIDIA_API_KEY) {
     return json({ error: "Chat is not set up yet." }, 503);
   }
@@ -73,8 +73,19 @@ async function handleChat(request, env) {
   }
 
   const data = await res.json();
-  const answer = data?.choices?.[0]?.message?.content?.trim();
-  return json({ answer: answer || "Sorry, I don't have an answer for that." });
+  const answer = data?.choices?.[0]?.message?.content?.trim() || "Sorry, I don't have an answer for that.";
+
+  // Save the question in the background so the reply isn't slowed down.
+  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    ctx.waitUntil(
+      supabaseInsert(env, "chat_questions", {
+        question,
+        answer: answer.slice(0, 4000),
+        model: env.NVIDIA_MODEL || "meta/llama-3.1-8b-instruct",
+      }),
+    );
+  }
+  return json({ answer });
 }
 
 function systemPrompt() {
@@ -111,7 +122,16 @@ async function handleContact(request, env) {
     return json({ error: "Please add your name, a valid email, and a message." }, 400);
   }
 
-  const res = await safeFetch(`${env.SUPABASE_URL}/rest/v1/contact_messages`, {
+  const saved = await supabaseInsert(env, "contact_messages", row);
+  if (!saved) {
+    return json({ error: "Could not send your message. Please email instead." }, 502);
+  }
+  return json({ ok: true });
+}
+
+// Adds one row to a Supabase table. Returns true if it worked.
+async function supabaseInsert(env, table, row) {
+  const res = await safeFetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
     method: "POST",
     headers: {
       apikey: env.SUPABASE_SERVICE_ROLE_KEY,
@@ -121,12 +141,11 @@ async function handleContact(request, env) {
     },
     body: JSON.stringify(row),
   });
-
   if (!res?.ok) {
-    if (res) console.error("Supabase error", res.status, await res.text());
-    return json({ error: "Could not send your message. Please email instead." }, 502);
+    if (res) console.error(`Supabase error (${table})`, res.status, await res.text());
+    return false;
   }
-  return json({ ok: true });
+  return true;
 }
 
 // Returns null instead of throwing when the other service can't be reached.
