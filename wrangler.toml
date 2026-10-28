@@ -1,0 +1,20 @@
+# Cloudflare Worker that serves the static site in /public
+# and handles the /api/* routes in src/worker.js.
+name = "herbert-resume"
+main = "src/worker.js"
+compatibility_date = "2025-09-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+# Let the Worker handle /api/*; everything else is served straight from /public.
+run_worker_first = ["/api/*"]
+
+[vars]
+# Any model from https://build.nvidia.com that supports chat completions.
+NVIDIA_MODEL = "meta/llama-3.1-8b-instruct"
+
+# Secrets (set with `npx wrangler secret put NAME`, or in .dev.vars for local dev):
+#   NVIDIA_API_KEY             - turns on the "Ask about Herbert" chat
+#   SUPABASE_URL               - turns on saving contact-form messages
+#   SUPABASE_SERVICE_ROLE_KEY

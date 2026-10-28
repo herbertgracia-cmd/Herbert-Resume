@@ -42,3 +42,8 @@ venv/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+!.dev.vars.example

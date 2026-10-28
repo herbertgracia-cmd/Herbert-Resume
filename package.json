@@ -1,0 +1,14 @@
+{
+  "name": "herbert-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal resume website for Herbert Gracia, hosted on Cloudflare Workers.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check": "wrangler deploy --dry-run --outdir .wrangler/dry-run"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

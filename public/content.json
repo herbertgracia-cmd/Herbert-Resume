@@ -1,0 +1,65 @@
+{
+  "_readme": "All resume text lives here. Edit this file and redeploy. The chat assistant also answers from this file only. Replace every [bracketed] placeholder with your own details.",
+  "name": "Herbert Gracia",
+  "role": "[Your title, e.g. Product Manager]",
+  "location": "[City, State]",
+  "availability": "Open to new roles",
+  "tagline": "[One sentence on what you do and the kind of team you want to join.]",
+  "links": {
+    "email": "herbert.gracia@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/[your-handle]",
+    "github": "https://github.com/herbertgracia-cmd"
+  },
+  "about": [
+    "[Two or three short sentences about who you are and the problems you like to work on.]",
+    "[A second paragraph on how you work, what you are known for, or what you are looking for next.]"
+  ],
+  "experience": [
+    {
+      "role": "[Job title]",
+      "company": "[Company]",
+      "start": "2023",
+      "end": "Present",
+      "summary": "[What the team does and what you owned.]",
+      "highlights": [
+        "[A result with a number, e.g. Cut onboarding time 40% by ...]",
+        "[Another result or responsibility]"
+      ]
+    },
+    {
+      "role": "[Job title]",
+      "company": "[Company]",
+      "start": "2020",
+      "end": "2023",
+      "summary": "[What the team does and what you owned.]",
+      "highlights": [
+        "[A result with a number]",
+        "[Another result or responsibility]"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Fromm Enrollment Helper",
+      "year": "2026",
+      "description": "A plain-language assistant that guides older adults through online class enrollment step by step and hands off to staff with the question already summarized.",
+      "tags": ["AI assistant", "Accessibility", "Product design"],
+      "url": ""
+    },
+    {
+      "name": "[Project name]",
+      "year": "2025",
+      "description": "[One or two sentences on the problem, what you built, and the result.]",
+      "tags": ["[Tag]", "[Tag]"],
+      "url": ""
+    }
+  ],
+  "skills": [
+    { "group": "[Skill group, e.g. Product]", "items": ["[Skill]", "[Skill]", "[Skill]"] },
+    { "group": "[Skill group, e.g. Technical]", "items": ["[Skill]", "[Skill]", "[Skill]"] },
+    { "group": "[Skill group, e.g. Tools]", "items": ["[Skill]", "[Skill]", "[Skill]"] }
+  ],
+  "education": [
+    { "school": "[School]", "degree": "[Degree, field]", "year": "[Year]" }
+  ]
+}
