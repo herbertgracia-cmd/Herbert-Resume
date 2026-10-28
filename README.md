@@ -54,7 +54,7 @@ The chat button appears on the site once the key is set.
 
 1. Create a project at https://supabase.com.
 2. Open the **SQL editor**, paste in `supabase/schema.sql`, and run it.
-3. In **Project Settings → API**, copy the project URL and the `service_role` key, then add them to Cloudflare:
+3. In **Project Settings → API**, copy the project URL and a secret key (the `sb_secret_...` key, or the legacy `service_role` key), then add them to Cloudflare:
    ```bash
    npx wrangler secret put SUPABASE_URL
    ```

@@ -129,16 +129,19 @@ async function handleContact(request, env) {
   return json({ ok: true });
 }
 
+// Works with both the legacy service_role key (a JWT starting "eyJ") and the
+// newer "sb_secret_..." keys, which go in the apikey header only.
+function supabaseHeaders(key) {
+  const headers = { apikey: key, "Content-Type": "application/json", Prefer: "return=minimal" };
+  if (key.startsWith("eyJ")) headers.Authorization = `Bearer ${key}`;
+  return headers;
+}
+
 // Adds one row to a Supabase table. Returns true if it worked.
 async function supabaseInsert(env, table, row) {
   const res = await safeFetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
     method: "POST",
-    headers: {
-      apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-      Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
+    headers: supabaseHeaders(env.SUPABASE_SERVICE_ROLE_KEY),
     body: JSON.stringify(row),
   });
   if (!res?.ok) {
