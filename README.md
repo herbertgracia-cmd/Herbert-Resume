@@ -41,6 +41,17 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 - **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
 - Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
 
+## Claude skills
+
+This repo includes four Claude Code skills in `.claude/skills/`. Open the repo in Claude Code and just ask; Claude picks the right one.
+
+| Skill | Ask something like | What you get |
+|---|---|---|
+| `job-application-tailor` | "Tailor my resume to this job: [paste posting]" | Fit summary, match table, tailored bullets, cover letter, interview stories, and honest gaps. Saved (if you ask) to the private, git-ignored `applications/` folder. |
+| `resume-site-updater` | "Add my new role" / "Here are FAZE lookbook photos" | Updates `content.json` following the site's rules (3 bullets per job, 6 featured works), rebuilds the preview image if needed, tests, and publishes. |
+| `brand-voice-writer` | "Write Instagram and email copy for Fromm's 50th" | Three options per channel in the brand's voice, from profiles in `brand-voices/` (Fromm and Herbert are starter drafts to confirm). |
+| `creative-brief-builder` | "Turn these notes into a creative brief" | A one-page brief (objective, audience, message, deliverables, timeline) plus questions for anything missing. |
+
 ## Run it locally
 
 ```bash
