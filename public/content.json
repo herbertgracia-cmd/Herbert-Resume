@@ -2,7 +2,7 @@
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
-  "role": "Brand & creative director · Entrepreneur · Product developer · AI",
+  "role": "Brand & Creative Director, now building with AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
   "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years leading marketing and creative at the University of San Francisco's Fromm Institute, and now working with AI.",
@@ -21,8 +21,8 @@
       "label": "apparel brands co-founded, one acquired"
     },
     {
-      "value": "21",
-      "label": "years at USF's Fromm Institute"
+      "value": "Pinterest · Timbuk2 · SFMOMA",
+      "label": "brand collaborations"
     },
     {
       "value": "+10%",

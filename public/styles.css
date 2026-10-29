@@ -113,6 +113,7 @@ img, svg { display: block; }
 }
 .topbar nav a:hover { color: var(--ink); }
 .topbar-actions { display: flex; align-items: center; gap: 10px; }
+.topbar-contact { display: none; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -166,6 +167,7 @@ img, svg { display: block; }
 .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
 .stat strong { font: 400 clamp(2.2rem, 4vw, 3.2rem)/1 var(--serif); color: var(--accent); }
 .stat span { font-size: 14px; color: var(--muted); line-height: 1.4; }
+.stat-text strong { font-size: clamp(1.3rem, 2vw, 1.6rem); line-height: 1.15; }
 
 /* Skills & industries */
 .facts { display: grid; grid-template-columns: 9rem 1fr; margin: 0; border-top: 1px solid var(--line); }
@@ -405,6 +407,8 @@ img, svg { display: block; }
 /* ---------- Small screens ---------- */
 @media (max-width: 760px) {
   .topbar nav { display: none; }
+  #print-btn { display: none; }
+  .topbar-contact { display: inline-flex; }
   .section { grid-template-columns: 1fr; }
   .section-title { position: static; }
   .contact > :not(.section-title) { grid-column: 1; }

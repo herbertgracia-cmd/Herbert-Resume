@@ -30,6 +30,11 @@ create table if not exists public.chat_questions (
 create index if not exists chat_questions_created_at_idx
   on public.chat_questions (created_at desc);
 
+-- Anonymous visitor id (a hash, never an IP address), used to cap questions per hour.
+alter table public.chat_questions add column if not exists visitor text;
+create index if not exists chat_questions_visitor_idx
+  on public.chat_questions (visitor, created_at desc);
+
 -- 3. Security --------------------------------------------------------------------
 -- Row Level Security is on with no policies, so the public "anon" key can't read
 -- or write these tables. Only the website's server (using the service_role key,

@@ -4,6 +4,10 @@ const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
 const DEFAULT_MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b";
 const MAX_QUESTION = 500;
 const MAX_HISTORY = 6;
+// Chat limits per visitor: a short burst limit (Cloudflare rate limiter, set in
+// wrangler.toml) and an hourly cap (counted in Supabase when it's connected).
+const HOURLY_CHAT_LIMIT = 20;
+const LIMIT_MESSAGE = "You've asked a lot of questions. Please try again later, or email me.";
 
 export default {
   async fetch(request, env, ctx) {
@@ -31,6 +35,18 @@ export default {
       return json({ error: "Something went wrong. Please try again." }, 500);
     }
 
+    // Home page: point the link-preview tags at this site's own address,
+    // so shared links show the preview image on any domain.
+    if (url.pathname === "/" || url.pathname === "/index.html") {
+      const page = await env.ASSETS.fetch(request);
+      const origin = url.origin;
+      return new HTMLRewriter()
+        .on('meta[property="og:image"]', { element: (el) => el.setAttribute("content", `${origin}/og.png`) })
+        .on('meta[name="twitter:image"]', { element: (el) => el.setAttribute("content", `${origin}/og.png`) })
+        .on('meta[property="og:url"]', { element: (el) => el.setAttribute("content", `${origin}/`) })
+        .transform(page);
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
@@ -45,28 +61,48 @@ async function handleChat(request, env, ctx) {
   const question = String(body?.question ?? "").trim().slice(0, MAX_QUESTION);
   if (!question) return json({ error: "Please type a question." }, 400);
 
+  // Per-visitor limits, so nobody can use up the NVIDIA credits.
+  const visitor = await visitorId(request);
+  if (env.CHAT_LIMITER) {
+    const { success } = await env.CHAT_LIMITER.limit({ key: visitor });
+    if (!success) return json({ error: LIMIT_MESSAGE }, 429);
+  }
+  if ((await questionsThisHour(env, visitor)) >= HOURLY_CHAT_LIMIT) {
+    return json({ error: LIMIT_MESSAGE }, 429);
+  }
+
   const history = Array.isArray(body?.history) ? body.history.slice(-MAX_HISTORY) : [];
   const priorTurns = history
     .filter((m) => (m?.role === "user" || m?.role === "assistant") && typeof m.content === "string")
     .map((m) => ({ role: m.role, content: m.content.slice(0, 1000) }));
 
-  const res = await safeFetch(NVIDIA_URL, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.NVIDIA_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: env.NVIDIA_MODEL || DEFAULT_MODEL,
-      temperature: 0.2,
-      max_tokens: 1024,
-      messages: [
-        { role: "system", content: systemPrompt() },
-        ...priorTurns,
-        { role: "user", content: question },
-      ],
-    }),
-  });
+  const payload = {
+    model: env.NVIDIA_MODEL || DEFAULT_MODEL,
+    temperature: 0.2,
+    max_tokens: 600,
+    messages: [
+      // "/no_think" asks Nemotron models to skip their written reasoning.
+      { role: "system", content: `/no_think\n${systemPrompt()}` },
+      ...priorTurns,
+      { role: "user", content: question },
+    ],
+    // Also switch reasoning off through the chat template, for models that support it.
+    chat_template_kwargs: { enable_thinking: false, thinking: false },
+  };
+  const callNvidia = (b) =>
+    safeFetch(env.NVIDIA_URL || NVIDIA_URL, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${env.NVIDIA_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify(b),
+    });
+
+  let res = await callNvidia(payload);
+  // If a model rejects the reasoning switch, try once more without it.
+  if (res?.status === 400) {
+    console.warn("NVIDIA rejected chat_template_kwargs; retrying without it", await res.text());
+    const { chat_template_kwargs, ...plain } = payload;
+    res = await callNvidia(plain);
+  }
 
   if (!res?.ok) {
     if (res) console.error("NVIDIA API error", res.status, await res.text());
@@ -78,12 +114,10 @@ async function handleChat(request, env, ctx) {
 
   // Save the question in the background so the reply isn't slowed down.
   if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
+    const row = { question, answer: answer.slice(0, 4000), model: env.NVIDIA_MODEL || DEFAULT_MODEL };
     ctx.waitUntil(
-      supabaseInsert(env, "chat_questions", {
-        question,
-        answer: answer.slice(0, 4000),
-        model: env.NVIDIA_MODEL || DEFAULT_MODEL,
-      }),
+      // If the "visitor" column hasn't been added yet (supabase/schema.sql), save without it.
+      supabaseInsert(env, "chat_questions", { ...row, visitor }).then((ok) => ok || supabaseInsert(env, "chat_questions", row)),
     );
   }
   return json({ answer });
@@ -93,7 +127,32 @@ async function handleChat(request, env, ctx) {
 // Keep only the final answer for visitors.
 function cleanAnswer(text) {
   if (typeof text !== "string") return "";
-  return text.replace(/<think>[\s\S]*?<\/think>/g, "").replace(/^[\s\S]*<\/think>/, "").trim();
+  return text
+    .replace(/<think>[\s\S]*?<\/think>/g, "") // complete thinking blocks
+    .replace(/^[\s\S]*<\/think>/, "") // thinking whose opening tag was left out
+    .replace(/<think>[\s\S]*$/, "") // thinking that was cut off before it closed
+    .trim();
+}
+
+// A stable, anonymous id for a visitor: a hash of their IP address, never the IP itself.
+async function visitorId(request) {
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const bytes = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(`herbert-resume:${ip}`));
+  return [...new Uint8Array(bytes)].slice(0, 12).map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// How many questions this visitor asked in the last hour (0 if Supabase isn't connected).
+async function questionsThisHour(env, visitor) {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return 0;
+  const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  const url = `${env.SUPABASE_URL}/rest/v1/chat_questions?select=id&visitor=eq.${visitor}&created_at=gte.${encodeURIComponent(since)}`;
+  const res = await safeFetch(url, {
+    method: "HEAD",
+    headers: { ...supabaseHeaders(env.SUPABASE_SERVICE_ROLE_KEY), Prefer: "count=exact" },
+  });
+  if (!res?.ok) return 0; // If counting fails, don't block the visitor.
+  const total = Number(res.headers.get("content-range")?.split("/")[1]);
+  return Number.isFinite(total) ? total : 0;
 }
 
 function systemPrompt() {

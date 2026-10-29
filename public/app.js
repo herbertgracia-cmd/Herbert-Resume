@@ -33,7 +33,7 @@ function render(d) {
     const v = binds[el.dataset.bind];
     if (typeof v === "string") el.textContent = v;
   });
-  document.title = `${d.name} — Resume`;
+  document.title = `${d.name} — ${d.role.split(",")[0]}`;
 
   // Hero role: "A · B · C" becomes separate pieces with accent dots.
   const roleEl = $(".hero-role");
@@ -58,7 +58,8 @@ function render(d) {
   // Key numbers under the hero.
   const stats = $("#stats");
   if (d.stats?.length) {
-    stats.replaceChildren(...d.stats.map((s) => h("div", { class: "stat" }, h("strong", {}, s.value), h("span", {}, s.label))));
+    stats.replaceChildren(...d.stats.map((s) =>
+      h("div", { class: s.value.length > 8 ? "stat stat-text" : "stat" }, h("strong", {}, s.value), h("span", {}, s.label))));
   } else stats.parentElement.remove();
 
   // Experience: 3 key bullets per job; the rest sits behind "More".
@@ -345,6 +346,11 @@ function setupChat(d) {
         body: JSON.stringify({ question: q, history }),
       });
       const body = await res.json();
+      if (res.status === 429) {
+        pending.className = "msg bot err";
+        pending.textContent = body.error;
+        return;
+      }
       if (!res.ok) throw new Error(body.error || "Something went wrong.");
       pending.className = "msg bot";
       pending.textContent = body.answer;

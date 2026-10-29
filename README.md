@@ -9,9 +9,11 @@ Both stay hidden until you add their keys, so the site works as a plain resume f
 
 ## Edit your resume
 
-All the text lives in **`public/content.json`**. Replace every `[bracketed]` placeholder with your own details. The page and the chat both read from this one file, so there's nothing else to update.
+All the text lives in **`public/content.json`**. The page and the chat both read from this one file, so there's nothing else to update. Each job shows its `key` bullets; `creative`, `highlights`, and `earlier_roles` sit behind a "More about this role" link. Work items marked `"featured": true` show first.
 
-"Save as PDF" in the top bar prints a clean one-column version of the resume.
+"Save as PDF" in the top bar prints a clean two-page version of the resume.
+
+**Link preview:** `public/og.png` is the image shown when the link is shared on LinkedIn, Slack, or email. If you change your headline, ask Claude to regenerate it.
 
 ## Add your work (design, video, storytelling, collaborations)
 
@@ -33,7 +35,8 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 }
 ```
 
-- **category:** one of `Design`, `Video`, `Storytelling`, `Collaborations`, `Technology`.
+- **category:** one of `Design`, `Marketing`, `Video`, `Events`, `Storytelling`, `Collaborations`, `Technology`, `AI`.
+- **featured:** `true` to show it in the first six; the rest appear under "See all work".
 - **image:** put the picture in `public/work/` (JPG or PNG, about 1600px wide, under 500 KB).
 - **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
 - Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
@@ -73,12 +76,14 @@ You can also connect this GitHub repo in the Cloudflare dashboard (**Workers & P
    ```
 3. Optional: pick a different model by changing `NVIDIA_MODEL` in `wrangler.toml`.
 
-The chat button appears on the site once the key is set.
+The chat button appears on the site once the key is set. It answers in first person as an AI version of you, using only `content.json`.
+
+**Limits:** each visitor can ask 5 questions a minute (Cloudflare rate limiter in `wrangler.toml`) and 20 an hour (counted in Supabase, if connected), so nobody can use up your NVIDIA credits. The chat also asks the model not to write out its reasoning, and removes any that slips through.
 
 ## Turn on the contact form (Supabase)
 
 1. Create a project at https://supabase.com.
-2. Open the **SQL editor**, paste in `supabase/schema.sql`, and run it.
+2. Open the **SQL editor**, paste in `supabase/schema.sql`, and run it. It's safe to run again whenever the file changes (for example, to add the `visitor` column the hourly chat limit uses).
 3. In **Project Settings → API**, copy the project URL and a secret key (the `sb_secret_...` key, or the legacy `service_role` key), then add them to Cloudflare:
    ```bash
    npx wrangler secret put SUPABASE_URL
@@ -90,7 +95,7 @@ The chat button appears on the site once the key is set.
 The form appears under Contact once both are set. In Supabase's **Table Editor**:
 
 - **contact_messages**: messages from the contact form. Tick `is_read` once you've replied.
-- **chat_questions**: every question recruiters ask the AI chat, with its answer (only filled in once the Nvidia chat is turned on too). No names or emails are stored.
+- **chat_questions**: every question recruiters ask the AI chat, with its answer (only filled in once the Nvidia chat is turned on too). No names, emails, or IP addresses are stored; `visitor` is a one-way hash used only for the hourly limit.
 
 The `service_role` key only lives in Cloudflare and is never sent to the browser. Keep it out of git.
 
@@ -103,7 +108,7 @@ For `npm run dev`, copy `.dev.vars.example` to `.dev.vars` and fill in the keys 
 | Path | What it is |
 | --- | --- |
 | `public/` | The website: `index.html`, `styles.css`, `app.js`, and `content.json` (your resume) |
-| `src/worker.js` | Cloudflare Worker: serves the site and handles `/api/status`, `/api/chat`, `/api/contact` |
+| `src/worker.js` | Cloudflare Worker: serves the site, fills in link-preview tags, and handles `/api/status`, `/api/chat`, `/api/contact` |
 | `supabase/schema.sql` | Database tables for contact messages and chat questions |
 | `wrangler.toml` | Cloudflare settings |
 
