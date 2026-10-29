@@ -1,11 +1,11 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only. Each job can have a 'creative' list: brand, design, and creative-direction work shown in its own highlighted box.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
-  "role": "Brand builder · Entrepreneur · Product & project lead · Assistant Director · Agentic AI",
+  "role": "Brand builder · Creative director · Entrepreneur · Product & project lead · Assistant Director · Agentic AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I build brands, products, and the teams behind them. 21 years leading marketing, technology, and strategy at the Fromm Institute, two businesses founded and scaled to exit, and now certified in agentic AI.",
+  "tagline": "I design and build brands, products, and the teams behind them. 21 years leading marketing, technology, and strategy at the Fromm Institute, two businesses founded and scaled to exit, and now certified in agentic AI.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -35,11 +35,12 @@
   ],
   "pillars": [
     {
-      "title": "Brand building & marketing",
-      "summary": "From zero presence to a multi-channel brand.",
+      "title": "Brand, design & creative direction",
+      "summary": "Building brands people recognize, everywhere I've worked.",
       "proof": [
-        "Grew Fromm's communications to reach 1,500+ older learners and raised enrollment 10%",
-        "Direct all marketing, PR, print ads, and social media",
+        "Creative direction for all of Fromm's marketing, PR, print ads, and social media",
+        "Grew Fromm from zero presence to a multi-channel brand, raising enrollment 10%",
+        "Designed and launched Fromm's website, member apps, and Frommcast",
         "Leading the 50th Anniversary campaign",
         "Creative brand leadership for two businesses of my own"
       ]
@@ -134,6 +135,13 @@
         "Community Connector: Established partnerships with retirement homes and senior-serving organizations throughout San Francisco, positioning elderhood as a time of contribution, not decline.",
         "Equity & Advocacy: Led efforts to make Fromm's programs welcoming and accessible to all older adults, countering ageism and expanding diversity and inclusion.",
         "Public Voice: Represent the Institute at donor events, faculty presentations, and community gatherings as a storyteller, advocate, and spokesperson."
+      ],
+      "creative": [
+        "Creative direction for all of Fromm's marketing and PR across digital and print, including every print ad and all social media",
+        "Designed and led the launch of a new website and member apps",
+        "Designed and launched Frommcast, Fromm's subscription platform for recorded classes",
+        "Designed donor appreciation events, and the messaging and materials behind Fromm's fundraising",
+        "Leading the brand, marketing, and PR for the 50th Anniversary celebration"
       ]
     },
     {
@@ -144,6 +152,10 @@
       "summary": "Founded and scaled two businesses to successful exits, demonstrating strong financial stewardship, fundraising acumen, and creative brand leadership.",
       "highlights": [
         "Led operations across finance, production, hiring, and design while building strong teams and community partnerships."
+      ],
+      "creative": [
+        "Creative brand leadership for both businesses",
+        "Led design and production, building each brand alongside the business"
       ]
     }
   ],
@@ -273,10 +285,11 @@
   ],
   "skills": [
     {
-      "group": "Brand & Marketing",
+      "group": "Brand, Design & Creative",
       "items": [
-        "Marketing & PR Campaigns",
+        "Brand building",
         "Design & Creative Direction",
+        "Marketing & PR Campaigns",
         "Public Speaking & Storytelling",
         "Social media & print"
       ]

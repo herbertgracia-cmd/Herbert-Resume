@@ -204,6 +204,18 @@ img, svg { display: block; }
 .job li { margin: 4px 0; }
 .job li::marker { color: var(--accent); }
 .job li strong { font-weight: 600; }
+.job-creative {
+  margin: 16px 0 4px; padding: 16px 20px 14px; border-radius: 12px;
+  background: var(--cat); color: var(--cat-ink);
+  --cat: #f2c7b5; --cat-ink: #5a1d0b;
+}
+.job-creative-label { margin: 0 0 4px; font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.job .job-creative ul { margin: 0; }
+.job .job-creative li::marker { color: currentColor; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .job-creative { --cat: #4a2417; --cat-ink: #ffd6c6; }
+}
+:root[data-theme="dark"] .job-creative { --cat: #4a2417; --cat-ink: #ffd6c6; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
 .tag { font: 400 11px/1 var(--mono); padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; }
@@ -446,6 +458,7 @@ img, svg { display: block; }
   .job h3, .job li, .stat, .community li { break-inside: avoid; }
   .job h3 { break-after: avoid; }
   .job h3, .work-card h3, .pillar h3 { font-size: 14pt; }
+  .job-creative { background: none; color: #000; padding: 0; margin: 6pt 0 2pt; border-left: 2pt solid #000; padding-left: 8pt; }
   .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 18pt; }
   .pillar { padding: 0; border: 0; break-inside: avoid; gap: 2pt; }
   .pillar ul { border: 0; margin: 0; padding-left: 1em; list-style: disc; }
