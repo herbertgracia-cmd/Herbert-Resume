@@ -7,6 +7,11 @@ compatibility_date = "2025-09-01"
 # (otherwise every deploy would remove them).
 keep_vars = true
 
+# Workers Logs: lets you see requests and errors in the Cloudflare dashboard
+# (herbert-resume -> Observability). Free at this site's traffic.
+[observability]
+enabled = true
+
 [assets]
 directory = "./public"
 binding = "ASSETS"
