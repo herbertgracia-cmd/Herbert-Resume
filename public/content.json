@@ -5,7 +5,7 @@
   "role": "Brand & Creative Director, now building with AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years leading marketing and creative at the University of San Francisco's Fromm Institute, and now working with AI.",
+  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years leading marketing and creative at the University of San Francisco's Fromm Institute, and now certified by USF in Applied Agentic AI.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -88,7 +88,7 @@
       "title": "AI & generative AI",
       "summary": "Putting AI to work in marketing and beyond.",
       "proof": [
-        "Completed the AI Certificate Intensive",
+        "Earned two AI certificates from the University of San Francisco: Applied Agentic AI and the AI Certificate Intensive",
         "Use generative AI for campaigns, content, audience messaging, research, and social media",
         "Designing the Fromm Enrollment Helper, an AI guide for older adults",
         "Directed AI agents to build this website and its NVIDIA-powered chat"
@@ -126,7 +126,7 @@
     },
     {
       "name": "AI & generative AI",
-      "note": "AI Certificate Intensive; AI in marketing and creative workflows"
+      "note": "USF certificates in Applied Agentic AI and AI; AI in marketing and creative workflows"
     }
   ],
   "community": [
@@ -496,8 +496,13 @@
   ],
   "certifications": [
     {
+      "name": "Applied Agentic AI Certificate",
+      "issuer": "University of San Francisco",
+      "year": ""
+    },
+    {
       "name": "AI Certificate Intensive",
-      "issuer": "",
+      "issuer": "University of San Francisco",
       "year": ""
     }
   ],

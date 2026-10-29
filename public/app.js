@@ -72,7 +72,7 @@ function render(d) {
     ["Industries", (d.industries || []).map((x) => x.name).join(" · ")],
     ...(d.skills || []).filter((g) => g.group !== "Languages").map((g) => [g.group, g.items.join(" · ")]),
     ["Languages", (d.skills || []).find((g) => g.group === "Languages")?.items.join(" · ")],
-    ["Certificate", (d.certifications || []).map((c) => [c.name, c.issuer, c.year].filter(Boolean).join(", ")).join(" · ")],
+    [(d.certifications || []).length > 1 ? "Certificates" : "Certificate", certificateLine(d.certifications || [])],
     ["Education", (d.education || []).slice(0, 1).map((e) => `${e.school}, ${[e.degree, e.year].filter(Boolean).join(", ")}`).join("")],
   ].filter(([, v]) => v);
   $("#facts").replaceChildren(...facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)]));
@@ -227,6 +227,16 @@ function setupWorkDialog() {
   dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
   // Stop any playing video when closed.
   dialog.addEventListener("close", () => $("#work-dialog-body").replaceChildren());
+}
+
+// "A and B, University of San Francisco" when they share an issuer; otherwise each with its own.
+function certificateLine(certs) {
+  if (!certs.length) return "";
+  const issuers = [...new Set(certs.map((c) => c.issuer).filter(Boolean))];
+  if (issuers.length === 1 && certs.every((c) => c.issuer === issuers[0]) && certs.every((c) => !c.year)) {
+    return `${certs.map((c) => c.name).join(" and ")}, ${issuers[0]}`;
+  }
+  return certs.map((c) => [c.name, c.issuer, c.year].filter(Boolean).join(", ")).join(" · ");
 }
 
 function renderJob(j) {
