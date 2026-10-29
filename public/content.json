@@ -88,7 +88,7 @@
       "title": "AI & generative AI",
       "summary": "Putting AI to work in marketing and beyond.",
       "proof": [
-        "Completed the AI Certificate Intensive",
+        "Completed the AI Certificate Intensive, focused on agentic AI",
         "Use generative AI for campaigns, content, audience messaging, research, and social media",
         "Designing the Fromm Enrollment Helper, an AI guide for older adults",
         "Directed AI agents to build this website and its NVIDIA-powered chat"
@@ -126,7 +126,7 @@
     },
     {
       "name": "AI & generative AI",
-      "note": "AI Certificate Intensive; AI in marketing and creative workflows"
+      "note": "AI Certificate Intensive (agentic AI); AI in marketing and creative workflows"
     }
   ],
   "community": [
@@ -482,6 +482,7 @@
       "items": [
         "Artificial intelligence",
         "Generative AI",
+        "Agentic AI",
         "Website & CRM projects",
         "AI assistant design"
       ]
@@ -496,7 +497,7 @@
   ],
   "certifications": [
     {
-      "name": "AI Certificate Intensive",
+      "name": "AI Certificate Intensive (Agentic AI)",
       "issuer": "",
       "year": ""
     }
