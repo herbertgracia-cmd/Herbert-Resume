@@ -217,6 +217,7 @@ img, svg { display: block; }
   --cat: #f2c7b5; --cat-ink: #5a1d0b;
 }
 .job-location { display: block; margin-top: 2px; }
+.job-since { display: block; margin-top: 2px; color: var(--ink); }
 .job-earlier { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
 .job-earlier .job-creative-label { color: var(--muted); }
 .job .job-earlier ol { list-style: none; margin: 0; padding: 0; }

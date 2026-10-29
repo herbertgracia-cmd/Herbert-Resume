@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.1";
+const VERSION = "2026-10-30.2";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -134,7 +134,7 @@ function renderHome(page, base) {
             .map((j) => {
               const dates = j.start ? `${esc(j.start)}–${esc(j.end)}` : "";
               const key = (j.key || []).map((k) => `<li>${esc(k)}</li>`).join("");
-              return `<li class="job"><div class="job-dates">${dates}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div><h3>${esc(j.role)}${j.company ? ` <span class="at">at ${esc(j.company)}</span>` : ""}</h3>${j.summary ? `<p class="job-summary">${esc(j.summary)}</p>` : ""}${key ? `<ul class="job-key">${key}</ul>` : ""}</div></li>`;
+              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div><h3>${esc(j.role)}${j.company ? ` <span class="at">at ${esc(j.company)}</span>` : ""}</h3>${j.summary ? `<p class="job-summary">${esc(j.summary)}</p>` : ""}${key ? `<ul class="job-key">${key}</ul>` : ""}</div></li>`;
             })
             .join(""),
           { html: true },

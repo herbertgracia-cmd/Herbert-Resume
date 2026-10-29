@@ -276,7 +276,11 @@ function renderJob(j) {
   const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
   const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length;
   return h("li", { class: "job reveal" },
-    h("div", { class: "job-dates" }, j.start ? `${j.start}–${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
+    h("div", { class: "job-dates" },
+      j.start ? `${j.start}–${j.end}` : "",
+      j.since && h("span", { class: "job-since" }, j.since),
+      j.location && h("span", { class: "job-location" }, j.location),
+    ),
     h("div", {},
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
       j.summary && h("p", { class: "job-summary" }, j.summary),

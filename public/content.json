@@ -1,5 +1,5 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Director, now building with AI",
@@ -139,10 +139,10 @@
     {
       "role": "Assistant Director, Technology, Marketing & Creative",
       "company": "Fromm Institute for Lifelong Learning, University of San Francisco",
-      "start": "2005",
+      "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year.",
+      "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year, managing $80K marketing and $100K technology budgets.",
       "creative": [
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
         "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
@@ -154,7 +154,7 @@
         "Product & Technology: Helped build Frommcast, Fromm's online learning and content platform. Lead website, CRM, enrollment, and digital experience projects from concept through implementation, including a Salesforce-based redesign with Stripe and CashNet payments.",
         "AI in Marketing: Use AI and generative AI for campaign development, content creation, audience messaging, research, social media marketing, and workflow improvement.",
         "Events & Programs: Develop and produce educational programs, community events, brand experiences, and major institutional events.",
-        "Teams & Budgets: Manage teams, vendors, budgets, timelines, technology partners, and cross-functional projects.",
+        "Teams & Budgets: Manage the $80K marketing and $100K technology budgets, plus teams, vendors, timelines, technology partners, and cross-functional projects.",
         "Fundraising & Board: Member of the leadership group responsible for fundraising strategy; built lasting trust with a 21-member Board, faculty, staff, and volunteers.",
         "Partnerships: Support direct-to-consumer enrollment and business partnerships that bring Fromm programming to organizations and communities, including retirement homes across San Francisco.",
         "Equity & Advocacy: Make Fromm's programs welcoming and accessible to all older adults, countering ageism through communications, technology, and outreach."
@@ -180,7 +180,8 @@
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, and events",
         "Grew communications from zero to a multi-channel program reaching 1,500+ learners, increasing enrollment 10%",
         "Lead Frommcast video and content, plus website, CRM, and AI-assisted marketing projects"
-      ]
+      ],
+      "since": "At Fromm since 2005"
     },
     {
       "role": "Co-Founder & Brand Director",
@@ -188,7 +189,7 @@
       "start": "2019",
       "end": "2024",
       "location": "San Francisco Bay Area",
-      "summary": "Co-founded and built an apparel brand across product, creative, retail, and e-commerce.",
+      "summary": "Co-founded and built an apparel brand across product, creative, retail, and e-commerce, alongside my role at Fromm.",
       "creative": [
         "Led brand strategy, visual identity, creative direction, art direction, and marketing",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
@@ -212,7 +213,7 @@
       "start": "2007",
       "end": "2019",
       "location": "San Francisco",
-      "summary": "Co-built an apparel brand from concept through acquisition.",
+      "summary": "Co-built an apparel brand from concept through acquisition, alongside my role at Fromm.",
       "creative": [
         "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
         "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
@@ -507,7 +508,7 @@
   "education": [
     {
       "school": "University of San Francisco",
-      "degree": "B.A.Sc., Communication and Media Studies, and Film",
+      "degree": "B.A., Media Studies & Communications",
       "year": "2002–2005"
     },
     {
