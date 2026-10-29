@@ -18,7 +18,7 @@
     },
     {
       "value": "2",
-      "label": "apparel brands co-founded, one acquired"
+      "label": "apparel brands co-founded, both exited"
     },
     {
       "value": "Pinterest · Timbuk2 · SFMOMA",
@@ -46,12 +46,12 @@
     },
     {
       "title": "Entrepreneurship",
-      "summary": "Two apparel brands co-founded and built from the ground up.",
+      "summary": "Two apparel brands co-founded, built, and exited.",
       "proof": [
-        "Co-built FAZE Apparel from concept through acquisition (2007–2019)",
-        "Co-founded State of Flux and built it across product, retail, and e-commerce (2019–2024)",
-        "Built DTC, retail, e-commerce, wholesale, and B2B sales channels",
-        "Worked directly with buyers, retailers, and manufacturing partners"
+        "Co-built FAZE Apparel with a team of 5, through acquisition (2007–2019)",
+        "Co-founded State of Flux; sold my share to my business partner in 2024",
+        "Sold direct to customers and to companies; 10+ stores and wholesale accounts",
+        "Opened and ran our own retail stores"
       ]
     },
     {
@@ -189,22 +189,24 @@
       "start": "2019",
       "end": "2024",
       "location": "San Francisco Bay Area",
-      "summary": "Co-founded and built an apparel brand across product, creative, retail, and e-commerce, alongside my role at Fromm.",
+      "summary": "Co-founded and built an apparel brand alongside my role at Fromm; sold my share to my business partner in 2024.",
       "creative": [
         "Led brand strategy, visual identity, creative direction, art direction, and marketing",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
         "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling"
       ],
       "highlights": [
-        "Collaborations: Developed collaborations and brand activations with partners including Pinterest, Timbuk2, and SFMOMA.",
-        "Sales Channels: Built direct-to-consumer, retail, wholesale, e-commerce, and B2B sales channels.",
+        "Collaborations: Created co-branded products for sale, plus events and pop-ups, with partners including Pinterest, Timbuk2, and SFMOMA.",
+        "Team & Retail: Led a team of 5 and ran our retail store.",
+        "Sales: Sold directly to customers and to companies, building DTC, retail, wholesale, e-commerce, and B2B channels.",
         "Experiential: Planned and produced community events, retail activations, pop-ups, and experiential marketing programs.",
-        "Operations: Managed partnerships, vendors, manufacturing relationships, production timelines, and creative execution."
+        "Operations: Managed partnerships, vendors, manufacturing relationships, production timelines, and creative execution.",
+        "Exit: Sold my share to my business partner in 2024."
       ],
       "key": [
         "Built the brand from the ground up across identity, art direction, product design, campaigns, and e-commerce",
-        "Developed brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
-        "Built DTC, retail, wholesale, e-commerce, and B2B sales channels"
+        "Created co-branded products and pop-up events with Pinterest, Timbuk2, and SFMOMA",
+        "Ran our retail store and a team of 5, selling direct to customers and to companies"
       ]
     },
     {
@@ -218,17 +220,19 @@
         "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
         "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
         "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York",
-        "Led retail store design and build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors"
+        "Led our retail store's design and build-out from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors"
       ],
       "highlights": [
+        "Team: Led a team of 5 across design, product, marketing, and sales.",
         "Product Development: Managed product development, sampling, materials, sourcing, manufacturing, quality control, and production.",
-        "Sales Channels: Built DTC, retail, e-commerce, wholesale, and B2B sales channels, working directly with buyers, retailers, manufacturing partners, and vendors.",
+        "Sales: Sold directly to customers and to companies, building DTC, retail, e-commerce, wholesale, and B2B channels and growing to 10+ stores and wholesale accounts.",
+        "Retail: Opened and ran our own retail store.",
         "Launches & Events: Planned and produced product launches, retail events, trade shows, and brand experiences."
       ],
       "key": [
-        "Led brand identity, apparel design, lookbooks, and campaigns, plus product development through manufacturing",
-        "Designed trade-show booths in Las Vegas, Miami, Los Angeles, and New York",
-        "Led retail store design and build-outs from concept through opening"
+        "Led brand identity, apparel design, and campaigns with a team of 5, from concept through acquisition",
+        "Grew wholesale to 10+ stores, sold directly to buyers and customers, and opened our own retail store",
+        "Designed trade-show booths in Las Vegas, Miami, Los Angeles, and New York, plus our store's build-out"
       ]
     }
   ],
@@ -237,7 +241,7 @@
       "title": "FAZE Apparel",
       "category": "Design",
       "year": "2007–2019",
-      "summary": "Co-built the brand through acquisition: identity, apparel design, graphics, lookbooks, and seasonal campaigns.",
+      "summary": "Co-built the brand through acquisition with a team of 5: identity, apparel design, graphics, lookbooks, and campaigns, sold in 10+ stores.",
       "role": "Co-Founder & Brand Director",
       "tags": [
         "Brand identity",
@@ -250,7 +254,7 @@
       "title": "State of Flux",
       "category": "Design",
       "year": "2019–2024",
-      "summary": "Built a brand from the ground up: visual identity, art direction, product design, campaigns, retail graphics, and e-commerce.",
+      "summary": "Built a brand from the ground up: visual identity, art direction, product design, campaigns, our retail store, and e-commerce.",
       "role": "Co-Founder & Brand Director",
       "tags": [
         "Visual identity",
@@ -263,13 +267,14 @@
       "title": "Brand collaborations",
       "category": "Collaborations",
       "year": "State of Flux",
-      "summary": "Developed collaborations and brand activations for State of Flux with three well-known partners.",
+      "summary": "Co-branded products and pop-up events for State of Flux with three well-known partners.",
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
       "tags": [
         "Brand collaborations",
         "Activations"
       ],
-      "featured": true
+      "featured": true,
+      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together."
     },
     {
       "title": "Fromm integrated marketing",
@@ -318,7 +323,7 @@
       "title": "Retail store design",
       "category": "Design",
       "year": "FAZE Apparel",
-      "summary": "Led retail store design and build-outs from concept through opening.",
+      "summary": "Led the design and build-out of our own FAZE retail store, from concept through opening.",
       "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
       "role": "Design lead",
       "tags": [
@@ -464,7 +469,7 @@
         "Sourcing & manufacturing",
         "Retail & trade-show design",
         "DTC, wholesale & e-commerce",
-        "B2B sales"
+        "Direct sales (B2C & B2B)"
       ]
     },
     {
