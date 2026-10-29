@@ -31,7 +31,7 @@ Recruiters, hiring managers, founders, creative teams, and collaborators looking
 - 20+ years building brands, products, and campaigns.
 - Co-founder & Brand Director, FAZE Apparel (2007–2019, through acquisition).
 - Co-founder & Brand Director, State of Flux (2019–2024), with collaborations with Pinterest, Timbuk2, and SFMOMA.
-- At the Fromm Institute at USF since 2005; Assistant Director, Technology, Marketing & Creative since 2022. Manages $80K marketing and $100K technology budgets; grew enrollment 10% with new marketing; leads Frommcast video and content.
+- At the Fromm Institute at USF since 2005; Assistant Director, Technology, Marketing & Creative since 2022. Manages $80K marketing and $100K technology budgets; grew enrollment 10% with new marketing; built Frommcast and leads its video and content.
 - Ran FAZE Apparel and State of Flux alongside the Fromm role.
 - Degree: B.A., Media Studies & Communications, University of San Francisco.
 - USF certificates: Applied Agentic AI Certificate and AI Certificate Intensive.
