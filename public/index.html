@@ -125,15 +125,15 @@
     <div id="work-dialog-body"></div>
   </dialog>
 
-  <!-- "Ask about Herbert" assistant. Only shown once NVIDIA_API_KEY is set. -->
+  <!-- "Ask me" assistant: an AI that answers in first person. Only shown once NVIDIA_API_KEY is set. -->
   <button class="chat-launch" id="chat-launch" type="button" hidden aria-expanded="false" aria-controls="chat-panel">
-    <span class="dot" aria-hidden="true"></span><span>Ask about <span data-bind="firstName">Herbert</span></span>
+    <span class="dot" aria-hidden="true"></span><span>Ask me anything</span>
   </button>
-  <section class="chat-panel" id="chat-panel" hidden aria-label="Ask about this candidate">
+  <section class="chat-panel" id="chat-panel" hidden aria-label="Chat with an AI version of me">
     <header class="chat-head">
       <div>
-        <p class="chat-title">Ask about <span data-bind="firstName">Herbert</span></p>
-        <p class="chat-sub">AI answers based only on this resume.</p>
+        <p class="chat-title">Ask me anything</p>
+        <p class="chat-sub">An AI version of me, answering from my resume.</p>
       </div>
       <button class="icon-btn" id="chat-close" type="button" aria-label="Close chat">✕</button>
     </header>

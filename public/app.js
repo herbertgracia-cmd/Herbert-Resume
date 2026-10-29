@@ -333,9 +333,9 @@ function setupChat(d) {
     log.scrollTop = log.scrollHeight;
     return m;
   };
-  add("bot", `Hi! Ask me anything about ${first}'s experience, projects, or skills.`);
+  add("bot", `Hi, I'm ${first}, or rather an AI version of me. Ask me about my brands, design work, or experience.`);
 
-  [`What industries has ${first} worked in?`, `What has ${first} done with AI?`, `What brands or products has ${first} launched?`]
+  ["What brands have you built?", "What's your creative direction experience?", "How do you use AI in your work?"]
     .forEach((q) => suggest.append(h("button", { type: "button" }, q)));
   suggest.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") ask(e.target.textContent);
