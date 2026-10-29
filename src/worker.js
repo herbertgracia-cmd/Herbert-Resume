@@ -1,6 +1,7 @@
 import content from "../public/content.json";
 
 const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
+const DEFAULT_MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b";
 const MAX_QUESTION = 500;
 const MAX_HISTORY = 6;
 
@@ -56,9 +57,9 @@ async function handleChat(request, env, ctx) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: env.NVIDIA_MODEL || "meta/llama-3.1-8b-instruct",
+      model: env.NVIDIA_MODEL || DEFAULT_MODEL,
       temperature: 0.2,
-      max_tokens: 400,
+      max_tokens: 1024,
       messages: [
         { role: "system", content: systemPrompt() },
         ...priorTurns,
@@ -73,7 +74,7 @@ async function handleChat(request, env, ctx) {
   }
 
   const data = await res.json();
-  const answer = data?.choices?.[0]?.message?.content?.trim() || "Sorry, I don't have an answer for that.";
+  const answer = cleanAnswer(data?.choices?.[0]?.message?.content) || "Sorry, I don't have an answer for that.";
 
   // Save the question in the background so the reply isn't slowed down.
   if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
@@ -81,11 +82,18 @@ async function handleChat(request, env, ctx) {
       supabaseInsert(env, "chat_questions", {
         question,
         answer: answer.slice(0, 4000),
-        model: env.NVIDIA_MODEL || "meta/llama-3.1-8b-instruct",
+        model: env.NVIDIA_MODEL || DEFAULT_MODEL,
       }),
     );
   }
   return json({ answer });
+}
+
+// Reasoning models like Nemotron can include their "thinking" in the reply.
+// Keep only the final answer for visitors.
+function cleanAnswer(text) {
+  if (typeof text !== "string") return "";
+  return text.replace(/<think>[\s\S]*?<\/think>/g, "").replace(/^[\s\S]*<\/think>/, "").trim();
 }
 
 function systemPrompt() {

@@ -45,14 +45,27 @@ function render(d) {
 
   $("#about-body").replaceChildren(...d.about.map((p) => h("p", { class: "reveal" }, p)));
 
+  // Key numbers row (optional).
+  const stats = $("#stats");
+  if (d.stats?.length) {
+    stats.replaceChildren(
+      ...d.stats.map((s) => h("div", { class: "stat reveal" }, h("strong", {}, s.value), h("span", {}, s.label))),
+    );
+  } else stats.remove();
+
+  // Community section (optional).
+  if (d.community?.length) {
+    $("#community-list").replaceChildren(...d.community.map((c) => h("li", { class: "reveal" }, c)));
+  } else $("#community").remove();
+
   $("#jobs").replaceChildren(
     ...d.experience.map((j) =>
       h("li", { class: "job reveal" },
-        h("div", { class: "job-dates" }, `${j.start} — ${j.end}`),
+        h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : ""),
         h("div", {},
-          h("h3", {}, j.role, " ", h("span", { class: "at" }, `at ${j.company}`)),
+          h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
           j.summary && h("p", { class: "job-summary" }, j.summary),
-          j.highlights?.length && h("ul", {}, j.highlights.map((x) => h("li", {}, x))),
+          j.highlights?.length && h("ul", {}, j.highlights.map(highlight)),
         ),
       ),
     ),
@@ -62,7 +75,7 @@ function render(d) {
     ...d.projects.map((p) => {
       const tag = p.url ? "a" : "div";
       return h(tag, { class: "project reveal", href: p.url || null, target: p.url ? "_blank" : null, rel: p.url ? "noopener" : null },
-        h("div", { class: "project-top" }, h("span", {}, p.year), p.url && h("span", { "aria-hidden": "true" }, "↗")),
+        (p.year || p.url) && h("div", { class: "project-top" }, h("span", {}, p.year || ""), p.url && h("span", { "aria-hidden": "true" }, "↗")),
         h("h3", {}, p.name),
         h("p", {}, p.description),
         h("div", { class: "tags" }, (p.tags || []).map((t) => h("span", { class: "tag" }, t))),
@@ -75,7 +88,7 @@ function render(d) {
   );
   $("#education").replaceChildren(
     ...(d.education || []).map((e) =>
-      h("li", { class: "reveal" }, h("strong", {}, e.school), h("span", {}, `${e.degree} · ${e.year}`)),
+      h("li", { class: "reveal" }, h("strong", {}, e.school), h("span", {}, [e.degree, e.year].filter(Boolean).join(" · "))),
     ),
   );
 
@@ -90,6 +103,13 @@ function render(d) {
   );
 
   $("#year").textContent = new Date().getFullYear();
+}
+
+// "Label: details" becomes a bold label followed by the details.
+function highlight(text) {
+  const i = text.indexOf(": ");
+  if (i > 0 && i < 40) return h("li", {}, h("strong", {}, text.slice(0, i)), " ", text.slice(i + 2));
+  return h("li", {}, text);
 }
 
 function setupTheme() {

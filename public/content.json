@@ -1,65 +1,176 @@
 {
-  "_readme": "All resume text lives here. Edit this file and redeploy. The chat assistant also answers from this file only. Replace every [bracketed] placeholder with your own details.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only.",
   "name": "Herbert Gracia",
-  "role": "[Your title, e.g. Product Manager]",
-  "location": "[City, State]",
+  "role": "Assistant Director, Tech, Marketing & Creative",
+  "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "[One sentence on what you do and the kind of team you want to join.]",
+  "tagline": "Mission-driven nonprofit leader with 21 years at the Fromm Institute, driving strategy, fundraising, marketing, and community partnerships for older adults in San Francisco.",
   "links": {
     "email": "herbert.gracia@gmail.com",
-    "linkedin": "https://www.linkedin.com/in/[your-handle]",
-    "github": "https://github.com/herbertgracia-cmd"
+    "linkedin": "",
+    "github": ""
   },
+  "stats": [
+    {
+      "value": "21",
+      "label": "years at the Fromm Institute"
+    },
+    {
+      "value": "1,500+",
+      "label": "older adult learners served each year"
+    },
+    {
+      "value": "+10%",
+      "label": "enrollment growth from new marketing"
+    },
+    {
+      "value": "2",
+      "label": "businesses founded and scaled to exit"
+    }
+  ],
   "about": [
-    "[Two or three short sentences about who you are and the problems you like to work on.]",
-    "[A second paragraph on how you work, what you are known for, or what you are looking for next.]"
+    "Recognized for building strong relationships with Boards, staff, donors, and community partners while leading with vision, creativity, and empathy.",
+    "An advocate for older adults as lifelong contributors, leading initiatives that advance social justice and counter ageism in programming, communications, and community outreach."
+  ],
+  "community": [
+    "Built strong, transparent relationships with a 21-member Board of Directors, enhancing governance and fiscal accountability across all programs.",
+    "Developed a close partnership with the University of San Francisco Technology Department to jointly improve Fromm's technology infrastructure.",
+    "United staff and more than 20 volunteers around shared goals, improving program delivery and participant satisfaction.",
+    "Leveraged partnerships with five+ retirement homes, donor networks, and city agencies to expand enrollment across San Francisco."
   ],
   "experience": [
     {
-      "role": "[Job title]",
-      "company": "[Company]",
-      "start": "2023",
+      "role": "Assistant Director, Tech, Marketing & Creative",
+      "company": "Fromm Institute for Lifelong Learning, University of San Francisco",
+      "start": "2004",
       "end": "Present",
-      "summary": "[What the team does and what you owned.]",
+      "summary": "Key member of the Institute's senior leadership and executive planning groups. Partner with the Board of Directors and senior leaders on governance, fiscal oversight, succession planning, and long-term strategy for a nonprofit serving 1,500+ older adult learners each year.",
       "highlights": [
-        "[A result with a number, e.g. Cut onboarding time 40% by ...]",
-        "[Another result or responsibility]"
+        "Marketing & Communications: Direct all marketing and PR across digital and print. Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners and increasing enrollment by 10%. Currently leading all marketing and PR for Fromm's 50th Anniversary.",
+        "Fundraising & Donor Engagement: Member of the leadership group responsible for fundraising strategy. Designed donor appreciation events and stewardship campaigns, and created the metrics and messaging that show why lifelong learning matters to older adults' health and social connection.",
+        "Technology & Finance: Led the launch of a new website, member apps, and classroom equipment upgrades. Directed a Salesforce-based website redesign with integrated payment and donor systems (Stripe, CashNet), bringing tuition, donations, and enrollment management in-house.",
+        "Program Innovation: Led the move to hybrid learning for in-person and online members. Designed and launched Frommcast, an online subscription platform for recorded classes, and now oversee the move of all content to the Institute's new YouTube programs.",
+        "Board & Staff Relationships: Built lasting trust with Board members, faculty, staff, and volunteers over 21 years, fostering collaboration, transparency, and shared mission.",
+        "Community Connector: Established partnerships with retirement homes and senior-serving organizations throughout San Francisco, positioning elderhood as a time of contribution, not decline.",
+        "Equity & Advocacy: Led efforts to make Fromm's programs welcoming and accessible to all older adults, countering ageism and expanding diversity and inclusion.",
+        "Public Voice: Represent the Institute at donor events, faculty presentations, and community gatherings as a storyteller, advocate, and spokesperson."
       ]
     },
     {
-      "role": "[Job title]",
-      "company": "[Company]",
-      "start": "2020",
-      "end": "2023",
-      "summary": "[What the team does and what you owned.]",
+      "role": "Entrepreneurship & Business Leadership",
+      "company": "",
+      "start": "",
+      "end": "",
+      "summary": "Founded and scaled two businesses to successful exits, demonstrating strong financial stewardship, fundraising acumen, and creative brand leadership.",
       "highlights": [
-        "[A result with a number]",
-        "[Another result or responsibility]"
+        "Led operations across finance, production, hiring, and design while building strong teams and community partnerships."
       ]
     }
   ],
   "projects": [
     {
-      "name": "Fromm Enrollment Helper",
-      "year": "2026",
-      "description": "A plain-language assistant that guides older adults through online class enrollment step by step and hands off to staff with the question already summarized.",
-      "tags": ["AI assistant", "Accessibility", "Product design"],
+      "name": "Frommcast",
+      "year": "",
+      "description": "Designed and launched an online subscription platform for recorded Fromm classes, now moving all content to the Institute's new YouTube programs.",
+      "tags": [
+        "Product launch",
+        "Online learning",
+        "Subscriptions"
+      ],
       "url": ""
     },
     {
-      "name": "[Project name]",
-      "year": "2025",
-      "description": "[One or two sentences on the problem, what you built, and the result.]",
-      "tags": ["[Tag]", "[Tag]"],
+      "name": "Salesforce website & payments",
+      "year": "",
+      "description": "Directed a Salesforce-based website redesign with integrated Stripe and CashNet payment and donor systems, so staff manage tuition, donations, and enrollment in-house.",
+      "tags": [
+        "Salesforce",
+        "Stripe",
+        "CashNet"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Hybrid learning",
+      "year": "",
+      "description": "Led Fromm's move to hybrid classes, with classroom technology upgrades that keep in-person and online members equally included.",
+      "tags": [
+        "Accessibility",
+        "Classroom tech",
+        "Change management"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Fromm 50th Anniversary",
+      "year": "Now",
+      "description": "Leading all marketing and PR for the Institute's 50th Anniversary celebration.",
+      "tags": [
+        "Marketing",
+        "PR",
+        "Events"
+      ],
+      "url": ""
+    },
+    {
+      "name": "Fromm Enrollment Helper",
+      "year": "In progress",
+      "description": "A plain-language AI helper that walks older adults through online enrollment step by step and hands off to staff with the question already summarized.",
+      "tags": [
+        "AI assistant",
+        "Accessibility",
+        "Product design"
+      ],
       "url": ""
     }
   ],
   "skills": [
-    { "group": "[Skill group, e.g. Product]", "items": ["[Skill]", "[Skill]", "[Skill]"] },
-    { "group": "[Skill group, e.g. Technical]", "items": ["[Skill]", "[Skill]", "[Skill]"] },
-    { "group": "[Skill group, e.g. Tools]", "items": ["[Skill]", "[Skill]", "[Skill]"] }
+    {
+      "group": "Leadership",
+      "items": [
+        "Executive & Strategic Leadership",
+        "Board & Staff Engagement",
+        "Public Speaking & Storytelling",
+        "Diversity, Inclusion & Anti-Ageism"
+      ]
+    },
+    {
+      "group": "Fundraising & Finance",
+      "items": [
+        "Fundraising & Donor Stewardship",
+        "Nonprofit Finance",
+        "Community Partnerships"
+      ]
+    },
+    {
+      "group": "Marketing & Technology",
+      "items": [
+        "Marketing & PR Campaigns",
+        "Design & Creative Direction",
+        "Technology & Operations Oversight"
+      ]
+    },
+    {
+      "group": "Platforms",
+      "items": [
+        "Salesforce",
+        "Stripe",
+        "CashNet",
+        "YouTube",
+        "Social media"
+      ]
+    }
   ],
   "education": [
-    { "school": "[School]", "degree": "[Degree, field]", "year": "[Year]" }
+    {
+      "school": "University of San Francisco",
+      "degree": "B.A. in Media Studies",
+      "year": ""
+    },
+    {
+      "school": "Executive & Professional Development",
+      "degree": "Nonprofit Leadership, Fundraising, Strategic Management",
+      "year": ""
+    }
   ]
 }

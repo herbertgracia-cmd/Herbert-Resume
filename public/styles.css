@@ -170,6 +170,24 @@ img, svg { display: block; }
 .about-body p { margin: 0 0 1em; font: 400 clamp(1.5rem, 2.8vw, 2.25rem)/1.25 var(--serif); }
 .about-body p + p { font: 400 1.05rem/1.7 var(--sans); color: var(--muted); max-width: 60ch; }
 
+/* Key numbers */
+.stats {
+  grid-column: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px; margin-top: 16px; background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+}
+.stat { display: flex; flex-direction: column; gap: 8px; padding: 24px; background: var(--bg); }
+.stat strong { font: 400 clamp(2.4rem, 4.5vw, 3.5rem)/1 var(--serif); color: var(--accent); }
+.stat span { font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+/* Community */
+.community { list-style: none; margin: 0; padding: 0; counter-reset: c; border-top: 1px solid var(--line); }
+.community li {
+  counter-increment: c; display: grid; grid-template-columns: 3rem 1fr; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem;
+}
+.community li::before { content: counter(c, decimal-leading-zero); font: 400 13px/1.9 var(--mono); color: var(--accent); }
+
 /* Experience */
 .jobs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .job {
@@ -185,6 +203,7 @@ img, svg { display: block; }
 .job ul { margin: 12px 0 0; padding-left: 1.1em; }
 .job li { margin: 4px 0; }
 .job li::marker { color: var(--accent); }
+.job li strong { font-weight: 600; }
 
 /* Projects */
 .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
@@ -307,7 +326,7 @@ img, svg { display: block; }
   .topbar nav { display: none; }
   .section { grid-template-columns: 1fr; }
   .section-title { position: static; }
-  .contact > :not(.section-title), .education { grid-column: 1; }
+  .contact > :not(.section-title), .education, .stats { grid-column: 1; }
   .job { grid-template-columns: 1fr; }
   .job:hover { padding-left: 0; }
   .chat-launch { right: 16px; bottom: 16px; }
@@ -331,9 +350,16 @@ img, svg { display: block; }
   .section-title { break-after: avoid; }
   .section-title { position: static; margin-bottom: 6pt; border-bottom: 1px solid #000; padding-bottom: 3pt; }
   .about-body p, .about-body p + p { font: 400 11pt/1.45 var(--sans); color: #000; margin-bottom: 6pt; }
-  .job { padding: 8pt 0; break-inside: avoid; }
+  .job { padding: 8pt 0; }
+  .job h3, .job li, .stat, .community li { break-inside: avoid; }
+  .job h3 { break-after: avoid; }
   .job h3, .project h3 { font-size: 14pt; }
   .projects { display: block; }
+  .stats { display: flex; flex-wrap: wrap; gap: 4pt 18pt; background: none; border: 0; margin-top: 4pt; }
+  .stat { flex-direction: row; align-items: baseline; gap: 4pt; padding: 0; }
+  .stat strong { font-size: 13pt; color: #000; }
+  .stat span { font-size: 9.5pt; }
+  .community li { padding: 3pt 0; border: 0; font-size: 11pt; grid-template-columns: 2rem 1fr; }
   .project { padding: 6pt 0; border: 0; break-inside: avoid; }
   .skills { gap: 12pt; }
   .skills li { padding: 2pt 0; border: 0; }
