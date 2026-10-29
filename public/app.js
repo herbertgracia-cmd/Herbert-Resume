@@ -55,82 +55,26 @@ function render(d) {
   const nameEl = $(".hero-name");
   nameEl.replaceChildren(...d.name.split(/\s+/).map((w) => h("span", { class: "line" }, w)));
 
-  // Marquee: skills repeated twice for a seamless loop.
-  const words = d.skills.flatMap((g) => g.items);
-  const track = $("#marquee");
-  for (let i = 0; i < 2; i++) words.forEach((w) => track.append(h("span", {}, w)));
-
-  $("#about-body").replaceChildren(...d.about.map((p) => h("p", { class: "reveal" }, p)));
-
-  // Key numbers row (optional).
+  // Key numbers under the hero.
   const stats = $("#stats");
   if (d.stats?.length) {
-    stats.replaceChildren(
-      ...d.stats.map((s) => h("div", { class: "stat reveal" }, h("strong", {}, s.value), h("span", {}, s.label))),
-    );
-  } else stats.remove();
+    stats.replaceChildren(...d.stats.map((s) => h("div", { class: "stat" }, h("strong", {}, s.value), h("span", {}, s.label))));
+  } else stats.parentElement.remove();
 
-  // Community section (optional).
-  if (d.community?.length) {
-    $("#community-list").replaceChildren(...d.community.map((c) => h("li", { class: "reveal" }, c)));
-  } else $("#community").remove();
-
-  $("#jobs").replaceChildren(
-    ...d.experience.map((j) =>
-      h("li", { class: "job reveal" },
-        h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
-        h("div", {},
-          h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
-          j.summary && h("p", { class: "job-summary" }, j.summary),
-          j.creative?.length > 0 && h("div", { class: "job-creative" },
-            h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
-            h("ul", {}, j.creative.map((x) => h("li", {}, x))),
-          ),
-          j.highlights?.length > 0 && h("ul", {}, j.highlights.map(highlight)),
-          j.earlier_roles?.length > 0 && h("div", { class: "job-earlier" },
-            h("p", { class: "job-creative-label" }, "Earlier roles here"),
-            h("ol", {}, j.earlier_roles.map((r) =>
-              h("li", {}, h("span", { class: "job-earlier-years" }, r.years), h("strong", {}, r.title), r.note && h("span", { class: "job-earlier-note" }, r.note)))),
-          ),
-        ),
-      ),
-    ),
-  );
+  // Experience: 3 key bullets per job; the rest sits behind "More".
+  $("#jobs").replaceChildren(...d.experience.map(renderJob));
 
   renderWork(d.work || []);
 
-  // What I bring
-  if (d.pillars?.length) {
-    $("#pillars").replaceChildren(
-      ...d.pillars.map((p, i) =>
-        h("li", { class: "pillar reveal" },
-          h("span", { class: "pillar-num" }, String(i + 1).padStart(2, "0")),
-          h("h3", {}, p.title),
-          p.summary && h("p", {}, p.summary),
-          p.proof?.length > 0 && h("ul", {}, p.proof.map((x) => h("li", {}, x))),
-        ),
-      ),
-    );
-  } else $("#strengths").remove();
-
-  // Industries
-  if (d.industries?.length) {
-    $("#industry-list").replaceChildren(
-      ...d.industries.map((x) => h("li", { class: "reveal" }, h("strong", {}, x.name), x.note && h("span", {}, x.note))),
-    );
-  } else $("#industries").remove();
-
-  $("#skill-list").replaceChildren(
-    ...d.skills.map((g) => h("div", { class: "reveal" }, h("h3", {}, g.group), h("ul", {}, g.items.map((s) => h("li", {}, s))))),
-  );
-  $("#education").replaceChildren(
-    ...(d.certifications || []).map((c) =>
-      h("li", { class: "reveal" }, h("strong", {}, c.name), h("span", {}, [c.issuer, c.year].filter(Boolean).join(" · ") || "Certificate")),
-    ),
-    ...(d.education || []).map((e) =>
-      h("li", { class: "reveal" }, h("strong", {}, e.school), h("span", {}, [e.degree, e.year].filter(Boolean).join(" · "))),
-    ),
-  );
+  // Skills & industries as a short list of labeled lines.
+  const facts = [
+    ["Industries", (d.industries || []).map((x) => x.name).join(" · ")],
+    ...(d.skills || []).filter((g) => g.group !== "Languages").map((g) => [g.group, g.items.join(" · ")]),
+    ["Languages", (d.skills || []).find((g) => g.group === "Languages")?.items.join(" · ")],
+    ["Certificate", (d.certifications || []).map((c) => [c.name, c.issuer, c.year].filter(Boolean).join(", ")).join(" · ")],
+    ["Education", (d.education || []).slice(0, 1).map((e) => `${e.school}, ${[e.degree, e.year].filter(Boolean).join(", ")}`).join("")],
+  ].filter(([, v]) => v);
+  $("#facts").replaceChildren(...facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)]));
 
   const email = $("#contact-email");
   email.textContent = d.links.email;
@@ -208,6 +152,23 @@ function renderWork(items) {
   cards.forEach((card, i) => card.querySelector("button").addEventListener("click", () => openWork(items[i])));
   grid.replaceChildren(...cards);
 
+  // Show only featured pieces at first; "See all work" reveals the rest and the filters.
+  const featured = items.map((i) => !!i.featured);
+  const more = $("#work-more");
+  if (featured.some(Boolean) && !featured.every(Boolean)) {
+    cards.forEach((c, i) => { if (!featured[i]) { c.hidden = true; c.dataset.extra = "1"; } });
+    more.textContent = `See all work (${items.length})`;
+    more.hidden = false;
+    more.addEventListener("click", () => {
+      cards.forEach((c) => { c.hidden = false; c.classList.add("in"); delete c.dataset.extra; });
+      filters.hidden = false;
+      more.remove();
+    });
+  } else {
+    filters.hidden = false;
+    more.remove();
+  }
+
   if (cats.length < 2) return filters.remove();
   const buttons = ["All", ...cats].map((c) =>
     h("button", { type: "button", "aria-pressed": String(c === "All"), "data-filter": c }, c),
@@ -265,6 +226,32 @@ function setupWorkDialog() {
   dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
   // Stop any playing video when closed.
   dialog.addEventListener("close", () => $("#work-dialog-body").replaceChildren());
+}
+
+function renderJob(j) {
+  const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
+  const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length;
+  return h("li", { class: "job reveal" },
+    h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
+    h("div", {},
+      h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
+      j.summary && h("p", { class: "job-summary" }, j.summary),
+      key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+      hasMore && h("details", { class: "job-more" },
+        h("summary", {}, "More about this role"),
+        j.creative?.length > 0 && h("div", { class: "job-creative" },
+          h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
+          h("ul", {}, j.creative.map((x) => h("li", {}, x))),
+        ),
+        j.highlights?.length > 0 && h("ul", {}, j.highlights.map(highlight)),
+        j.earlier_roles?.length > 0 && h("div", { class: "job-earlier" },
+          h("p", { class: "job-creative-label" }, "Earlier roles here"),
+          h("ol", {}, j.earlier_roles.map((r) =>
+            h("li", {}, h("span", { class: "job-earlier-years" }, r.years), h("strong", {}, r.title), r.note && h("span", { class: "job-earlier-note" }, r.note)))),
+        ),
+      ),
+    ),
+  );
 }
 
 // "Label: details" becomes a bold label followed by the details.

@@ -26,10 +26,9 @@
   <header class="topbar">
     <a class="mark" href="#top" aria-label="Back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#strengths">Strengths</a>
       <a href="#work">Experience</a>
       <a href="#portfolio">Work</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="topbar-actions">
@@ -48,28 +47,11 @@
       <p class="hero-tagline" data-bind="tagline"></p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
-        <a class="btn btn-ghost" href="#work">See experience ↓</a>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
-
-    <section class="section" id="about">
-      <h2 class="section-title"><span class="num"></span>About</h2>
-      <div class="about-body" id="about-body"></div>
-      <div class="stats" id="stats"></div>
-    </section>
-
-    <section class="section" id="strengths">
-      <h2 class="section-title"><span class="num"></span>What I bring</h2>
-      <ol class="pillars" id="pillars"></ol>
-    </section>
-
-    <section class="section" id="industries">
-      <h2 class="section-title"><span class="num"></span>Industries</h2>
-      <ul class="industries" id="industry-list"></ul>
-    </section>
+    <div class="stats-band"><div class="stats" id="stats"></div></div>
 
     <section class="section" id="work">
       <h2 class="section-title"><span class="num"></span>Experience</h2>
@@ -79,20 +61,15 @@
     <section class="section" id="portfolio">
       <h2 class="section-title"><span class="num"></span>Selected work</h2>
       <div class="work">
-        <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by type"></div>
+        <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by type" hidden></div>
         <ul class="work-grid" id="work-grid"></ul>
+        <button class="btn btn-ghost work-more" id="work-more" type="button" hidden></button>
       </div>
     </section>
 
-    <section class="section" id="community">
-      <h2 class="section-title"><span class="num"></span>Community</h2>
-      <ul class="community" id="community-list"></ul>
-    </section>
-
     <section class="section" id="skills">
-      <h2 class="section-title"><span class="num"></span>Skills, certifications &amp; education</h2>
-      <div class="skills" id="skill-list"></div>
-      <ul class="education" id="education"></ul>
+      <h2 class="section-title"><span class="num"></span>Skills &amp; industries</h2>
+      <dl class="facts" id="facts"></dl>
     </section>
 
     <section class="section contact" id="contact">

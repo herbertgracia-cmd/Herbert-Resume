@@ -1,11 +1,11 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only. Each job can have a 'creative' list (shown in a highlighted brand, design & creative direction box) and 'earlier_roles' (earlier titles at the same place).",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
-  "role": "Brand, creative & marketing leader · Creative director · Apparel brand co-founder · Product developer · Assistant Director · AI",
+  "role": "Brand & creative director · Entrepreneur · Product developer · AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "20+ years building brands, developing products, creating campaigns, and bringing ideas from concept to market: co-founder of FAZE Apparel and State of Flux, and leading technology, marketing, and creative at the Fromm Institute at the University of San Francisco.",
+  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years leading marketing and creative at the University of San Francisco's Fromm Institute, and now working with AI.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -14,19 +14,19 @@
   "stats": [
     {
       "value": "20+",
-      "label": "years building brands and campaigns"
+      "label": "years building brands"
     },
     {
       "value": "2",
-      "label": "apparel brands co-founded, FAZE through acquisition"
+      "label": "apparel brands co-founded, one acquired"
     },
     {
       "value": "21",
-      "label": "years at the Fromm Institute at USF"
+      "label": "years at USF's Fromm Institute"
     },
     {
       "value": "+10%",
-      "label": "Fromm enrollment growth from new marketing"
+      "label": "enrollment from my marketing"
     }
   ],
   "about": [
@@ -142,7 +142,7 @@
       "start": "2005",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead technology, marketing, creative direction, and brand development across the organization, a nonprofit serving 1,500+ older adult learners each year. Part of senior leadership, partnering with the Board on governance, fiscal oversight, and long-term strategy.",
+      "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year.",
       "creative": [
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
         "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
@@ -175,6 +175,11 @@
           "years": "2005–2012",
           "note": "Managed academic programs, communications, operations, and event logistics."
         }
+      ],
+      "key": [
+        "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, and events",
+        "Grew communications from zero to a multi-channel program reaching 1,500+ learners, increasing enrollment 10%",
+        "Helped build Frommcast, Fromm's online learning and video platform; lead website, CRM, and AI-assisted marketing projects"
       ]
     },
     {
@@ -183,7 +188,7 @@
       "start": "2019",
       "end": "2024",
       "location": "San Francisco Bay Area",
-      "summary": "After FAZE Apparel, co-founded State of Flux and built the brand from the ground up across product, creative, marketing, retail, e-commerce, wholesale, partnerships, events, and direct-to-consumer sales.",
+      "summary": "Co-founded and built an apparel brand across product, creative, retail, and e-commerce.",
       "creative": [
         "Led brand strategy, visual identity, creative direction, art direction, and marketing",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
@@ -194,6 +199,11 @@
         "Sales Channels: Built direct-to-consumer, retail, wholesale, e-commerce, and B2B sales channels.",
         "Experiential: Planned and produced community events, retail activations, pop-ups, and experiential marketing programs.",
         "Operations: Managed partnerships, vendors, manufacturing relationships, production timelines, and creative execution."
+      ],
+      "key": [
+        "Built the brand from the ground up across identity, art direction, product design, campaigns, and e-commerce",
+        "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
+        "Built DTC, retail, wholesale, e-commerce, and B2B sales channels"
       ]
     },
     {
@@ -202,7 +212,7 @@
       "start": "2007",
       "end": "2019",
       "location": "San Francisco",
-      "summary": "Co-built FAZE Apparel from concept through acquisition, leading brand, product, marketing, manufacturing, retail, and sales.",
+      "summary": "Co-built an apparel brand from concept through acquisition.",
       "creative": [
         "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
         "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
@@ -213,6 +223,11 @@
         "Product Development: Managed product development, sampling, materials, sourcing, manufacturing, quality control, and production.",
         "Sales Channels: Built DTC, retail, e-commerce, wholesale, and B2B sales channels, working directly with buyers, retailers, manufacturing partners, and vendors.",
         "Launches & Events: Planned and produced product launches, retail events, trade shows, and brand experiences."
+      ],
+      "key": [
+        "Led brand identity, apparel design, lookbooks, and campaigns, plus product development through manufacturing",
+        "Designed trade-show booths in Las Vegas, Miami, Los Angeles, and New York",
+        "Led retail store design and build-outs from concept through opening"
       ]
     }
   ],
@@ -227,7 +242,8 @@
         "Brand identity",
         "Apparel design",
         "Lookbooks"
-      ]
+      ],
+      "featured": true
     },
     {
       "title": "State of Flux",
@@ -239,7 +255,64 @@
         "Visual identity",
         "Art direction",
         "E-commerce"
-      ]
+      ],
+      "featured": true
+    },
+    {
+      "title": "Pinterest, Timbuk2 & SFMOMA",
+      "category": "Collaborations",
+      "year": "State of Flux",
+      "summary": "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA.",
+      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "tags": [
+        "Brand collaborations",
+        "Activations"
+      ],
+      "featured": true
+    },
+    {
+      "title": "Fromm integrated marketing",
+      "category": "Marketing",
+      "year": "",
+      "summary": "Grew Fromm from zero presence to a multi-channel program across web, email, print, social, video, and digital ads, raising enrollment 10%.",
+      "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+      "role": "Brand strategy & creative direction",
+      "tags": [
+        "Google",
+        "Meta",
+        "Email",
+        "Print"
+      ],
+      "featured": true
+    },
+    {
+      "title": "Frommcast",
+      "category": "Video",
+      "year": "",
+      "summary": "Helped build Fromm's online learning and content platform, combining digital strategy, video, technology, programming, and audience experience.",
+      "details": "Now overseeing the move of recorded content to the Institute's YouTube programs.",
+      "role": "Platform build, video & content lead",
+      "tags": [
+        "Video platform",
+        "Online learning",
+        "YouTube"
+      ],
+      "featured": true
+    },
+    {
+      "title": "This website",
+      "category": "AI",
+      "year": "2026",
+      "summary": "Directed AI coding agents to design and build this resume site, including an AI chat that answers recruiter questions from my resume.",
+      "details": "The chat runs on NVIDIA's Nemotron model. The site is hosted on Cloudflare Workers, and contact messages are saved in a Supabase database.",
+      "role": "Product owner & director of the AI build",
+      "tags": [
+        "Agentic AI",
+        "NVIDIA",
+        "Cloudflare",
+        "Supabase"
+      ],
+      "featured": true
     },
     {
       "title": "Retail store design",
@@ -263,33 +336,6 @@
         "Campaign",
         "Events",
         "PR"
-      ]
-    },
-    {
-      "title": "Fromm integrated marketing",
-      "category": "Marketing",
-      "year": "",
-      "summary": "Grew Fromm from zero presence to a multi-channel program across web, email, print, social, video, and digital ads, raising enrollment 10%.",
-      "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
-      "role": "Brand strategy & creative direction",
-      "tags": [
-        "Google",
-        "Meta",
-        "Email",
-        "Print"
-      ]
-    },
-    {
-      "title": "Frommcast",
-      "category": "Video",
-      "year": "",
-      "summary": "Helped build Fromm's online learning and content platform, combining digital strategy, video, technology, programming, and audience experience.",
-      "details": "Now overseeing the move of recorded content to the Institute's YouTube programs.",
-      "role": "Platform build, video & content lead",
-      "tags": [
-        "Video platform",
-        "Online learning",
-        "YouTube"
       ]
     },
     {
@@ -347,17 +393,6 @@
       ]
     },
     {
-      "title": "Pinterest, Timbuk2 & SFMOMA",
-      "category": "Collaborations",
-      "year": "State of Flux",
-      "summary": "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA.",
-      "collaborators": "Pinterest, Timbuk2, SFMOMA",
-      "tags": [
-        "Brand collaborations",
-        "Activations"
-      ]
-    },
-    {
       "title": "USF Technology partnership",
       "category": "Collaborations",
       "year": "",
@@ -398,20 +433,6 @@
         "AI assistant",
         "Accessibility",
         "Product design"
-      ]
-    },
-    {
-      "title": "This website",
-      "category": "AI",
-      "year": "2026",
-      "summary": "Directed AI coding agents to design and build this resume site, including an AI chat that answers recruiter questions from my resume.",
-      "details": "The chat runs on NVIDIA's Nemotron model. The site is hosted on Cloudflare Workers, and contact messages are saved in a Supabase database.",
-      "role": "Product owner & director of the AI build",
-      "tags": [
-        "Agentic AI",
-        "NVIDIA",
-        "Cloudflare",
-        "Supabase"
       ]
     }
   ],
