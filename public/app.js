@@ -309,15 +309,11 @@ async function setupFeatures(d) {
   if (d.intro) setupIntro(d, Boolean(status.intro));
 }
 
-// Welcome pop-up. Shows once per visitor, after a delay or partway down the page.
+// Welcome pop-up. Shows on every visit, after a delay or partway down the page.
+// Once closed, it stays closed until the next visit.
 function setupIntro(d, canSave) {
-  const KEY = "intro-seen";
   // Add ?intro to the address to see the pop-up right away (for testing).
   const testing = new URLSearchParams(location.search).has("intro");
-  if (!testing) {
-    try { if (localStorage.getItem(KEY)) return; } catch { return; }
-  }
-  const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch {} };
 
   const box = $("#intro"), step1 = $("#intro-step-1"), form = $("#intro-form"), done = $("#intro-done");
   const status = $("#intro-status");
@@ -336,7 +332,6 @@ function setupIntro(d, canSave) {
     cleanup();
   };
   const close = () => {
-    remember();
     box.classList.remove("open");
     setTimeout(() => { box.hidden = true; }, 250);
   };
@@ -366,7 +361,6 @@ function setupIntro(d, canSave) {
   const finish = (text) => {
     step1.hidden = true; form.hidden = true; done.hidden = false;
     $("#intro-done-text").textContent = text;
-    remember();
     setTimeout(close, 4000);
   };
 

@@ -43,7 +43,7 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 
 ## Welcome pop-up
 
-About 15 seconds after someone arrives (or once they scroll 40% of the page), a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name and email (company, title, and message are optional) and saves the answer to Supabase. Each visitor sees it once; closing it hides it for good on that browser. Change the wording, choices, or delay in the `intro` block of `content.json`. It only appears once Supabase is connected.
+About 15 seconds after someone arrives (or once they scroll 40% of the page), a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name and email (company, title, and message are optional) and saves the answer to Supabase. It shows on every visit; once closed, it stays closed until the next visit. Add `?intro` to the address to see it right away. Change the wording, choices, or delay in the `intro` block of `content.json`. It only appears once Supabase is connected.
 
 ## Claude skills
 
