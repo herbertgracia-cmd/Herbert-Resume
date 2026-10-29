@@ -311,7 +311,11 @@ async function setupFeatures(d) {
 // Welcome pop-up. Shows once per visitor, after a delay or partway down the page.
 function setupIntro(d) {
   const KEY = "intro-seen";
-  try { if (localStorage.getItem(KEY)) return; } catch { return; }
+  // Add ?intro to the address to see the pop-up right away (for testing).
+  const testing = new URLSearchParams(location.search).has("intro");
+  if (!testing) {
+    try { if (localStorage.getItem(KEY)) return; } catch { return; }
+  }
   const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch {} };
 
   const box = $("#intro"), step1 = $("#intro-step-1"), form = $("#intro-form"), done = $("#intro-done");
@@ -352,7 +356,7 @@ function setupIntro(d) {
   };
 
   // Show after the delay, or once they've scrolled 40% of the page, whichever comes first.
-  const timer = setTimeout(show, (cfg.delay_seconds ?? 15) * 1000);
+  const timer = setTimeout(show, testing ? 300 : (cfg.delay_seconds ?? 15) * 1000);
   const onScroll = () => {
     const seen = (scrollY + innerHeight) / document.documentElement.scrollHeight;
     if (seen > 0.4) show();
