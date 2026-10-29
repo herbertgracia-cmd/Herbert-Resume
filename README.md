@@ -41,6 +41,10 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 - **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
 - Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
 
+## Welcome pop-up
+
+About 15 seconds after someone arrives (or once they scroll 40% of the page), a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name and email (company, title, and message are optional) and saves the answer to Supabase. Each visitor sees it once; closing it hides it for good on that browser. Change the wording, choices, or delay in the `intro` block of `content.json`. It only appears once Supabase is connected.
+
 ## Claude skills
 
 This repo includes four Claude Code skills in `.claude/skills/`. Open the repo in Claude Code and just ask; Claude picks the right one.
@@ -106,6 +110,7 @@ The chat button appears on the site once the key is set. It answers in first per
 The form appears under Contact once both are set. In Supabase's **Table Editor**:
 
 - **contact_messages**: messages from the contact form. Tick `is_read` once you've replied.
+- **visitor_intros**: answers from the welcome pop-up ("What brings you here?"): the reason (hiring, project, collab, or just looking), plus name, email, company, title, and message when the visitor shares them. Tick `is_read` once you've followed up.
 - **chat_questions**: every question recruiters ask the AI chat, with its answer (only filled in once the Nvidia chat is turned on too). No names, emails, or IP addresses are stored; `visitor` is a one-way hash used only for the hourly limit.
 
 The `service_role` key only lives in Cloudflare and is never sent to the browser. Keep it out of git.

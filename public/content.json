@@ -1,5 +1,5 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Director, now building with AI",
@@ -517,5 +517,30 @@
       "degree": "Nonprofit Leadership, Fundraising, Strategic Management",
       "year": ""
     }
-  ]
+  ],
+  "intro": {
+    "title": "Hi, I'm Herbert. What brings you here?",
+    "subtitle": "Tell me a little about yourself and I'll get back to you.",
+    "delay_seconds": 15,
+    "reasons": [
+      {
+        "id": "hiring",
+        "label": "I'm hiring for a role"
+      },
+      {
+        "id": "project",
+        "label": "I have a project or freelance work"
+      },
+      {
+        "id": "collab",
+        "label": "Let's collaborate"
+      },
+      {
+        "id": "looking",
+        "label": "Just looking around"
+      }
+    ],
+    "thanks": "Thanks, {name}! I'll get back to you soon.",
+    "thanks_looking": "Thanks for stopping by! Take a look at my work, and say hi anytime."
+  }
 }

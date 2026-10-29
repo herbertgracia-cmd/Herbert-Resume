@@ -306,6 +306,7 @@ async function setupFeatures(d) {
   try { status = await fetch("/api/status").then((r) => r.json()); } catch {}
   if (status.chat) setupChat(d);
   if (status.contact) setupContact();
+  if (status.intro && d.intro) setupIntro(d);
 }
 
 function setupChat(d) {
@@ -372,6 +373,101 @@ function setupChat(d) {
       busy = false;
     }
   }
+}
+
+// Welcome pop-up. Shows once per visitor, after a delay or partway down the page.
+function setupIntro(d) {
+  const KEY = "intro-seen";
+  try { if (localStorage.getItem(KEY)) return; } catch { return; }
+  const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch {} };
+
+  const box = $("#intro"), step1 = $("#intro-step-1"), form = $("#intro-form"), done = $("#intro-done");
+  const status = $("#intro-status"), chatLaunch = $("#chat-launch");
+  const cfg = d.intro;
+  let reason = null;
+
+  $("#intro-title").textContent = cfg.title;
+  $("#intro-sub").textContent = cfg.subtitle || "";
+  $("#intro-reasons").replaceChildren(...cfg.reasons.map((r) =>
+    h("button", { type: "button", class: "intro-reason", "data-id": r.id }, r.label)));
+
+  const show = () => {
+    if (!box.hidden || document.querySelector(".chat-panel:not([hidden])")) return;
+    box.hidden = false;
+    requestAnimationFrame(() => box.classList.add("open"));
+    if (chatLaunch) chatLaunch.classList.add("nudged");
+    cleanup();
+  };
+  const close = () => {
+    remember();
+    box.classList.remove("open");
+    setTimeout(() => { box.hidden = true; }, 250);
+    if (chatLaunch) chatLaunch.classList.remove("nudged");
+  };
+  const send = async (payload) => {
+    const res = await fetch("/api/intro", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...payload, referrer: document.referrer || "" }),
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(body.error || "Could not send. Please email me instead.");
+  };
+  const finish = (text) => {
+    step1.hidden = true; form.hidden = true; done.hidden = false;
+    $("#intro-done-text").textContent = text;
+    remember();
+    setTimeout(close, 4000);
+  };
+
+  // Show after the delay, or once they've scrolled 40% of the page, whichever comes first.
+  const timer = setTimeout(show, (cfg.delay_seconds ?? 15) * 1000);
+  const onScroll = () => {
+    const seen = (scrollY + innerHeight) / document.documentElement.scrollHeight;
+    if (seen > 0.4) show();
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  function cleanup() { clearTimeout(timer); removeEventListener("scroll", onScroll); }
+
+  $("#intro-close").addEventListener("click", close);
+  box.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+
+  $("#intro-reasons").addEventListener("click", async (e) => {
+    const btn = e.target.closest(".intro-reason");
+    if (!btn) return;
+    reason = btn.dataset.id;
+    if (reason === "looking") {
+      try { await send({ reason }); } catch {}
+      return finish(cfg.thanks_looking);
+    }
+    $("#intro-form-title").textContent = btn.textContent;
+    step1.hidden = true; form.hidden = false;
+    $("#in-name").focus();
+  });
+  $("#intro-back").addEventListener("click", () => { form.hidden = true; step1.hidden = false; status.textContent = ""; });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = { reason, ...Object.fromEntries(new FormData(form)) };
+    status.className = "form-status";
+    if (!payload.name.trim() || !payload.email.trim() || !form.elements.email.checkValidity()) {
+      status.textContent = "Please add your name and a valid email.";
+      status.classList.add("err");
+      return;
+    }
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    status.textContent = "Sending…";
+    try {
+      await send(payload);
+      finish(cfg.thanks.replace("{name}", payload.name.trim().split(" ")[0]));
+    } catch (err) {
+      status.textContent = err.message;
+      status.classList.add("err");
+    } finally {
+      btn.disabled = false;
+    }
+  });
 }
 
 function setupContact() {

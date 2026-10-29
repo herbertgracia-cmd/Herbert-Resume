@@ -35,12 +35,32 @@ alter table public.chat_questions add column if not exists visitor text;
 create index if not exists chat_questions_visitor_idx
   on public.chat_questions (visitor, created_at desc);
 
--- 3. Security --------------------------------------------------------------------
+-- 3. Welcome pop-up answers ("What brings you here?") ---------------------------
+-- Who visited and how Herbert can help. Only filled in when a visitor chooses to answer.
+create table if not exists public.visitor_intros (
+  id          bigint generated always as identity primary key,
+  created_at  timestamptz not null default now(),
+  reason      text not null check (reason in ('hiring', 'project', 'collab', 'looking')),
+  name        text check (char_length(name) <= 200),
+  email       text check (char_length(email) <= 320),
+  company     text check (char_length(company) <= 200),
+  title       text check (char_length(title) <= 200),
+  message     text check (char_length(message) <= 2000),
+  referrer    text check (char_length(referrer) <= 500),
+  is_read     boolean not null default false
+);
+
+create index if not exists visitor_intros_created_at_idx
+  on public.visitor_intros (created_at desc);
+
+-- 4. Security --------------------------------------------------------------------
 -- Row Level Security is on with no policies, so the public "anon" key can't read
 -- or write these tables. Only the website's server (using the service_role key,
 -- stored as a Cloudflare secret) can.
 alter table public.contact_messages enable row level security;
 alter table public.chat_questions   enable row level security;
+alter table public.visitor_intros   enable row level security;
 
 revoke all on public.contact_messages from anon, authenticated;
 revoke all on public.chat_questions   from anon, authenticated;
+revoke all on public.visitor_intros   from anon, authenticated;

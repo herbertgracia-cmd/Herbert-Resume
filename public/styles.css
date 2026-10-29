@@ -359,6 +359,40 @@ img, svg { display: block; }
 .footer a:hover { color: var(--ink); }
 .noscript { padding: 16px var(--gutter); }
 
+/* ---------- Welcome pop-up ---------- */
+.intro {
+  position: fixed; right: 20px; bottom: 20px; z-index: 32;
+  width: min(380px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow-y: auto;
+  padding: 24px 22px 20px; background: var(--bg); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 60px rgb(0 0 0 / .22);
+  opacity: 0; transform: translateY(16px); transition: opacity .25s ease, transform .25s ease;
+}
+.intro.open { opacity: 1; transform: none; }
+.intro[hidden] { display: none; }
+.intro-close { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; font-size: 12px; }
+.intro-step[hidden] { display: none; }
+.intro-title { margin: 0 32px 4px 0; font: 400 1.6rem/1.15 var(--serif); }
+.intro-sub { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+.intro-reasons { display: flex; flex-direction: column; gap: 8px; }
+.intro-reason {
+  padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); font: 500 15px/1.3 var(--sans); text-align: left; cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.intro-reason:hover { border-color: var(--ink); }
+.intro form { display: flex; flex-direction: column; gap: 12px; }
+.intro form .intro-title { margin-bottom: 0; font-size: 1.35rem; }
+.intro .field input, .intro .field textarea { padding: 10px 12px; font-size: 15px; }
+.intro-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.intro-actions { display: flex; align-items: center; gap: 14px; }
+.intro-back { border: 0; background: none; color: var(--muted); font: 500 13px/1 var(--sans); cursor: pointer; text-decoration: underline; }
+.chat-launch.nudged { display: none; }
+@media (max-width: 760px) {
+  .intro { right: 16px; bottom: 16px; left: 16px; width: auto; }
+  .intro-row { grid-template-columns: 1fr; }
+}
+@media print { .intro { display: none !important; } }
+
 /* ---------- Chat ---------- */
 .chat-launch {
   position: fixed; right: 20px; bottom: 20px; z-index: 30;

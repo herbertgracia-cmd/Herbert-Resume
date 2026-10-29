@@ -110,6 +110,35 @@
     <div id="work-dialog-body"></div>
   </dialog>
 
+  <!-- Welcome pop-up: asks visitors who they are and how Herbert can help. Shown once per visitor. -->
+  <section class="intro" id="intro" role="dialog" aria-labelledby="intro-title" hidden>
+    <button class="icon-btn intro-close" id="intro-close" type="button" aria-label="Close">✕</button>
+    <div class="intro-step" id="intro-step-1">
+      <p class="intro-title" id="intro-title"></p>
+      <p class="intro-sub" id="intro-sub"></p>
+      <div class="intro-reasons" id="intro-reasons"></div>
+    </div>
+    <form class="intro-step" id="intro-form" hidden novalidate>
+      <p class="intro-title" id="intro-form-title"></p>
+      <div class="field"><label for="in-name">Name</label><input id="in-name" name="name" autocomplete="name" required maxlength="200"></div>
+      <div class="field"><label for="in-email">Email</label><input id="in-email" name="email" type="email" autocomplete="email" required maxlength="320"></div>
+      <div class="intro-row">
+        <div class="field"><label for="in-company">Company <span class="optional">(optional)</span></label><input id="in-company" name="company" autocomplete="organization" maxlength="200"></div>
+        <div class="field"><label for="in-title">Your title <span class="optional">(optional)</span></label><input id="in-title" name="title" autocomplete="organization-title" maxlength="200"></div>
+      </div>
+      <div class="field"><label for="in-message">How can I help? <span class="optional">(optional)</span></label><textarea id="in-message" name="message" rows="3" maxlength="2000"></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="in-website">Website</label><input id="in-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="intro-actions">
+        <button class="btn btn-small" type="submit">Send</button>
+        <button class="intro-back" id="intro-back" type="button">Back</button>
+      </div>
+      <p class="form-status" id="intro-status" role="status"></p>
+    </form>
+    <div class="intro-step" id="intro-done" hidden>
+      <p class="intro-title" id="intro-done-text"></p>
+    </div>
+  </section>
+
   <!-- "Ask me" assistant: an AI that answers in first person. Only shown once NVIDIA_API_KEY is set. -->
   <button class="chat-launch" id="chat-launch" type="button" hidden aria-expanded="false" aria-controls="chat-panel">
     <span class="dot" aria-hidden="true"></span><span>Ask me anything</span>

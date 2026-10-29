@@ -19,10 +19,14 @@ export default {
         return json({
           chat: Boolean(env.NVIDIA_API_KEY),
           contact: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
+          intro: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         });
       }
       if (url.pathname === "/api/chat" && request.method === "POST") {
         return await handleChat(request, env, ctx);
+      }
+      if (url.pathname === "/api/intro" && request.method === "POST") {
+        return await handleIntro(request, env);
       }
       if (url.pathname === "/api/contact" && request.method === "POST") {
         return await handleContact(request, env);
@@ -206,6 +210,44 @@ function supabaseHeaders(key) {
   const headers = { apikey: key, "Content-Type": "application/json", Prefer: "return=minimal" };
   if (key.startsWith("eyJ")) headers.Authorization = `Bearer ${key}`;
   return headers;
+}
+
+// Welcome pop-up: saves who the visitor is and how Herbert can help.
+async function handleIntro(request, env) {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+    return json({ error: "This form is not set up yet." }, 503);
+  }
+  if (env.CHAT_LIMITER) {
+    const { success } = await env.CHAT_LIMITER.limit({ key: `intro:${await visitorId(request)}` });
+    if (!success) return json({ error: "Too many tries. Please wait a minute." }, 429);
+  }
+
+  const body = await readJson(request);
+  if (body?.website) return json({ ok: true }); // hidden field: bots fill it, people don't
+
+  const reasons = (content.intro?.reasons || []).map((r) => r.id);
+  const reason = String(body?.reason ?? "");
+  if (!reasons.includes(reason)) return json({ error: "Please pick an option." }, 400);
+
+  const row = {
+    reason,
+    name: clean(body?.name, 200) || null,
+    email: clean(body?.email, 320) || null,
+    company: clean(body?.company, 200) || null,
+    title: clean(body?.title, 200) || null,
+    message: clean(body?.message, 2000) || null,
+    referrer: clean(body?.referrer, 500) || null,
+  };
+  // "Just looking" needs nothing else; everyone else leaves a name and an email to reply to.
+  if (reason !== "looking") {
+    if (!row.name || !row.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(row.email)) {
+      return json({ error: "Please add your name and a valid email." }, 400);
+    }
+  }
+
+  const saved = await supabaseInsert(env, "visitor_intros", row);
+  if (!saved) return json({ error: "Could not send. Please email me instead." }, 502);
+  return json({ ok: true });
 }
 
 // Adds one row to a Supabase table. Returns true if it worked.
