@@ -6,7 +6,7 @@
   <title>Herbert Gracia — Resume</title>
   <meta name="description" content="Resume and portfolio of Herbert Gracia.">
   <meta property="og:title" content="Herbert Gracia — Resume">
-  <meta property="og:description" content="Experience, projects, and how to get in touch.">
+  <meta property="og:description" content="Experience, selected work, and how to get in touch.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
@@ -28,7 +28,7 @@
     <nav aria-label="Sections">
       <a href="#about">About</a>
       <a href="#work">Experience</a>
-      <a href="#projects">Projects</a>
+      <a href="#portfolio">Work</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="topbar-actions">
@@ -64,9 +64,12 @@
       <ol class="jobs" id="jobs"></ol>
     </section>
 
-    <section class="section" id="projects">
-      <h2 class="section-title"><span class="num">03</span>Projects</h2>
-      <div class="projects" id="project-list"></div>
+    <section class="section" id="portfolio">
+      <h2 class="section-title"><span class="num">03</span>Selected work</h2>
+      <div class="work">
+        <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by type"></div>
+        <ul class="work-grid" id="work-grid"></ul>
+      </div>
     </section>
 
     <section class="section" id="community">
@@ -104,6 +107,11 @@
     <span>© <span id="year"></span> <span data-bind="name">Herbert Gracia</span></span>
     <a href="#top">Back to top ↑</a>
   </footer>
+
+  <dialog class="work-dialog" id="work-dialog" aria-labelledby="work-dialog-title">
+    <button class="icon-btn work-dialog-close" id="work-dialog-close" type="button" aria-label="Close">✕</button>
+    <div id="work-dialog-body"></div>
+  </dialog>
 
   <!-- "Ask about Herbert" assistant. Only shown once NVIDIA_API_KEY is set. -->
   <button class="chat-launch" id="chat-launch" type="button" hidden aria-expanded="false" aria-controls="chat-panel">

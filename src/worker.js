@@ -97,7 +97,8 @@ function cleanAnswer(text) {
 }
 
 function systemPrompt() {
-  const { _readme, ...resume } = content;
+  // Leave out the "_help" notes meant for editing the file.
+  const resume = Object.fromEntries(Object.entries(content).filter(([k]) => !k.startsWith("_")));
   return [
     `You answer questions from recruiters and hiring managers about ${content.name}.`,
     "Use only the resume data below. If the answer is not in it, say you don't know and suggest emailing " +

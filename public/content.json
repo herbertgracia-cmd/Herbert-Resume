@@ -1,5 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Collaborations, Technology.",
   "name": "Herbert Gracia",
   "role": "Assistant Director, Tech, Marketing & Creative",
   "location": "San Francisco, CA",
@@ -67,61 +68,114 @@
       ]
     }
   ],
-  "projects": [
+  "work": [
     {
-      "name": "Frommcast",
-      "year": "",
-      "description": "Designed and launched an online subscription platform for recorded Fromm classes, now moving all content to the Institute's new YouTube programs.",
+      "title": "Fromm 50th Anniversary",
+      "category": "Design",
+      "year": "Now",
+      "summary": "Leading all marketing and PR for the Institute's 50th Anniversary celebration.",
+      "role": "Marketing & PR lead",
       "tags": [
-        "Product launch",
-        "Online learning",
-        "Subscriptions"
-      ],
-      "url": ""
+        "Campaign",
+        "Events",
+        "PR"
+      ]
     },
     {
-      "name": "Salesforce website & payments",
+      "title": "Print & social campaigns",
+      "category": "Design",
       "year": "",
-      "description": "Directed a Salesforce-based website redesign with integrated Stripe and CashNet payment and donor systems, so staff manage tuition, donations, and enrollment in-house.",
+      "summary": "Run all of Fromm's print ads and social media, growing communications from zero presence to a multi-channel program reaching 1,500+ older learners.",
+      "details": "This work helped increase enrollment by 10% and raised Fromm's visibility across San Francisco.",
+      "role": "Creative direction & design",
+      "tags": [
+        "Print",
+        "Social media",
+        "Brand"
+      ]
+    },
+    {
+      "title": "Frommcast",
+      "category": "Video",
+      "year": "",
+      "summary": "Designed and launched an online subscription platform for recorded Fromm classes.",
+      "details": "Now overseeing the move of all recorded content to the Institute's new YouTube programs.",
+      "role": "Concept, launch & oversight",
+      "tags": [
+        "Video platform",
+        "Subscriptions",
+        "YouTube"
+      ]
+    },
+    {
+      "title": "Why lifelong learning matters",
+      "category": "Storytelling",
+      "year": "",
+      "summary": "Messaging and materials that show why lifelong learning is vital to older adults' health, social connection, and community contribution.",
+      "details": "Used in donor appreciation events and stewardship campaigns, backed by impact metrics I created and report on. I also represent the Institute as a storyteller and spokesperson at donor events, faculty presentations, and community gatherings.",
+      "role": "Writer, presenter & spokesperson",
+      "tags": [
+        "Donor stories",
+        "Public speaking",
+        "Impact metrics"
+      ]
+    },
+    {
+      "title": "USF Technology partnership",
+      "category": "Collaborations",
+      "year": "",
+      "summary": "A close partnership with the University of San Francisco Technology Department to jointly improve Fromm's technology infrastructure.",
+      "collaborators": "USF Technology Department",
+      "tags": [
+        "University partnership",
+        "Infrastructure"
+      ]
+    },
+    {
+      "title": "Senior community partnerships",
+      "category": "Collaborations",
+      "year": "",
+      "summary": "Partnerships with five+ retirement homes, donor networks, and city agencies that expanded enrollment across San Francisco.",
+      "details": "Positioning elderhood as a time of contribution, not decline.",
+      "collaborators": "Retirement homes, senior-serving organizations, and city agencies",
+      "tags": [
+        "Outreach",
+        "Enrollment",
+        "Anti-ageism"
+      ]
+    },
+    {
+      "title": "Salesforce website & payments",
+      "category": "Technology",
+      "year": "",
+      "summary": "Directed a Salesforce-based website redesign with integrated Stripe and CashNet payment and donor systems, so staff manage tuition, donations, and enrollment in-house.",
       "tags": [
         "Salesforce",
         "Stripe",
         "CashNet"
-      ],
-      "url": ""
+      ]
     },
     {
-      "name": "Hybrid learning",
+      "title": "Hybrid learning",
+      "category": "Technology",
       "year": "",
-      "description": "Led Fromm's move to hybrid classes, with classroom technology upgrades that keep in-person and online members equally included.",
+      "summary": "Led Fromm's move to hybrid classes, with classroom technology upgrades that keep in-person and online members equally included.",
       "tags": [
         "Accessibility",
         "Classroom tech",
         "Change management"
-      ],
-      "url": ""
+      ]
     },
     {
-      "name": "Fromm 50th Anniversary",
-      "year": "Now",
-      "description": "Leading all marketing and PR for the Institute's 50th Anniversary celebration.",
-      "tags": [
-        "Marketing",
-        "PR",
-        "Events"
-      ],
-      "url": ""
-    },
-    {
-      "name": "Fromm Enrollment Helper",
+      "title": "Fromm Enrollment Helper",
+      "category": "Technology",
       "year": "In progress",
-      "description": "A plain-language AI helper that walks older adults through online enrollment step by step and hands off to staff with the question already summarized.",
+      "summary": "A plain-language AI helper that walks older adults through online enrollment step by step and hands off to staff with the question already summarized.",
       "tags": [
         "AI assistant",
         "Accessibility",
         "Product design"
-      ],
-      "url": ""
+      ]
     }
   ],
   "skills": [

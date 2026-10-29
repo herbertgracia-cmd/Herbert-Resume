@@ -13,6 +13,31 @@ All the text lives in **`public/content.json`**. Replace every `[bracketed]` pla
 
 "Save as PDF" in the top bar prints a clean one-column version of the resume.
 
+## Add your work (design, video, storytelling, collaborations)
+
+The **Selected work** section is the `work` list in `public/content.json`. Each item is one card; visitors can filter by type and click a card to see it larger.
+
+```json
+{
+  "title": "Spring catalog redesign",
+  "category": "Design",
+  "year": "2025",
+  "summary": "One or two sentences shown on the card.",
+  "details": "Optional longer story shown when the card is opened.",
+  "role": "Optional: what you did",
+  "collaborators": "Optional: who you worked with",
+  "image": "/work/spring-catalog.jpg",
+  "video": "https://www.youtube.com/watch?v=...",
+  "link": "https://example.com",
+  "tags": ["Print", "Brand"]
+}
+```
+
+- **category:** one of `Design`, `Video`, `Storytelling`, `Collaborations`, `Technology`.
+- **image:** put the picture in `public/work/` (JPG or PNG, about 1600px wide, under 500 KB).
+- **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
+- Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
+
 ## Run it locally
 
 ```bash

@@ -21,6 +21,7 @@ const data = await fetch("/content.json").then((r) => r.json());
 render(data);
 setupTheme();
 setupChrome();
+setupWorkDialog();
 setupReveal();
 setupFeatures(data);
 
@@ -65,23 +66,13 @@ function render(d) {
         h("div", {},
           h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
           j.summary && h("p", { class: "job-summary" }, j.summary),
-          j.highlights?.length && h("ul", {}, j.highlights.map(highlight)),
+          j.highlights?.length > 0 && h("ul", {}, j.highlights.map(highlight)),
         ),
       ),
     ),
   );
 
-  $("#project-list").replaceChildren(
-    ...d.projects.map((p) => {
-      const tag = p.url ? "a" : "div";
-      return h(tag, { class: "project reveal", href: p.url || null, target: p.url ? "_blank" : null, rel: p.url ? "noopener" : null },
-        (p.year || p.url) && h("div", { class: "project-top" }, h("span", {}, p.year || ""), p.url && h("span", { "aria-hidden": "true" }, "↗")),
-        h("h3", {}, p.name),
-        h("p", {}, p.description),
-        h("div", { class: "tags" }, (p.tags || []).map((t) => h("span", { class: "tag" }, t))),
-      );
-    }),
-  );
+  renderWork(d.work || []);
 
   $("#skill-list").replaceChildren(
     ...d.skills.map((g) => h("div", { class: "reveal" }, h("h3", {}, g.group), h("ul", {}, g.items.map((s) => h("li", {}, s))))),
@@ -103,6 +94,125 @@ function render(d) {
   );
 
   $("#year").textContent = new Date().getFullYear();
+}
+
+// ---------- Work / portfolio ----------
+
+// Turns a YouTube or Vimeo link into an embeddable player URL and a thumbnail.
+function videoInfo(url) {
+  if (!url) return null;
+  let m = url.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/);
+  if (m) {
+    return {
+      embed: `https://www.youtube-nocookie.com/embed/${m[1]}?rel=0`,
+      thumb: `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg`,
+    };
+  }
+  m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (m) return { embed: `https://player.vimeo.com/video/${m[1]}`, thumb: null };
+  return null;
+}
+
+function categoryClass(cat) {
+  return "cat-" + String(cat || "other").toLowerCase().replace(/[^a-z]+/g, "-");
+}
+
+function workCover(item, large = false) {
+  const video = videoInfo(item.video);
+  const src = item.image || video?.thumb;
+  const cover = h("div", { class: `work-cover ${categoryClass(item.category)}` });
+  if (src) {
+    cover.append(h("img", { src, alt: item.imageAlt || "", loading: large ? null : "lazy" }));
+  } else {
+    cover.append(h("span", { class: "work-cover-title" }, item.title));
+  }
+  if (item.video) cover.append(h("span", { class: "play", "aria-hidden": "true" }, "▶"));
+  return cover;
+}
+
+function renderWork(items) {
+  const section = $("#portfolio");
+  if (!items.length) return section.remove();
+
+  const CATEGORY_ORDER = ["Design", "Video", "Storytelling", "Collaborations", "Technology"];
+  const cats = [...new Set(items.map((i) => i.category).filter(Boolean))]
+    .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
+  const filters = $("#work-filters");
+  const grid = $("#work-grid");
+
+  const cards = items.map((item) =>
+    h("li", { class: "reveal", "data-category": item.category || "" },
+      h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
+        workCover(item),
+        h("div", { class: "work-meta" },
+          h("span", {}, item.category || ""),
+          item.year && h("span", {}, item.year),
+        ),
+        h("h3", {}, item.title),
+        h("p", {}, item.summary),
+      ),
+    ),
+  );
+  cards.forEach((card, i) => card.querySelector("button").addEventListener("click", () => openWork(items[i])));
+  grid.replaceChildren(...cards);
+
+  if (cats.length < 2) return filters.remove();
+  const buttons = ["All", ...cats].map((c) =>
+    h("button", { type: "button", "aria-pressed": String(c === "All"), "data-filter": c }, c),
+  );
+  filters.replaceChildren(...buttons);
+  filters.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    const f = btn.dataset.filter;
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    cards.forEach((c) => { c.hidden = f !== "All" && c.dataset.category !== f; c.classList.add("in"); });
+  });
+}
+
+function openWork(item) {
+  const dialog = $("#work-dialog");
+  const video = videoInfo(item.video);
+  let media;
+  if (video) {
+    media = h("div", { class: "work-media video" },
+      h("iframe", {
+        src: video.embed, title: item.title,
+        allow: "autoplay; encrypted-media; picture-in-picture; fullscreen", allowfullscreen: "",
+      }));
+  } else if (item.image) {
+    media = h("div", { class: "work-media" }, h("img", { src: item.image, alt: item.imageAlt || item.title }));
+  } else {
+    media = workCover(item, true);
+    media.classList.add("work-media");
+  }
+
+  const facts = [["My role", item.role], ["With", item.collaborators]].filter(([, v]) => v);
+  const linkLabel = item.linkLabel || (item.video && !video ? "Watch" : "View project");
+  const linkUrl = item.link || (item.video && !video ? item.video : "");
+
+  $("#work-dialog-body").replaceChildren(
+    media,
+    h("div", { class: "work-dialog-text" },
+      h("p", { class: "work-meta" }, h("span", {}, item.category || ""), item.year && h("span", {}, item.year)),
+      h("h3", { id: "work-dialog-title" }, item.title),
+      h("p", {}, item.summary),
+      item.details && h("p", { class: "muted" }, item.details),
+      facts.length > 0 && h("dl", { class: "work-facts" }, facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)])),
+      item.tags?.length > 0 && h("div", { class: "tags" }, item.tags.map((t) => h("span", { class: "tag" }, t))),
+      linkUrl && h("a", { class: "btn btn-small", href: linkUrl, target: "_blank", rel: "noopener" }, `${linkLabel} ↗`),
+    ),
+  );
+  dialog.showModal();
+}
+
+function setupWorkDialog() {
+  const dialog = $("#work-dialog");
+  $("#work-dialog-close").addEventListener("click", () => dialog.close());
+  // Click outside the box closes it.
+  dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
+  // Stop any playing video when closed.
+  dialog.addEventListener("close", () => $("#work-dialog-body").replaceChildren());
 }
 
 // "Label: details" becomes a bold label followed by the details.
