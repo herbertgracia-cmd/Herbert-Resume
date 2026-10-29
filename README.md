@@ -56,6 +56,21 @@ This repo includes four Claude Code skills in `.claude/skills/`. Open the repo i
 | `brand-voice-writer` | "Write Instagram and email copy for Fromm's 50th" | Three options per channel in the brand's voice, from profiles in `brand-voices/` (Fromm and Herbert are starter drafts to confirm). |
 | `creative-brief-builder` | "Turn these notes into a creative brief" | A one-page brief (objective, audience, message, deliverables, timeline) plus questions for anything missing. |
 
+## Review agents
+
+Six reviewer agents live in `.claude/agents/`. They only review and report (they never change files), so you can run them anytime. In Claude Code, ask for one by name ("have the recruiter-reviewer look at my site") or say "run the full site review" to run all six in parallel and get one combined, prioritized list.
+
+| Agent | Looks at |
+|---|---|
+| `recruiter-reviewer` | The site as a headhunter sees it in 30 seconds: headline, proof, story, red flags |
+| `copy-editor` | Every visible line: strength, length, consistency, tone |
+| `design-critic` | Screenshots on desktop and phone, light and dark: hierarchy, type, spacing, polish |
+| `accessibility-checker` | Automated audits, contrast, keyboard and screen-reader use, speed |
+| `search-sharing-checker` | Google results, link previews, structured data |
+| `security-reviewer` | Server code, forms, Supabase, secrets, privacy |
+
+A full review uses noticeably more usage than a single request, so run it occasionally (for example before a job push) and single agents in between.
+
 ## Run it locally
 
 ```bash
