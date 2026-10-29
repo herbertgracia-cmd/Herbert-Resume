@@ -14,7 +14,12 @@ run_worker_first = ["/api/*"]
 # Any model from https://build.nvidia.com that supports chat completions.
 NVIDIA_MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b"
 
-# Secrets (set with `npx wrangler secret put NAME`, or in .dev.vars for local dev):
+# Public Supabase values (safe to commit; not used by the site yet).
+SUPABASE_JWKS_URL = "https://lpvwcjhtibuedqxbxzof.supabase.co/auth/v1/.well-known/jwks.json"
+SUPABASE_PUBLISHABLE_KEY = "sb_publishable_kpRJ_KoOReNrhqAEpoY6Fg_81dZGifT"
+
+# Secrets: add these in Cloudflare as type "Secret", never here.
+# (Set with `npx wrangler secret put NAME`, or in .dev.vars for local dev):
 #   NVIDIA_API_KEY             - turns on the "Ask about Herbert" chat
 #   SUPABASE_URL               - turns on saving contact-form messages
 #   SUPABASE_SERVICE_ROLE_KEY
