@@ -78,7 +78,7 @@ function render(d) {
   $("#jobs").replaceChildren(
     ...d.experience.map((j) =>
       h("li", { class: "job reveal" },
-        h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : ""),
+        h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
         h("div", {},
           h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
           j.summary && h("p", { class: "job-summary" }, j.summary),
@@ -87,6 +87,11 @@ function render(d) {
             h("ul", {}, j.creative.map((x) => h("li", {}, x))),
           ),
           j.highlights?.length > 0 && h("ul", {}, j.highlights.map(highlight)),
+          j.earlier_roles?.length > 0 && h("div", { class: "job-earlier" },
+            h("p", { class: "job-creative-label" }, "Earlier roles here"),
+            h("ol", {}, j.earlier_roles.map((r) =>
+              h("li", {}, h("span", { class: "job-earlier-years" }, r.years), h("strong", {}, r.title), r.note && h("span", { class: "job-earlier-note" }, r.note)))),
+          ),
         ),
       ),
     ),
@@ -181,7 +186,7 @@ function renderWork(items) {
   const section = $("#portfolio");
   if (!items.length) return section.remove();
 
-  const CATEGORY_ORDER = ["Design", "Video", "Storytelling", "Collaborations", "Technology", "AI"];
+  const CATEGORY_ORDER = ["Design", "Marketing", "Video", "Events", "Storytelling", "Collaborations", "Technology", "AI"];
   const cats = [...new Set(items.map((i) => i.category).filter(Boolean))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
   const filters = $("#work-filters");

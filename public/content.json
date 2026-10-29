@@ -1,11 +1,11 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only. Each job can have a 'creative' list: brand, design, and creative-direction work shown in its own highlighted box.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Collaborations, Technology, AI.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only. Each job can have a 'creative' list (shown in a highlighted brand, design & creative direction box) and 'earlier_roles' (earlier titles at the same place).",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
-  "role": "Brand builder · Creative director · Entrepreneur · Product & project lead · Assistant Director · Agentic AI",
+  "role": "Brand, creative & marketing leader · Creative director · Apparel brand co-founder · Product developer · Assistant Director · AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I design and build brands, products, and the teams behind them. 21 years leading marketing, technology, and strategy at the Fromm Institute, two businesses founded and scaled to exit, and now certified in agentic AI.",
+  "tagline": "20+ years building brands, developing products, creating campaigns, and bringing ideas from concept to market: co-founder of FAZE Apparel and State of Flux, and leading technology, marketing, and creative at the Fromm Institute at the University of San Francisco.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -13,71 +13,83 @@
   },
   "stats": [
     {
-      "value": "21",
-      "label": "years at the Fromm Institute"
-    },
-    {
-      "value": "1,500+",
-      "label": "older adult learners served each year"
-    },
-    {
-      "value": "+10%",
-      "label": "enrollment growth from new marketing"
+      "value": "20+",
+      "label": "years building brands and campaigns"
     },
     {
       "value": "2",
-      "label": "businesses founded and scaled to exit"
+      "label": "apparel brands co-founded, FAZE through acquisition"
+    },
+    {
+      "value": "21",
+      "label": "years at the Fromm Institute at USF"
+    },
+    {
+      "value": "+10%",
+      "label": "Fromm enrollment growth from new marketing"
     }
   ],
   "about": [
-    "My path looks varied (brand builder, entrepreneur, product and project lead, Assistant Director), but the thread is the same: turning a mission into something people can see, use, and believe in.",
-    "Recognized for building strong relationships with Boards, staff, donors, and community partners while leading with vision, creativity, and empathy. An advocate for older adults as lifelong contributors, countering ageism in programming, communications, and outreach."
+    "My strength is connecting brand strategy, creative thinking, and marketing with execution, from concept and product development through campaign, production, digital platforms, sales, and customer experience.",
+    "My background spans brand strategy, creative direction, art direction, integrated marketing, visual storytelling, video, product development, manufacturing, sales, technology, AI, and experiential marketing. I also use AI and generative AI in campaign development, content creation, audience messaging, research, social media marketing, and creative workflows."
   ],
   "pillars": [
     {
       "title": "Brand, design & creative direction",
-      "summary": "Building brands people recognize, everywhere I've worked.",
+      "summary": "Building brands from identity to shelf to screen.",
       "proof": [
-        "Creative direction for all of Fromm's marketing, PR, print ads, and social media",
-        "Grew Fromm from zero presence to a multi-channel brand, raising enrollment 10%",
-        "Designed and launched Fromm's website, member apps, and Frommcast",
-        "Leading the 50th Anniversary campaign",
-        "Creative brand leadership for two businesses of my own"
+        "Led brand strategy, visual identity, and art direction for FAZE Apparel and State of Flux",
+        "Apparel graphics, lookbooks, photography, video, and retail creative",
+        "Lead brand strategy and creative direction for the Fromm Institute",
+        "Leading the Fromm 50th Anniversary campaign"
       ]
     },
     {
       "title": "Entrepreneurship",
-      "summary": "Two businesses founded, scaled, and exited.",
+      "summary": "Two apparel brands co-founded and built from the ground up.",
       "proof": [
-        "Owned finance, production, hiring, and design",
-        "Built teams and community partnerships from the ground up",
-        "Financial stewardship and fundraising from day one"
+        "Co-built FAZE Apparel from concept through acquisition (2007–2019)",
+        "Co-founded State of Flux and built it across product, retail, and e-commerce (2019–2024)",
+        "Built DTC, retail, e-commerce, wholesale, and B2B sales channels",
+        "Worked directly with buyers, retailers, and manufacturing partners"
       ]
     },
     {
-      "title": "Product & project management",
-      "summary": "Taking ideas from concept to launch.",
+      "title": "Product development & projects",
+      "summary": "From concept and samples to production and launch.",
       "proof": [
-        "Designed and launched Frommcast, a subscription video platform",
-        "Led the Salesforce website rebuild with Stripe and CashNet payments",
-        "Launched member apps and upgraded all classroom equipment",
-        "Ran the move to hybrid learning and to YouTube programs"
+        "Directed apparel design through samples, sourcing, materials, manufacturing, and quality control",
+        "Helped build Frommcast, Fromm's online learning and content platform",
+        "Lead website, CRM, and enrollment projects from concept through implementation",
+        "Manage teams, vendors, budgets, timelines, and cross-functional projects"
       ]
     },
     {
-      "title": "Executive leadership",
-      "summary": "Senior leadership at a university-affiliated nonprofit.",
+      "title": "Integrated marketing",
+      "summary": "Campaigns across every channel.",
       "proof": [
-        "Partner with a 21-member Board on governance, fiscal oversight, and strategy",
-        "Part of the leadership group behind fundraising strategy",
-        "Unite staff, faculty, and 20+ volunteers around shared goals"
+        "Grew Fromm's communications from zero presence to a multi-channel program, raising enrollment 10%",
+        "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels",
+        "Campaigns, photography, video, social content, and e-commerce for two apparel brands",
+        "Go-to-market strategy"
       ]
     },
     {
-      "title": "Agentic AI",
-      "summary": "Putting AI agents to work on real problems.",
+      "title": "Events & experiential",
+      "summary": "Brand experiences people can walk into.",
       "proof": [
-        "Completed an AI Agentic certificate",
+        "Designed trade-show booths and brand environments in Las Vegas, Miami, Los Angeles, and New York",
+        "Led retail store design and build-outs from concept through opening",
+        "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
+        "Produce Fromm's educational programs, community events, and major institutional events"
+      ]
+    },
+    {
+      "title": "AI & generative AI",
+      "summary": "Putting AI to work in marketing and beyond.",
+      "proof": [
+        "Completed the AI Certificate Intensive",
+        "Use generative AI for campaigns, content, audience messaging, research, and social media",
         "Designing the Fromm Enrollment Helper, an AI guide for older adults",
         "Directed AI agents to build this website and its NVIDIA-powered chat"
       ]
@@ -85,32 +97,36 @@
   ],
   "industries": [
     {
-      "name": "Nonprofit & philanthropy",
-      "note": "Fundraising, donor stewardship, and board governance"
+      "name": "Apparel & fashion",
+      "note": "Co-founded FAZE Apparel and State of Flux"
+    },
+    {
+      "name": "Retail & e-commerce",
+      "note": "DTC, wholesale, B2B, retail stores, and online sales"
+    },
+    {
+      "name": "Consumer products & manufacturing",
+      "note": "Sampling, sourcing, production, and quality control"
+    },
+    {
+      "name": "Events & experiential",
+      "note": "Trade shows, pop-ups, retail activations, and brand experiences"
     },
     {
       "name": "Higher education",
-      "note": "University of San Francisco affiliate for 21 years"
+      "note": "21 years at the Fromm Institute at the University of San Francisco"
     },
     {
-      "name": "Lifelong learning & aging",
-      "note": "Programs for 1,500+ older adults each year"
+      "name": "Nonprofit & lifelong learning",
+      "note": "Programs, fundraising, and governance for 1,500+ older adults a year"
     },
     {
       "name": "EdTech & online video",
-      "note": "Frommcast, hybrid classrooms, and YouTube programs"
+      "note": "Frommcast, hybrid classrooms, and video production"
     },
     {
-      "name": "Marketing, brand & creative",
-      "note": "Campaigns, PR, print, social, and design"
-    },
-    {
-      "name": "Small business & startups",
-      "note": "Two businesses founded and scaled to exit"
-    },
-    {
-      "name": "AI & automation",
-      "note": "Agentic AI certificate and AI assistant design"
+      "name": "AI & generative AI",
+      "note": "AI Certificate Intensive; AI in marketing and creative workflows"
     }
   ],
   "community": [
@@ -121,50 +137,127 @@
   ],
   "experience": [
     {
-      "role": "Assistant Director, Tech, Marketing & Creative",
+      "role": "Assistant Director, Technology, Marketing & Creative",
       "company": "Fromm Institute for Lifelong Learning, University of San Francisco",
-      "start": "2004",
+      "start": "2005",
       "end": "Present",
-      "summary": "Key member of the Institute's senior leadership and executive planning groups. Partner with the Board of Directors and senior leaders on governance, fiscal oversight, succession planning, and long-term strategy for a nonprofit serving 1,500+ older adult learners each year.",
-      "highlights": [
-        "Marketing & Communications: Direct all marketing and PR across digital and print. Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners and increasing enrollment by 10%. Currently leading all marketing and PR for Fromm's 50th Anniversary.",
-        "Product & Technology: Led the launch of a new website, member apps, and classroom equipment upgrades. Directed a Salesforce-based website redesign with integrated payment and donor systems (Stripe, CashNet), bringing tuition, donations, and enrollment management in-house.",
-        "Product Launches: Led the move to hybrid learning for in-person and online members. Designed and launched Frommcast, an online subscription platform for recorded classes, and now oversee the move of all content to the Institute's new YouTube programs.",
-        "Fundraising & Donor Engagement: Member of the leadership group responsible for fundraising strategy. Designed donor appreciation events and stewardship campaigns, and created the metrics and messaging that show why lifelong learning matters to older adults' health and social connection.",
-        "Board & Staff Relationships: Built lasting trust with Board members, faculty, staff, and volunteers over 21 years, fostering collaboration, transparency, and shared mission.",
-        "Community Connector: Established partnerships with retirement homes and senior-serving organizations throughout San Francisco, positioning elderhood as a time of contribution, not decline.",
-        "Equity & Advocacy: Led efforts to make Fromm's programs welcoming and accessible to all older adults, countering ageism and expanding diversity and inclusion.",
-        "Public Voice: Represent the Institute at donor events, faculty presentations, and community gatherings as a storyteller, advocate, and spokesperson."
-      ],
+      "location": "San Francisco",
+      "summary": "Lead technology, marketing, creative direction, and brand development across the organization, a nonprofit serving 1,500+ older adult learners each year. Part of senior leadership, partnering with the Board on governance, fiscal oversight, and long-term strategy.",
       "creative": [
-        "Creative direction for all of Fromm's marketing and PR across digital and print, including every print ad and all social media",
-        "Designed and led the launch of a new website and member apps",
-        "Designed and launched Frommcast, Fromm's subscription platform for recorded classes",
-        "Designed donor appreciation events, and the messaging and materials behind Fromm's fundraising",
+        "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
+        "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
+        "Lead video and digital content for Frommcast, enrollment campaigns, faculty programs, and institutional storytelling",
         "Leading the brand, marketing, and PR for the 50th Anniversary celebration"
+      ],
+      "highlights": [
+        "Marketing Growth: Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners, increasing enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+        "Product & Technology: Helped build Frommcast, Fromm's online learning and content platform. Lead website, CRM, enrollment, and digital experience projects from concept through implementation, including a Salesforce-based redesign with Stripe and CashNet payments.",
+        "AI in Marketing: Use AI and generative AI for campaign development, content creation, audience messaging, research, social media marketing, and workflow improvement.",
+        "Events & Programs: Develop and produce educational programs, community events, brand experiences, and major institutional events.",
+        "Teams & Budgets: Manage teams, vendors, budgets, timelines, technology partners, and cross-functional projects.",
+        "Fundraising & Board: Member of the leadership group responsible for fundraising strategy; built lasting trust with a 21-member Board, faculty, staff, and volunteers.",
+        "Partnerships: Support direct-to-consumer enrollment and business partnerships that bring Fromm programming to organizations and communities, including retirement homes across San Francisco.",
+        "Equity & Advocacy: Make Fromm's programs welcoming and accessible to all older adults, countering ageism through communications, technology, and outreach."
+      ],
+      "earlier_roles": [
+        {
+          "title": "Specialist, Instructional Technology & Media",
+          "years": "2019–2022",
+          "note": "Led instructional media, video production, digital content, and hybrid-program delivery."
+        },
+        {
+          "title": "Instructional Technology Manager",
+          "years": "2012–2019",
+          "note": "Managed classroom and event technology, faculty support, media production, and digital systems."
+        },
+        {
+          "title": "Program Manager",
+          "years": "2005–2012",
+          "note": "Managed academic programs, communications, operations, and event logistics."
+        }
       ]
     },
     {
-      "role": "Entrepreneurship & Business Leadership",
-      "company": "",
-      "start": "",
-      "end": "",
-      "summary": "Founded and scaled two businesses to successful exits, demonstrating strong financial stewardship, fundraising acumen, and creative brand leadership.",
-      "highlights": [
-        "Led operations across finance, production, hiring, and design while building strong teams and community partnerships."
-      ],
+      "role": "Co-Founder & Brand Director",
+      "company": "State of Flux",
+      "start": "2019",
+      "end": "2024",
+      "location": "San Francisco Bay Area",
+      "summary": "After FAZE Apparel, co-founded State of Flux and built the brand from the ground up across product, creative, marketing, retail, e-commerce, wholesale, partnerships, events, and direct-to-consumer sales.",
       "creative": [
-        "Creative brand leadership for both businesses",
-        "Led design and production, building each brand alongside the business"
+        "Led brand strategy, visual identity, creative direction, art direction, and marketing",
+        "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
+        "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling"
+      ],
+      "highlights": [
+        "Collaborations: Developed collaborations and brand activations with partners including Pinterest, Timbuk2, and SFMOMA.",
+        "Sales Channels: Built direct-to-consumer, retail, wholesale, e-commerce, and B2B sales channels.",
+        "Experiential: Planned and produced community events, retail activations, pop-ups, and experiential marketing programs.",
+        "Operations: Managed partnerships, vendors, manufacturing relationships, production timelines, and creative execution."
+      ]
+    },
+    {
+      "role": "Co-Founder & Brand Director",
+      "company": "FAZE Apparel",
+      "start": "2007",
+      "end": "2019",
+      "location": "San Francisco",
+      "summary": "Co-built FAZE Apparel from concept through acquisition, leading brand, product, marketing, manufacturing, retail, and sales.",
+      "creative": [
+        "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
+        "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
+        "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York",
+        "Led retail store design and build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors"
+      ],
+      "highlights": [
+        "Product Development: Managed product development, sampling, materials, sourcing, manufacturing, quality control, and production.",
+        "Sales Channels: Built DTC, retail, e-commerce, wholesale, and B2B sales channels, working directly with buyers, retailers, manufacturing partners, and vendors.",
+        "Launches & Events: Planned and produced product launches, retail events, trade shows, and brand experiences."
       ]
     }
   ],
   "work": [
     {
-      "title": "Fromm 50th Anniversary",
+      "title": "FAZE Apparel",
       "category": "Design",
+      "year": "2007–2019",
+      "summary": "Brand identity, apparel design, graphics, lookbooks, and seasonal campaigns for the apparel brand I co-built through acquisition.",
+      "role": "Co-Founder & Brand Director",
+      "tags": [
+        "Brand identity",
+        "Apparel design",
+        "Lookbooks"
+      ]
+    },
+    {
+      "title": "State of Flux",
+      "category": "Design",
+      "year": "2019–2024",
+      "summary": "Built a brand from the ground up: visual identity, art direction, product design, campaigns, retail graphics, and e-commerce.",
+      "role": "Co-Founder & Brand Director",
+      "tags": [
+        "Visual identity",
+        "Art direction",
+        "E-commerce"
+      ]
+    },
+    {
+      "title": "Retail store design",
+      "category": "Design",
+      "year": "FAZE Apparel",
+      "summary": "Led retail store design and build-outs from concept through opening.",
+      "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
+      "role": "Design lead",
+      "tags": [
+        "Retail design",
+        "Build-outs"
+      ]
+    },
+    {
+      "title": "Fromm 50th Anniversary",
+      "category": "Marketing",
       "year": "Now",
-      "summary": "Leading all marketing and PR for the Institute's 50th Anniversary celebration.",
+      "summary": "Leading all brand, marketing, and PR for the Institute's 50th Anniversary celebration.",
       "role": "Marketing & PR lead",
       "tags": [
         "Campaign",
@@ -173,29 +266,41 @@
       ]
     },
     {
-      "title": "Print & social campaigns",
-      "category": "Design",
+      "title": "Fromm integrated marketing",
+      "category": "Marketing",
       "year": "",
-      "summary": "Run all of Fromm's print ads and social media, growing communications from zero presence to a multi-channel program reaching 1,500+ older learners.",
-      "details": "This work helped increase enrollment by 10% and raised Fromm's visibility across San Francisco.",
-      "role": "Creative direction & design",
+      "summary": "Grew Fromm from zero presence to a multi-channel program across web, email, print, social, video, and digital ads, raising enrollment 10%.",
+      "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+      "role": "Brand strategy & creative direction",
       "tags": [
-        "Print",
-        "Social media",
-        "Brand"
+        "Google",
+        "Meta",
+        "Email",
+        "Print"
       ]
     },
     {
       "title": "Frommcast",
       "category": "Video",
       "year": "",
-      "summary": "Designed and launched an online subscription platform for recorded Fromm classes.",
-      "details": "Now overseeing the move of all recorded content to the Institute's new YouTube programs.",
-      "role": "Concept, launch & oversight",
+      "summary": "Helped build Fromm's online learning and content platform, combining digital strategy, video, technology, programming, and audience experience.",
+      "details": "Now overseeing the move of recorded content to the Institute's YouTube programs.",
+      "role": "Platform build, video & content lead",
       "tags": [
         "Video platform",
-        "Subscriptions",
+        "Online learning",
         "YouTube"
+      ]
+    },
+    {
+      "title": "Instructional media & video production",
+      "category": "Video",
+      "year": "2012–2022",
+      "summary": "Led instructional media, video production, digital content, and hybrid-program delivery for Fromm's faculty and members.",
+      "role": "Instructional Technology Manager, then Specialist",
+      "tags": [
+        "Video production",
+        "Hybrid learning"
       ]
     },
     {
@@ -203,12 +308,53 @@
       "category": "Storytelling",
       "year": "",
       "summary": "Messaging and materials that show why lifelong learning is vital to older adults' health, social connection, and community contribution.",
-      "details": "Used in donor appreciation events and stewardship campaigns, backed by impact metrics I created and report on. I also represent the Institute as a storyteller and spokesperson at donor events, faculty presentations, and community gatherings.",
+      "details": "Used in donor events and stewardship campaigns, backed by impact metrics. I also represent the Institute as a storyteller and spokesperson at donor events, faculty presentations, and community gatherings.",
       "role": "Writer, presenter & spokesperson",
       "tags": [
         "Donor stories",
-        "Public speaking",
-        "Impact metrics"
+        "Public speaking"
+      ]
+    },
+    {
+      "title": "Trade-show booths",
+      "category": "Events",
+      "year": "FAZE Apparel",
+      "summary": "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York.",
+      "role": "Designer & producer",
+      "tags": [
+        "Trade shows",
+        "Brand environments"
+      ]
+    },
+    {
+      "title": "Pop-ups & retail activations",
+      "category": "Events",
+      "year": "State of Flux",
+      "summary": "Planned and produced community events, retail activations, pop-ups, and experiential marketing programs.",
+      "tags": [
+        "Pop-ups",
+        "Experiential"
+      ]
+    },
+    {
+      "title": "Fromm events & programs",
+      "category": "Events",
+      "year": "",
+      "summary": "Develop and produce educational programs, community events, donor appreciation events, and major institutional events.",
+      "tags": [
+        "Events",
+        "Programs"
+      ]
+    },
+    {
+      "title": "Pinterest, Timbuk2 & SFMOMA",
+      "category": "Collaborations",
+      "year": "State of Flux",
+      "summary": "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA.",
+      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "tags": [
+        "Brand collaborations",
+        "Activations"
       ]
     },
     {
@@ -218,8 +364,7 @@
       "summary": "A close partnership with the University of San Francisco Technology Department to jointly improve Fromm's technology infrastructure.",
       "collaborators": "USF Technology Department",
       "tags": [
-        "University partnership",
-        "Infrastructure"
+        "University partnership"
       ]
     },
     {
@@ -227,12 +372,10 @@
       "category": "Collaborations",
       "year": "",
       "summary": "Partnerships with five+ retirement homes, donor networks, and city agencies that expanded enrollment across San Francisco.",
-      "details": "Positioning elderhood as a time of contribution, not decline.",
       "collaborators": "Retirement homes, senior-serving organizations, and city agencies",
       "tags": [
         "Outreach",
-        "Enrollment",
-        "Anti-ageism"
+        "Enrollment"
       ]
     },
     {
@@ -244,17 +387,6 @@
         "Salesforce",
         "Stripe",
         "CashNet"
-      ]
-    },
-    {
-      "title": "Hybrid learning",
-      "category": "Technology",
-      "year": "",
-      "summary": "Led Fromm's move to hybrid classes, with classroom technology upgrades that keep in-person and online members equally included.",
-      "tags": [
-        "Accessibility",
-        "Classroom tech",
-        "Change management"
       ]
     },
     {
@@ -285,53 +417,65 @@
   ],
   "skills": [
     {
-      "group": "Brand, Design & Creative",
+      "group": "Brand & Creative",
       "items": [
-        "Brand building",
-        "Design & Creative Direction",
-        "Marketing & PR Campaigns",
-        "Public Speaking & Storytelling",
-        "Social media & print"
+        "Brand strategy",
+        "Visual identity",
+        "Creative direction",
+        "Art direction",
+        "Photography & video",
+        "Visual storytelling"
       ]
     },
     {
-      "group": "Product & Projects",
+      "group": "Marketing",
       "items": [
-        "Product launches",
-        "Website & app delivery",
-        "Platform integration (Salesforce, Stripe, CashNet)",
-        "Change management"
+        "Integrated marketing",
+        "Go-to-market strategy",
+        "Digital ads (Google, Meta, LinkedIn)",
+        "Email & social media",
+        "Events & experiential"
       ]
     },
     {
-      "group": "Leadership & Finance",
+      "group": "Product & Retail",
       "items": [
-        "Executive & Strategic Leadership",
-        "Board & Staff Engagement",
-        "Fundraising & Donor Stewardship",
-        "Nonprofit Finance"
+        "Apparel & product design",
+        "Sourcing & manufacturing",
+        "Retail & trade-show design",
+        "DTC, wholesale & e-commerce",
+        "B2B sales"
+      ]
+    },
+    {
+      "group": "Leadership",
+      "items": [
+        "Teams, vendors & budgets",
+        "Cross-functional projects",
+        "Board & stakeholder relations",
+        "Fundraising & donor stewardship"
       ]
     },
     {
       "group": "AI & Technology",
       "items": [
-        "Agentic AI",
-        "AI assistant design",
-        "Technology & Operations Oversight",
-        "YouTube & online video"
+        "Artificial intelligence",
+        "Generative AI",
+        "Website & CRM projects",
+        "AI assistant design"
       ]
     },
     {
-      "group": "Community",
+      "group": "Languages",
       "items": [
-        "Community Partnerships",
-        "Diversity, Inclusion & Anti-Ageism"
+        "English (full professional)",
+        "Spanish (full professional)"
       ]
     }
   ],
   "certifications": [
     {
-      "name": "AI Agentic Certificate",
+      "name": "AI Certificate Intensive",
       "issuer": "",
       "year": ""
     }
@@ -339,8 +483,8 @@
   "education": [
     {
       "school": "University of San Francisco",
-      "degree": "B.A. in Media Studies",
-      "year": ""
+      "degree": "B.A.Sc., Communication and Media Studies, and Film",
+      "year": "2002–2005"
     },
     {
       "school": "Executive & Professional Development",

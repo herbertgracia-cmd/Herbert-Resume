@@ -209,6 +209,14 @@ img, svg { display: block; }
   background: var(--cat); color: var(--cat-ink);
   --cat: #f2c7b5; --cat-ink: #5a1d0b;
 }
+.job-location { display: block; margin-top: 2px; }
+.job-earlier { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.job-earlier .job-creative-label { color: var(--muted); }
+.job .job-earlier ol { list-style: none; margin: 0; padding: 0; }
+.job .job-earlier li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0 12px; margin: 8px 0; }
+.job-earlier-years { grid-row: span 2; font: 400 13px/1.7 var(--mono); color: var(--muted); }
+.job-earlier strong { font-weight: 600; }
+.job-earlier-note { color: var(--muted); font-size: 15px; }
 .job-creative-label { margin: 0 0 4px; font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .job .job-creative ul { margin: 0; }
 .job .job-creative li::marker { color: currentColor; }
@@ -285,6 +293,8 @@ img, svg { display: block; }
 .cat-collaborations { --cat: #c6e3cf; --cat-ink: #17502e; }
 .cat-technology     { --cat: #dcd9d2; --cat-ink: #2b2a27; }
 .cat-ai             { --cat: #bfe5e3; --cat-ink: #0f4744; }
+.cat-marketing      { --cat: #f3dfa6; --cat-ink: #5c4204; }
+.cat-events         { --cat: #f2c1d6; --cat-ink: #6a1838; }
 .cat-other          { --cat: var(--line); --cat-ink: var(--ink); }
 
 @media (prefers-color-scheme: dark) {
@@ -294,6 +304,8 @@ img, svg { display: block; }
   :root:not([data-theme="light"]) .cat-collaborations { --cat: #173a26; --cat-ink: #c3ecd1; }
   :root:not([data-theme="light"]) .cat-technology     { --cat: #2a2926; --cat-ink: #e6e3dc; }
   :root:not([data-theme="light"]) .cat-ai             { --cat: #123b39; --cat-ink: #bdeeea; }
+  :root:not([data-theme="light"]) .cat-marketing      { --cat: #3f3210; --cat-ink: #f6e2a8; }
+  :root:not([data-theme="light"]) .cat-events         { --cat: #47192c; --cat-ink: #fbc9de; }
 }
 :root[data-theme="dark"] .cat-design         { --cat: #4a2417; --cat-ink: #ffc9b3; }
 :root[data-theme="dark"] .cat-video          { --cat: #1c2b4d; --cat-ink: #c9d8ff; }
@@ -301,6 +313,8 @@ img, svg { display: block; }
 :root[data-theme="dark"] .cat-collaborations { --cat: #173a26; --cat-ink: #c3ecd1; }
 :root[data-theme="dark"] .cat-technology     { --cat: #2a2926; --cat-ink: #e6e3dc; }
 :root[data-theme="dark"] .cat-ai             { --cat: #123b39; --cat-ink: #bdeeea; }
+:root[data-theme="dark"] .cat-marketing      { --cat: #3f3210; --cat-ink: #f6e2a8; }
+:root[data-theme="dark"] .cat-events         { --cat: #47192c; --cat-ink: #fbc9de; }
 
 
 .work-dialog {
