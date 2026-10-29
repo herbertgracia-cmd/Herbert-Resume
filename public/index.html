@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Herbert Gracia — Brand & Creative Director</title>
-  <meta name="description" content="Herbert Gracia: Brand & Creative Director, now building with AI. Co-founder of FAZE Apparel and State of Flux, and 21 years leading marketing and creative at USF's Fromm Institute.">
+  <meta name="description" content="Brand & Creative Director, now building with AI. Co-Founder of FAZE Apparel and State of Flux, and 21 years at USF's Fromm Institute.">
+  <link rel="canonical" href="/">
   <meta property="og:title" content="Herbert Gracia — Brand & Creative Director">
-  <meta property="og:description" content="Brand & Creative Director, now building with AI. Co-founder of FAZE Apparel and State of Flux, and 21 years leading marketing and creative at USF's Fromm Institute.">
+  <meta property="og:description" content="Brand & Creative Director, now building with AI. Co-Founder of FAZE Apparel and State of Flux, and 21 years at USF's Fromm Institute.">
+  <meta property="og:site_name" content="Herbert Gracia">
   <meta property="og:type" content="website">
   <meta property="og:url" content="/">
   <meta property="og:image" content="/og.png">
@@ -15,23 +17,24 @@
   <meta property="og:image:alt" content="Herbert Gracia, Brand & Creative Director, now building with AI">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/og.png">
+  <meta name="twitter:title" content="Herbert Gracia — Brand & Creative Director">
+  <meta name="twitter:description" content="Brand & Creative Director, now building with AI. Co-Founder of FAZE Apparel and State of Flux, and 21 years at USF's Fromm Institute.">
   <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/content.json" as="fetch" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <script>
-    // Apply a saved theme before first paint to avoid a flash.
-    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch {}
-  </script>
+  <script src="/theme.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="topbar">
-    <a class="mark" href="#top" aria-label="Back to top"><span data-bind="initials">HG</span></a>
+    <a class="mark" href="#top" aria-label="HG, back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
       <a href="#work">Experience</a>
       <a href="#portfolio">Work</a>
@@ -47,7 +50,37 @@
     </div>
   </header>
 
-  <main id="main">
+  <!-- Welcome pop-up: asks visitors who they are and how Herbert can help. Shown once per visitor, after a delay. -->
+  <section class="intro" id="intro" role="dialog" aria-modal="false" aria-labelledby="intro-title" hidden>
+    <button class="intro-peek" id="intro-peek" type="button" hidden></button>
+    <button class="icon-btn intro-close" id="intro-close" type="button" aria-label="Close">✕</button>
+    <div class="intro-step" id="intro-step-1">
+      <p class="intro-title" id="intro-title"></p>
+      <p class="intro-sub" id="intro-sub"></p>
+      <div class="intro-reasons" id="intro-reasons"></div>
+    </div>
+    <form class="intro-step" id="intro-form" hidden novalidate>
+      <p class="intro-title" id="intro-form-title"></p>
+      <div class="field"><label for="in-name">Name</label><input id="in-name" name="name" autocomplete="name" required maxlength="200"></div>
+      <div class="field"><label for="in-email">Email</label><input id="in-email" name="email" type="email" autocomplete="email" required maxlength="320"></div>
+      <div class="intro-row">
+        <div class="field"><label for="in-company">Company <span class="optional">(optional)</span></label><input id="in-company" name="company" autocomplete="organization" maxlength="200"></div>
+        <div class="field"><label for="in-title">Your title <span class="optional">(optional)</span></label><input id="in-title" name="title" autocomplete="organization-title" maxlength="200"></div>
+      </div>
+      <div class="field"><label for="in-message">How can I help? <span class="optional">(optional)</span></label><textarea id="in-message" name="message" rows="3" maxlength="2000"></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="in-website">Website</label><input id="in-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="intro-actions">
+        <button class="btn btn-small" type="submit">Send</button>
+        <button class="intro-back" id="intro-back" type="button">Back</button>
+      </div>
+      <p class="form-status" id="intro-status" role="status"></p>
+    </form>
+    <div class="intro-step" id="intro-done" role="status" hidden>
+      <p class="intro-title" id="intro-done-text"></p>
+    </div>
+  </section>
+
+  <main id="main" tabindex="-1">
     <section class="hero" id="top">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
@@ -59,7 +92,12 @@
       </div>
     </section>
 
-    <div class="stats-band"><div class="stats" id="stats"></div></div>
+    <div class="stats-band">
+      <div class="stats-wrap">
+        <p class="stats-label">At a glance</p>
+        <div class="stats" id="stats"></div>
+      </div>
+    </div>
 
     <section class="section" id="work">
       <h2 class="section-title"><span class="num"></span>Experience</h2>
@@ -110,34 +148,6 @@
     <div id="work-dialog-body"></div>
   </dialog>
 
-  <!-- Welcome pop-up: asks visitors who they are and how Herbert can help. Shown once per visitor. -->
-  <section class="intro" id="intro" role="dialog" aria-labelledby="intro-title" hidden>
-    <button class="icon-btn intro-close" id="intro-close" type="button" aria-label="Close">✕</button>
-    <div class="intro-step" id="intro-step-1">
-      <p class="intro-title" id="intro-title"></p>
-      <p class="intro-sub" id="intro-sub"></p>
-      <div class="intro-reasons" id="intro-reasons"></div>
-    </div>
-    <form class="intro-step" id="intro-form" hidden novalidate>
-      <p class="intro-title" id="intro-form-title"></p>
-      <div class="field"><label for="in-name">Name</label><input id="in-name" name="name" autocomplete="name" required maxlength="200"></div>
-      <div class="field"><label for="in-email">Email</label><input id="in-email" name="email" type="email" autocomplete="email" required maxlength="320"></div>
-      <div class="intro-row">
-        <div class="field"><label for="in-company">Company <span class="optional">(optional)</span></label><input id="in-company" name="company" autocomplete="organization" maxlength="200"></div>
-        <div class="field"><label for="in-title">Your title <span class="optional">(optional)</span></label><input id="in-title" name="title" autocomplete="organization-title" maxlength="200"></div>
-      </div>
-      <div class="field"><label for="in-message">How can I help? <span class="optional">(optional)</span></label><textarea id="in-message" name="message" rows="3" maxlength="2000"></textarea></div>
-      <div class="hp" aria-hidden="true"><label for="in-website">Website</label><input id="in-website" name="website" tabindex="-1" autocomplete="off"></div>
-      <div class="intro-actions">
-        <button class="btn btn-small" type="submit">Send</button>
-        <button class="intro-back" id="intro-back" type="button">Back</button>
-      </div>
-      <p class="form-status" id="intro-status" role="status"></p>
-    </form>
-    <div class="intro-step" id="intro-done" hidden>
-      <p class="intro-title" id="intro-done-text"></p>
-    </div>
-  </section>
 
   <noscript><p class="noscript">This page needs JavaScript to load the resume. You can reach Herbert at herbert.gracia@gmail.com.</p></noscript>
   <script src="/app.js" type="module"></script>

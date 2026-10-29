@@ -5,7 +5,7 @@
   "role": "Brand & Creative Director, now building with AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years leading marketing and creative at the University of San Francisco's Fromm Institute, and now certified by USF in Applied Agentic AI.",
+  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years at the University of San Francisco's Fromm Institute, and now certified by USF in Applied Agentic AI.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -26,7 +26,7 @@
     },
     {
       "value": "+10%",
-      "label": "enrollment from my marketing"
+      "label": "enrollment growth at Fromm"
     }
   ],
   "about": [
@@ -179,7 +179,7 @@
       "key": [
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, and events",
         "Grew communications from zero to a multi-channel program reaching 1,500+ learners, increasing enrollment 10%",
-        "Helped build Frommcast, Fromm's online learning and video platform; lead website, CRM, and AI-assisted marketing projects"
+        "Lead Frommcast video and content, plus website, CRM, and AI-assisted marketing projects"
       ]
     },
     {
@@ -202,7 +202,7 @@
       ],
       "key": [
         "Built the brand from the ground up across identity, art direction, product design, campaigns, and e-commerce",
-        "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
+        "Developed brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
         "Built DTC, retail, wholesale, e-commerce, and B2B sales channels"
       ]
     },
@@ -236,7 +236,7 @@
       "title": "FAZE Apparel",
       "category": "Design",
       "year": "2007–2019",
-      "summary": "Brand identity, apparel design, graphics, lookbooks, and seasonal campaigns for the apparel brand I co-built through acquisition.",
+      "summary": "Co-built the brand through acquisition: identity, apparel design, graphics, lookbooks, and seasonal campaigns.",
       "role": "Co-Founder & Brand Director",
       "tags": [
         "Brand identity",
@@ -259,10 +259,10 @@
       "featured": true
     },
     {
-      "title": "Pinterest, Timbuk2 & SFMOMA",
+      "title": "Brand collaborations",
       "category": "Collaborations",
       "year": "State of Flux",
-      "summary": "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA.",
+      "summary": "Developed collaborations and brand activations for State of Flux with three well-known partners.",
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
       "tags": [
         "Brand collaborations",
@@ -274,7 +274,7 @@
       "title": "Fromm integrated marketing",
       "category": "Marketing",
       "year": "",
-      "summary": "Grew Fromm from zero presence to a multi-channel program across web, email, print, social, video, and digital ads, raising enrollment 10%.",
+      "summary": "Built Fromm's multi-channel marketing (web, email, print, social, video, and digital ads) behind a 10% enrollment rise.",
       "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
       "role": "Brand strategy & creative direction",
       "tags": [
@@ -289,7 +289,7 @@
       "title": "Frommcast",
       "category": "Video",
       "year": "",
-      "summary": "Helped build Fromm's online learning and content platform, combining digital strategy, video, technology, programming, and audience experience.",
+      "summary": "Led video and content for Frommcast, Fromm's online learning and content platform.",
       "details": "Now overseeing the move of recorded content to the Institute's YouTube programs.",
       "role": "Platform build, video & content lead",
       "tags": [
@@ -453,8 +453,7 @@
         "Integrated marketing",
         "Go-to-market strategy",
         "Digital ads (Google, Meta, LinkedIn)",
-        "Email & social media",
-        "Events & experiential"
+        "Email & social media"
       ]
     },
     {
@@ -479,7 +478,7 @@
     {
       "group": "AI & Technology",
       "items": [
-        "Artificial intelligence",
+        "Agentic AI",
         "Generative AI",
         "Website & CRM projects",
         "AI assistant design"
@@ -520,7 +519,7 @@
   "intro": {
     "title": "Hi, I'm Herbert. What brings you here?",
     "subtitle": "Tell me a little about yourself and I'll get back to you.",
-    "delay_seconds": 15,
+    "delay_seconds": 30,
     "reasons": [
       {
         "id": "hiring",

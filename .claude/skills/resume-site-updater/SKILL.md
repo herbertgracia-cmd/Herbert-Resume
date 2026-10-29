@@ -14,7 +14,7 @@ Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. A
 | All resume text | `public/content.json` |
 | Page layout | `public/index.html`, `public/app.js`, `public/styles.css` |
 | Work images | `public/work/` |
-| Link-preview image | `public/og.png`, rebuilt with `node scripts/make-og.mjs` |
+| Link-preview image and iPhone icon | `public/og.png` and `public/apple-touch-icon.png`, rebuilt with `node scripts/make-og.mjs` |
 | Welcome pop-up and contact API | `src/worker.js` |
 | Cloudflare settings | `wrangler.toml` |
 | Database setup | `supabase/schema.sql` |

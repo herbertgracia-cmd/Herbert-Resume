@@ -17,6 +17,17 @@ function h(tag, attrs = {}, ...children) {
   return el;
 }
 
+// Only allow normal web and email links from content.json (never "javascript:").
+function safeUrl(url) {
+  if (!url || typeof url !== "string") return null;
+  try {
+    const u = new URL(url, location.href);
+    return ["https:", "http:", "mailto:"].includes(u.protocol) ? u.href : null;
+  } catch {
+    return null;
+  }
+}
+
 const data = await fetch("/content.json").then((r) => r.json());
 render(data);
 setupTheme();
@@ -45,22 +56,26 @@ function render(d) {
       i < roles.length - 1 ? " " : null,
     ]).filter(Boolean));
   }
-  if (d.links?.linkedin) {
+  if (safeUrl(d.links?.linkedin)) {
     const li = $("#hero-linkedin");
-    li.href = d.links.linkedin;
+    li.href = safeUrl(d.links.linkedin);
     li.hidden = false;
   }
 
   // Hero name: one line per word, last word in italic accent.
   const nameEl = $(".hero-name");
-  nameEl.replaceChildren(...d.name.split(/\s+/).map((w) => h("span", { class: "line" }, w)));
+  nameEl.replaceChildren(...d.name.split(/\s+/).flatMap((w, i) => [i ? " " : null, h("span", { class: "line" }, w)]).filter(Boolean));
 
   // Key numbers under the hero.
   const stats = $("#stats");
   if (d.stats?.length) {
-    stats.replaceChildren(...d.stats.map((s) =>
-      h("div", { class: s.value.length > 8 ? "stat stat-text" : "stat" }, h("strong", {}, s.value), h("span", {}, s.label))));
-  } else stats.parentElement.remove();
+    // A long text value (like three partner names) gets one name per line.
+    stats.replaceChildren(...d.stats.map((s) => {
+      const long = s.value.length > 8;
+      const value = long ? s.value.split(" · ").map((v) => h("span", { class: "stat-line" }, v)) : s.value;
+      return h("div", { class: long ? "stat stat-text" : "stat" }, h("strong", {}, value), h("span", {}, s.label));
+    }));
+  } else stats.closest(".stats-band").remove();
 
   // Experience: 3 key bullets per job; the rest sits behind "More".
   $("#jobs").replaceChildren(...d.experience.map(renderJob));
@@ -83,14 +98,18 @@ function render(d) {
   const linkNames = { linkedin: "LinkedIn", github: "GitHub", website: "Website" };
   $("#contact-links").replaceChildren(
     ...Object.entries(d.links)
-      .filter(([k, v]) => k !== "email" && v)
-      .map(([k, v]) => h("li", {}, h("a", { href: v, target: "_blank", rel: "noopener" }, `${linkNames[k] || k} ↗`))),
+      .filter(([k, v]) => k !== "email" && safeUrl(v))
+      .map(([k, v]) => h("li", {}, h("a", { href: safeUrl(v), target: "_blank", rel: "noopener" }, `${linkNames[k] || k} ↗`))),
   );
 
   $("#year").textContent = new Date().getFullYear();
 
   // Number the sections that are shown: 01, 02, 03...
-  document.querySelectorAll(".section .num").forEach((n, k) => { n.textContent = String(k + 1).padStart(2, "0"); });
+  // (Hidden from screen readers so headings read "Experience", not "01Experience".)
+  document.querySelectorAll(".section .num").forEach((n, k) => {
+    n.textContent = String(k + 1).padStart(2, "0");
+    n.setAttribute("aria-hidden", "true");
+  });
 }
 
 // ---------- Work / portfolio ----------
@@ -114,16 +133,23 @@ function categoryClass(cat) {
   return "cat-" + String(cat || "other").toLowerCase().replace(/[^a-z]+/g, "-");
 }
 
-function workCover(item, large = false) {
+// A card's cover: the real image or video thumbnail if there is one; otherwise a
+// typographic poster (category and year in the corners, the title set large).
+// Covers repeat the card's text, so screen readers skip them.
+function workCover(item, { large = false, hue = 0 } = {}) {
   const video = videoInfo(item.video);
   const src = item.image || video?.thumb;
-  const cover = h("div", { class: `work-cover ${categoryClass(item.category)}` });
+  const cover = h("div", { class: `work-cover ${categoryClass(item.category)} hue-${hue % 6}`, "aria-hidden": "true" });
   if (src) {
-    cover.append(h("img", { src, alt: item.imageAlt || "", loading: large ? null : "lazy" }));
+    cover.classList.add("has-image");
+    cover.append(h("img", { src, alt: "", loading: large ? null : "lazy" }));
   } else {
-    cover.append(h("span", { class: "work-cover-title" }, item.title));
+    cover.append(
+      h("span", { class: "work-cover-meta" }, h("span", {}, item.category || ""), h("span", {}, item.year || "")),
+      h("span", { class: "work-cover-title" }, item.title),
+    );
   }
-  if (item.video) cover.append(h("span", { class: "play", "aria-hidden": "true" }, "▶"));
+  if (item.video) cover.append(h("span", { class: "play" }, "▶"));
   return cover;
 }
 
@@ -137,10 +163,13 @@ function renderWork(items) {
   const filters = $("#work-filters");
   const grid = $("#work-grid");
 
-  const cards = items.map((item) =>
-    h("li", { class: "reveal", "data-category": item.category || "" },
+  const cards = items.map((item, i) => {
+    // Poster covers already show the title, category, and year, so the text below
+    // only repeats them for screen readers; image covers show them below as usual.
+    const poster = !item.image && !videoInfo(item.video);
+    return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": item.category || "" },
       h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
-        workCover(item),
+        workCover(item, { hue: i }),
         h("div", { class: "work-meta" },
           h("span", {}, item.category || ""),
           item.year && h("span", {}, item.year),
@@ -148,9 +177,9 @@ function renderWork(items) {
         h("h3", {}, item.title),
         h("p", {}, item.summary),
       ),
-    ),
-  );
-  cards.forEach((card, i) => card.querySelector("button").addEventListener("click", () => openWork(items[i])));
+    );
+  });
+  cards.forEach((card, i) => card.querySelector("button").addEventListener("click", () => openWork(items[i], i)));
   grid.replaceChildren(...cards);
 
   // Show only featured pieces at first; "See all work" reveals the rest and the filters.
@@ -161,9 +190,13 @@ function renderWork(items) {
     more.textContent = `See all work (${items.length})`;
     more.hidden = false;
     more.addEventListener("click", () => {
-      cards.forEach((c) => { c.hidden = false; c.classList.add("in"); delete c.dataset.extra; });
+      const firstNew = cards.find((c) => c.dataset.extra);
+      // On phones the extra pieces show as a compact list (see .compact in styles.css).
+      cards.forEach((c) => { if (c.dataset.extra) c.classList.add("compact"); c.hidden = false; c.classList.add("in"); delete c.dataset.extra; });
       filters.hidden = false;
       more.remove();
+      // Keep keyboard users in place: move focus to the first newly shown piece.
+      firstNew?.querySelector("button").focus();
     });
   } else {
     filters.hidden = false;
@@ -184,7 +217,7 @@ function renderWork(items) {
   });
 }
 
-function openWork(item) {
+function openWork(item, index = 0) {
   const dialog = $("#work-dialog");
   const video = videoInfo(item.video);
   let media;
@@ -197,13 +230,13 @@ function openWork(item) {
   } else if (item.image) {
     media = h("div", { class: "work-media" }, h("img", { src: item.image, alt: item.imageAlt || item.title }));
   } else {
-    media = workCover(item, true);
+    media = workCover(item, { large: true, hue: index });
     media.classList.add("work-media");
   }
 
   const facts = [["My role", item.role], ["With", item.collaborators]].filter(([, v]) => v);
   const linkLabel = item.linkLabel || (item.video && !video ? "Watch" : "View project");
-  const linkUrl = item.link || (item.video && !video ? item.video : "");
+  const linkUrl = safeUrl(item.link || (item.video && !video ? item.video : "")) || "";
 
   $("#work-dialog-body").replaceChildren(
     media,
@@ -243,7 +276,7 @@ function renderJob(j) {
   const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
   const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length;
   return h("li", { class: "job reveal" },
-    h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
+    h("div", { class: "job-dates" }, j.start ? `${j.start}–${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
     h("div", {},
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
       j.summary && h("p", { class: "job-summary" }, j.summary),
@@ -309,32 +342,79 @@ async function setupFeatures(d) {
   if (d.intro) setupIntro(d, Boolean(status.intro));
 }
 
-// Welcome pop-up. Shows on every visit, after a delay or partway down the page.
-// Once closed, it stays closed until the next visit.
+// Marks form fields as invalid (or clears them) so screen readers announce the
+// problem, and moves focus to the first one that needs fixing.
+function flagFields(form, statusEl, badNames) {
+  for (const el of form.querySelectorAll("input, textarea")) {
+    const bad = badNames.includes(el.name);
+    if (bad) {
+      el.setAttribute("aria-invalid", "true");
+      el.setAttribute("aria-describedby", statusEl.id);
+    } else {
+      el.removeAttribute("aria-invalid");
+      el.removeAttribute("aria-describedby");
+    }
+  }
+  if (badNames.length) form.elements[badNames[0]]?.focus();
+}
+
+// Welcome pop-up. Shows once per visitor (remembered in this browser), about
+// 30 seconds after they arrive. Add ?intro to the address to see it right away.
 function setupIntro(d, canSave) {
-  // Add ?intro to the address to see the pop-up right away (for testing).
+  const KEY = "intro-seen";
   const testing = new URLSearchParams(location.search).has("intro");
+  if (!testing) {
+    try { if (localStorage.getItem(KEY)) return; } catch { return; }
+  }
+  const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch {} };
 
   const box = $("#intro"), step1 = $("#intro-step-1"), form = $("#intro-form"), done = $("#intro-done");
-  const status = $("#intro-status");
+  const status = $("#intro-status"), peek = $("#intro-peek"), workDialog = $("#work-dialog");
   const cfg = d.intro;
+  const phone = matchMedia("(max-width: 760px)");
   let reason = null;
+  let returnFocus = null;
 
   $("#intro-title").textContent = cfg.title;
   $("#intro-sub").textContent = cfg.subtitle || "";
+  peek.textContent = cfg.title;
   $("#intro-reasons").replaceChildren(...cfg.reasons.map((r) =>
     h("button", { type: "button", class: "intro-reason", "data-id": r.id }, r.label)));
 
+  const firstFocusable = () => (box.classList.contains("collapsed") ? peek : box.querySelector(".intro-reason"));
+
   const show = () => {
     if (!box.hidden) return;
+    // Never pop up over a work piece someone is looking at; wait until it's closed.
+    if (workDialog.open) {
+      workDialog.addEventListener("close", () => setTimeout(show, 1500), { once: true });
+      return;
+    }
+    remember();
+    // On phones, start as a slim bar at the bottom that opens when tapped.
+    box.classList.toggle("collapsed", phone.matches && !testing);
+    peek.hidden = !box.classList.contains("collapsed");
     box.hidden = false;
     requestAnimationFrame(() => box.classList.add("open"));
-    cleanup();
+    document.addEventListener("keydown", onKey);
+    // Move focus into the pop-up only if the visitor isn't busy with something else.
+    const active = document.activeElement;
+    if (!active || active === document.body) {
+      returnFocus = null;
+      firstFocusable()?.focus({ preventScroll: true });
+    }
   };
   const close = () => {
+    const hadFocus = box.contains(document.activeElement);
     box.classList.remove("open");
+    document.removeEventListener("keydown", onKey);
     setTimeout(() => { box.hidden = true; }, 250);
+    if (hadFocus) (returnFocus && document.contains(returnFocus) ? returnFocus : $("#main")).focus({ preventScroll: true });
   };
+  function onKey(e) { if (e.key === "Escape") close(); }
+  // Remember where keyboard focus was whenever it enters the pop-up, to return it there on close.
+  box.addEventListener("focusin", (e) => { if (!box.contains(e.relatedTarget)) returnFocus = e.relatedTarget; });
+
   const send = async (payload) => {
     if (!canSave) {
       if (payload.reason === "looking") return;
@@ -350,10 +430,12 @@ function setupIntro(d, canSave) {
       location.href = `mailto:${d.links.email}?subject=${encodeURIComponent(`Hello from your website: ${label}`)}&body=${encodeURIComponent(lines.join("\n"))}`;
       return;
     }
+    let referrer = "";
+    try { referrer = document.referrer ? new URL(document.referrer).origin : ""; } catch {}
     const res = await fetch("/api/intro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...payload, referrer: document.referrer || "" }),
+      body: JSON.stringify({ ...payload, referrer }),
     });
     const body = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(body.error || "Could not send. Please email me instead.");
@@ -361,20 +443,18 @@ function setupIntro(d, canSave) {
   const finish = (text) => {
     step1.hidden = true; form.hidden = true; done.hidden = false;
     $("#intro-done-text").textContent = text;
-    setTimeout(close, 4000);
+    $("#intro-close").focus({ preventScroll: true });
+    setTimeout(close, 5000);
   };
 
-  // Show after the delay, or once they've scrolled 40% of the page, whichever comes first.
-  const timer = setTimeout(show, testing ? 300 : (cfg.delay_seconds ?? 15) * 1000);
-  const onScroll = () => {
-    const seen = (scrollY + innerHeight) / document.documentElement.scrollHeight;
-    if (seen > 0.4) show();
-  };
-  addEventListener("scroll", onScroll, { passive: true });
-  function cleanup() { clearTimeout(timer); removeEventListener("scroll", onScroll); }
+  setTimeout(show, testing ? 300 : (cfg.delay_seconds ?? 30) * 1000);
 
   $("#intro-close").addEventListener("click", close);
-  box.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+  peek.addEventListener("click", () => {
+    box.classList.remove("collapsed");
+    peek.hidden = true;
+    box.querySelector(".intro-reason")?.focus();
+  });
 
   $("#intro-reasons").addEventListener("click", async (e) => {
     const btn = e.target.closest(".intro-reason");
@@ -388,13 +468,21 @@ function setupIntro(d, canSave) {
     step1.hidden = true; form.hidden = false;
     $("#in-name").focus();
   });
-  $("#intro-back").addEventListener("click", () => { form.hidden = true; step1.hidden = false; status.textContent = ""; });
+  $("#intro-back").addEventListener("click", () => {
+    form.hidden = true; step1.hidden = false; status.textContent = "";
+    flagFields(form, status, []);
+    box.querySelector(`.intro-reason[data-id="${reason}"]`)?.focus();
+  });
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const payload = { reason, ...Object.fromEntries(new FormData(form)) };
     status.className = "form-status";
-    if (!payload.name.trim() || !payload.email.trim() || !form.elements.email.checkValidity()) {
+    const bad = [];
+    if (!payload.name.trim()) bad.push("name");
+    if (!payload.email.trim() || !form.elements.email.checkValidity()) bad.push("email");
+    flagFields(form, status, bad);
+    if (bad.length) {
       status.textContent = "Please add your name and a valid email.";
       status.classList.add("err");
       return;
@@ -422,7 +510,12 @@ function setupContact() {
     const btn = form.querySelector("button[type=submit]");
     const payload = Object.fromEntries(new FormData(form));
     status.className = "form-status";
-    if (!payload.name.trim() || !payload.message.trim() || !form.elements.email.checkValidity() || !payload.email.trim()) {
+    const bad = [];
+    if (!payload.name.trim()) bad.push("name");
+    if (!payload.email.trim() || !form.elements.email.checkValidity()) bad.push("email");
+    if (!payload.message.trim()) bad.push("message");
+    flagFields(form, status, bad);
+    if (bad.length) {
       status.textContent = "Please add your name, a valid email, and a message.";
       status.classList.add("err");
       return;

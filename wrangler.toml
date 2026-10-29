@@ -17,7 +17,7 @@ directory = "./public"
 binding = "ASSETS"
 # The Worker handles /api/* and the home page (to fill in link-preview tags);
 # everything else is served straight from /public.
-run_worker_first = ["/api/*", "/", "/index.html"]
+run_worker_first = ["/api/*", "/", "/index.html", "/robots.txt", "/sitemap.xml"]
 
 # Form spam limit: at most 5 submissions per minute per visitor
 # (welcome pop-up and contact form).
@@ -27,6 +27,9 @@ namespace_id = "1001"
 simple = { limit = 5, period = 60 }
 
 [vars]
+# Once a custom domain is live, set its address here (for example
+# "https://herbertgracia.com") so Google and link previews use one main address.
+SITE_URL = ""
 # Public Supabase values (safe to commit; not used by the site yet).
 SUPABASE_JWKS_URL = "https://lpvwcjhtibuedqxbxzof.supabase.co/auth/v1/.well-known/jwks.json"
 SUPABASE_PUBLISHABLE_KEY = "sb_publishable_kpRJ_KoOReNrhqAEpoY6Fg_81dZGifT"

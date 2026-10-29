@@ -13,7 +13,9 @@ All the text lives in **`public/content.json`**. The page reads from this one fi
 
 "Save as PDF" in the top bar prints a clean two-page version of the resume.
 
-**Link preview:** `public/og.png` is the image shown when the link is shared on LinkedIn, Slack, or email. If you change your headline, ask Claude to regenerate it.
+**Link preview:** `public/og.png` is the image shown when the link is shared on LinkedIn, Slack, or email, and `public/apple-touch-icon.png` is the iPhone home-screen icon. Rebuild both with `node scripts/make-og.mjs` after changing your headline or stats.
+
+**Search engines:** the Worker writes your headline, summary, key numbers, and experience straight into the page, adds structured data describing you (a schema.org `Person`), and serves `robots.txt` and `sitemap.xml`. Once you connect your own domain, set `SITE_URL` in `wrangler.toml` (for example `"https://herbertgracia.com"`) so Google and link previews use that one address.
 
 ## Add your work (design, video, storytelling, collaborations)
 
@@ -43,7 +45,13 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 
 ## Welcome pop-up
 
-About 15 seconds after someone arrives (or once they scroll 40% of the page), a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name and email (company, title, and message are optional) and saves the answer to Supabase. It shows on every visit; once closed, it stays closed until the next visit. Add `?intro` to the address to see it right away. Change the wording, choices, or delay in the `intro` block of `content.json`. It always appears; if Supabase isn't connected, Send opens a pre-filled email to you instead of saving.
+About 30 seconds after someone arrives, a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name and email (company, title, and message are optional) and saves the answer to Supabase. If Supabase isn't connected, Send opens a pre-filled email to you instead.
+
+- Each visitor sees it **once** (remembered in their browser).
+- On phones it starts as a slim bar at the bottom that opens when tapped.
+- It never opens on top of a work piece someone is viewing.
+- Add `?intro` to the address to see it right away, anytime.
+- Change the wording, choices, or delay in the `intro` block of `content.json`.
 
 ## Claude skills
 
@@ -124,8 +132,8 @@ For `npm run dev`, copy `.dev.vars.example` to `.dev.vars` and fill in the keys 
 
 | Path | What it is |
 | --- | --- |
-| `public/` | The website: `index.html`, `styles.css`, `app.js`, and `content.json` (your resume) |
-| `src/worker.js` | Cloudflare Worker: serves the site, fills in link-preview tags, and handles `/api/status`, `/api/intro`, `/api/contact` |
+| `public/` | The website: `index.html`, `styles.css`, `app.js`, `content.json` (your resume), and `_headers` (security headers for static files) |
+| `src/worker.js` | Cloudflare Worker: serves the site, fills in the page for search engines and link previews, adds security headers, serves `robots.txt` and `sitemap.xml`, and handles `/api/status`, `/api/intro`, `/api/contact` |
 | `supabase/schema.sql` | Database tables for contact messages and welcome pop-up answers |
 | `wrangler.toml` | Cloudflare settings |
 
