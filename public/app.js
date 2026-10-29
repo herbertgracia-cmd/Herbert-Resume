@@ -305,11 +305,12 @@ async function setupFeatures(d) {
   let status = { contact: false, intro: false };
   try { status = await fetch("/api/status").then((r) => r.json()); } catch {}
   if (status.contact) setupContact();
-  if (status.intro && d.intro) setupIntro(d);
+  // The pop-up always shows; without Supabase, Send opens an email instead of saving.
+  if (d.intro) setupIntro(d, Boolean(status.intro));
 }
 
 // Welcome pop-up. Shows once per visitor, after a delay or partway down the page.
-function setupIntro(d) {
+function setupIntro(d, canSave) {
   const KEY = "intro-seen";
   // Add ?intro to the address to see the pop-up right away (for testing).
   const testing = new URLSearchParams(location.search).has("intro");
@@ -340,6 +341,20 @@ function setupIntro(d) {
     setTimeout(() => { box.hidden = true; }, 250);
   };
   const send = async (payload) => {
+    if (!canSave) {
+      if (payload.reason === "looking") return;
+      const label = cfg.reasons.find((r) => r.id === payload.reason)?.label || "";
+      const lines = [
+        label,
+        `Name: ${payload.name}`,
+        `Email: ${payload.email}`,
+        payload.company && `Company: ${payload.company}`,
+        payload.title && `Title: ${payload.title}`,
+        payload.message && `\n${payload.message}`,
+      ].filter(Boolean);
+      location.href = `mailto:${d.links.email}?subject=${encodeURIComponent(`Hello from your website: ${label}`)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      return;
+    }
     const res = await fetch("/api/intro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

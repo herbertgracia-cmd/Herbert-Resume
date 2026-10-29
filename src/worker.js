@@ -1,5 +1,8 @@
 import content from "../public/content.json";
 
+// Shown at /api/status so you can tell which version is live.
+const VERSION = "2026-10-29.2";
+
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
 
@@ -11,6 +14,7 @@ export default {
       if (url.pathname === "/api/status" && request.method === "GET") {
         // Lets the page show or hide features depending on which secrets are set.
         return json({
+          version: VERSION,
           contact: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
           intro: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         });
