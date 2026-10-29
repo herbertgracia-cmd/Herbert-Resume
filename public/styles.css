@@ -208,6 +208,29 @@ img, svg { display: block; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
 .tag { font: 400 11px/1 var(--mono); padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; }
 
+/* What I bring */
+.pillars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.pillar {
+  display: flex; flex-direction: column; gap: 10px; padding: 28px;
+  border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .25s, background .25s;
+}
+.pillar:hover { border-color: var(--ink); background: var(--surface); }
+.pillar-num { font: 400 12px/1 var(--mono); color: var(--accent); }
+.pillar h3 { margin: 0; font: 400 clamp(1.6rem, 2.4vw, 2rem)/1.05 var(--serif); }
+.pillar > p { margin: 0; color: var(--muted); }
+.pillar ul { margin: 6px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.pillar ul li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.45; }
+.pillar ul li:last-child { border-bottom: 0; }
+
+/* Industries */
+.industries { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); border-top: 1px solid var(--line); }
+.industries li { display: flex; flex-direction: column; gap: 6px; padding: 20px 20px 20px 0; border-bottom: 1px solid var(--line); }
+.industries strong { font: 400 1.5rem/1.1 var(--serif); }
+.industries span { font-size: 14px; color: var(--muted); line-height: 1.45; }
+
+.hero-role .sep { color: var(--accent); }
+.hero-role .role { white-space: nowrap; }
+
 /* Work / portfolio */
 .work { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
 .work-filters { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -249,6 +272,7 @@ img, svg { display: block; }
 .cat-storytelling   { --cat: #ddcdee; --cat-ink: #46246b; }
 .cat-collaborations { --cat: #c6e3cf; --cat-ink: #17502e; }
 .cat-technology     { --cat: #dcd9d2; --cat-ink: #2b2a27; }
+.cat-ai             { --cat: #bfe5e3; --cat-ink: #0f4744; }
 .cat-other          { --cat: var(--line); --cat-ink: var(--ink); }
 
 @media (prefers-color-scheme: dark) {
@@ -257,12 +281,14 @@ img, svg { display: block; }
   :root:not([data-theme="light"]) .cat-storytelling   { --cat: #33214a; --cat-ink: #e3d0fa; }
   :root:not([data-theme="light"]) .cat-collaborations { --cat: #173a26; --cat-ink: #c3ecd1; }
   :root:not([data-theme="light"]) .cat-technology     { --cat: #2a2926; --cat-ink: #e6e3dc; }
+  :root:not([data-theme="light"]) .cat-ai             { --cat: #123b39; --cat-ink: #bdeeea; }
 }
 :root[data-theme="dark"] .cat-design         { --cat: #4a2417; --cat-ink: #ffc9b3; }
 :root[data-theme="dark"] .cat-video          { --cat: #1c2b4d; --cat-ink: #c9d8ff; }
 :root[data-theme="dark"] .cat-storytelling   { --cat: #33214a; --cat-ink: #e3d0fa; }
 :root[data-theme="dark"] .cat-collaborations { --cat: #173a26; --cat-ink: #c3ecd1; }
 :root[data-theme="dark"] .cat-technology     { --cat: #2a2926; --cat-ink: #e6e3dc; }
+:root[data-theme="dark"] .cat-ai             { --cat: #123b39; --cat-ink: #bdeeea; }
 
 
 .work-dialog {
@@ -419,7 +445,16 @@ img, svg { display: block; }
   .job { padding: 8pt 0; }
   .job h3, .job li, .stat, .community li { break-inside: avoid; }
   .job h3 { break-after: avoid; }
-  .job h3, .work-card h3 { font-size: 14pt; }
+  .job h3, .work-card h3, .pillar h3 { font-size: 14pt; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 18pt; }
+  .pillar { padding: 0; border: 0; break-inside: avoid; gap: 2pt; }
+  .pillar ul { border: 0; margin: 0; padding-left: 1em; list-style: disc; }
+  .pillar ul li { padding: 0; border: 0; font-size: 10pt; }
+  .pillar-num { display: none; }
+  .industries { grid-template-columns: 1fr 1fr 1fr; border: 0; }
+  .industries li { padding: 3pt 8pt 3pt 0; border: 0; break-inside: avoid; }
+  .industries strong { font-size: 11.5pt; }
+  .industries span { font-size: 9pt; }
   .work-filters, .work-cover, .work-dialog { display: none !important; }
   .work-grid { display: block; }
   .work-grid li[hidden] { display: block; }

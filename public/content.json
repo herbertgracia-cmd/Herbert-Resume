@@ -1,14 +1,14 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The chat assistant also answers from this file only.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Collaborations, Technology.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
-  "role": "Assistant Director, Tech, Marketing & Creative",
+  "role": "Brand builder · Entrepreneur · Product & project lead · Assistant Director · Agentic AI",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "Mission-driven nonprofit leader with 21 years at the Fromm Institute, driving strategy, fundraising, marketing, and community partnerships for older adults in San Francisco.",
+  "tagline": "I build brands, products, and the teams behind them. 21 years leading marketing, technology, and strategy at the Fromm Institute, two businesses founded and scaled to exit, and now certified in agentic AI.",
   "links": {
     "email": "herbert.gracia@gmail.com",
-    "linkedin": "",
+    "linkedin": "https://www.linkedin.com/in/herbert-gracia",
     "github": ""
   },
   "stats": [
@@ -30,8 +30,87 @@
     }
   ],
   "about": [
-    "Recognized for building strong relationships with Boards, staff, donors, and community partners while leading with vision, creativity, and empathy.",
-    "An advocate for older adults as lifelong contributors, leading initiatives that advance social justice and counter ageism in programming, communications, and community outreach."
+    "My path looks varied (brand builder, entrepreneur, product and project lead, Assistant Director), but the thread is the same: turning a mission into something people can see, use, and believe in.",
+    "Recognized for building strong relationships with Boards, staff, donors, and community partners while leading with vision, creativity, and empathy. An advocate for older adults as lifelong contributors, countering ageism in programming, communications, and outreach."
+  ],
+  "pillars": [
+    {
+      "title": "Brand building & marketing",
+      "summary": "From zero presence to a multi-channel brand.",
+      "proof": [
+        "Grew Fromm's communications to reach 1,500+ older learners and raised enrollment 10%",
+        "Direct all marketing, PR, print ads, and social media",
+        "Leading the 50th Anniversary campaign",
+        "Creative brand leadership for two businesses of my own"
+      ]
+    },
+    {
+      "title": "Entrepreneurship",
+      "summary": "Two businesses founded, scaled, and exited.",
+      "proof": [
+        "Owned finance, production, hiring, and design",
+        "Built teams and community partnerships from the ground up",
+        "Financial stewardship and fundraising from day one"
+      ]
+    },
+    {
+      "title": "Product & project management",
+      "summary": "Taking ideas from concept to launch.",
+      "proof": [
+        "Designed and launched Frommcast, a subscription video platform",
+        "Led the Salesforce website rebuild with Stripe and CashNet payments",
+        "Launched member apps and upgraded all classroom equipment",
+        "Ran the move to hybrid learning and to YouTube programs"
+      ]
+    },
+    {
+      "title": "Executive leadership",
+      "summary": "Senior leadership at a university-affiliated nonprofit.",
+      "proof": [
+        "Partner with a 21-member Board on governance, fiscal oversight, and strategy",
+        "Part of the leadership group behind fundraising strategy",
+        "Unite staff, faculty, and 20+ volunteers around shared goals"
+      ]
+    },
+    {
+      "title": "Agentic AI",
+      "summary": "Putting AI agents to work on real problems.",
+      "proof": [
+        "Completed an AI Agentic certificate",
+        "Designing the Fromm Enrollment Helper, an AI guide for older adults",
+        "Directed AI agents to build this website and its NVIDIA-powered chat"
+      ]
+    }
+  ],
+  "industries": [
+    {
+      "name": "Nonprofit & philanthropy",
+      "note": "Fundraising, donor stewardship, and board governance"
+    },
+    {
+      "name": "Higher education",
+      "note": "University of San Francisco affiliate for 21 years"
+    },
+    {
+      "name": "Lifelong learning & aging",
+      "note": "Programs for 1,500+ older adults each year"
+    },
+    {
+      "name": "EdTech & online video",
+      "note": "Frommcast, hybrid classrooms, and YouTube programs"
+    },
+    {
+      "name": "Marketing, brand & creative",
+      "note": "Campaigns, PR, print, social, and design"
+    },
+    {
+      "name": "Small business & startups",
+      "note": "Two businesses founded and scaled to exit"
+    },
+    {
+      "name": "AI & automation",
+      "note": "Agentic AI certificate and AI assistant design"
+    }
   ],
   "community": [
     "Built strong, transparent relationships with a 21-member Board of Directors, enhancing governance and fiscal accountability across all programs.",
@@ -48,9 +127,9 @@
       "summary": "Key member of the Institute's senior leadership and executive planning groups. Partner with the Board of Directors and senior leaders on governance, fiscal oversight, succession planning, and long-term strategy for a nonprofit serving 1,500+ older adult learners each year.",
       "highlights": [
         "Marketing & Communications: Direct all marketing and PR across digital and print. Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners and increasing enrollment by 10%. Currently leading all marketing and PR for Fromm's 50th Anniversary.",
+        "Product & Technology: Led the launch of a new website, member apps, and classroom equipment upgrades. Directed a Salesforce-based website redesign with integrated payment and donor systems (Stripe, CashNet), bringing tuition, donations, and enrollment management in-house.",
+        "Product Launches: Led the move to hybrid learning for in-person and online members. Designed and launched Frommcast, an online subscription platform for recorded classes, and now oversee the move of all content to the Institute's new YouTube programs.",
         "Fundraising & Donor Engagement: Member of the leadership group responsible for fundraising strategy. Designed donor appreciation events and stewardship campaigns, and created the metrics and messaging that show why lifelong learning matters to older adults' health and social connection.",
-        "Technology & Finance: Led the launch of a new website, member apps, and classroom equipment upgrades. Directed a Salesforce-based website redesign with integrated payment and donor systems (Stripe, CashNet), bringing tuition, donations, and enrollment management in-house.",
-        "Program Innovation: Led the move to hybrid learning for in-person and online members. Designed and launched Frommcast, an online subscription platform for recorded classes, and now oversee the move of all content to the Institute's new YouTube programs.",
         "Board & Staff Relationships: Built lasting trust with Board members, faculty, staff, and volunteers over 21 years, fostering collaboration, transparency, and shared mission.",
         "Community Connector: Established partnerships with retirement homes and senior-serving organizations throughout San Francisco, positioning elderhood as a time of contribution, not decline.",
         "Equity & Advocacy: Led efforts to make Fromm's programs welcoming and accessible to all older adults, countering ageism and expanding diversity and inclusion.",
@@ -168,7 +247,7 @@
     },
     {
       "title": "Fromm Enrollment Helper",
-      "category": "Technology",
+      "category": "AI",
       "year": "In progress",
       "summary": "A plain-language AI helper that walks older adults through online enrollment step by step and hands off to staff with the question already summarized.",
       "tags": [
@@ -176,43 +255,72 @@
         "Accessibility",
         "Product design"
       ]
+    },
+    {
+      "title": "This website",
+      "category": "AI",
+      "year": "2026",
+      "summary": "Directed AI coding agents to design and build this resume site, including an AI chat that answers recruiter questions from my resume.",
+      "details": "The chat runs on NVIDIA's Nemotron model. The site is hosted on Cloudflare Workers, and contact messages are saved in a Supabase database.",
+      "role": "Product owner & director of the AI build",
+      "tags": [
+        "Agentic AI",
+        "NVIDIA",
+        "Cloudflare",
+        "Supabase"
+      ]
     }
   ],
   "skills": [
     {
-      "group": "Leadership",
-      "items": [
-        "Executive & Strategic Leadership",
-        "Board & Staff Engagement",
-        "Public Speaking & Storytelling",
-        "Diversity, Inclusion & Anti-Ageism"
-      ]
-    },
-    {
-      "group": "Fundraising & Finance",
-      "items": [
-        "Fundraising & Donor Stewardship",
-        "Nonprofit Finance",
-        "Community Partnerships"
-      ]
-    },
-    {
-      "group": "Marketing & Technology",
+      "group": "Brand & Marketing",
       "items": [
         "Marketing & PR Campaigns",
         "Design & Creative Direction",
-        "Technology & Operations Oversight"
+        "Public Speaking & Storytelling",
+        "Social media & print"
       ]
     },
     {
-      "group": "Platforms",
+      "group": "Product & Projects",
       "items": [
-        "Salesforce",
-        "Stripe",
-        "CashNet",
-        "YouTube",
-        "Social media"
+        "Product launches",
+        "Website & app delivery",
+        "Platform integration (Salesforce, Stripe, CashNet)",
+        "Change management"
       ]
+    },
+    {
+      "group": "Leadership & Finance",
+      "items": [
+        "Executive & Strategic Leadership",
+        "Board & Staff Engagement",
+        "Fundraising & Donor Stewardship",
+        "Nonprofit Finance"
+      ]
+    },
+    {
+      "group": "AI & Technology",
+      "items": [
+        "Agentic AI",
+        "AI assistant design",
+        "Technology & Operations Oversight",
+        "YouTube & online video"
+      ]
+    },
+    {
+      "group": "Community",
+      "items": [
+        "Community Partnerships",
+        "Diversity, Inclusion & Anti-Ageism"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AI Agentic Certificate",
+      "issuer": "",
+      "year": ""
     }
   ],
   "education": [

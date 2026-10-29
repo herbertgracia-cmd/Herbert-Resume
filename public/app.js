@@ -35,6 +35,22 @@ function render(d) {
   });
   document.title = `${d.name} — Resume`;
 
+  // Hero role: "A · B · C" becomes separate pieces with accent dots.
+  const roleEl = $(".hero-role");
+  const roles = d.role.split(" · ");
+  if (roles.length > 1) {
+    // Each dot stays attached to the role before it, so lines never start with one.
+    roleEl.replaceChildren(...roles.flatMap((r, i) => [
+      h("span", { class: "role" }, r, i < roles.length - 1 && h("span", { class: "sep", "aria-hidden": "true" }, " ·")),
+      i < roles.length - 1 ? " " : null,
+    ]).filter(Boolean));
+  }
+  if (d.links?.linkedin) {
+    const li = $("#hero-linkedin");
+    li.href = d.links.linkedin;
+    li.hidden = false;
+  }
+
   // Hero name: one line per word, last word in italic accent.
   const nameEl = $(".hero-name");
   nameEl.replaceChildren(...d.name.split(/\s+/).map((w) => h("span", { class: "line" }, w)));
@@ -74,10 +90,34 @@ function render(d) {
 
   renderWork(d.work || []);
 
+  // What I bring
+  if (d.pillars?.length) {
+    $("#pillars").replaceChildren(
+      ...d.pillars.map((p, i) =>
+        h("li", { class: "pillar reveal" },
+          h("span", { class: "pillar-num" }, String(i + 1).padStart(2, "0")),
+          h("h3", {}, p.title),
+          p.summary && h("p", {}, p.summary),
+          p.proof?.length > 0 && h("ul", {}, p.proof.map((x) => h("li", {}, x))),
+        ),
+      ),
+    );
+  } else $("#strengths").remove();
+
+  // Industries
+  if (d.industries?.length) {
+    $("#industry-list").replaceChildren(
+      ...d.industries.map((x) => h("li", { class: "reveal" }, h("strong", {}, x.name), x.note && h("span", {}, x.note))),
+    );
+  } else $("#industries").remove();
+
   $("#skill-list").replaceChildren(
     ...d.skills.map((g) => h("div", { class: "reveal" }, h("h3", {}, g.group), h("ul", {}, g.items.map((s) => h("li", {}, s))))),
   );
   $("#education").replaceChildren(
+    ...(d.certifications || []).map((c) =>
+      h("li", { class: "reveal" }, h("strong", {}, c.name), h("span", {}, [c.issuer, c.year].filter(Boolean).join(" · ") || "Certificate")),
+    ),
     ...(d.education || []).map((e) =>
       h("li", { class: "reveal" }, h("strong", {}, e.school), h("span", {}, [e.degree, e.year].filter(Boolean).join(" · "))),
     ),
@@ -94,6 +134,9 @@ function render(d) {
   );
 
   $("#year").textContent = new Date().getFullYear();
+
+  // Number the sections that are shown: 01, 02, 03...
+  document.querySelectorAll(".section .num").forEach((n, k) => { n.textContent = String(k + 1).padStart(2, "0"); });
 }
 
 // ---------- Work / portfolio ----------
@@ -134,7 +177,7 @@ function renderWork(items) {
   const section = $("#portfolio");
   if (!items.length) return section.remove();
 
-  const CATEGORY_ORDER = ["Design", "Video", "Storytelling", "Collaborations", "Technology"];
+  const CATEGORY_ORDER = ["Design", "Video", "Storytelling", "Collaborations", "Technology", "AI"];
   const cats = [...new Set(items.map((i) => i.category).filter(Boolean))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
   const filters = $("#work-filters");
@@ -283,7 +326,7 @@ function setupChat(d) {
   };
   add("bot", `Hi! Ask me anything about ${first}'s experience, projects, or skills.`);
 
-  [`What is ${first}'s most recent role?`, `What projects has ${first} worked on?`, `Is ${first} open to new roles?`]
+  [`What industries has ${first} worked in?`, `What has ${first} done with AI?`, `What brands or products has ${first} launched?`]
     .forEach((q) => suggest.append(h("button", { type: "button" }, q)));
   suggest.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") ask(e.target.textContent);
