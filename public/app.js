@@ -1,4 +1,4 @@
-// Fills the page from content.json and wires up theme, chat, and contact form.
+// Fills the page from content.json and wires up the theme, welcome pop-up, and contact form.
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -302,77 +302,10 @@ function setupReveal() {
 }
 
 async function setupFeatures(d) {
-  let status = { chat: false, contact: false };
+  let status = { contact: false, intro: false };
   try { status = await fetch("/api/status").then((r) => r.json()); } catch {}
-  if (status.chat) setupChat(d);
   if (status.contact) setupContact();
   if (status.intro && d.intro) setupIntro(d);
-}
-
-function setupChat(d) {
-  const first = d.name.split(" ")[0];
-  const launch = $("#chat-launch"), panel = $("#chat-panel"), log = $("#chat-log");
-  const form = $("#chat-form"), input = $("#chat-input"), suggest = $("#chat-suggest");
-  const history = [];
-  launch.hidden = false;
-
-  const open = (state) => {
-    panel.hidden = !state;
-    launch.hidden = state;
-    launch.setAttribute("aria-expanded", String(state));
-    if (state) input.focus(); else launch.focus();
-  };
-  launch.addEventListener("click", () => open(true));
-  $("#chat-close").addEventListener("click", () => open(false));
-  panel.addEventListener("keydown", (e) => { if (e.key === "Escape") open(false); });
-
-  const add = (cls, text) => {
-    const m = h("div", { class: `msg ${cls}` }, text);
-    log.append(m);
-    log.scrollTop = log.scrollHeight;
-    return m;
-  };
-  add("bot", `Hi, I'm ${first}, or rather an AI version of me. Ask me about my brands, design work, or experience.`);
-
-  ["What brands have you built?", "What's your creative direction experience?", "How do you use AI in your work?"]
-    .forEach((q) => suggest.append(h("button", { type: "button" }, q)));
-  suggest.addEventListener("click", (e) => {
-    if (e.target.tagName === "BUTTON") ask(e.target.textContent);
-  });
-  form.addEventListener("submit", (e) => { e.preventDefault(); ask(input.value); });
-
-  let busy = false;
-  async function ask(q) {
-    q = q.trim();
-    if (!q || busy) return;
-    busy = true;
-    input.value = "";
-    suggest.hidden = true;
-    add("user", q);
-    const pending = add("bot typing", "Thinking…");
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: q, history }),
-      });
-      const body = await res.json();
-      if (res.status === 429) {
-        pending.className = "msg bot err";
-        pending.textContent = body.error;
-        return;
-      }
-      if (!res.ok) throw new Error(body.error || "Something went wrong.");
-      pending.className = "msg bot";
-      pending.textContent = body.answer;
-      history.push({ role: "user", content: q }, { role: "assistant", content: body.answer });
-    } catch (err) {
-      pending.className = "msg bot err";
-      pending.textContent = `${err.message} You can also email ${d.links.email}.`;
-    } finally {
-      busy = false;
-    }
-  }
 }
 
 // Welcome pop-up. Shows once per visitor, after a delay or partway down the page.
@@ -382,7 +315,7 @@ function setupIntro(d) {
   const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch {} };
 
   const box = $("#intro"), step1 = $("#intro-step-1"), form = $("#intro-form"), done = $("#intro-done");
-  const status = $("#intro-status"), chatLaunch = $("#chat-launch");
+  const status = $("#intro-status");
   const cfg = d.intro;
   let reason = null;
 
@@ -392,17 +325,15 @@ function setupIntro(d) {
     h("button", { type: "button", class: "intro-reason", "data-id": r.id }, r.label)));
 
   const show = () => {
-    if (!box.hidden || document.querySelector(".chat-panel:not([hidden])")) return;
+    if (!box.hidden) return;
     box.hidden = false;
     requestAnimationFrame(() => box.classList.add("open"));
-    if (chatLaunch) chatLaunch.classList.add("nudged");
     cleanup();
   };
   const close = () => {
     remember();
     box.classList.remove("open");
     setTimeout(() => { box.hidden = true; }, 250);
-    if (chatLaunch) chatLaunch.classList.remove("nudged");
   };
   const send = async (payload) => {
     const res = await fetch("/api/intro", {

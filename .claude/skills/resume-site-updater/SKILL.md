@@ -5,7 +5,7 @@ description: Update Herbert Gracia's resume website in this repo. Use when Herbe
 
 # Resume site updater
 
-Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. Almost every change is an edit to **`public/content.json`**; the page and the AI chat both read from it.
+Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. Almost every change is an edit to **`public/content.json`**; the page reads from it.
 
 ## Where things live
 
@@ -15,7 +15,7 @@ Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. A
 | Page layout | `public/index.html`, `public/app.js`, `public/styles.css` |
 | Work images | `public/work/` |
 | Link-preview image | `public/og.png`, rebuilt with `node scripts/make-og.mjs` |
-| Chat and contact API | `src/worker.js` |
+| Welcome pop-up and contact API | `src/worker.js` |
 | Cloudflare settings | `wrangler.toml` |
 | Database setup | `supabase/schema.sql` |
 
@@ -37,7 +37,7 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
   - Exactly **6** items have `"featured": true`, and they are listed first.
   - Optional: `year`, `details`, `role`, `collaborators`, `tags`, `image`, `imageAlt`, `video`, `link`.
 - **Everything else**: `skills` groups stay short (6 items or fewer each); `certifications` have `name`, `issuer`, and `year`; `education` uses the first entry only on the page.
-- **Voice**: the chat answers in first person as an AI version of Herbert, so write facts plainly and in a way that reads well in first person.
+- **Welcome pop-up**: its text, choices, and delay are in the `intro` block. Reason ids (`hiring`, `project`, `collab`, `looking`) must match the check in `supabase/schema.sql`; if you add one, update both.
 
 ## Adding work samples
 
@@ -68,6 +68,6 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
 
 ## Don't
 
-- Don't put secrets (NVIDIA or Supabase keys) in any file. They live in Cloudflare as Secrets.
-- Don't re-add long sections (About, What I bring, Community); that content stays in the JSON for the chat but isn't shown.
+- Don't put secrets (Supabase keys) in any file. They live in Cloudflare as Secrets.
+- Don't re-add long sections (About, What I bring, Community); that content stays in the JSON but isn't shown.
 - Don't commit the `applications/` folder; it's private.

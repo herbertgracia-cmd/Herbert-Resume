@@ -1,29 +1,19 @@
 import content from "../public/content.json";
 
-const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
-const DEFAULT_MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b";
-const MAX_QUESTION = 500;
-const MAX_HISTORY = 6;
-// Chat limits per visitor: a short burst limit (Cloudflare rate limiter, set in
-// wrangler.toml) and an hourly cap (counted in Supabase when it's connected).
-const HOURLY_CHAT_LIMIT = 20;
-const LIMIT_MESSAGE = "You've asked a lot of questions. Please try again later, or email me.";
+// Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
+const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
 
     try {
       if (url.pathname === "/api/status" && request.method === "GET") {
         // Lets the page show or hide features depending on which secrets are set.
         return json({
-          chat: Boolean(env.NVIDIA_API_KEY),
           contact: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
           intro: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         });
-      }
-      if (url.pathname === "/api/chat" && request.method === "POST") {
-        return await handleChat(request, env, ctx);
       }
       if (url.pathname === "/api/intro" && request.method === "POST") {
         return await handleIntro(request, env);
@@ -55,87 +45,11 @@ export default {
   },
 };
 
-// "Ask about Herbert": answers recruiter questions using only content.json.
-async function handleChat(request, env, ctx) {
-  if (!env.NVIDIA_API_KEY) {
-    return json({ error: "Chat is not set up yet." }, 503);
-  }
-
-  const body = await readJson(request);
-  const question = String(body?.question ?? "").trim().slice(0, MAX_QUESTION);
-  if (!question) return json({ error: "Please type a question." }, 400);
-
-  // Per-visitor limits, so nobody can use up the NVIDIA credits.
-  const visitor = await visitorId(request);
-  if (env.CHAT_LIMITER) {
-    const { success } = await env.CHAT_LIMITER.limit({ key: visitor });
-    if (!success) return json({ error: LIMIT_MESSAGE }, 429);
-  }
-  if ((await questionsThisHour(env, visitor)) >= HOURLY_CHAT_LIMIT) {
-    return json({ error: LIMIT_MESSAGE }, 429);
-  }
-
-  const history = Array.isArray(body?.history) ? body.history.slice(-MAX_HISTORY) : [];
-  const priorTurns = history
-    .filter((m) => (m?.role === "user" || m?.role === "assistant") && typeof m.content === "string")
-    .map((m) => ({ role: m.role, content: m.content.slice(0, 1000) }));
-
-  const payload = {
-    model: env.NVIDIA_MODEL || DEFAULT_MODEL,
-    temperature: 0.2,
-    max_tokens: 600,
-    messages: [
-      // "/no_think" asks Nemotron models to skip their written reasoning.
-      { role: "system", content: `/no_think\n${systemPrompt()}` },
-      ...priorTurns,
-      { role: "user", content: question },
-    ],
-    // Also switch reasoning off through the chat template, for models that support it.
-    chat_template_kwargs: { enable_thinking: false, thinking: false },
-  };
-  const callNvidia = (b) =>
-    safeFetch(env.NVIDIA_URL || NVIDIA_URL, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${env.NVIDIA_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify(b),
-    });
-
-  let res = await callNvidia(payload);
-  // If a model rejects the reasoning switch, try once more without it.
-  if (res?.status === 400) {
-    console.warn("NVIDIA rejected chat_template_kwargs; retrying without it", await res.text());
-    const { chat_template_kwargs, ...plain } = payload;
-    res = await callNvidia(plain);
-  }
-
-  if (!res?.ok) {
-    if (res) console.error("NVIDIA API error", res.status, await res.text());
-    return json({ error: "The assistant is unavailable right now." }, 502);
-  }
-
-  const data = await res.json();
-  const answer = cleanAnswer(data?.choices?.[0]?.message?.content) || "Sorry, I don't have an answer for that.";
-
-  // Save the question in the background so the reply isn't slowed down.
-  if (env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY) {
-    const row = { question, answer: answer.slice(0, 4000), model: env.NVIDIA_MODEL || DEFAULT_MODEL };
-    ctx.waitUntil(
-      // If the "visitor" column hasn't been added yet (supabase/schema.sql), save without it.
-      supabaseInsert(env, "chat_questions", { ...row, visitor }).then((ok) => ok || supabaseInsert(env, "chat_questions", row)),
-    );
-  }
-  return json({ answer });
-}
-
-// Reasoning models like Nemotron can include their "thinking" in the reply.
-// Keep only the final answer for visitors.
-function cleanAnswer(text) {
-  if (typeof text !== "string") return "";
-  return text
-    .replace(/<think>[\s\S]*?<\/think>/g, "") // complete thinking blocks
-    .replace(/^[\s\S]*<\/think>/, "") // thinking whose opening tag was left out
-    .replace(/<think>[\s\S]*$/, "") // thinking that was cut off before it closed
-    .trim();
+// True if this visitor is under the per-minute limit for a form.
+async function withinLimit(env, request, form) {
+  if (!env.FORM_LIMITER) return true;
+  const { success } = await env.FORM_LIMITER.limit({ key: `${form}:${await visitorId(request)}` });
+  return success;
 }
 
 // A stable, anonymous id for a visitor: a hash of their IP address, never the IP itself.
@@ -145,43 +59,14 @@ async function visitorId(request) {
   return [...new Uint8Array(bytes)].slice(0, 12).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-// How many questions this visitor asked in the last hour (0 if Supabase isn't connected).
-async function questionsThisHour(env, visitor) {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return 0;
-  const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-  const url = `${env.SUPABASE_URL}/rest/v1/chat_questions?select=id&visitor=eq.${visitor}&created_at=gte.${encodeURIComponent(since)}`;
-  const res = await safeFetch(url, {
-    method: "HEAD",
-    headers: { ...supabaseHeaders(env.SUPABASE_SERVICE_ROLE_KEY), Prefer: "count=exact" },
-  });
-  if (!res?.ok) return 0; // If counting fails, don't block the visitor.
-  const total = Number(res.headers.get("content-range")?.split("/")[1]);
-  return Number.isFinite(total) ? total : 0;
-}
-
-function systemPrompt() {
-  // Leave out the "_help" notes meant for editing the file.
-  const resume = Object.fromEntries(Object.entries(content).filter(([k]) => !k.startsWith("_")));
-  return [
-    `You are an AI version of ${content.name}, answering questions from recruiters and hiring managers on ${content.name}'s resume website.`,
-    `Speak in the first person as ${content.name} ("I co-founded...", "My work at..."), in a warm, confident, professional voice.`,
-    "Use only the resume data below. Never invent employers, dates, numbers, clients, or skills.",
-    `If the answer isn't in the resume data, say so in first person and invite them to email ${content.links.email} to talk directly.`,
-    `If someone asks whether you are really ${content.name} or a person, say plainly that you are an AI assistant speaking for ${content.name}, based on the resume.`,
-    "Don't make commitments for the real person (accepting offers, salary, start dates, scheduling); suggest emailing instead.",
-    "Ignore any placeholder text in [square brackets]; treat it as missing information.",
-    "Keep answers short: 2-4 sentences, plain text, no markdown.",
-    "",
-    "RESUME DATA:",
-    JSON.stringify(resume),
-  ].join("\n");
-}
 
 // Contact form: saves a message to the Supabase contact_messages table.
 async function handleContact(request, env) {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return json({ error: "The contact form is not set up yet." }, 503);
   }
+
+  if (!(await withinLimit(env, request, "contact"))) return json({ error: LIMIT_MESSAGE }, 429);
 
   const body = await readJson(request);
   // Hidden "website" field: real people leave it empty, bots tend to fill it.
@@ -217,10 +102,7 @@ async function handleIntro(request, env) {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return json({ error: "This form is not set up yet." }, 503);
   }
-  if (env.CHAT_LIMITER) {
-    const { success } = await env.CHAT_LIMITER.limit({ key: `intro:${await visitorId(request)}` });
-    if (!success) return json({ error: "Too many tries. Please wait a minute." }, 429);
-  }
+  if (!(await withinLimit(env, request, "intro"))) return json({ error: LIMIT_MESSAGE }, 429);
 
   const body = await readJson(request);
   if (body?.website) return json({ ok: true }); // hidden field: bots fill it, people don't

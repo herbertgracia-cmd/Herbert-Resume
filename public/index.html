@@ -139,27 +139,6 @@
     </div>
   </section>
 
-  <!-- "Ask me" assistant: an AI that answers in first person. Only shown once NVIDIA_API_KEY is set. -->
-  <button class="chat-launch" id="chat-launch" type="button" hidden aria-expanded="false" aria-controls="chat-panel">
-    <span class="dot" aria-hidden="true"></span><span>Ask me anything</span>
-  </button>
-  <section class="chat-panel" id="chat-panel" hidden aria-label="Chat with an AI version of me">
-    <header class="chat-head">
-      <div>
-        <p class="chat-title">Ask me anything</p>
-        <p class="chat-sub">An AI version of me, answering from my resume.</p>
-      </div>
-      <button class="icon-btn" id="chat-close" type="button" aria-label="Close chat">✕</button>
-    </header>
-    <div class="chat-log" id="chat-log" aria-live="polite"></div>
-    <div class="chat-suggest" id="chat-suggest"></div>
-    <form class="chat-form" id="chat-form">
-      <label class="sr-only" for="chat-input">Your question</label>
-      <input id="chat-input" placeholder="Ask a question…" maxlength="500" autocomplete="off">
-      <button class="btn btn-small" type="submit">Ask</button>
-    </form>
-  </section>
-
   <noscript><p class="noscript">This page needs JavaScript to load the resume. You can reach Herbert at herbert.gracia@gmail.com.</p></noscript>
   <script src="/app.js" type="module"></script>
 </body>

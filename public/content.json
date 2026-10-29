@@ -1,5 +1,5 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Director, now building with AI",
@@ -91,7 +91,7 @@
         "Earned two AI certificates from the University of San Francisco: Applied Agentic AI and the AI Certificate Intensive",
         "Use generative AI for campaigns, content, audience messaging, research, and social media",
         "Designing the Fromm Enrollment Helper, an AI guide for older adults",
-        "Directed AI agents to build this website and its NVIDIA-powered chat"
+        "Directed AI agents to build this website, including its visitor welcome pop-up"
       ]
     }
   ],
@@ -303,12 +303,11 @@
       "title": "This website",
       "category": "AI",
       "year": "2026",
-      "summary": "Directed AI coding agents to design and build this resume site, including an AI chat that answers recruiter questions from my resume.",
-      "details": "The chat runs on NVIDIA's Nemotron model. The site is hosted on Cloudflare Workers, and contact messages are saved in a Supabase database.",
+      "summary": "Directed AI coding agents to design and build this resume site, from layout and content to the welcome pop-up that asks visitors how I can help.",
+      "details": "Hosted on Cloudflare Workers, with visitor answers and contact messages saved in a Supabase database.",
       "role": "Product owner & director of the AI build",
       "tags": [
         "Agentic AI",
-        "NVIDIA",
         "Cloudflare",
         "Supabase"
       ],

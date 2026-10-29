@@ -2,14 +2,14 @@
 
 A personal resume site for sharing with companies. It runs on **Cloudflare Workers** and has two optional features you can switch on later:
 
-- **"Ask about Herbert" chat**: recruiters ask questions and get answers from an Nvidia-hosted LLM. It only uses what's in your resume.
+- **Welcome pop-up**: asks visitors what brings them here and saves who they are to **Supabase**.
 - **Contact form**: messages are saved to a **Supabase** database.
 
-Both stay hidden until you add their keys, so the site works as a plain resume from day one.
+They stay hidden until you add the Supabase keys, so the site works as a plain resume from day one.
 
 ## Edit your resume
 
-All the text lives in **`public/content.json`**. The page and the chat both read from this one file, so there's nothing else to update. Each job shows its `key` bullets; `creative`, `highlights`, and `earlier_roles` sit behind a "More about this role" link. Work items marked `"featured": true` show first.
+All the text lives in **`public/content.json`**. The page reads from this one file, so there's nothing else to update. Each job shows its `key` bullets; `creative`, `highlights`, and `earlier_roles` sit behind a "More about this role" link. Work items marked `"featured": true` show first.
 
 "Save as PDF" in the top bar prints a clean two-page version of the resume.
 
@@ -82,23 +82,10 @@ Wrangler prints your live URL (`https://herbert-resume.<your-subdomain>.workers.
 
 You can also connect this GitHub repo in the Cloudflare dashboard (**Workers & Pages → Create → Import a repository**) so every push deploys automatically.
 
-## Turn on the AI chat (Nvidia)
-
-1. Get an API key at https://build.nvidia.com (it starts with `nvapi-`).
-2. Add it to Cloudflare:
-   ```bash
-   npx wrangler secret put NVIDIA_API_KEY
-   ```
-3. Optional: pick a different model by changing `NVIDIA_MODEL` in `wrangler.toml`.
-
-The chat button appears on the site once the key is set. It answers in first person as an AI version of you, using only `content.json`.
-
-**Limits:** each visitor can ask 5 questions a minute (Cloudflare rate limiter in `wrangler.toml`) and 20 an hour (counted in Supabase, if connected), so nobody can use up your NVIDIA credits. The chat also asks the model not to write out its reasoning, and removes any that slips through.
-
-## Turn on the contact form (Supabase)
+## Turn on the welcome pop-up and contact form (Supabase)
 
 1. Create a project at https://supabase.com.
-2. Open the **SQL editor**, paste in `supabase/schema.sql`, and run it. It's safe to run again whenever the file changes (for example, to add the `visitor` column the hourly chat limit uses).
+2. Open the **SQL editor**, paste in `supabase/schema.sql`, and run it. It's safe to run again whenever the file changes.
 3. In **Project Settings → API**, copy the project URL and a secret key (the `sb_secret_...` key, or the legacy `service_role` key), then add them to Cloudflare:
    ```bash
    npx wrangler secret put SUPABASE_URL
@@ -107,11 +94,10 @@ The chat button appears on the site once the key is set. It answers in first per
    npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
    ```
 
-The form appears under Contact once both are set. In Supabase's **Table Editor**:
+The pop-up and the contact form appear once both are set. Each allows 5 submissions a minute per visitor, to stop spam. In Supabase's **Table Editor**:
 
 - **contact_messages**: messages from the contact form. Tick `is_read` once you've replied.
 - **visitor_intros**: answers from the welcome pop-up ("What brings you here?"): the reason (hiring, project, collab, or just looking), plus name, email, company, title, and message when the visitor shares them. Tick `is_read` once you've followed up.
-- **chat_questions**: every question recruiters ask the AI chat, with its answer (only filled in once the Nvidia chat is turned on too). No names, emails, or IP addresses are stored; `visitor` is a one-way hash used only for the hourly limit.
 
 The `service_role` key only lives in Cloudflare and is never sent to the browser. Keep it out of git.
 
@@ -124,8 +110,8 @@ For `npm run dev`, copy `.dev.vars.example` to `.dev.vars` and fill in the keys 
 | Path | What it is |
 | --- | --- |
 | `public/` | The website: `index.html`, `styles.css`, `app.js`, and `content.json` (your resume) |
-| `src/worker.js` | Cloudflare Worker: serves the site, fills in link-preview tags, and handles `/api/status`, `/api/chat`, `/api/contact` |
-| `supabase/schema.sql` | Database tables for contact messages and chat questions |
+| `src/worker.js` | Cloudflare Worker: serves the site, fills in link-preview tags, and handles `/api/status`, `/api/intro`, `/api/contact` |
+| `supabase/schema.sql` | Database tables for contact messages and welcome pop-up answers |
 | `wrangler.toml` | Cloudflare settings |
 
 There's no build step or framework: plain HTML, CSS, and JavaScript.

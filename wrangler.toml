@@ -11,23 +11,19 @@ binding = "ASSETS"
 # everything else is served straight from /public.
 run_worker_first = ["/api/*", "/", "/index.html"]
 
-# Chat burst limit: at most 5 questions per minute per visitor.
-# (An hourly cap of 20 is also applied in src/worker.js when Supabase is connected.)
+# Form spam limit: at most 5 submissions per minute per visitor
+# (welcome pop-up and contact form).
 [[ratelimits]]
-name = "CHAT_LIMITER"
+name = "FORM_LIMITER"
 namespace_id = "1001"
 simple = { limit = 5, period = 60 }
 
 [vars]
-# Any model from https://build.nvidia.com that supports chat completions.
-NVIDIA_MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b"
-
 # Public Supabase values (safe to commit; not used by the site yet).
 SUPABASE_JWKS_URL = "https://lpvwcjhtibuedqxbxzof.supabase.co/auth/v1/.well-known/jwks.json"
 SUPABASE_PUBLISHABLE_KEY = "sb_publishable_kpRJ_KoOReNrhqAEpoY6Fg_81dZGifT"
 
 # Secrets: add these in Cloudflare as type "Secret", never here.
 # (Set with `npx wrangler secret put NAME`, or in .dev.vars for local dev):
-#   NVIDIA_API_KEY             - turns on the "Ask me anything" chat
-#   SUPABASE_URL               - turns on saving contact-form messages
+#   SUPABASE_URL               - turns on the welcome pop-up and contact form
 #   SUPABASE_SERVICE_ROLE_KEY
