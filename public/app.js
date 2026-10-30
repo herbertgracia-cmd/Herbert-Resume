@@ -146,6 +146,8 @@ function workCover(item, { large = false, hue = 0 } = {}) {
   const cover = h("div", { class: `work-cover ${categoryClass(item.category)} hue-${hue % 6}`, "aria-hidden": "true" });
   if (src) {
     cover.classList.add("has-image");
+    // Logos show whole on a dark background instead of being cropped.
+    if (item.imageFit === "contain") cover.classList.add("fit-contain");
     cover.append(h("img", { src, alt: "", loading: large ? null : "lazy" }));
   } else {
     cover.append(
@@ -237,7 +239,7 @@ function openWork(item, index = 0) {
       item.images.map((img) => h("img", { src: img.src, alt: img.alt || item.title })));
   } else if (item.image || item.images?.length) {
     const img = item.images?.[0] || { src: item.image, alt: item.imageAlt };
-    media = h("div", { class: "work-media" }, h("img", { src: img.src, alt: img.alt || item.title }));
+    media = h("div", { class: item.imageFit === "contain" ? "work-media fit-contain" : "work-media" }, h("img", { src: img.src, alt: img.alt || item.title }));
   } else {
     media = workCover(item, { large: true, hue: index });
     media.classList.add("work-media");
