@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.3";
+const VERSION = "2026-10-30.4";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -42,8 +42,20 @@ async function route(request, env) {
   try {
     if (url.pathname === "/api/status" && request.method === "GET") {
       // Lets the page show or hide features depending on which secrets are set.
-      const supabase = Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY);
-      return json({ version: VERSION, contact: supabase, intro: supabase });
+      const { url, key } = supabaseConfig(env);
+      const supabase = Boolean(url && key);
+      return json({
+        version: VERSION,
+        contact: supabase,
+        intro: supabase,
+        // Setup check: which Supabase settings the site can see. Names and yes/no only,
+        // never the values themselves.
+        setup: {
+          supabase_url: Boolean(url),
+          supabase_key: Boolean(key),
+          setting_names: Object.keys(env).filter((k) => k.toUpperCase().includes("SUPABASE")).sort(),
+        },
+      });
     }
     if (url.pathname.startsWith("/api/") && request.method === "POST") {
       // Only accept JSON sent from this site's own pages.
@@ -196,7 +208,7 @@ async function visitorId(request) {
 
 // Contact form: saves a message to the Supabase contact_messages table.
 async function handleContact(request, env) {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+  if (!supabaseConfig(env).key || !supabaseConfig(env).url) {
     return json({ error: "The contact form is not set up yet." }, 503);
   }
 
@@ -223,6 +235,15 @@ async function handleContact(request, env) {
   return json({ ok: true });
 }
 
+// The Supabase address and secret key. The key is accepted under either name:
+// SUPABASE_SERVICE_ROLE_KEY, or SUPABASE_SECRET_KEY (Supabase's own name for it).
+// Extra spaces or a trailing slash pasted by accident are removed.
+function supabaseConfig(env) {
+  const url = String(env.SUPABASE_URL || "").trim().replace(/\/+$/, "");
+  const key = String(env.SUPABASE_SERVICE_ROLE_KEY || env.SUPABASE_SECRET_KEY || "").trim();
+  return { url, key };
+}
+
 // Works with both the legacy service_role key (a JWT starting "eyJ") and the
 // newer "sb_secret_..." keys, which go in the apikey header only.
 function supabaseHeaders(key) {
@@ -233,7 +254,7 @@ function supabaseHeaders(key) {
 
 // Welcome pop-up: saves who the visitor is and how Herbert can help.
 async function handleIntro(request, env) {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+  if (!supabaseConfig(env).key || !supabaseConfig(env).url) {
     return json({ error: "Sorry, this isn't working right now. Please try again later." }, 503);
   }
   if (!(await withinLimit(env, request, "intro"))) return json({ error: LIMIT_MESSAGE }, 429);
@@ -280,9 +301,10 @@ function originOnly(value) {
 
 // Adds one row to a Supabase table. Returns true if it worked.
 async function supabaseInsert(env, table, row) {
-  const res = await safeFetch(`${env.SUPABASE_URL}/rest/v1/${table}`, {
+  const { url, key } = supabaseConfig(env);
+  const res = await safeFetch(`${url}/rest/v1/${table}`, {
     method: "POST",
-    headers: supabaseHeaders(env.SUPABASE_SERVICE_ROLE_KEY),
+    headers: supabaseHeaders(key),
     body: JSON.stringify(row),
   });
   if (!res?.ok) {
