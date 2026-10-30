@@ -37,7 +37,7 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
   - `category` is one of Design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI.
   - Exactly **6** items have `"featured": true`, and they are listed first. Featured items are case studies: `challenge`, `role` (his part), `approach`, and `outcome`, each a sentence or two, from facts only. An outcome still in progress says so ("Running through 2026").
   - Optional: `year`, `details`, `role`, `collaborators`, `tags`, `image`, `imageAlt`, `video`, `link`.
-- **Everything else**: `skills` groups stay short (6 items or fewer each); `certifications` have `name`, `issuer`, and `year`; `education` uses the first entry only on the page.
+- **Everything else**: `skills` groups stay short (6 items or fewer each); `certifications` have `name`, `issuer`, `year`, and `status` ("Completed" or "In progress, <term>"; update it when he finishes); `education` uses the first entry only on the page.
 - **Welcome pop-up**: its text, choices, and delay are in the `intro` block. Reason ids (`hiring`, `project`, `collab`, `looking`) must match the check in `supabase/schema.sql`; if you add one, update both.
 
 ## Adding work samples

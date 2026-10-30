@@ -40,4 +40,4 @@ If Herbert asks to save it, write it to `applications/<company>-<role>/applicati
 
 ## Tone
 
-Confident, specific, human. Herbert is a brand and creative director who has also founded companies, run product and events, led at a university nonprofit, and earned USF certificates in Applied Agentic AI and AI. Show range as one story ("I build brands from concept to market"), not a scattered list.
+Confident, specific, human. Herbert is a brand and creative director who has also founded companies, run product and events, led at a university nonprofit, completed USF's AI Certificate Intensive, with the Applied Agentic AI Certificate in progress (Fall 2026). Never present an in-progress certificate as earned. Show range as one story ("I build brands from concept to market"), not a scattered list.

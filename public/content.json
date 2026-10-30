@@ -1,5 +1,5 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate's 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
   "name": "Herbert Gracia",
   "role": "Head of Brand · Creative Director · Growth & Strategy",
@@ -26,7 +26,7 @@
     },
     {
       "value": "+10%",
-      "label": "Fromm enrollment growth from the multi-channel marketing I built"
+      "label": "Fromm enrollment growth driven by my marketing"
     }
   ],
   "about": [
@@ -88,7 +88,7 @@
       "title": "AI & generative AI",
       "summary": "Putting AI to work in marketing and beyond.",
       "proof": [
-        "Earned two AI certificates from the University of San Francisco: Applied Agentic AI and the AI Certificate Intensive",
+        "Completed USF's AI Certificate Intensive; Applied Agentic AI Certificate in progress (Fall 2026)",
         "Use generative AI for campaigns, content, audience messaging, research, and social media",
         "Designing the Fromm Enrollment Helper, an AI guide for older adults",
         "Directed AI agents to build this website, including its visitor welcome pop-up"
@@ -126,7 +126,7 @@
     },
     {
       "name": "AI & generative AI",
-      "note": "USF certificates in Applied Agentic AI and AI; AI in marketing and creative workflows"
+      "note": "USF AI Certificate Intensive (Applied Agentic AI in progress); AI in marketing and creative workflows"
     }
   ],
   "community": [
@@ -151,7 +151,7 @@
         "Ran Fromm's lifelong learning survey and wrote the national press release sharing its findings"
       ],
       "highlights": [
-        "Marketing Growth: Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners, increasing enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+        "Marketing Growth: Built communications from zero presence into a multi-channel program reaching 1,500+ older learners; that marketing grew enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
         "Product & Technology: Built Frommcast, Fromm's online learning and content platform. Lead website, CRM, enrollment, and digital experience projects from concept through implementation, including a Salesforce-based redesign with Stripe and CashNet payments.",
         "AI in Marketing: Use AI and generative AI for campaign development, content creation, audience messaging, research, social media marketing, and workflow improvement.",
         "Events & Programs: Develop and produce educational programs, community events, brand experiences, and major institutional events.",
@@ -180,7 +180,7 @@
       "key": [
         "Led: brand strategy, creative direction, marketing, and PR, including the 50th Anniversary campaign and a national press release on our lifelong learning survey",
         "Built: Frommcast, our online learning platform; a Salesforce website with Stripe and CashNet payments; and hybrid classrooms",
-        "Grew: took marketing from no presence to a multi-channel program across web, email, print, social, video, and paid digital, raising enrollment 10%"
+        "Grew: enrollment 10% by building Fromm's marketing from no presence into a multi-channel program across web, email, print, social, video, and paid digital"
       ],
       "since": "At Fromm since 2005"
     },
@@ -293,7 +293,7 @@
       "title": "Fromm Institute: brand & growth",
       "category": "Marketing",
       "year": "",
-      "summary": "Building Fromm's marketing from zero into a multi-channel brand that grew enrollment 10%.",
+      "summary": "Building Fromm's marketing from zero into a multi-channel brand; that marketing grew enrollment 10%.",
       "role": "Lead brand strategy, creative direction, marketing, and PR; own the $80K marketing budget",
       "tags": [
         "Brand strategy",
@@ -306,7 +306,7 @@
       "imageFit": "contain",
       "challenge": "Fromm started with no marketing presence, which limited how many new older learners it could reach.",
       "approach": "I built an integrated program across web, email, print, social, video, and paid digital on Google, Meta, and LinkedIn, and partnered with retirement homes, donor networks, and city agencies to reach new learners.",
-      "outcome": "Enrollment grew 10%, and Fromm now reaches 1,500+ older learners a year.",
+      "outcome": "Because of this marketing, enrollment grew 10%, and Fromm now reaches 1,500+ older learners a year.",
       "featured": true
     },
     {
@@ -568,14 +568,16 @@
   ],
   "certifications": [
     {
-      "name": "Applied Agentic AI Certificate",
-      "issuer": "University of San Francisco",
-      "year": ""
-    },
-    {
       "name": "AI Certificate Intensive",
       "issuer": "University of San Francisco",
-      "year": ""
+      "year": "",
+      "status": "Completed"
+    },
+    {
+      "name": "Applied Agentic AI Certificate",
+      "issuer": "University of San Francisco",
+      "year": "",
+      "status": "In progress, Fall 2026"
     }
   ],
   "education": [
@@ -619,5 +621,5 @@
     "src": "/herbert.jpg",
     "alt": "Herbert Gracia"
   },
-  "summary": "20+ years across entrepreneurship, brand, marketing, and technology. I co-founded two apparel brands and took both to exit, lead brand, marketing, and technology at the University of San Francisco's Fromm Institute, and use AI to build smarter ways of working. I'm ready to lead branding, marketing, growth, and business strategy."
+  "summary": "20+ years across entrepreneurship, brand, marketing, and technology. I co-founded two apparel brands and took both to exit. At the University of San Francisco's Fromm Institute, I lead brand, marketing, and technology, and my marketing grew enrollment 10%. I use AI to build smarter ways of working, and I'm ready to lead branding, marketing, growth, and business strategy."
 }

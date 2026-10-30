@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.9";
+const VERSION = "2026-10-30.10";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -178,7 +178,8 @@ function personJsonLd(base) {
     sameAs: [d.links?.linkedin].filter(Boolean),
     worksFor: current ? { "@type": "Organization", name: current.company } : undefined,
     alumniOf: d.education?.[0] ? { "@type": "CollegeOrUniversity", name: d.education[0].school } : undefined,
-    hasCredential: (d.certifications || []).map((c) => ({
+    // Only finished certificates count as credentials; "In progress" ones are left out.
+    hasCredential: (d.certifications || []).filter((c) => !c.status || /^completed/i.test(c.status)).map((c) => ({
       "@type": "EducationalOccupationalCredential",
       name: c.name,
       recognizedBy: c.issuer ? { "@type": "Organization", name: c.issuer } : undefined,

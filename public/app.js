@@ -287,13 +287,15 @@ function setupWorkDialog() {
 }
 
 // "A and B, University of San Francisco" when they share an issuer; otherwise each with its own.
+// A status ("Completed", "In progress, Fall 2026") follows the name in parentheses.
 function certificateLine(certs) {
   if (!certs.length) return "";
+  const named = (c) => (c.status ? `${c.name} (${c.status.charAt(0).toLowerCase()}${c.status.slice(1)})` : c.name);
   const issuers = [...new Set(certs.map((c) => c.issuer).filter(Boolean))];
   if (issuers.length === 1 && certs.every((c) => c.issuer === issuers[0]) && certs.every((c) => !c.year)) {
-    return `${certs.map((c) => c.name).join(" and ")}, ${issuers[0]}`;
+    return `${certs.map(named).join(" and ")}, ${issuers[0]}`;
   }
-  return certs.map((c) => [c.name, c.issuer, c.year].filter(Boolean).join(", ")).join(" · ");
+  return certs.map((c) => [named(c), c.issuer, c.year].filter(Boolean).join(", ")).join(" · ");
 }
 
 function renderJob(j) {
