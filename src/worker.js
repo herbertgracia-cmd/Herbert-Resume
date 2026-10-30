@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.2";
+const VERSION = "2026-10-30.3";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -234,7 +234,7 @@ function supabaseHeaders(key) {
 // Welcome pop-up: saves who the visitor is and how Herbert can help.
 async function handleIntro(request, env) {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    return json({ error: "This form is not set up yet." }, 503);
+    return json({ error: "Sorry, this isn't working right now. Please try again later." }, 503);
   }
   if (!(await withinLimit(env, request, "intro"))) return json({ error: LIMIT_MESSAGE }, 429);
 
@@ -254,15 +254,17 @@ async function handleIntro(request, env) {
     message: clean(body?.message, 2000) || null,
     referrer: originOnly(body?.referrer),
   };
-  // "Just looking" needs nothing else; everyone else leaves a name and an email to reply to.
-  if (reason !== "looking") {
-    if (!row.name || !row.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(row.email)) {
-      return json({ error: "Please add your name and a valid email." }, 400);
-    }
+  // "Just looking" needs nothing else. Everyone else shares at least a name, an email,
+  // or a note. Email is optional, but if given it must look like an email.
+  if (reason !== "looking" && !row.name && !row.email && !row.message) {
+    return json({ error: "Please add your name or a short note." }, 400);
+  }
+  if (row.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(row.email)) {
+    return json({ error: "That email doesn't look right. Fix it, or leave it blank." }, 400);
   }
 
   const saved = await supabaseInsert(env, "visitor_intros", row);
-  if (!saved) return json({ error: "Could not send. Please email me instead." }, 502);
+  if (!saved) return json({ error: "Sorry, that didn't go through. Please try again in a moment." }, 502);
   return json({ ok: true });
 }
 

@@ -5,7 +5,7 @@ A personal resume site for sharing with companies. It runs on **Cloudflare Worke
 - **Welcome pop-up**: asks visitors what brings them here and saves who they are to **Supabase**.
 - **Contact form**: messages are saved to a **Supabase** database.
 
-Without the Supabase keys, the contact form stays hidden and the pop-up sends answers by email instead.
+Without the Supabase keys, the contact form stays hidden and pop-up answers can't be saved.
 
 ## Edit your resume
 
@@ -45,7 +45,7 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 
 ## Welcome pop-up
 
-About 30 seconds after someone arrives, a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name and email (company, title, and message are optional) and saves the answer to Supabase. If Supabase isn't connected, Send opens a pre-filled email to you instead.
+About 30 seconds after someone arrives, a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name, an optional email, company, title, and "How can I help?". Visitors only need to fill in one of name, email, or note, and the answer is saved straight to Supabase (no email app opens). Supabase must be connected for answers to save.
 
 - Each visitor sees it **once** (remembered in their browser).
 - On phones it starts as a slim bar at the bottom that opens when tapped.

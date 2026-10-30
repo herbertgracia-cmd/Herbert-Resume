@@ -61,13 +61,13 @@
     </div>
     <form class="intro-step" id="intro-form" hidden novalidate>
       <p class="intro-title" id="intro-form-title"></p>
-      <div class="field"><label for="in-name">Name</label><input id="in-name" name="name" autocomplete="name" required maxlength="200"></div>
-      <div class="field"><label for="in-email">Email</label><input id="in-email" name="email" type="email" autocomplete="email" required maxlength="320"></div>
+      <div class="field"><label for="in-name">Name</label><input id="in-name" name="name" autocomplete="name" maxlength="200"></div>
+      <div class="field"><label for="in-email">Email <span class="optional">(optional, so I can reply)</span></label><input id="in-email" name="email" type="email" autocomplete="email" maxlength="320"></div>
       <div class="intro-row">
         <div class="field"><label for="in-company">Company <span class="optional">(optional)</span></label><input id="in-company" name="company" autocomplete="organization" maxlength="200"></div>
         <div class="field"><label for="in-title">Your title <span class="optional">(optional)</span></label><input id="in-title" name="title" autocomplete="organization-title" maxlength="200"></div>
       </div>
-      <div class="field"><label for="in-message">How can I help? <span class="optional">(optional)</span></label><textarea id="in-message" name="message" rows="3" maxlength="2000"></textarea></div>
+      <div class="field"><label for="in-message">How can I help?</label><textarea id="in-message" name="message" rows="3" maxlength="2000"></textarea></div>
       <div class="hp" aria-hidden="true"><label for="in-website">Website</label><input id="in-website" name="website" tabindex="-1" autocomplete="off"></div>
       <div class="intro-actions">
         <button class="btn btn-small" type="submit">Send</button>

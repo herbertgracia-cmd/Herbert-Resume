@@ -342,8 +342,7 @@ async function setupFeatures(d) {
   let status = { contact: false, intro: false };
   try { status = await fetch("/api/status").then((r) => r.json()); } catch {}
   if (status.contact) setupContact();
-  // The pop-up always shows; without Supabase, Send opens an email instead of saving.
-  if (d.intro) setupIntro(d, Boolean(status.intro));
+  if (d.intro) setupIntro(d);
 }
 
 // Marks form fields as invalid (or clears them) so screen readers announce the
@@ -364,7 +363,7 @@ function flagFields(form, statusEl, badNames) {
 
 // Welcome pop-up. Shows once per visitor (remembered in this browser), about
 // 30 seconds after they arrive. Add ?intro to the address to see it right away.
-function setupIntro(d, canSave) {
+function setupIntro(d) {
   const KEY = "intro-seen";
   const testing = new URLSearchParams(location.search).has("intro");
   if (!testing) {
@@ -419,21 +418,8 @@ function setupIntro(d, canSave) {
   // Remember where keyboard focus was whenever it enters the pop-up, to return it there on close.
   box.addEventListener("focusin", (e) => { if (!box.contains(e.relatedTarget)) returnFocus = e.relatedTarget; });
 
+  // Answers are always saved to the database (never sent through the visitor's email app).
   const send = async (payload) => {
-    if (!canSave) {
-      if (payload.reason === "looking") return;
-      const label = cfg.reasons.find((r) => r.id === payload.reason)?.label || "";
-      const lines = [
-        label,
-        `Name: ${payload.name}`,
-        `Email: ${payload.email}`,
-        payload.company && `Company: ${payload.company}`,
-        payload.title && `Title: ${payload.title}`,
-        payload.message && `\n${payload.message}`,
-      ].filter(Boolean);
-      location.href = `mailto:${d.links.email}?subject=${encodeURIComponent(`Hello from your website: ${label}`)}&body=${encodeURIComponent(lines.join("\n"))}`;
-      return;
-    }
     let referrer = "";
     try { referrer = document.referrer ? new URL(document.referrer).origin : ""; } catch {}
     const res = await fetch("/api/intro", {
@@ -442,7 +428,7 @@ function setupIntro(d, canSave) {
       body: JSON.stringify({ ...payload, referrer }),
     });
     const body = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(body.error || "Could not send. Please email me instead.");
+    if (!res.ok) throw new Error(body.error || "Sorry, that didn't go through. Please try again in a moment.");
   };
   const finish = (text) => {
     step1.hidden = true; form.hidden = true; done.hidden = false;
@@ -482,12 +468,12 @@ function setupIntro(d, canSave) {
     e.preventDefault();
     const payload = { reason, ...Object.fromEntries(new FormData(form)) };
     status.className = "form-status";
-    const bad = [];
-    if (!payload.name.trim()) bad.push("name");
-    if (!payload.email.trim() || !form.elements.email.checkValidity()) bad.push("email");
+    // Email is optional. Visitors just need to share something: a name, an email, or a note.
+    const filled = ["name", "email", "message"].some((k) => payload[k]?.trim());
+    const bad = !filled ? ["name"] : (payload.email.trim() && !form.elements.email.checkValidity() ? ["email"] : []);
     flagFields(form, status, bad);
     if (bad.length) {
-      status.textContent = "Please add your name and a valid email.";
+      status.textContent = filled ? "That email doesn't look right. Fix it, or leave it blank." : "Please add your name or a short note.";
       status.classList.add("err");
       return;
     }
@@ -496,7 +482,8 @@ function setupIntro(d, canSave) {
     status.textContent = "Sending…";
     try {
       await send(payload);
-      finish(cfg.thanks.replace("{name}", payload.name.trim().split(" ")[0]));
+      const first = payload.name.trim().split(" ")[0];
+      finish(first ? cfg.thanks.replace("{name}", first) : cfg.thanks.replace(/,?\s*\{name\}/, ""));
     } catch (err) {
       status.textContent = err.message;
       status.classList.add("err");
