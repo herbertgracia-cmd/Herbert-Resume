@@ -361,15 +361,11 @@ function flagFields(form, statusEl, badNames) {
   if (badNames.length) form.elements[badNames[0]]?.focus();
 }
 
-// Welcome pop-up. Shows once per visitor (remembered in this browser), a few
-// seconds after they arrive (intro.delay_seconds in content.json). Add ?intro to the address to see it right away.
+// Welcome pop-up. Shows on every visit and every page load (including a refresh),
+// a few seconds in (intro.delay_seconds in content.json). Once closed, it stays
+// closed until the next page load. Add ?intro to the address to see it right away.
 function setupIntro(d) {
-  const KEY = "intro-seen";
   const testing = new URLSearchParams(location.search).has("intro");
-  if (!testing) {
-    try { if (localStorage.getItem(KEY)) return; } catch { return; }
-  }
-  const remember = () => { try { localStorage.setItem(KEY, String(Date.now())); } catch {} };
 
   const box = $("#intro"), step1 = $("#intro-step-1"), form = $("#intro-form"), done = $("#intro-done");
   const status = $("#intro-status"), peek = $("#intro-peek"), workDialog = $("#work-dialog");
@@ -393,7 +389,6 @@ function setupIntro(d) {
       workDialog.addEventListener("close", () => setTimeout(show, 1500), { once: true });
       return;
     }
-    remember();
     // On phones, start as a slim bar at the bottom that opens when tapped.
     box.classList.toggle("collapsed", phone.matches && !testing);
     peek.hidden = !box.classList.contains("collapsed");

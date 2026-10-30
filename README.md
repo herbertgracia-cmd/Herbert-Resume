@@ -47,7 +47,7 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 
 About 5 seconds after someone arrives, a small pop-up asks "What brings you here?" with four choices: hiring, a project, a collaboration, or just looking. Except for "just looking", it then asks for a name, an optional email, company, title, and "How can I help?". Visitors only need to fill in one of name, email, or note, and the answer is saved straight to Supabase (no email app opens). Supabase must be connected for answers to save.
 
-- Each visitor sees it **once** (remembered in their browser).
+- It shows on **every visit and every refresh**. Once closed, it stays closed until the next page load.
 - On phones it starts as a slim bar at the bottom that opens when tapped.
 - It never opens on top of a work piece someone is viewing.
 - Add `?intro` to the address to see it right away, anytime.
