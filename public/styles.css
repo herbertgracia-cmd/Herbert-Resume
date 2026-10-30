@@ -280,6 +280,8 @@ img, svg { display: block; }
 }
 .work-cover.has-image { padding: 0; background: var(--surface); }
 .work-cover.fit-contain, .work-media.fit-contain { background: #000; }
+.work-cover.fit-contain.light, .work-media.fit-contain.light { background: #fff; }
+.work-cover.fit-contain.light img { padding: 6px; }
 .work-cover.fit-contain img { object-fit: contain; padding: 14px 18px; }
 .work-media.fit-contain img { max-height: 52dvh; padding: 24px; }
 .work-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }

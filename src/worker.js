@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.6";
+const VERSION = "2026-10-30.7";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";

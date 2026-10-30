@@ -1,6 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" (show a logo whole on a dark background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Director, now building with AI",
   "location": "San Francisco, CA",
@@ -276,17 +276,20 @@
       ]
     },
     {
-      "title": "Brand collaborations",
-      "category": "Collaborations",
-      "year": "State of Flux",
-      "summary": "Co-branded products and pop-up events for State of Flux with three well-known partners.",
-      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "title": "Fromm 50th Anniversary",
+      "category": "Marketing",
+      "year": "1976–2026",
+      "summary": "Leading all brand, marketing, and PR for the Institute's 50th Anniversary celebration.",
+      "role": "Marketing & PR lead",
       "tags": [
-        "Brand collaborations",
-        "Activations"
+        "Campaign",
+        "Events",
+        "PR"
       ],
-      "featured": true,
-      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together."
+      "image": "/work/fromm-50th.jpg",
+      "imageAlt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
+      "details": "The anniversary identity pairs a bold purple-and-gold '50' badge with archival photos of members across five decades.",
+      "featured": true
     },
     {
       "title": "Fromm integrated marketing",
@@ -311,14 +314,19 @@
       "category": "Video",
       "year": "",
       "summary": "Built Frommcast, Fromm's online learning and content platform, and lead its video and content.",
-      "details": "Now overseeing the move of recorded content to the Institute's YouTube programs.",
+      "details": "Recorded classes now live on the Fromm Institute's YouTube channel, with 200+ videos on art, history, science, and more.",
       "role": "Platform build, video & content lead",
       "tags": [
         "Video platform",
         "Online learning",
         "YouTube"
       ],
-      "featured": true
+      "featured": true,
+      "image": "/work/frommcast-youtube.jpg",
+      "imageFit": "contain-light",
+      "imageAlt": "The Fromm Institute YouTube channel with the 'Learn Anytime, Anywhere with Frommcast!' banner and recorded lecture thumbnails",
+      "link": "https://www.youtube.com/@FrommInstitute",
+      "linkLabel": "Watch on YouTube"
     },
     {
       "title": "This website",
@@ -335,6 +343,18 @@
       "featured": true
     },
     {
+      "title": "Brand collaborations",
+      "category": "Collaborations",
+      "year": "State of Flux",
+      "summary": "Co-branded products and pop-up events for State of Flux with three well-known partners.",
+      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "tags": [
+        "Brand collaborations",
+        "Activations"
+      ],
+      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together."
+    },
+    {
       "title": "Retail store design",
       "category": "Design",
       "year": "FAZE Apparel",
@@ -347,21 +367,6 @@
       ],
       "image": "/work/faze-store.jpg",
       "imageAlt": "The FAZE Apparel retail store: blue corner storefront with branded banner and window displays"
-    },
-    {
-      "title": "Fromm 50th Anniversary",
-      "category": "Marketing",
-      "year": "Now",
-      "summary": "Leading all brand, marketing, and PR for the Institute's 50th Anniversary celebration.",
-      "role": "Marketing & PR lead",
-      "tags": [
-        "Campaign",
-        "Events",
-        "PR"
-      ],
-      "image": "/work/fromm-logo.jpg",
-      "imageAlt": "The Fromm Institute for Lifelong Learning at the University of San Francisco logo in gold on black",
-      "imageFit": "contain"
     },
     {
       "title": "Instructional media & video production",
@@ -458,6 +463,19 @@
         "AI assistant",
         "Accessibility",
         "Product design"
+      ]
+    },
+    {
+      "title": "Lifelong learning survey",
+      "category": "Storytelling",
+      "year": "",
+      "summary": "A Fromm Institute survey finding that lifelong learning boosts happiness and strengthens social connection among older adults, shared through a national press release.",
+      "link": "https://www.prnewswire.com/news-releases/lifelong-learning-boosts-happiness-strengthens-social-connection-among-older-adults-fromm-institute-survey-302689785.html",
+      "linkLabel": "Read the press release",
+      "tags": [
+        "PR",
+        "Research",
+        "Impact story"
       ]
     }
   ],
