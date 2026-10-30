@@ -525,7 +525,7 @@
   "intro": {
     "title": "Hi, I'm Herbert. What brings you here?",
     "subtitle": "Tell me a little about yourself and I'll get back to you.",
-    "delay_seconds": 30,
+    "delay_seconds": 5,
     "reasons": [
       {
         "id": "hiring",

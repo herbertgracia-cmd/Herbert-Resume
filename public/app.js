@@ -361,8 +361,8 @@ function flagFields(form, statusEl, badNames) {
   if (badNames.length) form.elements[badNames[0]]?.focus();
 }
 
-// Welcome pop-up. Shows once per visitor (remembered in this browser), about
-// 30 seconds after they arrive. Add ?intro to the address to see it right away.
+// Welcome pop-up. Shows once per visitor (remembered in this browser), a few
+// seconds after they arrive (intro.delay_seconds in content.json). Add ?intro to the address to see it right away.
 function setupIntro(d) {
   const KEY = "intro-seen";
   const testing = new URLSearchParams(location.search).has("intro");
