@@ -146,6 +146,7 @@ img, svg { display: block; }
 .hero-tagline {
   max-width: 56ch; margin: 12px 0 0; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem);
 }
+.hero-summary { max-width: 62ch; margin: 14px 0 0; font-size: 1rem; line-height: 1.6; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 /* Portrait to the right of the name (above it on phones). */
 .hero { display: grid; grid-template-columns: 1fr minmax(160px, 300px); column-gap: clamp(24px, 4vw, 64px); }
@@ -269,6 +270,7 @@ img, svg { display: block; }
 .work-card h3 { margin: 0 8px; font: 400 1.6rem/1.1 var(--serif); }
 .work-card p { margin: 0 8px; color: var(--muted); font-size: 15px; }
 .work-card .work-meta { margin: 6px 8px 0; }
+.work-cta { margin: auto 8px 0; padding-top: 4px; font: 500 12px/1.4 var(--mono); letter-spacing: .04em; color: var(--accent); }
 .work-meta { display: flex; gap: 12px; font: 400 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 .work-meta span + span::before { content: "·"; margin-right: 12px; }
 
@@ -364,10 +366,14 @@ img, svg { display: block; }
 .work-facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 4px 0; font-size: 15px; }
 .work-facts dt { font: 500 11px/1.9 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
 .work-facts dd { margin: 0; }
+/* Case study: challenge, role, approach, outcome as labeled rows. */
+.work-facts.case { width: 100%; grid-template-columns: 8.5rem 1fr; gap: 14px 20px; margin: 8px 0 4px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.55; }
+.work-facts.case dt { line-height: 2.2; }
 
 /* Contact */
 .contact { padding-bottom: clamp(64px, 10vh, 120px); }
 .contact > :not(.section-title) { grid-column: 2; }
+.contact-sub { max-width: 52ch; margin: 16px 0 0; color: var(--muted); font-size: 1.1rem; }
 .contact-lead { margin: 0; font: italic 400 clamp(3rem, 9vw, 7rem)/1 var(--serif); }
 .contact-email {
   justify-self: start; font: 400 clamp(1.3rem, 3.2vw, 2.4rem)/1.2 var(--serif);
@@ -492,6 +498,8 @@ img, svg { display: block; }
   .stat:nth-child(3) { padding-left: 0; border-left: 0; }
   .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
   .facts { grid-template-columns: 1fr; }
+  .work-facts.case { grid-template-columns: 1fr; gap: 2px; }
+  .work-facts.case dd { margin-bottom: 12px; }
   .facts dt { padding-bottom: 0; border-bottom: 0; }
   .facts dd { padding-top: 4px; }
   .job { grid-template-columns: 1fr; }
@@ -511,7 +519,7 @@ img, svg { display: block; }
   :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --line: #ccc; --accent: #000; }
   @page { margin: 12mm 14mm; }
   body { font-size: 10.5pt; line-height: 1.4; }
-  .topbar, .hero-cta, .contact-form, .contact-lead, .footer, .skip,
+  .topbar, .hero-cta, .contact-form, .contact-lead, .contact-sub, .work-cta, .footer, .skip, .section-title .num,
   .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more, .hero-photo { display: none !important; }
   .hero { display: block; }
   .reveal { opacity: 1 !important; transform: none !important; }
@@ -529,6 +537,12 @@ img, svg { display: block; }
   .stat strong { font-size: 13pt; color: #000; }
   .stat span { font-size: 9pt; }
   .section { display: block; padding: 10pt 0 0; }
+  /* On paper, a resume reads experience first, then work. */
+  main { display: flex; flex-direction: column; }
+  main > * { width: 100%; box-sizing: border-box; }
+  .work-card { outline: none !important; box-shadow: none !important; }
+  #work { order: 1; } #portfolio { order: 2; } #skills { order: 3; } #contact { order: 4; }
+  .hero-summary { margin-top: 4pt; font-size: 10pt; max-width: none; }
   .section-title { position: static; margin-bottom: 4pt; border-bottom: 1px solid #000; padding-bottom: 2pt; break-after: avoid; }
   .job { padding: 6pt 0; grid-template-columns: 6.5rem 1fr; gap: 2pt 12pt; }
   .job h3 { font-size: 13pt; break-after: avoid; }

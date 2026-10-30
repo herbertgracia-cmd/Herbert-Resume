@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Herbert Gracia — Brand & Creative Director</title>
-  <meta name="description" content="Brand & Creative Director, now building with AI. Co-Founder of FAZE Apparel and State of Flux, and 21 years at USF's Fromm Institute.">
+  <title>Herbert Gracia — Head of Brand & Creative Director</title>
+  <meta name="description" content="Head of Brand and Creative Director who leads branding, marketing, growth, and business strategy. Co-founded two apparel brands through exit; leads brand and marketing at USF's Fromm Institute.">
   <link rel="canonical" href="/">
-  <meta property="og:title" content="Herbert Gracia — Brand & Creative Director">
-  <meta property="og:description" content="Brand & Creative Director, now building with AI. Co-Founder of FAZE Apparel and State of Flux, and 21 years at USF's Fromm Institute.">
+  <meta property="og:title" content="Herbert Gracia — Head of Brand & Creative Director">
+  <meta property="og:description" content="Head of Brand and Creative Director who leads branding, marketing, growth, and business strategy. Co-founded two apparel brands through exit; leads brand and marketing at USF's Fromm Institute.">
   <meta property="og:site_name" content="Herbert Gracia">
   <meta property="og:type" content="website">
   <meta property="og:url" content="/">
   <meta property="og:image" content="/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Herbert Gracia, Brand & Creative Director, now building with AI">
+  <meta property="og:image:alt" content="Herbert Gracia, Head of Brand and Creative Director">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/og.png">
-  <meta name="twitter:title" content="Herbert Gracia — Brand & Creative Director">
-  <meta name="twitter:description" content="Brand & Creative Director, now building with AI. Co-Founder of FAZE Apparel and State of Flux, and 21 years at USF's Fromm Institute.">
+  <meta name="twitter:title" content="Herbert Gracia — Head of Brand & Creative Director">
+  <meta name="twitter:description" content="Head of Brand and Creative Director who leads branding, marketing, growth, and business strategy. Co-founded two apparel brands through exit; leads brand and marketing at USF's Fromm Institute.">
   <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -36,9 +36,9 @@
   <header class="topbar">
     <a class="mark" href="#top" aria-label="HG, back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
-      <a href="#work">Experience</a>
       <a href="#portfolio">Work</a>
-      <a href="#skills">Skills</a>
+      <a href="#work">Experience</a>
+      <a href="#skills">Expertise</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="topbar-actions">
@@ -50,7 +50,7 @@
     </div>
   </header>
 
-  <!-- Welcome pop-up: asks visitors who they are and how Herbert can help. Shown once per visitor, after a delay. -->
+  <!-- Welcome pop-up: asks visitors who they are and how Herbert can help. Shown on every visit, after a short delay. -->
   <section class="intro" id="intro" role="dialog" aria-modal="false" aria-labelledby="intro-title" hidden>
     <button class="intro-peek" id="intro-peek" type="button" hidden></button>
     <button class="icon-btn intro-close" id="intro-close" type="button" aria-label="Close">✕</button>
@@ -87,8 +87,10 @@
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
       <p class="hero-role" data-bind="role"></p>
       <p class="hero-tagline" data-bind="tagline"></p>
+      <p class="hero-summary" data-bind="summary"></p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
+        <button class="btn btn-ghost" id="hero-resume" type="button">Download resume</button>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
     </section>
@@ -100,13 +102,8 @@
       </div>
     </div>
 
-    <section class="section" id="work">
-      <h2 class="section-title"><span class="num"></span>Experience</h2>
-      <ol class="jobs" id="jobs"></ol>
-    </section>
-
     <section class="section" id="portfolio">
-      <h2 class="section-title"><span class="num"></span>Selected work</h2>
+      <h2 class="section-title"><span class="num"></span>Featured work</h2>
       <div class="work">
         <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by type" hidden></div>
         <ul class="work-grid" id="work-grid"></ul>
@@ -114,14 +111,20 @@
       </div>
     </section>
 
+    <section class="section" id="work">
+      <h2 class="section-title"><span class="num"></span>Experience</h2>
+      <ol class="jobs" id="jobs"></ol>
+    </section>
+
     <section class="section" id="skills">
-      <h2 class="section-title"><span class="num"></span>Skills &amp; industries</h2>
+      <h2 class="section-title"><span class="num"></span>Expertise &amp; education</h2>
       <dl class="facts" id="facts"></dl>
     </section>
 
     <section class="section contact" id="contact">
-      <h2 class="section-title"><span class="num"></span>Contact</h2>
+      <h2 class="section-title"><span class="num"></span>Let’s work together</h2>
       <p class="contact-lead">Let’s talk.</p>
+      <p class="contact-sub">Hiring a head of brand, marketing leader, or creative director? I’d love to hear what you’re building.</p>
       <a class="contact-email" id="contact-email" href="#"></a>
       <ul class="contact-links" id="contact-links"></ul>
 

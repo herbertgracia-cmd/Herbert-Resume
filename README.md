@@ -11,7 +11,7 @@ Without the Supabase keys, the contact form stays hidden and pop-up answers can'
 
 All the text lives in **`public/content.json`**. The page reads from this one file, so there's nothing else to update. Each job shows its `key` bullets; `creative`, `highlights`, and `earlier_roles` sit behind a "More about this role" link. Work items marked `"featured": true` show first.
 
-"Save as PDF" in the top bar prints a clean two-page version of the resume.
+"Save as PDF" in the top bar and "Download resume" in the hero both print a clean resume (Experience first, then featured work).
 
 **Link preview:** `public/og.png` is the image shown when the link is shared on LinkedIn, Slack, or email, and `public/apple-touch-icon.png` is the iPhone home-screen icon. Rebuild both with `node scripts/make-og.mjs` after changing your headline or stats.
 
@@ -19,7 +19,7 @@ All the text lives in **`public/content.json`**. The page reads from this one fi
 
 ## Add your work (design, video, storytelling, collaborations)
 
-The **Selected work** section is the `work` list in `public/content.json`. Each item is one card; visitors can filter by type and click a card to see it larger.
+The **Featured work** section is the `work` list in `public/content.json`. Each item is one card; visitors can filter by type and click a card to see it larger. It comes right after the hero, before Experience (the printed PDF puts Experience first).
 
 ```json
 {
@@ -39,6 +39,7 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 
 - **category:** one of `Design`, `Marketing`, `Video`, `Events`, `Storytelling`, `Collaborations`, `Technology`, `AI`.
 - **featured:** `true` to show it in the first six; the rest appear under "See all work".
+- **challenge, approach, outcome:** turn a piece into a case study. Opening it then shows The challenge, My role (`role`), Approach, and Outcome, and the card says "Read the case study".
 - **image:** put the picture in `public/work/` (JPG or PNG, about 1600px wide, under 500 KB).
 - **images:** for several photos, use a list like `[{"src": "/work/a.jpg", "alt": "..."}, ...]`. The first is the card's cover, and opening the card shows them all in a swipeable strip.
 - **Your portrait** is `public/herbert.jpg` (set by `photo` in `content.json`); it also appears in the link-preview image.

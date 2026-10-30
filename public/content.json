@@ -1,11 +1,11 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
   "name": "Herbert Gracia",
-  "role": "Brand & Creative Director, now building with AI",
+  "role": "Head of Brand · Creative Director · Growth & Strategy",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years at the University of San Francisco's Fromm Institute, and now certified by USF in Applied Agentic AI.",
+  "tagline": "I build brands, businesses, and digital experiences that connect creative vision with measurable results.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -14,19 +14,19 @@
   "stats": [
     {
       "value": "20+",
-      "label": "years building brands"
+      "label": "years leading brand, marketing, and creative"
     },
     {
       "value": "2",
-      "label": "apparel brands co-founded, both exited"
+      "label": "apparel brands co-founded and exited: one acquisition, one partner buyout"
     },
     {
       "value": "Pinterest · Timbuk2 · SFMOMA",
-      "label": "brand collaborations"
+      "label": "co-branded products and pop-ups I led for State of Flux"
     },
     {
       "value": "+10%",
-      "label": "enrollment growth at Fromm"
+      "label": "Fromm enrollment growth from the multi-channel marketing I built"
     }
   ],
   "about": [
@@ -142,7 +142,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year, managing $80K marketing and $100K technology budgets.",
+      "summary": "I run brand, marketing, PR, and technology for USF's lifelong learning institute, serving 1,500+ older adults a year. I own the $80K marketing and $100K technology budgets and the teams, vendors, and partners behind them.",
       "creative": [
         "Lead brand strategy, creative direction, integrated marketing, and PR across web, email, print, social, video, digital advertising, partnerships, and events",
         "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
@@ -178,9 +178,9 @@
         }
       ],
       "key": [
-        "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, and events",
-        "Grew communications from zero to a multi-channel program reaching 1,500+ learners, increasing enrollment 10%",
-        "Built Frommcast, Fromm's online learning platform, and lead website, CRM, and AI-assisted marketing projects"
+        "Led: brand strategy, creative direction, marketing, and PR, including the 50th Anniversary campaign and a national press release on our lifelong learning survey",
+        "Built: Frommcast, our online learning platform; a Salesforce website with Stripe and CashNet payments; and hybrid classrooms",
+        "Grew: took marketing from no presence to a multi-channel program across web, email, print, social, video, and paid digital, raising enrollment 10%"
       ],
       "since": "At Fromm since 2005"
     },
@@ -239,30 +239,16 @@
   ],
   "work": [
     {
-      "title": "FAZE Apparel",
-      "category": "Design",
-      "year": "2007–2019",
-      "summary": "Co-built the brand through acquisition with a team of 5: identity, apparel design, graphics, lookbooks, and campaigns, sold in 10+ stores.",
-      "role": "Co-Founder & Brand Director",
-      "tags": [
-        "Brand identity",
-        "Apparel design",
-        "Lookbooks"
-      ],
-      "featured": true,
-      "image": "/work/faze-store.jpg",
-      "imageAlt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner"
-    },
-    {
       "title": "State of Flux",
       "category": "Design",
       "year": "2019–2024",
-      "summary": "Built a brand from the ground up: visual identity, art direction, product design like our embroidered tiger caps and woven labels, campaigns, our retail store, and e-commerce.",
-      "role": "Co-Founder & Brand Director",
+      "summary": "Building a brand from the ground up: identity, apparel, retail, e-commerce, and co-branded collaborations with Pinterest, Timbuk2, and SFMOMA.",
+      "role": "Co-Founder & Brand Director: brand strategy, identity, creative direction, product, and marketing, leading a team of 5",
       "tags": [
-        "Visual identity",
-        "Art direction",
-        "E-commerce"
+        "Brand building",
+        "Creative direction",
+        "Collaborations",
+        "Retail & e-commerce"
       ],
       "featured": true,
       "images": [
@@ -273,8 +259,112 @@
         {
           "src": "/work/state-of-flux-labels.jpg",
           "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
+        },
+        {
+          "src": "/work/timbuk2-state-of-flux.jpg",
+          "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
         }
-      ]
+      ],
+      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "challenge": "Launch a new apparel brand in a crowded market and give people a reason to notice it, while I kept my full-time role at Fromm.",
+      "approach": "I built a clear identity and product language, from embroidered tiger caps to woven 'Workshop Product' labels. Then I grew reach through co-branded products, events, and pop-ups with Pinterest, Timbuk2, and SFMOMA, and sold direct to customers and to companies through our store, e-commerce, wholesale, and B2B.",
+      "outcome": "A brand with its own retail store, online shop, and collaborations with three well-known partners. In 2024 I sold my share to my business partner."
+    },
+    {
+      "title": "FAZE Apparel",
+      "category": "Design",
+      "year": "2007–2019",
+      "summary": "From startup to acquisition: brand, products, distribution, trade shows, and our own retail store.",
+      "role": "Co-Founder & Brand Director, leading a team of 5 across design, product, marketing, and sales",
+      "tags": [
+        "Brand identity",
+        "Product development",
+        "Wholesale & retail",
+        "Trade shows"
+      ],
+      "featured": true,
+      "image": "/work/faze-store.jpg",
+      "imageAlt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner",
+      "challenge": "Turn a new apparel label into a real business: products people wanted, stores willing to carry them, and a brand strong enough to attract a buyer.",
+      "approach": "I led the identity, apparel graphics, lookbooks, photography, and seasonal campaigns, and ran product development from sampling and sourcing to manufacturing and quality control. I designed our trade-show booths in Las Vegas, Miami, Los Angeles, and New York, and designed and built our own retail store.",
+      "outcome": "Grew to 10+ stores and wholesale accounts plus our own store, and built the company through to its acquisition in 2019."
+    },
+    {
+      "title": "Fromm Institute: brand & growth",
+      "category": "Marketing",
+      "year": "",
+      "summary": "Building Fromm's marketing from zero into a multi-channel brand that grew enrollment 10%.",
+      "role": "Lead brand strategy, creative direction, marketing, and PR; own the $80K marketing budget",
+      "tags": [
+        "Brand strategy",
+        "Integrated marketing",
+        "Paid digital",
+        "Partnerships"
+      ],
+      "image": "/work/fromm-logo.jpg",
+      "imageAlt": "The Fromm Institute for Lifelong Learning at the University of San Francisco logo in gold on black",
+      "imageFit": "contain",
+      "challenge": "Fromm started with no marketing presence, which limited how many new older learners it could reach.",
+      "approach": "I built an integrated program across web, email, print, social, video, and paid digital on Google, Meta, and LinkedIn, and partnered with retirement homes, donor networks, and city agencies to reach new learners.",
+      "outcome": "Enrollment grew 10%, and Fromm now reaches 1,500+ older learners a year.",
+      "featured": true
+    },
+    {
+      "title": "Frommcast",
+      "category": "Video",
+      "year": "",
+      "summary": "Bringing a digital learning product to life: platform, video production, branding, and distribution.",
+      "role": "Built the platform; lead its video and content",
+      "tags": [
+        "Digital product",
+        "Video production",
+        "Branding",
+        "YouTube"
+      ],
+      "featured": true,
+      "image": "/work/frommcast-youtube.jpg",
+      "imageFit": "contain-light",
+      "imageAlt": "The Fromm Institute YouTube channel with the 'Learn Anytime, Anywhere with Frommcast!' banner and recorded lecture thumbnails",
+      "link": "https://www.youtube.com/@FrommInstitute",
+      "linkLabel": "Watch on YouTube",
+      "challenge": "Give older adults a way to keep learning from home, beyond the classroom.",
+      "approach": "I built the recording and hybrid-classroom setup, produced the lecture video, and launched it as Frommcast, a branded channel organized by subject on YouTube.",
+      "outcome": "200+ recorded classes on art, history, science, and more, free for anyone to watch."
+    },
+    {
+      "title": "Fromm 50th Anniversary",
+      "category": "Marketing",
+      "year": "1976–2026",
+      "summary": "One integrated campaign for 50 years of Fromm: identity, events, fundraising communications, and press.",
+      "role": "Leading brand, marketing, and PR for the celebration",
+      "tags": [
+        "Integrated campaign",
+        "Event branding",
+        "PR",
+        "Fundraising"
+      ],
+      "image": "/work/fromm-50th.jpg",
+      "imageAlt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
+      "featured": true,
+      "challenge": "Mark 50 years (1976–2026) in a way that honors the Institute's history and brings in new members and supporters.",
+      "approach": "An anniversary identity pairs a bold purple-and-gold '50' badge with archival photos of members across five decades, carried across events, print, digital, fundraising communications, and press.",
+      "outcome": "Running through 2026."
+    },
+    {
+      "title": "AI & creative operations",
+      "category": "AI",
+      "year": "2026",
+      "summary": "Putting AI to work: AI-assisted marketing at Fromm, an AI enrollment guide for older adults, and this website, built by directing AI agents.",
+      "role": "Bring AI into Fromm's marketing and creative workflows; product owner for the Enrollment Helper and this site",
+      "challenge": "Find practical uses for AI that make marketing and operations work better, not just experiments.",
+      "approach": "I use generative AI for campaign development, content, audience messaging, research, and social media. I'm designing the Fromm Enrollment Helper, a plain-language AI guide that walks older adults through enrolling and hands off to staff. And I directed AI coding agents to build this site on Cloudflare and Supabase, including the welcome pop-up that asks visitors how I can help.",
+      "outcome": "This site is live and shows me who visits and why; the Enrollment Helper is in development.",
+      "tags": [
+        "Generative AI",
+        "Agentic AI",
+        "Marketing operations"
+      ],
+      "featured": true
     },
     {
       "title": "Brand collaborations",
@@ -288,74 +378,7 @@
       ],
       "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together. Pictured: the Timbuk2 × State of Flux bag.",
       "image": "/work/timbuk2-state-of-flux.jpg",
-      "imageAlt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag",
-      "featured": true
-    },
-    {
-      "title": "Fromm 50th Anniversary",
-      "category": "Marketing",
-      "year": "1976–2026",
-      "summary": "Leading all brand, marketing, and PR for the Institute's 50th Anniversary celebration.",
-      "role": "Marketing & PR lead",
-      "tags": [
-        "Campaign",
-        "Events",
-        "PR"
-      ],
-      "image": "/work/fromm-50th.jpg",
-      "imageAlt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
-      "details": "The anniversary identity pairs a bold purple-and-gold '50' badge with archival photos of members across five decades.",
-      "featured": true
-    },
-    {
-      "title": "Frommcast",
-      "category": "Video",
-      "year": "",
-      "summary": "Built Frommcast, Fromm's online learning and content platform, and lead its video and content.",
-      "details": "Recorded classes now live on the Fromm Institute's YouTube channel, with 200+ videos on art, history, science, and more.",
-      "role": "Platform build, video & content lead",
-      "tags": [
-        "Video platform",
-        "Online learning",
-        "YouTube"
-      ],
-      "featured": true,
-      "image": "/work/frommcast-youtube.jpg",
-      "imageFit": "contain-light",
-      "imageAlt": "The Fromm Institute YouTube channel with the 'Learn Anytime, Anywhere with Frommcast!' banner and recorded lecture thumbnails",
-      "link": "https://www.youtube.com/@FrommInstitute",
-      "linkLabel": "Watch on YouTube"
-    },
-    {
-      "title": "This website",
-      "category": "AI",
-      "year": "2026",
-      "summary": "Directed AI coding agents to design and build this resume site, from layout and content to the welcome pop-up that asks visitors how I can help.",
-      "details": "Hosted on Cloudflare Workers, with visitor answers and contact messages saved in a Supabase database.",
-      "role": "Product owner & director of the AI build",
-      "tags": [
-        "Agentic AI",
-        "Cloudflare",
-        "Supabase"
-      ],
-      "featured": true
-    },
-    {
-      "title": "Fromm integrated marketing",
-      "category": "Marketing",
-      "year": "",
-      "summary": "Built Fromm's multi-channel marketing (web, email, print, social, video, and digital ads) behind a 10% enrollment rise.",
-      "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
-      "role": "Brand strategy & creative direction",
-      "tags": [
-        "Google",
-        "Meta",
-        "Email",
-        "Print"
-      ],
-      "image": "/work/fromm-logo.jpg",
-      "imageAlt": "The Fromm Institute for Lifelong Learning at the University of San Francisco logo in gold on black",
-      "imageFit": "contain"
+      "imageAlt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
     },
     {
       "title": "Retail store design",
@@ -496,12 +519,24 @@
       ]
     },
     {
-      "group": "Marketing",
+      "group": "Marketing & Growth",
       "items": [
         "Integrated marketing",
         "Go-to-market strategy",
         "Digital ads (Google, Meta, LinkedIn)",
-        "Email & social media"
+        "Email & social media",
+        "PR & press"
+      ]
+    },
+    {
+      "group": "Leadership & Business",
+      "items": [
+        "Business strategy",
+        "Teams, vendors & budgets",
+        "Partnerships",
+        "Cross-functional projects",
+        "Board & stakeholder relations",
+        "Fundraising & donor stewardship"
       ]
     },
     {
@@ -512,15 +547,6 @@
         "Retail & trade-show design",
         "DTC, wholesale & e-commerce",
         "Direct sales (B2C & B2B)"
-      ]
-    },
-    {
-      "group": "Leadership",
-      "items": [
-        "Teams, vendors & budgets",
-        "Cross-functional projects",
-        "Board & stakeholder relations",
-        "Fundraising & donor stewardship"
       ]
     },
     {
@@ -592,5 +618,6 @@
   "photo": {
     "src": "/herbert.jpg",
     "alt": "Herbert Gracia"
-  }
+  },
+  "summary": "20+ years across entrepreneurship, brand, marketing, and technology. I co-founded two apparel brands and took both to exit, lead brand, marketing, and technology at the University of San Francisco's Fromm Institute, and use AI to build smarter ways of working. I'm ready to lead branding, marketing, growth, and business strategy."
 }

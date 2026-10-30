@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.8";
+const VERSION = "2026-10-30.9";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -101,7 +101,7 @@ async function route(request, env) {
 // then takes over and adds the interactive parts.
 function renderHome(page, base) {
   const d = content;
-  const binds = { name: d.name, role: d.role, tagline: d.tagline, availability: d.availability, location: d.location };
+  const binds = { name: d.name, role: d.role, tagline: d.tagline, summary: d.summary, availability: d.availability, location: d.location };
 
   return new HTMLRewriter()
     .on('meta[property="og:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png`) })
@@ -169,8 +169,8 @@ function personJsonLd(base) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: d.name,
-    jobTitle: d.role.split(",")[0],
-    description: d.tagline,
+    jobTitle: d.role.split(" · ").slice(0, 2).join(" & "),
+    description: [d.tagline, d.summary].filter(Boolean).join(" "),
     url: `${base}/`,
     image: d.photo?.src ? `${base}${d.photo.src}` : `${base}/og.png`,
     email: d.links?.email ? `mailto:${d.links.email}` : undefined,

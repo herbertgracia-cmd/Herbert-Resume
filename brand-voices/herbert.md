@@ -3,7 +3,7 @@
 Status: Draft. Built from Herbert's resume, LinkedIn, and website. Herbert should confirm or edit.
 
 ## In one sentence
-Herbert Gracia is a Brand & Creative Director, now building with AI, who builds brands from concept to market.
+Herbert Gracia is a Head of Brand and Creative Director who builds brands, businesses, and digital experiences that connect creative vision with measurable results.
 
 ## Audience
 Recruiters, hiring managers, founders, creative teams, and collaborators looking for a brand and creative leader who can also execute.

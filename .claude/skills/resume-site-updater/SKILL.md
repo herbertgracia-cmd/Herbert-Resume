@@ -24,17 +24,18 @@ Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. A
 These keep the site short enough for a recruiter to skim in 30 seconds.
 
 - **Facts only.** Use only what Herbert tells you or what is already in the file. Never invent numbers, clients, dates, budgets, or results. If something is vague, ask.
-- **Headline (`role`)**: one line, under about 50 characters, leading with the job he wants. Currently "Brand & Creative Director, now building with AI".
-- **Summary (`tagline`)**: one sentence.
+- **Headline (`role`)**: one line, about 50 characters, leading with the job he wants, with parts separated by " · ". Currently "Head of Brand · Creative Director · Growth & Strategy". The first two parts become the browser-tab title.
+- **Tagline (`tagline`)**: one sentence. **Summary (`summary`)**: two to four sentences under it, ending with what he's ready to lead.
+- **Page order** (in `public/index.html`): hero, stats, Featured work, Experience, Expertise & education, Let's work together. The printed PDF puts Experience before Work.
 - **Stats**: exactly 4. Each `value` is short (like "20+" or "+10%"); a long text value is allowed for at most one. Don't repeat the same fact twice.
 - **Jobs (`experience`)**, newest first. Each job has:
   - `role`, `company`, `start`, `end` ("Present" if current), and `location`.
   - `summary`: one sentence.
-  - `key`: **exactly 3** bullets, each under about 20 words, with no "Label: " prefix (a colon near the start makes that text bold).
+  - `key`: **exactly 3** bullets, each under about 25 words. The current role uses bold "Led: / Built: / Grew:" labels (a colon near the start makes that text bold) to show what he led, built, and improved; other jobs use plain bullets.
   - Optional details behind "More about this role": `creative` (brand, design & creative direction work), `highlights` (each starting with "Label: "), and `earlier_roles` (`title`, `years`, `note`).
 - **Work (`work`)**: each item needs `title`, `category`, and `summary`.
   - `category` is one of Design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI.
-  - Exactly **6** items have `"featured": true`, and they are listed first.
+  - Exactly **6** items have `"featured": true`, and they are listed first. Featured items are case studies: `challenge`, `role` (his part), `approach`, and `outcome`, each a sentence or two, from facts only. An outcome still in progress says so ("Running through 2026").
   - Optional: `year`, `details`, `role`, `collaborators`, `tags`, `image`, `imageAlt`, `video`, `link`.
 - **Everything else**: `skills` groups stay short (6 items or fewer each); `certifications` have `name`, `issuer`, and `year`; `education` uses the first entry only on the page.
 - **Welcome pop-up**: its text, choices, and delay are in the `intro` block. Reason ids (`hiring`, `project`, `collab`, `looking`) must match the check in `supabase/schema.sql`; if you add one, update both.

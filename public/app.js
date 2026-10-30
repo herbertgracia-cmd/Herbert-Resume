@@ -44,7 +44,8 @@ function render(d) {
     const v = binds[el.dataset.bind];
     if (typeof v === "string") el.textContent = v;
   });
-  document.title = `${d.name} — ${d.role.split(",")[0]}`;
+  // "Head of Brand · Creative Director · ..." gives the tab title "Head of Brand & Creative Director".
+  document.title = `${d.name} — ${d.role.split(" · ").slice(0, 2).join(" & ")}`;
 
   // Hero role: "A · B · C" becomes separate pieces with accent dots.
   const roleEl = $(".hero-role");
@@ -86,10 +87,10 @@ function render(d) {
 
   renderWork(d.work || []);
 
-  // Skills & industries as a short list of labeled lines.
+  // Expertise & education as a short list of labeled lines.
   const facts = [
-    ["Industries", (d.industries || []).map((x) => x.name).join(" · ")],
     ...(d.skills || []).filter((g) => g.group !== "Languages").map((g) => [g.group, g.items.join(" · ")]),
+    ["Industries", (d.industries || []).map((x) => x.name).join(" · ")],
     ["Languages", (d.skills || []).find((g) => g.group === "Languages")?.items.join(" · ")],
     [(d.certifications || []).length > 1 ? "Certificates" : "Certificate", certificateLine(d.certifications || [])],
     ["Education", (d.education || []).slice(0, 1).map((e) => `${e.school}, ${[e.degree, e.year].filter(Boolean).join(", ")}`).join("")],
@@ -174,6 +175,7 @@ function renderWork(items) {
     // Poster covers already show the title, category, and year, so the text below
     // only repeats them for screen readers; image covers show them below as usual.
     const poster = !item.image && !item.images?.length && !videoInfo(item.video);
+    const caseStudy = isCaseStudy(item);
     return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": item.category || "" },
       h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
         workCover(item, { hue: i }),
@@ -183,6 +185,7 @@ function renderWork(items) {
         ),
         h("h3", {}, item.title),
         h("p", {}, item.summary),
+        caseStudy && h("span", { class: "work-cta" }, "Read the case study →"),
       ),
     );
   });
@@ -247,7 +250,11 @@ function openWork(item, index = 0) {
     media.classList.add("work-media");
   }
 
-  const facts = [["My role", item.role], ["With", item.collaborators]].filter(([, v]) => v);
+  // Case studies read as challenge → my role → approach → outcome; other pieces just list role and partners.
+  const facts = (isCaseStudy(item)
+    ? [["The challenge", item.challenge], ["My role", item.role], ["Approach", item.approach], ["Outcome", item.outcome], ["With", item.collaborators]]
+    : [["My role", item.role], ["With", item.collaborators]]
+  ).filter(([, v]) => v);
   const linkLabel = item.linkLabel || (item.video && !video ? "Watch" : "View project");
   const linkUrl = safeUrl(item.link || (item.video && !video ? item.video : "")) || "";
 
@@ -258,12 +265,16 @@ function openWork(item, index = 0) {
       h("h3", { id: "work-dialog-title" }, item.title),
       h("p", {}, item.summary),
       item.details && h("p", { class: "muted" }, item.details),
-      facts.length > 0 && h("dl", { class: "work-facts" }, facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)])),
+      facts.length > 0 && h("dl", { class: isCaseStudy(item) ? "work-facts case" : "work-facts" }, facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)])),
       item.tags?.length > 0 && h("div", { class: "tags" }, item.tags.map((t) => h("span", { class: "tag" }, t))),
       linkUrl && h("a", { class: "btn btn-small", href: linkUrl, target: "_blank", rel: "noopener" }, `${linkLabel} ↗`),
     ),
   );
   dialog.showModal();
+}
+
+function isCaseStudy(item) {
+  return !!(item.challenge || item.approach || item.outcome);
 }
 
 function setupWorkDialog() {
@@ -337,7 +348,9 @@ function setupChrome() {
   const onScroll = () => bar.classList.toggle("scrolled", scrollY > 8);
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+  // Both buttons open the print dialog, where "Save as PDF" gives a clean resume.
   $("#print-btn").addEventListener("click", () => window.print());
+  $("#hero-resume").addEventListener("click", () => window.print());
 }
 
 function setupReveal() {
