@@ -144,10 +144,11 @@
       "location": "San Francisco",
       "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year, managing $80K marketing and $100K technology budgets.",
       "creative": [
-        "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
+        "Lead brand strategy, creative direction, integrated marketing, and PR across web, email, print, social, video, digital advertising, partnerships, and events",
         "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
         "Lead video and digital content for Frommcast, enrollment campaigns, faculty programs, and institutional storytelling",
-        "Leading the brand, marketing, and PR for the 50th Anniversary celebration"
+        "Leading the brand, marketing, and PR for the 50th Anniversary celebration",
+        "Ran Fromm's lifelong learning survey and wrote the national press release sharing its findings"
       ],
       "highlights": [
         "Marketing Growth: Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners, increasing enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
@@ -276,6 +277,21 @@
       ]
     },
     {
+      "title": "Brand collaborations",
+      "category": "Collaborations",
+      "year": "State of Flux",
+      "summary": "Co-branded products and pop-up events for State of Flux with Pinterest, Timbuk2, and SFMOMA.",
+      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "tags": [
+        "Brand collaborations",
+        "Activations"
+      ],
+      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together. Pictured: the Timbuk2 × State of Flux bag.",
+      "image": "/work/timbuk2-state-of-flux.jpg",
+      "imageAlt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag",
+      "featured": true
+    },
+    {
       "title": "Fromm 50th Anniversary",
       "category": "Marketing",
       "year": "1976–2026",
@@ -290,24 +306,6 @@
       "imageAlt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
       "details": "The anniversary identity pairs a bold purple-and-gold '50' badge with archival photos of members across five decades.",
       "featured": true
-    },
-    {
-      "title": "Fromm integrated marketing",
-      "category": "Marketing",
-      "year": "",
-      "summary": "Built Fromm's multi-channel marketing (web, email, print, social, video, and digital ads) behind a 10% enrollment rise.",
-      "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
-      "role": "Brand strategy & creative direction",
-      "tags": [
-        "Google",
-        "Meta",
-        "Email",
-        "Print"
-      ],
-      "featured": true,
-      "image": "/work/fromm-logo.jpg",
-      "imageAlt": "The Fromm Institute for Lifelong Learning at the University of San Francisco logo in gold on black",
-      "imageFit": "contain"
     },
     {
       "title": "Frommcast",
@@ -343,16 +341,21 @@
       "featured": true
     },
     {
-      "title": "Brand collaborations",
-      "category": "Collaborations",
-      "year": "State of Flux",
-      "summary": "Co-branded products and pop-up events for State of Flux with three well-known partners.",
-      "collaborators": "Pinterest, Timbuk2, SFMOMA",
+      "title": "Fromm integrated marketing",
+      "category": "Marketing",
+      "year": "",
+      "summary": "Built Fromm's multi-channel marketing (web, email, print, social, video, and digital ads) behind a 10% enrollment rise.",
+      "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+      "role": "Brand strategy & creative direction",
       "tags": [
-        "Brand collaborations",
-        "Activations"
+        "Google",
+        "Meta",
+        "Email",
+        "Print"
       ],
-      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together."
+      "image": "/work/fromm-logo.jpg",
+      "imageAlt": "The Fromm Institute for Lifelong Learning at the University of San Francisco logo in gold on black",
+      "imageFit": "contain"
     },
     {
       "title": "Retail store design",
@@ -476,7 +479,8 @@
         "PR",
         "Research",
         "Impact story"
-      ]
+      ],
+      "role": "Ran the survey and wrote the press release"
     }
   ],
   "skills": [
