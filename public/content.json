@@ -1,6 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Director, now building with AI",
   "location": "San Francisco, CA",
@@ -248,20 +248,32 @@
         "Apparel design",
         "Lookbooks"
       ],
-      "featured": true
+      "featured": true,
+      "image": "/work/faze-store.jpg",
+      "imageAlt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner"
     },
     {
       "title": "State of Flux",
       "category": "Design",
       "year": "2019–2024",
-      "summary": "Built a brand from the ground up: visual identity, art direction, product design, campaigns, our retail store, and e-commerce.",
+      "summary": "Built a brand from the ground up: visual identity, art direction, product design like our embroidered tiger caps and woven labels, campaigns, our retail store, and e-commerce.",
       "role": "Co-Founder & Brand Director",
       "tags": [
         "Visual identity",
         "Art direction",
         "E-commerce"
       ],
-      "featured": true
+      "featured": true,
+      "images": [
+        {
+          "src": "/work/state-of-flux-caps.jpg",
+          "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger"
+        },
+        {
+          "src": "/work/state-of-flux-labels.jpg",
+          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
+        }
+      ]
     },
     {
       "title": "Brand collaborations",
@@ -329,7 +341,9 @@
       "tags": [
         "Retail design",
         "Build-outs"
-      ]
+      ],
+      "image": "/work/faze-store.jpg",
+      "imageAlt": "The FAZE Apparel retail store: blue corner storefront with branded banner and window displays"
     },
     {
       "title": "Fromm 50th Anniversary",
@@ -546,5 +560,9 @@
     ],
     "thanks": "Thanks, {name}! I'll get back to you soon.",
     "thanks_looking": "Thanks for stopping by! Take a look at my work, and say hi anytime."
+  },
+  "photo": {
+    "src": "/herbert.jpg",
+    "alt": "Herbert Gracia"
   }
 }

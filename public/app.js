@@ -62,6 +62,10 @@ function render(d) {
     li.hidden = false;
   }
 
+  // Portrait next to the name.
+  const photo = $(".hero-photo");
+  if (d.photo?.src) { photo.src = d.photo.src; photo.alt = d.photo.alt || d.name; } else photo.remove();
+
   // Hero name: one line per word, last word in italic accent.
   const nameEl = $(".hero-name");
   nameEl.replaceChildren(...d.name.split(/\s+/).flatMap((w, i) => [i ? " " : null, h("span", { class: "line" }, w)]).filter(Boolean));
@@ -138,7 +142,7 @@ function categoryClass(cat) {
 // Covers repeat the card's text, so screen readers skip them.
 function workCover(item, { large = false, hue = 0 } = {}) {
   const video = videoInfo(item.video);
-  const src = item.image || video?.thumb;
+  const src = item.image || item.images?.[0]?.src || video?.thumb;
   const cover = h("div", { class: `work-cover ${categoryClass(item.category)} hue-${hue % 6}`, "aria-hidden": "true" });
   if (src) {
     cover.classList.add("has-image");
@@ -166,7 +170,7 @@ function renderWork(items) {
   const cards = items.map((item, i) => {
     // Poster covers already show the title, category, and year, so the text below
     // only repeats them for screen readers; image covers show them below as usual.
-    const poster = !item.image && !videoInfo(item.video);
+    const poster = !item.image && !item.images?.length && !videoInfo(item.video);
     return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": item.category || "" },
       h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
         workCover(item, { hue: i }),
@@ -227,8 +231,13 @@ function openWork(item, index = 0) {
         src: video.embed, title: item.title,
         allow: "autoplay; encrypted-media; picture-in-picture; fullscreen", allowfullscreen: "",
       }));
-  } else if (item.image) {
-    media = h("div", { class: "work-media" }, h("img", { src: item.image, alt: item.imageAlt || item.title }));
+  } else if (item.images?.length > 1) {
+    // Several photos: a swipeable strip, one photo per view.
+    media = h("div", { class: "work-media gallery", tabindex: "0", role: "region", "aria-label": `${item.title} photos` },
+      item.images.map((img) => h("img", { src: img.src, alt: img.alt || item.title })));
+  } else if (item.image || item.images?.length) {
+    const img = item.images?.[0] || { src: item.image, alt: item.imageAlt };
+    media = h("div", { class: "work-media" }, h("img", { src: img.src, alt: img.alt || item.title }));
   } else {
     media = workCover(item, { large: true, hue: index });
     media.classList.add("work-media");

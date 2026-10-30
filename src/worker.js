@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.4";
+const VERSION = "2026-10-30.5";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -172,7 +172,7 @@ function personJsonLd(base) {
     jobTitle: d.role.split(",")[0],
     description: d.tagline,
     url: `${base}/`,
-    image: `${base}/og.png`,
+    image: d.photo?.src ? `${base}${d.photo.src}` : `${base}/og.png`,
     email: d.links?.email ? `mailto:${d.links.email}` : undefined,
     address: city ? { "@type": "PostalAddress", addressLocality: city, addressRegion: region } : undefined,
     sameAs: [d.links?.linkedin].filter(Boolean),

@@ -40,6 +40,8 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 - **category:** one of `Design`, `Marketing`, `Video`, `Events`, `Storytelling`, `Collaborations`, `Technology`, `AI`.
 - **featured:** `true` to show it in the first six; the rest appear under "See all work".
 - **image:** put the picture in `public/work/` (JPG or PNG, about 1600px wide, under 500 KB).
+- **images:** for several photos, use a list like `[{"src": "/work/a.jpg", "alt": "..."}, ...]`. The first is the card's cover, and opening the card shows them all in a swipeable strip.
+- **Your portrait** is `public/herbert.jpg` (set by `photo` in `content.json`); it also appears in the link-preview image.
 - **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
 - Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
 

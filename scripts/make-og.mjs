@@ -1,7 +1,7 @@
 // Rebuilds public/og.png (the link-preview image) from public/content.json.
 // Run: node scripts/make-og.mjs
 // Needs Playwright. If it isn't installed: npm install --no-save playwright && npx playwright install chromium
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { createRequire } from "node:module";
 
 // require() also finds a globally installed Playwright, which import can't.
@@ -11,6 +11,11 @@ const d = JSON.parse(readFileSync(new URL("../public/content.json", import.meta.
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const [first, ...rest] = d.name.split(" ");
 const initials = d.name.split(/\s+/).map((p) => p[0]).join("").slice(0, 2);
+// Herbert's photo (if there is one) goes in the top-right circle; otherwise his initials.
+const photoPath = d.photo?.src ? new URL(`../public${d.photo.src}`, import.meta.url) : null;
+const photo = photoPath && existsSync(photoPath)
+  ? `data:image/jpeg;base64,${readFileSync(photoPath).toString("base64")}`
+  : null;
 // The first 3 stats, each as a big value over a small label (like the site).
 // A long text value (such as three partner names) is set smaller, one name per line.
 const stats = (d.stats || []).slice(0, 3).map((s) => {
@@ -37,8 +42,9 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
   .stat.text b{font-size:28px;line-height:1.1}
   .stat span{font:400 20px/1.3 Inter,sans-serif;color:#6b6862}
   .mark{position:absolute;right:80px;top:64px;width:96px;height:96px;border:2px solid #141413;border-radius:50%;display:grid;place-items:center;font:italic 400 48px/1 'Instrument Serif',serif}
+  .photo{position:absolute;right:80px;top:56px;width:200px;height:200px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #d6d2ca}
 </style></head><body>
-<div class="mark">${esc(initials)}</div>
+${photo ? `<img class="photo" src="${photo}" alt="">` : `<div class="mark">${esc(initials)}</div>`}
 <div class="wrap">
   <div class="eyebrow"><span class="dot"></span>${esc(d.availability)} · ${esc(d.location.split(",")[0])}</div>
   <h1>${esc(first)} <em>${esc(rest.join(" "))}</em></h1>
