@@ -368,13 +368,21 @@
         "Trade shows"
       ],
       "featured": true,
-      "image": "/work/faze-store.jpg",
-      "imageAlt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner",
       "challenge": "Take an independent apparel brand from an idea to a real business, alongside my role at Fromm.",
       "approach": "I built the brand identity and apparel collections and ran the marketing campaigns. I grew wholesale to more than 10 retail locations, opened our own branded store, and led trade shows in Las Vegas, Miami, Los Angeles, and New York.",
       "outcome": "In 2019 a privately held business acquired the company, including its brand assets, logos, designs, and intellectual property rights.",
       "caption": "Building a brand from concept to acquisition",
-      "tag": "Brand · Retail"
+      "tag": "Brand · Retail",
+      "images": [
+        {
+          "src": "/work/faze-store.jpg",
+          "alt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner"
+        },
+        {
+          "src": "/work/faze-store-interior.jpg",
+          "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass"
+        }
+      ]
     },
     {
       "title": "State of Flux",
@@ -397,6 +405,10 @@
         {
           "src": "/work/state-of-flux-caps.jpg",
           "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger"
+        },
+        {
+          "src": "/work/state-of-flux-studio.jpg",
+          "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic"
         },
         {
           "src": "/work/state-of-flux-labels.jpg",
