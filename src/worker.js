@@ -113,7 +113,13 @@ function renderHome(page, base) {
     .on("[data-bind]", {
       element: (el) => {
         const key = el.getAttribute("data-bind");
-        if (typeof binds[key] === "string") el.setInnerContent(binds[key]);
+        if (typeof binds[key] !== "string") return;
+        // The tagline's accent words are set in italic color, like on the page.
+        const i = key === "tagline" && d.tagline_accent ? d.tagline.indexOf(d.tagline_accent) : -1;
+        if (i > 0) {
+          const a = d.tagline_accent;
+          el.setInnerContent(`${esc(d.tagline.slice(0, i))}<em>${esc(a)}</em>${esc(d.tagline.slice(i + a.length))}`, { html: true });
+        } else el.setInnerContent(binds[key]);
       },
     })
     .on("h1.hero-name", {
@@ -143,8 +149,10 @@ function renderHome(page, base) {
           (d.experience || [])
             .map((j) => {
               const dates = j.start ? `${esc(j.start)}–${esc(j.end)}` : "";
-              const key = (j.key || []).map((k) => `<li>${esc(k)}</li>`).join("");
-              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div><h3>${esc(j.role)}${j.company ? ` <span class="at">at ${esc(j.company)}</span>` : ""}</h3>${j.exit ? `<p class="job-exit">${esc(j.exit)}</p>` : ""}${j.summary ? `<p class="job-summary">${esc(j.summary)}</p>` : ""}${key ? `<ul class="job-key">${key}</ul>` : ""}</div></li>`;
+              // Same short version the page shows: one line and 2-3 points.
+              const points = (j.points?.length ? j.points : j.key || []).map((k) => `<li>${esc(k)}</li>`).join("");
+              const line = j.line || j.summary;
+              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div class="job-body"><h3>${esc(j.role)}${j.company ? ` <span class="at">· ${esc(j.company)}</span>` : ""}</h3>${line ? `<p class="job-line">${esc(line)}</p>` : ""}${points ? `<ul class="job-points">${points}</ul>` : ""}</div><div class="job-side">${j.exit ? `<p class="job-exit">${esc(j.exit)}</p>` : ""}</div></li>`;
             })
             .join(""),
           { html: true },
