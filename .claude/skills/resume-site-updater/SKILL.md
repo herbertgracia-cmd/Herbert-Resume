@@ -24,15 +24,15 @@ Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. A
 These keep the site short enough for a recruiter to skim in 30 seconds.
 
 - **Facts only.** Use only what Herbert tells you or what is already in the file. Never invent numbers, clients, dates, budgets, or results. If something is vague, ask.
-- **Headline (`role`)**: one line, about 50 characters, leading with the job he wants, with parts separated by " · ". Currently "Head of Brand · Creative Director". The first two parts become the browser-tab title.
-- **Keep the page short.** The site shows about 500 words; everything longer sits behind "More" or a click. Add detail to the long fields, not the short ones.
-- **Tagline (`tagline`)**: one short line ("I build brands, then the businesses behind them."). `tagline_accent` is the part set in italic color. **Summary (`summary`)**: two to four sentences under it, ending with what he's ready to lead.
+- **Headline (`role`)**: one line, about 50 characters, leading with the job he wants, with parts separated by " · ". Currently "Head of Brand & Creative", with `specialties` ("Creative Direction · Brand Strategy · ...") as one line under it. The first two parts become the browser-tab title.
+- **Keep the page short and never repeat a fact in two places on screen.** The site shows about 750 words; everything longer sits behind "More" or a click. Add detail to the long fields, not the short ones.
+- **Tagline (`tagline`)**: one short line ("I build brands, lead creative teams, and turn ideas into experiences that connect."). **Summary (`summary`)**: short paragraphs separated by a blank line (`\n\n`). `tagline_accent` is the part set in italic color. **Summary (`summary`)**: two to four sentences under it, ending with what he's ready to lead.
 - **Page order** (in `public/index.html`): hero, stats, Featured work, Experience, Expertise & education, Let's work together. The printed PDF puts Experience before Work.
 - **Stats**: exactly 4, each label 6 words or fewer.
 - **Partners (`partners`)**: well-known brands he collaborated with, shown under the stats (not employers). Each `value` is short (like "20+" or "+10%"); a long text value is allowed for at most one. Don't repeat the same fact twice.
 - **Jobs (`experience`)**, newest first. Each job has:
   - `role`, `company`, `start`, `end` ("Present" if current), and `location`.
-  - `line` and `points`: what the page shows. One short line, plus 2-3 points of 12 words or fewer (3 for the current role, with "Led:/Built:/Grew:").
+  - `line` and `points`: what the page shows: one description, then about 4 points ("Label: text" makes the label bold). Founder roles add `exit` ("Exit: Full Company Acquisition · 2019") and an `exit_note`.
   - `summary`: the fuller description, shown under "More about this role" and on the printed resume.
   - `key` (under "More" and on the printed resume): **exactly 3** bullets, each under about 25 words. The current role uses bold "Led: / Built: / Grew:" labels (a colon near the start makes that text bold) to show what he led, built, and improved; other jobs use plain bullets.
   - `exit` (founder roles): how it ended, shown as a label under the title, e.g. "Full company acquisition · 2019" or "Partner buyout · 2024". Don't make the two exits sound financially equal.
@@ -41,10 +41,10 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
   - Optional details behind "More about this role": `creative` (brand, design & creative direction work), `highlights` (each starting with "Label: "), and `earlier_roles` (`title`, `years`, `note`).
 - **Work (`work`)**: each item needs `title`, `category`, and `summary`.
   - `category` is one name, or a list of names, from Web design, Product design, Project design, Print design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI. A card shows under each of its filters. "Project design" means designed spaces: stores, pop-ups, and trade-show booths.
-  - Exactly **6** items have `"featured": true`, and they are listed first. Featured items are case studies: `challenge`, `role` (his part), `approach`, and `outcome`, each a sentence or two, from facts only. An outcome still in progress says so ("Running through 2026").
+  - Exactly **4** items have `"featured": true` (FAZE, State of Flux, Fromm Institute, Creative Innovation), and they are listed first. Featured items are case studies: `challenge`, `role` (his part), `approach`, and `outcome`, each a sentence or two, from facts only. An outcome still in progress says so ("Running through 2026").
   - `caption` (12 words or fewer) and `tag` (e.g. "Brand · Product") are what the tiles and the All work list show; `summary` shows when the piece is opened. A featured piece with no image can use `cover` (one big word, like "AI") and `cover_note`.
   - Optional: `year`, `details`, `role`, `collaborators`, `tags`, `image`, `imageAlt`, `video`, `link`.
-- **Expertise**: `skills_short` is the short list on the page (4 groups); `skills` and `industries` show under "All skills, tools & industries". `skills` groups stay short (6 items or fewer each); `certifications` have `name`, `issuer`, `year`, and `status` ("Completed" or "In progress, <term>"; update it when he finishes); `education` uses the first entry only on the page.
+- **Leadership & Expertise**: `skills_short` is the list on the page (leadership categories, plus AI Innovation & Agentic Workflows); `tools` is one smaller line under it; `skills` and `industries` show under "All skills, tools & industries". `skills` groups stay short (6 items or fewer each); `certifications` get their own Certification section: the one with `"featured": true` (Certificate in Applied Agentic AI) shows as a large card with its `description`; each has `name`, `issuer`, `year`, and `status`; `education` uses the first entry only on the page.
 - **Welcome pop-up**: its text, choices, and delay are in the `intro` block. Reason ids (`hiring`, `project`, `collab`, `looking`) must match the check in `supabase/schema.sql`; if you add one, update both.
 
 ## Adding work samples

@@ -105,7 +105,6 @@ function render(d) {
   const facts = [
     ...(d.skills_short || groups.slice(0, 4)).map((g) => [g.group, g.items.join(" · ")]),
     ["Education", (d.education || []).slice(0, 1).map((e) => `${e.school}, ${[e.degree, e.year].filter(Boolean).join(", ")}`).join("")],
-    [(d.certifications || []).length > 1 ? "Certificates" : "Certificate", certificateLine(d.certifications || [])],
     ["Languages", (d.skills || []).find((g) => g.group === "Languages")?.items.join(" · ")],
   ].filter(([, v]) => v);
   const allFacts = [
@@ -120,6 +119,15 @@ function render(d) {
   const factRows = (rows) => rows.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, factItems(v))]);
   $("#facts").replaceChildren(...factRows(facts));
   $("#facts-all").replaceChildren(...factRows(allFacts));
+
+  // Tools support the skills above, so they sit in one smaller line.
+  if (d.tools?.length) {
+    const tools = $("#tools");
+    tools.replaceChildren(h("span", { class: "tools-label" }, "Tools"), " ", d.tools.join(" · "));
+    tools.hidden = false;
+  }
+
+  renderCerts(d.certifications || []);
 
   // Printed resume: email and LinkedIn go at the top instead of a contact section at the end.
   $("#print-contact").textContent = [d.links.email, d.links.linkedin?.replace(/^https?:\/\/(www\.)?/, ""), d.location]
@@ -346,24 +354,16 @@ function setupWorkDialog() {
   dialog.addEventListener("close", () => $("#work-dialog-body").replaceChildren());
 }
 
-// "A and B, University of San Francisco" when they share an issuer; otherwise each with its own.
-// A status ("Completed", "In progress, Fall 2026") follows the name in parentheses.
-function certificateLine(certs) {
-  if (!certs.length) return "";
-  const named = (c) => (c.status ? `${c.name} (${c.status.charAt(0).toLowerCase()}${c.status.slice(1)})` : c.name);
-  const issuers = [...new Set(certs.map((c) => c.issuer).filter(Boolean))];
-  if (issuers.length === 1 && certs.every((c) => c.issuer === issuers[0]) && certs.every((c) => !c.year)) {
-    return `${certs.map(named).join(" and ")}, ${issuers[0]}`;
-  }
-  return certs.map((c) => [named(c), c.issuer, c.year].filter(Boolean).join(", ")).join(" · ");
-}
-
 function renderJob(j) {
-  // On the page: one line and 2-3 short points. The full write-up sits under "More"
-  // and is what the printed resume uses.
+  // On the page: the role's description and its points, plus how a founder role ended.
+  // Anything longer sits under "More"; the printed resume uses summary and key.
   const points = j.points?.length ? j.points : (j.key || []).slice(0, 3);
   const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
-  const hasMore = j.summary || key.length || j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length || j.tags?.length;
+  const line = j.line || j.summary;
+  // Skip what the page already shows, so "More" never repeats it.
+  const moreSummary = j.summary && j.summary !== line ? j.summary : null;
+  const moreKey = key.length && key.join() !== points.join() ? key : [];
+  const hasMore = moreSummary || moreKey.length || j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length || j.tags?.length;
   return h("li", { class: "job reveal" },
     h("div", { class: "job-dates" },
       j.start ? `${j.start}–${j.end}` : "",
@@ -372,17 +372,21 @@ function renderJob(j) {
     ),
     h("div", { class: "job-body" },
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `· ${j.company}`)),
-      (j.line || j.summary) && h("p", { class: "job-line" }, j.line || j.summary),
+      line && h("p", { class: "job-line" }, line),
       points.length > 0 && h("ul", { class: "job-points" }, points.map(highlight)),
-      // Printed resume only: the full summary and key bullets.
-      h("div", { class: "job-print" },
-        j.summary && h("p", { class: "job-summary" }, j.summary),
-        key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+      // Printed resume only: the full summary and key bullets, when they differ from the page.
+      (moreSummary || moreKey.length > 0) && h("div", { class: "job-print" },
+        moreSummary && h("p", { class: "job-summary" }, moreSummary),
+        moreKey.length > 0 && h("ul", { class: "job-key" }, moreKey.map(highlight)),
+      ),
+      j.exit && h("div", { class: "job-exit-block" },
+        h("p", { class: "job-exit" }, j.exit),
+        j.exit_note && h("p", { class: "job-exit-note" }, j.exit_note),
       ),
       hasMore && h("details", { class: "job-more" },
         h("summary", {}, "More about this role"),
-        j.summary && h("p", { class: "job-summary" }, j.summary),
-        key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+        moreSummary && h("p", { class: "job-summary" }, moreSummary),
+        moreKey.length > 0 && h("ul", { class: "job-key" }, moreKey.map(highlight)),
         j.areas?.length > 0 && h("div", { class: "job-areas-full" },
           h("p", { class: "job-creative-label" }, "Everything I run here"),
           jobAreas(j)),
@@ -400,7 +404,24 @@ function renderJob(j) {
         ),
       ),
     ),
-    h("div", { class: "job-side" }, j.exit && h("p", { class: "job-exit" }, j.exit)),
+  );
+}
+
+// Certificates get their own section; the featured one is shown large.
+function renderCerts(certs) {
+  const box = $("#certs");
+  if (!certs.length) return $("#certification").remove();
+  const meta = (c) => [c.issuer, c.year, c.status].filter(Boolean).join(" · ");
+  const [top, ...rest] = [...certs].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+  box.replaceChildren(
+    h("div", { class: "cert-card" },
+      h("p", { class: "cert-kicker" }, "Featured certification"),
+      h("h3", {}, top.name),
+      h("p", { class: "cert-meta" }, meta(top)),
+      top.description && h("p", { class: "cert-desc" }, top.description),
+    ),
+    // Same school as the featured one? Leave it out instead of repeating it.
+    rest.length > 0 && h("ul", { class: "cert-more" }, rest.map((c) => h("li", {}, "Also: ", h("strong", {}, c.name), `, ${meta({ ...c, issuer: c.issuer === top.issuer ? "" : c.issuer })}`))),
   );
 }
 

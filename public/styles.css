@@ -669,7 +669,7 @@ img, svg { display: block; }
 
 /* Experience: years | role, one line, short points | exit label. */
 .jobs { border-top: 0; }
-.job { grid-template-columns: 9.5rem 1fr 13rem; gap: 6px 32px; padding: 26px 0; }
+.job { grid-template-columns: 9.5rem 1fr; gap: 6px 32px; padding: 26px 0; }
 .job:first-child { padding-top: 0; }
 .job h3 { font-size: clamp(1.45rem, 2.3vw, 1.85rem); }
 .job h3 .at { font-style: italic; color: var(--muted); }
@@ -678,6 +678,33 @@ img, svg { display: block; }
 .job-side { display: flex; flex-direction: column; align-items: flex-end; }
 .job-side .job-exit { margin: 4px 0 0; text-align: center; }
 .job-print { display: none; }
+.job-line { max-width: 70ch; }
+.job ul.job-points { max-width: 72ch; }
+/* How a founder role ended, right under its points. */
+.job-exit-block { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 14px; }
+.job-exit-block .job-exit { margin: 0; }
+.job-exit-note { margin: 0; flex: 1 1 24rem; color: var(--muted); font-size: 15px; line-height: 1.45; }
+
+/* Specialties under the headline; the intro as short paragraphs. */
+.hero-specialties { margin: 6px 0 0; font: 500 12px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.hero-summary { white-space: pre-line; }
+
+/* Certification: the featured certificate as a large card. */
+.certs { display: grid; gap: 14px; }
+.cert-card {
+  padding: clamp(22px, 3vw, 36px); border-radius: 14px; background: var(--ink); color: var(--bg);
+}
+.cert-kicker { margin: 0; font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.cert-card h3 { margin: 10px 0 0; font: 400 clamp(1.9rem, 3.6vw, 3rem)/1.05 var(--serif); }
+.cert-meta { margin: 10px 0 0; font: 500 12px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .06em; opacity: .75; }
+.cert-desc { margin: 14px 0 0; max-width: 60ch; font-size: 1.05rem; line-height: 1.55; opacity: .9; }
+.cert-more { list-style: none; margin: 0; padding: 0; color: var(--muted); }
+.cert-more strong { color: var(--ink); font-weight: 600; }
+
+/* Tools: one smaller line under Leadership & Expertise. */
+.tools { margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.tools[hidden] { display: none; }
+.tools-label { margin-right: 8px; font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 .job-more > .job-summary { color: var(--muted); }
 
 /* Expertise: a short list, with everything else one click away. */
@@ -762,5 +789,15 @@ img, svg { display: block; }
   .job { padding: 6pt 0; gap: 2pt 12pt; }
   .job:first-child { padding-top: 0; }
   .work { gap: 0; }
-  .facts { grid-template-columns: 7.5rem 1fr; column-gap: 12pt; }
+  .facts { grid-template-columns: 9.5rem 1fr; column-gap: 12pt; }
+  .hero-specialties { font-size: 8pt; }
+  .hero-summary { white-space: normal; }
+  .job-exit-block { margin-top: 3pt; }
+  .job-exit-block .job-exit { background: none; color: #000; padding: 0; }
+  .job-exit-note { font-size: 9.5pt; }
+  .cert-card { padding: 0; background: none; color: #000; }
+  .cert-kicker, .tools, .facts-more { display: none !important; }
+  .cert-card h3 { margin: 0; font-size: 12pt; }
+  .cert-meta, .cert-desc { margin-top: 2pt; font-size: 9.5pt; opacity: 1; }
+  #certification { order: 1; }
 }
