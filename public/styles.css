@@ -243,6 +243,19 @@ img, svg { display: block; }
 }
 :root[data-theme="dark"] .job-creative { --cat: #4a2417; --cat-ink: #ffd6c6; }
 
+/* What goes into each part of a role (Creative, Technology, ...) */
+.job-areas {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 18px 0 0;
+}
+.job-area { padding: 14px 16px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.job-area dt { font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.job-area dd { margin: 6px 0 0; }
+.job .job-area ul { margin: 0; padding-left: 1em; font-size: 14px; line-height: 1.45; }
+.job .job-area li { margin: 3px 0; }
+
+/* Skill tags under each job */
+.job-tags { margin-top: 14px; padding-top: 0; }
+
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
 .tag { font: 400 11px/1 var(--mono); padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; }
 
@@ -520,7 +533,7 @@ img, svg { display: block; }
   @page { margin: 12mm 14mm; }
   body { font-size: 10.5pt; line-height: 1.4; }
   .topbar, .hero-cta, .contact-form, .contact-lead, .contact-sub, .work-cta, .footer, .skip, .section-title .num,
-  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more, .hero-photo { display: none !important; }
+  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more, .hero-photo, .job-areas, .job-tags { display: none !important; }
   .hero { display: block; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero { padding: 0 0 6pt; }
