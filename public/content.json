@@ -197,10 +197,12 @@
           "name": "Creative",
           "items": [
             "Brand strategy & identity",
+            "Logo design",
             "Creative & art direction",
             "Campaign concepts & messaging",
             "Print & digital design",
-            "Photography & video",
+            "Creative assets for enrollment, faculty programs & events",
+            "Photography & video direction",
             "Visual storytelling",
             "50th Anniversary brand"
           ]
@@ -222,12 +224,15 @@
         {
           "name": "Marketing",
           "items": [
-            "Integrated campaigns",
+            "Integrated campaigns across web, email, print, social & video",
             "Enrollment marketing (direct to consumer)",
             "Digital ads (Google, Meta, LinkedIn)",
             "Email & social media",
-            "Community & B2B partnerships",
-            "AI-assisted content & audience messaging"
+            "Audience growth: reaching new students",
+            "Community & B2B partnerships, incl. 5+ retirement communities",
+            "Events, programs & brand experiences",
+            "AI-assisted content & audience messaging",
+            "Marketing budgets & vendors"
           ]
         },
         {
@@ -236,8 +241,10 @@
             "Brand voice & messaging",
             "Website & email content",
             "Student & faculty communications",
-            "Donor & fundraising storytelling",
-            "Board & stakeholder relations"
+            "Institutional storytelling & video",
+            "Donor & fundraising stories, backed by impact data",
+            "Board & stakeholder relations (21-member Board)",
+            "Aligning staff & 20+ volunteers around shared goals"
           ]
         },
         {
@@ -246,7 +253,8 @@
             "Public & media relations",
             "50th Anniversary PR campaign",
             "Spokesperson at donor, faculty & community events",
-            "Community & city relations",
+            "Community, city & USF relations",
+            "Advocacy: countering ageism through communications & outreach",
             "Institutional reputation & storytelling"
           ]
         }
@@ -312,6 +320,7 @@
         "Leadership",
         "Creative direction",
         "Brand identity",
+        "Logo & graphic design",
         "Apparel & product design",
         "Print design",
         "Store & booth design",
@@ -587,7 +596,7 @@
       "items": [
         "Creative direction",
         "Art direction",
-        "Brand identity & logo design",
+        "Brand identity",
         "Campaign development",
         "Photography & video direction",
         "Visual storytelling"
@@ -596,6 +605,7 @@
     {
       "group": "Design",
       "items": [
+        "Logo design",
         "Product & apparel design",
         "Store, pop-up & trade-show design",
         "Print design",
