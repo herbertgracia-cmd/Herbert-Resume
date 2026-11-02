@@ -149,6 +149,7 @@ img, svg { display: block; }
   margin-right: 6px; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent);
 }
 .hero-seeking[hidden] { display: none; }
+.print-contact { display: none; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 /* ---------- Sections ---------- */
@@ -241,6 +242,17 @@ img, svg { display: block; }
 .job-open::after { content: "→"; font-size: 14px; color: var(--accent); transition: transform .2s; }
 .job-open:hover { color: var(--ink); }
 .job-open:hover::after { transform: translateX(3px); }
+
+/* What goes into each part of a role */
+.job-areas {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px;
+  margin: 18px 0 0; align-self: stretch;
+}
+.job-area { padding: 14px 16px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.job-area dt { font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.job-area dd { margin: 6px 0 0; }
+.job .job-area ul, .job-dialog-text .job-area ul { margin: 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.45; }
+.job .job-area li, .job-dialog-text .job-area li { margin: 3px 0; }
 
 /* Job pop-up */
 .job-dialog-text { padding-top: 32px; }
@@ -473,10 +485,11 @@ img, svg { display: block; }
 /* ---------- Print: a short, clean resume ---------- */
 @media print {
   :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --line: #ccc; --accent: #000; }
-  @page { margin: 12mm 14mm; }
+  @page { margin: 10mm 13mm; }
   body { font-size: 10.5pt; line-height: 1.4; }
   .topbar, .hero-cta, .chat-launch, .chat-panel, .contact-form, .contact-lead, .footer, .skip,
-  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-open, .topbar-contact, #expertise, #portfolio { display: none !important; }
+  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-open, .topbar-contact, #expertise, #portfolio, #contact { display: none !important; }
+  .print-contact { display: block; margin: 3pt 0 0; font-size: 9.5pt; color: #000; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero { padding: 0 0 6pt; }
   .eyebrow { margin-bottom: 6pt; }
@@ -503,6 +516,13 @@ img, svg { display: block; }
   .job ul { margin-top: 4pt; }
   .job li { margin: 1pt 0; }
   .job-tags { display: none !important; }
+  .job-areas { display: block; margin-top: 4pt; }
+  .job-area { display: grid; grid-template-columns: 7rem 1fr; gap: 0 8pt; padding: 1pt 0; border: 0; border-radius: 0; background: none; }
+  .job-area dt { font-size: 8pt; line-height: 1.6; color: #000; }
+  .job-area dd { margin: 0; }
+  .job .job-area ul { font-size: 9.5pt; }
+  .job .job-area li { display: inline; margin: 0; }
+  .job .job-area li + li::before { content: " · "; }
   .work-grid { display: block; }
   .work-grid li[data-extra] { display: none !important; }
   .work-card { display: block; padding: 3pt 0; border: 0; background: none; }

@@ -1,12 +1,12 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. Each job shows its 'key' bullets (3 or 4 is best) and its 'tags' (the skills used in that role). 'More about this role' opens a pop-up with 'creative', 'highlights', 'earlier_roles', and any 'photos'. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not. 'looking_for' lists the roles you want; it shows in the top section and the AI chat uses it. 'pillars' fill the 'What I do' section.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. Each job shows its 'key' bullets (3 or 4 is best) and its 'tags' (the skills used in that role). 'More about this role' opens a pop-up with 'creative', 'highlights', 'earlier_roles', and any 'photos'. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not. 'looking_for' lists the roles you want; it shows in the top section and the AI chat uses it. 'pillars' fill the 'What I do' section. A job's 'areas' list shows what goes into each part of the role (e.g. Creative, Technology, Marketing).",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name or a list of names from: Web design, Product design, Project design, Print design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI.",
   "_photos_help": "To add pictures to a job's pop-up, put the files in public/work/ and list them in that job's 'photos', e.g. {\"image\": \"/work/faze-lookbook.jpg\", \"caption\": \"Spring lookbook, 2015\"}. A YouTube or Vimeo link works too: {\"video\": \"https://www.youtube.com/watch?v=...\", \"caption\": \"...\"}. Use JPG or PNG about 1600px wide and under 500 KB. The first photo is shown large.",
   "name": "Herbert Gracia",
   "role": "Creative Director · Art Director · Brand Builder",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I take brands from idea to market. I co-founded two apparel brands and grew one to acquisition, designing every product, store, and campaign and selling direct to consumers and to retail and wholesale accounts. For 21 years I've also led marketing, creative, and growth at the University of San Francisco's Fromm Institute.",
+  "tagline": "I take brands from idea to market. I co-founded two apparel brands and grew one to acquisition, designing every product, store, and campaign and selling direct to consumers and to retail and wholesale accounts. For 21 years I've also led creative, technology, marketing, communications, and PR at the University of San Francisco's Fromm Institute.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -113,7 +113,7 @@
     },
     {
       "name": "Nonprofit & lifelong learning",
-      "note": "Programs, fundraising, and governance for 1,500+ older adults a year"
+      "note": "Programs, fundraising, and governance for about 3,000 students a year"
     },
     {
       "name": "EdTech & online video",
@@ -137,26 +137,21 @@
       "start": "2005",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead brand, marketing, technology, and growth for USF's lifelong-learning nonprofit, serving 1,500+ members a year.",
+      "summary": "In charge of creative, technology, marketing, communications, and PR for USF's lifelong-learning institute, which serves about 1,000 students a session and 3,000 a year.",
       "tags": [
         "Leadership",
         "Creative direction",
-        "Brand strategy",
-        "Integrated marketing",
+        "Technology leadership",
         "Communications & PR",
-        "Paid media",
-        "Web & print design",
-        "Video production",
         "DTC sales",
         "B2B partnerships",
         "Business development",
         "Project management",
         "Product management",
-        "Salesforce CRM",
-        "Generative AI",
-        "Board relations",
         "Budget management",
-        "Fundraising"
+        "Board relations",
+        "Fundraising",
+        "Generative AI"
       ],
       "creative": [
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
@@ -165,7 +160,7 @@
         "Leading the brand, marketing, and PR for the 50th Anniversary celebration"
       ],
       "highlights": [
-        "Marketing Growth: Grew communications from zero presence to a multi-channel program reaching 1,500+ older learners, increasing enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+        "Marketing Growth: Grew communications from zero presence to a multi-channel program reaching about 3,000 students a year, increasing enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
         "Product & Technology: Helped build Frommcast, Fromm's online learning and content platform. Lead website, CRM, enrollment, and digital experience projects from concept through implementation, including a Salesforce-based redesign with Stripe and CashNet payments.",
         "AI in Marketing: Use AI and generative AI for campaign development, content creation, audience messaging, research, social media marketing, and workflow improvement.",
         "Events & Programs: Develop and produce educational programs, community events, brand experiences, and major institutional events.",
@@ -196,6 +191,62 @@
         "Lead brand strategy, creative direction, and PR, including the Institute's 50th Anniversary campaign",
         "Grow direct-to-consumer enrollment and B2B partnerships with retirement communities, donors, and city agencies",
         "Manage projects from concept to launch, including the Frommcast video platform and a Salesforce website and CRM with integrated payments; lead teams, vendors, and budgets"
+      ],
+      "areas": [
+        {
+          "name": "Creative",
+          "items": [
+            "Brand strategy & identity",
+            "Creative & art direction",
+            "Campaign concepts & messaging",
+            "Print & digital design",
+            "Photography & video",
+            "Visual storytelling",
+            "50th Anniversary brand"
+          ]
+        },
+        {
+          "name": "Technology",
+          "items": [
+            "Salesforce website & CRM",
+            "Online enrollment & payments (Stripe, CashNet)",
+            "Frommcast online learning platform",
+            "Classroom, hybrid & event technology",
+            "AI tools & workflows",
+            "Tech partners, incl. USF's Technology Department"
+          ]
+        },
+        {
+          "name": "Marketing",
+          "items": [
+            "Integrated campaigns",
+            "Enrollment marketing (direct to consumer)",
+            "Digital ads (Google, Meta, LinkedIn)",
+            "Email & social media",
+            "Community & B2B partnerships",
+            "AI-assisted content & audience messaging"
+          ]
+        },
+        {
+          "name": "Communications",
+          "items": [
+            "Brand voice & messaging",
+            "Website & email content",
+            "Student & faculty communications",
+            "Donor & fundraising storytelling",
+            "Board & stakeholder relations"
+          ]
+        },
+        {
+          "name": "PR",
+          "items": [
+            "Public & media relations",
+            "50th Anniversary PR campaign",
+            "Spokesperson at donor, faculty & community events",
+            "Community & city relations",
+            "Institutional reputation & storytelling"
+          ]
+        }
       ],
       "photos": []
     },

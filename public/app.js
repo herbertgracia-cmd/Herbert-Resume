@@ -92,6 +92,10 @@ function render(d) {
   ].filter(([, v]) => v);
   $("#facts").replaceChildren(...facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)]));
 
+  // Printed resume: contact details go at the top.
+  $("#print-contact").textContent = [d.links.email, d.links.linkedin?.replace(/^https?:\/\/(www\.)?/, ""), d.location]
+    .filter(Boolean).join("  ·  ");
+
   const email = $("#contact-email");
   email.textContent = d.links.email;
   email.href = `mailto:${d.links.email}`;
@@ -268,11 +272,22 @@ function renderJob(j) {
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
       j.summary && h("p", { class: "job-summary" }, j.summary),
       key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+      jobAreas(j),
       j.tags?.length > 0 && h("div", { class: "tags job-tags", role: "list", "aria-label": "Skills used in this role" },
         j.tags.map((t) => h("span", { class: "tag", role: "listitem" }, t))),
       more,
     ),
   );
+}
+
+// What goes into each part of a role, e.g. Creative, Technology, Marketing.
+function jobAreas(j) {
+  if (!j.areas?.length) return null;
+  return h("dl", { class: "job-areas" }, j.areas.map((a) =>
+    h("div", { class: "job-area" },
+      h("dt", {}, a.name),
+      h("dd", {}, h("ul", {}, (a.items || []).map((x) => h("li", {}, x)))),
+    )));
 }
 
 // Pop-up for one job: photos (if any) plus everything about the role.
@@ -285,6 +300,7 @@ function openJob(j) {
       h("h3", { id: "work-dialog-title" }, j.role, j.company && h("span", { class: "at" }, ` at ${j.company}`)),
       j.summary && h("p", {}, j.summary),
       j.tags?.length > 0 && h("div", { class: "tags" }, j.tags.map((t) => h("span", { class: "tag" }, t))),
+      jobAreas(j),
       j.creative?.length > 0 && h("div", { class: "job-creative" },
         h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
         h("ul", {}, j.creative.map((x) => h("li", {}, x))),
