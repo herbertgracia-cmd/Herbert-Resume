@@ -24,7 +24,7 @@ The **Featured work** section is the `work` list in `public/content.json`. Each 
 ```json
 {
   "title": "Spring catalog redesign",
-  "category": "Design",
+  "category": ["Print design", "Marketing"],
   "year": "2025",
   "summary": "One or two sentences shown on the card.",
   "details": "Optional longer story shown when the card is opened.",
@@ -37,7 +37,7 @@ The **Featured work** section is the `work` list in `public/content.json`. Each 
 }
 ```
 
-- **category:** one of `Design`, `Marketing`, `Video`, `Events`, `Storytelling`, `Collaborations`, `Technology`, `AI`.
+- **category:** one name, or a list of names, from `Web design`, `Product design`, `Project design` (stores, pop-ups, booths), `Print design`, `Marketing`, `Video`, `Events`, `Storytelling`, `Collaborations`, `Technology`, `AI`. A card shows under each of its filters.
 - **featured:** `true` to show it in the first six; the rest appear under "See all work".
 - **challenge, approach, outcome:** turn a piece into a case study. Opening it then shows The challenge, My role (`role`), Approach, and Outcome, and the card says "Read the case study".
 - **image:** put the picture in `public/work/` (JPG or PNG, about 1600px wide, under 500 KB).
@@ -45,6 +45,10 @@ The **Featured work** section is the `work` list in `public/content.json`. Each 
 - **Your portrait** is `public/herbert.jpg` (set by `photo` in `content.json`); it also appears in the link-preview image.
 - **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
 - Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
+
+## Job skills and areas
+
+Each job in `experience` can have `tags` (skill chips, such as Leadership and DTC sales) and `areas` (boxes listing what goes into each part of the role, like Creative, Technology, Marketing, Communications, and PR). Both show on the website; the printed PDF keeps just the three key bullets so it stays at 2 pages.
 
 ## Welcome pop-up
 

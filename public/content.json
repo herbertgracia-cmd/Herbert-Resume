@@ -1,6 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate's 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name, or a list of names, from: Web design, Product design, Project design, Print design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
   "name": "Herbert Gracia",
   "role": "Head of Brand · Creative Director · Growth & Strategy",
   "location": "San Francisco, CA",
@@ -13,20 +13,20 @@
   },
   "stats": [
     {
-      "value": "20+",
-      "label": "years leading brand, marketing, and creative"
+      "value": "$150K+",
+      "label": "in yearly budgets I manage at Fromm"
     },
     {
       "value": "2",
       "label": "apparel brands co-founded and exited: one acquisition, one partner buyout"
     },
     {
-      "value": "Pinterest · Timbuk2 · SFMOMA",
-      "label": "co-branded products and pop-ups I led for State of Flux"
-    },
-    {
       "value": "+10%",
       "label": "Fromm enrollment growth driven by my marketing"
+    },
+    {
+      "value": "500+",
+      "label": "news outlets picked up my latest press release"
     }
   ],
   "about": [
@@ -90,7 +90,7 @@
       "proof": [
         "Completed USF's AI Certificate Intensive; Applied Agentic AI Certificate in progress (Fall 2026)",
         "Use generative AI for campaigns, content, audience messaging, research, and social media",
-        "Designing the Fromm Enrollment Helper, an AI guide for older adults",
+        "Building an AI chatbot for Fromm's website (in progress)",
         "Directed AI agents to build this website, including its visitor welcome pop-up"
       ]
     }
@@ -118,7 +118,7 @@
     },
     {
       "name": "Nonprofit & lifelong learning",
-      "note": "Programs, fundraising, and governance for 1,500+ older adults a year"
+      "note": "Programs, partnerships, and governance for about 3,000 students a year"
     },
     {
       "name": "EdTech & online video",
@@ -142,21 +142,24 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "I run brand, marketing, PR, and technology for USF's lifelong learning institute, serving 1,500+ older adults a year. I own the $80K marketing and $100K technology budgets and the teams, vendors, and partners behind them.",
+      "summary": "I run creative, technology, marketing, communications, and PR for USF's lifelong learning institute, which serves about 1,000 students a session and 3,000 a year. I lead a team of 6+ and manage $150K+ a year in budgets.",
       "creative": [
+        "Design everything for Fromm: course catalogs, brochures, posters, newsletters, print ads, and the 50th Anniversary logo",
         "Lead brand strategy, creative direction, integrated marketing, and PR across web, email, print, social, video, digital advertising, partnerships, and events",
         "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
         "Lead video and digital content for Frommcast, enrollment campaigns, faculty programs, and institutional storytelling",
         "Leading the brand, marketing, and PR for the 50th Anniversary celebration",
-        "Ran Fromm's lifelong learning survey and wrote the national press release sharing its findings"
+        "Ran Fromm's lifelong learning survey and wrote the national press release sharing its findings, picked up by 500+ news outlets across the U.S. and Europe"
       ],
       "highlights": [
-        "Marketing Growth: Built communications from zero presence into a multi-channel program reaching 1,500+ older learners; that marketing grew enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+        "Marketing Growth: Built communications from zero presence into a multi-channel program reaching about 3,000 students a year; that marketing grew enrollment by 10%. Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
+        "Social & Video: Launched Fromm's YouTube channel, reaching 700+ subscribers in 6 months, and grew Facebook and Instagram by 300+ followers in my first year running them.",
         "Product & Technology: Built Frommcast, Fromm's online learning and content platform. Lead website, CRM, enrollment, and digital experience projects from concept through implementation, including a Salesforce-based redesign with Stripe and CashNet payments.",
         "AI in Marketing: Use AI and generative AI for campaign development, content creation, audience messaging, research, social media marketing, and workflow improvement.",
+        "AI Products: Building an AI chatbot for Fromm's website, applying what I'm learning in USF's Applied Agentic AI certificate, with more AI projects in the works.",
         "Events & Programs: Develop and produce educational programs, community events, brand experiences, and major institutional events.",
-        "Teams & Budgets: Manage the $80K marketing and $100K technology budgets, plus teams, vendors, timelines, technology partners, and cross-functional projects.",
-        "Fundraising & Board: Member of the leadership group responsible for fundraising strategy; built lasting trust with a 21-member Board, faculty, staff, and volunteers.",
+        "Teams & Budgets: Lead a team of 6+ engineers, photographers, video crew, and student workers. Manage a $100K yearly technology upgrade budget for the Fromm building, on budget every year through strong vendor relationships, plus a $20K yearly newspaper ad budget with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
+        "Board & Stakeholders: Built lasting trust with a 21-member Board, faculty, staff, and volunteers.",
         "Partnerships: Support direct-to-consumer enrollment and business partnerships that bring Fromm programming to organizations and communities, including retirement homes across San Francisco.",
         "Equity & Advocacy: Make Fromm's programs welcoming and accessible to all older adults, countering ageism through communications, technology, and outreach."
       ],
@@ -178,11 +181,99 @@
         }
       ],
       "key": [
-        "Led: brand strategy, creative direction, marketing, and PR, including the 50th Anniversary campaign and a national press release on our lifelong learning survey",
-        "Built: Frommcast, our online learning platform; a Salesforce website with Stripe and CashNet payments; and hybrid classrooms",
-        "Grew: enrollment 10% by building Fromm's marketing from no presence into a multi-channel program across web, email, print, social, video, and paid digital"
+        "Led: brand, design, marketing, and PR, designing everything from course catalogs to the 50th Anniversary logo; my survey press release reached 500+ news outlets",
+        "Built: Frommcast and its YouTube channel; a Salesforce website with Stripe and CashNet payments; and smart classrooms on a $100K yearly tech budget",
+        "Grew: enrollment 10% through multi-channel marketing, YouTube to 700+ subscribers in 6 months, and Facebook and Instagram by 300+ followers in a year"
       ],
-      "since": "At Fromm since 2005"
+      "since": "At Fromm since 2005",
+      "areas": [
+        {
+          "name": "Creative",
+          "items": [
+            "Design everything for Fromm, print & digital",
+            "Logo design, incl. the 50th Anniversary logo",
+            "Course catalogs, brochures & posters",
+            "Print ads (San Francisco Chronicle, SFGATE)",
+            "Newsletter design & production",
+            "Brand strategy & identity",
+            "Creative & art direction",
+            "Campaign concepts & messaging",
+            "Photography & video direction"
+          ]
+        },
+        {
+          "name": "Technology",
+          "items": [
+            "Manage a $100K-a-year technology upgrade budget for the Fromm building, on budget every year",
+            "Strong vendor relationships that keep upgrades on time and on budget",
+            "Manage the Salesforce engineers who build our website and CRM",
+            "Designed the Fromm website",
+            "CRM administration & maintenance",
+            "Online enrollment & payments (Stripe, CashNet)",
+            "Building an AI chatbot for the website (in progress), from USF's Applied Agentic AI certificate",
+            "Managed the vendor that built our smart classrooms",
+            "Frommcast online learning platform",
+            "Classroom, hybrid & event technology",
+            "Partner with USF's Technology Department"
+          ]
+        },
+        {
+          "name": "Marketing",
+          "items": [
+            "Integrated campaigns across web, email, print, social & video",
+            "Enrollment marketing (direct to consumer)",
+            "Social media marketing & paid social ($3K a month)",
+            "Newspaper advertising: $20K a year with Hearst Media (San Francisco Chronicle, SFGATE)",
+            "Launched our YouTube channel: 700+ subscribers in 6 months",
+            "Facebook & Instagram: 300+ new followers in my first year",
+            "Digital ads (Google, Meta, LinkedIn) & email marketing",
+            "Community & B2B partnerships, incl. 5+ retirement communities",
+            "Events, programs & brand experiences",
+            "AI-assisted content & audience messaging"
+          ]
+        },
+        {
+          "name": "Communications",
+          "items": [
+            "Brand voice & messaging",
+            "Website & email content",
+            "Newsletters: turn written content into designed issues",
+            "Student & faculty communications",
+            "Institutional storytelling & video",
+            "Impact stories for members & the community",
+            "Board & stakeholder relations (21-member Board)",
+            "Aligning staff & 20+ volunteers around shared goals"
+          ]
+        },
+        {
+          "name": "PR",
+          "items": [
+            "Survey press release on PR Newswire, picked up by 500+ news outlets across the U.S. and Europe",
+            "Public & media relations",
+            "50th Anniversary PR campaign",
+            "Spokesperson at faculty, member & community events",
+            "Community, city & USF relations",
+            "Advocacy: countering ageism through communications & outreach",
+            "Institutional reputation & storytelling"
+          ]
+        }
+      ],
+      "tags": [
+        "Leadership (team of 6+)",
+        "Creative direction",
+        "Design",
+        "Technology leadership",
+        "Communications & PR",
+        "Social media & paid ads",
+        "Print advertising",
+        "DTC sales",
+        "B2B partnerships",
+        "Business development",
+        "Project management",
+        "Budget & vendor management",
+        "Board relations",
+        "Agentic AI"
+      ]
     },
     {
       "role": "Co-Founder & Brand Director",
@@ -192,9 +283,11 @@
       "location": "San Francisco Bay Area",
       "summary": "Co-founded and built an apparel brand alongside my role at Fromm; sold my share to my business partner in 2024.",
       "creative": [
+        "Designed every product, logo, piece of artwork, and collaboration",
         "Led brand strategy, visual identity, creative direction, art direction, and marketing",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
-        "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling"
+        "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling",
+        "Designed our pop-up and trade-show spaces"
       ],
       "highlights": [
         "Collaborations: Created co-branded products for sale, plus events and pop-ups, with partners including Pinterest, Timbuk2, and SFMOMA.",
@@ -205,9 +298,26 @@
         "Exit: Sold my share to my business partner in 2024."
       ],
       "key": [
-        "Built the brand from the ground up across identity, art direction, product design, campaigns, and e-commerce",
+        "Designed everything, from products, logos, and artwork to collaborations, campaigns, and e-commerce",
         "Created co-branded products and pop-up events with Pinterest, Timbuk2, and SFMOMA",
         "Ran our retail store and a team of 5, selling direct to customers and to companies"
+      ],
+      "tags": [
+        "Entrepreneurship",
+        "Leadership (team of 5)",
+        "Creative direction",
+        "Art direction",
+        "Product design",
+        "Logo & artwork design",
+        "Pop-up & retail design",
+        "Product management",
+        "Go-to-market strategy",
+        "DTC sales",
+        "B2B & wholesale sales",
+        "E-commerce",
+        "Brand partnerships",
+        "Storytelling",
+        "Exit (partner buyout)"
       ]
     },
     {
@@ -234,13 +344,34 @@
         "Led brand identity, apparel design, and campaigns with a team of 5, from concept through acquisition",
         "Grew wholesale to 10+ stores, sold directly to buyers and customers, and opened our own retail store",
         "Designed trade-show booths in Las Vegas, Miami, Los Angeles, and New York, plus our store's build-out"
+      ],
+      "tags": [
+        "Entrepreneurship",
+        "Leadership (team of 5)",
+        "Creative direction",
+        "Brand identity",
+        "Apparel & product design",
+        "Print design",
+        "Store & booth design",
+        "Product management",
+        "Project management",
+        "Supply chain & manufacturing",
+        "DTC sales",
+        "B2B & wholesale sales",
+        "Account management",
+        "Trade shows",
+        "Exit (acquisition)"
       ]
     }
   ],
   "work": [
     {
       "title": "State of Flux",
-      "category": "Design",
+      "category": [
+        "Product design",
+        "Print design",
+        "Web design"
+      ],
       "year": "2019–2024",
       "summary": "Building a brand from the ground up: identity, apparel, retail, e-commerce, and co-branded collaborations with Pinterest, Timbuk2, and SFMOMA.",
       "role": "Co-Founder & Brand Director: brand strategy, identity, creative direction, product, and marketing, leading a team of 5",
@@ -272,7 +403,10 @@
     },
     {
       "title": "FAZE Apparel",
-      "category": "Design",
+      "category": [
+        "Product design",
+        "Print design"
+      ],
       "year": "2007–2019",
       "summary": "From startup to acquisition: brand, products, distribution, trade shows, and our own retail store.",
       "role": "Co-Founder & Brand Director, leading a team of 5 across design, product, marketing, and sales",
@@ -291,10 +425,14 @@
     },
     {
       "title": "Fromm Institute: brand & growth",
-      "category": "Marketing",
+      "category": [
+        "Marketing",
+        "Print design",
+        "Web design"
+      ],
       "year": "",
       "summary": "Building Fromm's marketing from zero into a multi-channel brand; that marketing grew enrollment 10%.",
-      "role": "Lead brand strategy, creative direction, marketing, and PR; own the $80K marketing budget",
+      "role": "Lead brand strategy, creative direction, marketing, and PR; manage $20K a year in newspaper ads and $3K a month in paid social",
       "tags": [
         "Brand strategy",
         "Integrated marketing",
@@ -306,7 +444,7 @@
       "imageFit": "contain",
       "challenge": "Fromm started with no marketing presence, which limited how many new older learners it could reach.",
       "approach": "I built an integrated program across web, email, print, social, video, and paid digital on Google, Meta, and LinkedIn, and partnered with retirement homes, donor networks, and city agencies to reach new learners.",
-      "outcome": "Because of this marketing, enrollment grew 10%, and Fromm now reaches 1,500+ older learners a year.",
+      "outcome": "Because of this marketing, enrollment grew 10%. Fromm now serves about 1,000 students a session and 3,000 a year.",
       "featured": true
     },
     {
@@ -329,36 +467,39 @@
       "linkLabel": "Watch on YouTube",
       "challenge": "Give older adults a way to keep learning from home, beyond the classroom.",
       "approach": "I built the recording and hybrid-classroom setup, produced the lecture video, and launched it as Frommcast, a branded channel organized by subject on YouTube.",
-      "outcome": "200+ recorded classes on art, history, science, and more, free for anyone to watch."
+      "outcome": "200+ recorded classes on art, history, science, and more, free for anyone to watch. The YouTube channel I launched reached 700+ subscribers in its first 6 months."
     },
     {
       "title": "Fromm 50th Anniversary",
-      "category": "Marketing",
+      "category": [
+        "Marketing",
+        "Print design"
+      ],
       "year": "1976–2026",
-      "summary": "One integrated campaign for 50 years of Fromm: identity, events, fundraising communications, and press.",
-      "role": "Leading brand, marketing, and PR for the celebration",
+      "summary": "One integrated campaign for 50 years of Fromm: the logo I designed, events, print, and press.",
+      "role": "Designed the 50th Anniversary logo; leading brand, marketing, and PR for the celebration",
       "tags": [
+        "Logo design",
         "Integrated campaign",
         "Event branding",
-        "PR",
-        "Fundraising"
+        "PR"
       ],
       "image": "/work/fromm-50th.jpg",
       "imageAlt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
       "featured": true,
       "challenge": "Mark 50 years (1976–2026) in a way that honors the Institute's history and brings in new members and supporters.",
-      "approach": "An anniversary identity pairs a bold purple-and-gold '50' badge with archival photos of members across five decades, carried across events, print, digital, fundraising communications, and press.",
+      "approach": "An anniversary identity pairs a bold purple-and-gold '50' badge I designed with archival photos of members across five decades, carried across events, print, digital, and press.",
       "outcome": "Running through 2026."
     },
     {
       "title": "AI & creative operations",
       "category": "AI",
       "year": "2026",
-      "summary": "Putting AI to work: AI-assisted marketing at Fromm, an AI enrollment guide for older adults, and this website, built by directing AI agents.",
-      "role": "Bring AI into Fromm's marketing and creative workflows; product owner for the Enrollment Helper and this site",
+      "summary": "Putting AI to work: AI-assisted marketing at Fromm, an AI chatbot for Fromm's website, and this website, built by directing AI agents.",
+      "role": "Bring AI into Fromm's marketing and creative workflows; building Fromm's website chatbot and this site",
       "challenge": "Find practical uses for AI that make marketing and operations work better, not just experiments.",
-      "approach": "I use generative AI for campaign development, content, audience messaging, research, and social media. I'm designing the Fromm Enrollment Helper, a plain-language AI guide that walks older adults through enrolling and hands off to staff. And I directed AI coding agents to build this site on Cloudflare and Supabase, including the welcome pop-up that asks visitors how I can help.",
-      "outcome": "This site is live and shows me who visits and why; the Enrollment Helper is in development.",
+      "approach": "I use generative AI for campaign development, content, audience messaging, research, and social media. I'm building an AI chatbot for Fromm's website, a plain-language guide that helps older adults enroll and hands off to staff, applying what I'm learning in USF's Applied Agentic AI certificate. And I directed AI coding agents to build this site on Cloudflare and Supabase, including the welcome pop-up that asks visitors how I can help.",
+      "outcome": "This site is live and shows me who visits and why. The Fromm chatbot is in progress, with more AI projects in the works.",
       "tags": [
         "Generative AI",
         "Agentic AI",
@@ -367,8 +508,54 @@
       "featured": true
     },
     {
+      "title": "Course catalogs & brochures",
+      "category": [
+        "Print design"
+      ],
+      "year": "Fromm",
+      "summary": "I design all of Fromm's course catalogs, brochures, and posters.",
+      "role": "Designer",
+      "tags": [
+        "Catalogs",
+        "Brochures",
+        "Posters"
+      ]
+    },
+    {
+      "title": "San Francisco Chronicle print ads",
+      "category": [
+        "Print design",
+        "Marketing"
+      ],
+      "year": "Fromm",
+      "summary": "I manage Fromm's $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE) and design every ad.",
+      "role": "Ad designer & account manager",
+      "tags": [
+        "Print ads",
+        "Media buying",
+        "Hearst Media"
+      ]
+    },
+    {
+      "title": "Fromm newsletters",
+      "category": [
+        "Print design",
+        "Storytelling"
+      ],
+      "year": "Fromm",
+      "summary": "I design and produce Fromm's newsletters, turning written content into finished issues.",
+      "role": "Designer & producer",
+      "tags": [
+        "Newsletter",
+        "Editorial design"
+      ]
+    },
+    {
       "title": "Brand collaborations",
-      "category": "Collaborations",
+      "category": [
+        "Collaborations",
+        "Product design"
+      ],
       "year": "State of Flux",
       "summary": "Co-branded products and pop-up events for State of Flux with Pinterest, Timbuk2, and SFMOMA.",
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
@@ -382,7 +569,9 @@
     },
     {
       "title": "Retail store design",
-      "category": "Design",
+      "category": [
+        "Project design"
+      ],
       "year": "FAZE Apparel",
       "summary": "Led the design and build-out of our own FAZE retail store, from concept through opening.",
       "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
@@ -419,7 +608,10 @@
     },
     {
       "title": "Trade-show booths",
-      "category": "Events",
+      "category": [
+        "Project design",
+        "Events"
+      ],
       "year": "FAZE Apparel",
       "summary": "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York.",
       "role": "Designer & producer",
@@ -430,13 +622,17 @@
     },
     {
       "title": "Pop-ups & retail activations",
-      "category": "Events",
+      "category": [
+        "Project design",
+        "Events"
+      ],
       "year": "State of Flux",
-      "summary": "Planned and produced community events, retail activations, pop-ups, and experiential marketing programs.",
+      "summary": "Designed and produced pop-up shops, retail activations, and community events.",
       "tags": [
         "Pop-ups",
         "Experiential"
-      ]
+      ],
+      "role": "Space designer & producer"
     },
     {
       "title": "Fromm events & programs",
@@ -471,7 +667,10 @@
     },
     {
       "title": "Salesforce website & payments",
-      "category": "Technology",
+      "category": [
+        "Web design",
+        "Technology"
+      ],
       "year": "",
       "summary": "Directed a Salesforce-based website redesign with integrated Stripe and CashNet payment and donor systems, so staff manage tuition, donations, and enrollment in-house.",
       "tags": [
@@ -481,29 +680,46 @@
       ]
     },
     {
-      "title": "Fromm Enrollment Helper",
-      "category": "AI",
+      "title": "Fromm website AI chatbot",
+      "category": [
+        "AI",
+        "Web design"
+      ],
       "year": "In progress",
-      "summary": "A plain-language AI helper that walks older adults through online enrollment step by step and hands off to staff with the question already summarized.",
+      "summary": "An AI chatbot for Fromm's website that walks older adults through enrolling and hands off to staff. I'm building it with what I'm learning in USF's Applied Agentic AI certificate; it goes live when finished.",
       "tags": [
-        "AI assistant",
-        "Accessibility",
-        "Product design"
+        "Agentic AI",
+        "Chatbot",
+        "Accessibility"
       ]
     },
     {
       "title": "Lifelong learning survey",
       "category": "Storytelling",
       "year": "",
-      "summary": "A Fromm Institute survey finding that lifelong learning boosts happiness and strengthens social connection among older adults, shared through a national press release.",
+      "summary": "A Fromm Institute survey finding that lifelong learning boosts happiness and social connection among older adults. My national press release was picked up by 500+ news outlets across the U.S. and Europe.",
       "link": "https://www.prnewswire.com/news-releases/lifelong-learning-boosts-happiness-strengthens-social-connection-among-older-adults-fromm-institute-survey-302689785.html",
       "linkLabel": "Read the press release",
       "tags": [
         "PR",
         "Research",
-        "Impact story"
+        "500+ outlets"
       ],
       "role": "Ran the survey and wrote the press release"
+    },
+    {
+      "title": "Fromm website AI chatbot",
+      "category": [
+        "AI",
+        "Web design"
+      ],
+      "year": "In progress",
+      "summary": "An AI chatbot for Fromm's website that walks older adults through enrolling and hands off to staff. I'm building it with what I'm learning in USF's Applied Agentic AI certificate; it goes live when finished.",
+      "tags": [
+        "Agentic AI",
+        "Chatbot",
+        "Accessibility"
+      ]
     }
   ],
   "skills": [
@@ -511,7 +727,7 @@
       "group": "Brand & Creative",
       "items": [
         "Brand strategy",
-        "Visual identity",
+        "Visual identity & logo design",
         "Creative direction",
         "Art direction",
         "Photography & video",
@@ -519,34 +735,45 @@
       ]
     },
     {
+      "group": "Design",
+      "items": [
+        "Catalogs, brochures & posters",
+        "Print & newspaper ads",
+        "Newsletters",
+        "Web & e-commerce design",
+        "Retail, pop-up & trade-show design"
+      ]
+    },
+    {
       "group": "Marketing & Growth",
       "items": [
         "Integrated marketing",
         "Go-to-market strategy",
+        "Social media & paid ads",
         "Digital ads (Google, Meta, LinkedIn)",
-        "Email & social media",
+        "Email marketing",
         "PR & press"
+      ]
+    },
+    {
+      "group": "Product & Sales",
+      "items": [
+        "Apparel & product design",
+        "Sourcing & manufacturing",
+        "DTC & e-commerce sales",
+        "B2B & wholesale sales",
+        "Retail & account management"
       ]
     },
     {
       "group": "Leadership & Business",
       "items": [
         "Business strategy",
-        "Teams, vendors & budgets",
+        "Team leadership (6+)",
+        "Budgets ($150K+ a year) & vendors",
         "Partnerships",
         "Cross-functional projects",
-        "Board & stakeholder relations",
-        "Fundraising & donor stewardship"
-      ]
-    },
-    {
-      "group": "Product & Retail",
-      "items": [
-        "Apparel & product design",
-        "Sourcing & manufacturing",
-        "Retail & trade-show design",
-        "DTC, wholesale & e-commerce",
-        "Direct sales (B2C & B2B)"
+        "Board & stakeholder relations"
       ]
     },
     {
@@ -554,8 +781,31 @@
       "items": [
         "Agentic AI",
         "Generative AI",
-        "Website & CRM projects",
-        "AI assistant design"
+        "AI chatbot design",
+        "Website & CRM (Salesforce)",
+        "Smart classroom technology"
+      ]
+    },
+    {
+      "group": "Design & Video Tools",
+      "items": [
+        "Photoshop",
+        "Illustrator",
+        "InDesign",
+        "Premiere Pro",
+        "Final Cut Pro",
+        "Canva"
+      ]
+    },
+    {
+      "group": "Marketing & AI Tools",
+      "items": [
+        "Salesforce Marketing Cloud",
+        "Mailchimp",
+        "Google Analytics",
+        "Claude & ChatGPT",
+        "GitHub & Cloudflare",
+        "NVIDIA AI"
       ]
     },
     {
@@ -588,7 +838,7 @@
     },
     {
       "school": "Executive & Professional Development",
-      "degree": "Nonprofit Leadership, Fundraising, Strategic Management",
+      "degree": "Nonprofit Leadership, Strategic Management",
       "year": ""
     }
   ],

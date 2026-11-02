@@ -32,9 +32,11 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
   - `role`, `company`, `start`, `end` ("Present" if current), and `location`.
   - `summary`: one sentence.
   - `key`: **exactly 3** bullets, each under about 25 words. The current role uses bold "Led: / Built: / Grew:" labels (a colon near the start makes that text bold) to show what he led, built, and improved; other jobs use plain bullets.
+  - `tags`: the skills used in the role, shown as small chips. Every job includes leadership and sales; use business terms (DTC, B2B, wholesale, go-to-market).
+  - `areas` (optional): what goes into each part of the role, shown as boxes, e.g. `{"name": "Technology", "items": [...]}`. The Fromm job has Creative, Technology, Marketing, Communications, and PR. Areas and tags show on the website only; the printed PDF keeps the 3 key bullets.
   - Optional details behind "More about this role": `creative` (brand, design & creative direction work), `highlights` (each starting with "Label: "), and `earlier_roles` (`title`, `years`, `note`).
 - **Work (`work`)**: each item needs `title`, `category`, and `summary`.
-  - `category` is one of Design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI.
+  - `category` is one name, or a list of names, from Web design, Product design, Project design, Print design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI. A card shows under each of its filters. "Project design" means designed spaces: stores, pop-ups, and trade-show booths.
   - Exactly **6** items have `"featured": true`, and they are listed first. Featured items are case studies: `challenge`, `role` (his part), `approach`, and `outcome`, each a sentence or two, from facts only. An outcome still in progress says so ("Running through 2026").
   - Optional: `year`, `details`, `role`, `collaborators`, `tags`, `image`, `imageAlt`, `video`, `link`.
 - **Everything else**: `skills` groups stay short (6 items or fewer each); `certifications` have `name`, `issuer`, `year`, and `status` ("Completed" or "In progress, <term>"; update it when he finishes); `education` uses the first entry only on the page.

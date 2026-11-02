@@ -135,7 +135,20 @@ function videoInfo(url) {
 }
 
 function categoryClass(cat) {
-  return "cat-" + String(cat || "other").toLowerCase().replace(/[^a-z]+/g, "-");
+  const name = String([].concat(cat || "other")[0]).toLowerCase();
+  // All the design types (Web design, Print design...) share the design color.
+  if (name.endsWith("design")) return "cat-design";
+  return "cat-" + name.replace(/[^a-z]+/g, "-");
+}
+
+// "category" can be one name or a list, e.g. ["Product design", "Print design"].
+function categoriesOf(item) {
+  return [].concat(item.category || []).filter(Boolean);
+}
+
+// The label a card shows: its first two categories.
+function categoryLabel(item, max = 2) {
+  return categoriesOf(item).slice(0, max).join(" + ");
 }
 
 // A card's cover: the real image or video thumbnail if there is one; otherwise a
@@ -153,7 +166,7 @@ function workCover(item, { large = false, hue = 0 } = {}) {
     cover.append(h("img", { src, alt: "", loading: large ? null : "lazy" }));
   } else {
     cover.append(
-      h("span", { class: "work-cover-meta" }, h("span", {}, item.category || ""), h("span", {}, item.year || "")),
+      h("span", { class: "work-cover-meta" }, h("span", {}, categoryLabel(item, 1)), h("span", {}, item.year || "")),
       h("span", { class: "work-cover-title" }, item.title),
     );
   }
@@ -165,8 +178,11 @@ function renderWork(items) {
   const section = $("#portfolio");
   if (!items.length) return section.remove();
 
-  const CATEGORY_ORDER = ["Design", "Marketing", "Video", "Events", "Storytelling", "Collaborations", "Technology", "AI"];
-  const cats = [...new Set(items.map((i) => i.category).filter(Boolean))]
+  const CATEGORY_ORDER = [
+    "Web design", "Product design", "Project design", "Print design",
+    "Marketing", "Video", "Events", "Storytelling", "Collaborations", "Technology", "AI",
+  ];
+  const cats = [...new Set(items.flatMap(categoriesOf))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
   const filters = $("#work-filters");
   const grid = $("#work-grid");
@@ -176,11 +192,11 @@ function renderWork(items) {
     // only repeats them for screen readers; image covers show them below as usual.
     const poster = !item.image && !item.images?.length && !videoInfo(item.video);
     const caseStudy = isCaseStudy(item);
-    return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": item.category || "" },
+    return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": JSON.stringify(categoriesOf(item)) },
       h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
         workCover(item, { hue: i }),
         h("div", { class: "work-meta" },
-          h("span", {}, item.category || ""),
+          h("span", {}, categoryLabel(item)),
           item.year && h("span", {}, item.year),
         ),
         h("h3", {}, item.title),
@@ -223,7 +239,7 @@ function renderWork(items) {
     if (!btn) return;
     const f = btn.dataset.filter;
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-    cards.forEach((c) => { c.hidden = f !== "All" && c.dataset.category !== f; c.classList.add("in"); });
+    cards.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
   });
 }
 
@@ -261,7 +277,7 @@ function openWork(item, index = 0) {
   $("#work-dialog-body").replaceChildren(
     media,
     h("div", { class: "work-dialog-text" },
-      h("p", { class: "work-meta" }, h("span", {}, item.category || ""), item.year && h("span", {}, item.year)),
+      h("p", { class: "work-meta" }, h("span", {}, categoriesOf(item).join(" + ")), item.year && h("span", {}, item.year)),
       h("h3", { id: "work-dialog-title" }, item.title),
       h("p", {}, item.summary),
       item.details && h("p", { class: "muted" }, item.details),
@@ -311,6 +327,9 @@ function renderJob(j) {
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
       j.summary && h("p", { class: "job-summary" }, j.summary),
       key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+      jobAreas(j),
+      j.tags?.length > 0 && h("div", { class: "tags job-tags", role: "list", "aria-label": "Skills used in this role" },
+        j.tags.map((t) => h("span", { class: "tag", role: "listitem" }, t))),
       hasMore && h("details", { class: "job-more" },
         h("summary", {}, "More about this role"),
         j.creative?.length > 0 && h("div", { class: "job-creative" },
@@ -326,6 +345,16 @@ function renderJob(j) {
       ),
     ),
   );
+}
+
+// What goes into each part of a role, e.g. Creative, Technology, Marketing.
+function jobAreas(j) {
+  if (!j.areas?.length) return null;
+  return h("dl", { class: "job-areas" }, j.areas.map((a) =>
+    h("div", { class: "job-area" },
+      h("dt", {}, a.name),
+      h("dd", {}, h("ul", {}, (a.items || []).map((x) => h("li", {}, x)))),
+    )));
 }
 
 // "Label: details" becomes a bold label followed by the details.
