@@ -617,7 +617,7 @@ img, svg { display: block; }
 
 /* Sections: one full-width heading row instead of a side label. */
 .section { display: block; padding-top: clamp(64px, 10vh, 112px); }
-#portfolio.section { padding-top: 56px; }
+
 .section-head {
   display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
   padding-bottom: 14px; margin-bottom: 28px; border-bottom: 1px solid var(--ink);
@@ -636,6 +636,9 @@ img, svg { display: block; }
 .work-grid { grid-template-columns: repeat(12, 1fr); gap: 56px 24px; }
 .work-grid li:nth-child(4n+1), .work-grid li:nth-child(4n+4) { grid-column: span 7; }
 .work-grid li:nth-child(4n+2), .work-grid li:nth-child(4n+3) { grid-column: span 5; }
+/* Exactly three featured pieces: one row of equal squares. */
+.work-grid:has(> li:nth-child(3):last-child) > li { grid-column: span 4; }
+.work-grid:has(> li:nth-child(3):last-child) .work-card .work-cover { height: auto; aspect-ratio: 1; }
 .work-card { padding: 0; gap: 0; border: 0; border-radius: 0; background: none; }
 .work-card:hover { border-color: transparent; transform: none; }
 .work-card .work-cover { height: min(436px, 30.3vw); aspect-ratio: auto; border-radius: 6px; }

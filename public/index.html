@@ -37,8 +37,8 @@
   <header class="topbar">
     <a class="mark" href="#top" aria-label="HG, back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
-      <a href="#portfolio">Work</a>
       <a href="#work">Experience</a>
+      <a href="#portfolio">Work</a>
       <a href="#certification">AI Certificate</a>
       <a href="#skills">Expertise</a>
       <a href="#contact">Contact</a>
@@ -100,9 +100,17 @@
       <p class="partners" id="partners" hidden></p>
     </section>
 
+    <section class="section" id="work">
+      <div class="section-head">
+        <h2 class="section-title"><span class="num"></span>Experience</h2>
+        <button class="head-link" id="exp-resume" type="button">Resume (PDF) ↓</button>
+      </div>
+      <ol class="jobs" id="jobs"></ol>
+    </section>
+
     <section class="section" id="portfolio">
       <div class="section-head">
-        <h2 class="section-title"><span class="num"></span>Selected work</h2>
+        <h2 class="section-title"><span class="num"></span>Selected Work &amp; Brand Impact</h2>
         <button class="head-link" id="work-more" type="button" hidden></button>
       </div>
       <div class="work">
@@ -111,14 +119,6 @@
         <ul class="work-grid" id="work-grid"></ul>
         <ul class="work-list" id="work-list" hidden></ul>
       </div>
-    </section>
-
-    <section class="section" id="work">
-      <div class="section-head">
-        <h2 class="section-title"><span class="num"></span>Experience</h2>
-        <button class="head-link" id="exp-resume" type="button">Resume (PDF) ↓</button>
-      </div>
-      <ol class="jobs" id="jobs"></ol>
     </section>
 
     <section class="section" id="certification">
