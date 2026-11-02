@@ -57,6 +57,19 @@ function render(d) {
       i < roles.length - 1 ? " " : null,
     ]).filter(Boolean));
   }
+  const tag = $("#hero-tagline");
+  const accent = d.tagline_accent && d.tagline.indexOf(d.tagline_accent);
+  if (accent > 0) {
+    tag.replaceChildren(d.tagline.slice(0, accent), h("em", {}, d.tagline_accent), d.tagline.slice(accent + d.tagline_accent.length));
+  }
+
+  // Well-known partners, right under the numbers.
+  if (d.partners?.length) {
+    const partners = $("#partners");
+    partners.replaceChildren(h("span", { class: "partners-label" }, "Collaborations"), ...d.partners.map((x) => h("span", { class: "partner" }, x)));
+    partners.hidden = false;
+  }
+
   if (safeUrl(d.links?.linkedin)) {
     const li = $("#hero-linkedin");
     li.href = safeUrl(d.links.linkedin);
@@ -80,22 +93,37 @@ function render(d) {
       const value = long ? s.value.split(" · ").map((v) => h("span", { class: "stat-line" }, v)) : s.value;
       return h("div", { class: long ? "stat stat-text" : "stat" }, h("strong", {}, value), h("span", {}, s.label));
     }));
-  } else stats.closest(".stats-band").remove();
+  } else stats.remove();
 
   // Experience: 3 key bullets per job; the rest sits behind "More".
   $("#jobs").replaceChildren(...d.experience.map(renderJob));
 
   renderWork(d.work || []);
 
-  // Expertise & education as a short list of labeled lines.
+  // Expertise: a short list on the page; every skill group, tool, and industry under "All skills".
+  const groups = (d.skills || []).filter((g) => g.group !== "Languages");
   const facts = [
-    ...(d.skills || []).filter((g) => g.group !== "Languages").map((g) => [g.group, g.items.join(" · ")]),
-    ["Industries", (d.industries || []).map((x) => x.name).join(" · ")],
-    ["Languages", (d.skills || []).find((g) => g.group === "Languages")?.items.join(" · ")],
-    [(d.certifications || []).length > 1 ? "Certificates" : "Certificate", certificateLine(d.certifications || [])],
+    ...(d.skills_short || groups.slice(0, 4)).map((g) => [g.group, g.items.join(" · ")]),
     ["Education", (d.education || []).slice(0, 1).map((e) => `${e.school}, ${[e.degree, e.year].filter(Boolean).join(", ")}`).join("")],
+    [(d.certifications || []).length > 1 ? "Certificates" : "Certificate", certificateLine(d.certifications || [])],
+    ["Languages", (d.skills || []).find((g) => g.group === "Languages")?.items.join(" · ")],
   ].filter(([, v]) => v);
-  $("#facts").replaceChildren(...facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)]));
+  const allFacts = [
+    ...groups.map((g) => [g.group, g.items.join(" · ")]),
+    ["Industries", (d.industries || []).map((x) => x.name).join(" · ")],
+  ].filter(([, v]) => v);
+  // Each item stays on one line with its dot, so no line starts with "·".
+  const factItems = (v) => (!v.includes(" · ") ? v : v.split(" · ").flatMap((x, i, all) => [
+    h("span", { class: "fact-item" }, x, i < all.length - 1 ? " ·" : ""),
+    i < all.length - 1 ? " " : null,
+  ]).filter(Boolean));
+  const factRows = (rows) => rows.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, factItems(v))]);
+  $("#facts").replaceChildren(...factRows(facts));
+  $("#facts-all").replaceChildren(...factRows(allFacts));
+
+  // Printed resume: email and LinkedIn go at the top instead of a contact section at the end.
+  $("#print-contact").textContent = [d.links.email, d.links.linkedin?.replace(/^https?:\/\/(www\.)?/, ""), d.location]
+    .filter(Boolean).join("  ·  ");
 
   const email = $("#contact-email");
   email.textContent = d.links.email;
@@ -164,6 +192,14 @@ function workCover(item, { large = false, hue = 0 } = {}) {
     if (item.imageFit === "contain") cover.classList.add("fit-contain");
     if (item.imageFit === "contain-light") cover.classList.add("fit-contain", "light");
     cover.append(h("img", { src, alt: "", loading: large ? null : "lazy" }));
+  } else if (item.cover) {
+    // A typeset cover: one big word (like "AI") on dark, until there's a real image.
+    cover.classList.add("type-cover");
+    cover.append(
+      h("span", { class: "type-note" }, item.cover_note || categoryLabel(item, 1)),
+      h("b", {}, item.cover),
+      h("span", { class: "type-note" }, item.year || ""),
+    );
   } else {
     cover.append(
       h("span", { class: "work-cover-meta" }, h("span", {}, categoryLabel(item, 1)), h("span", {}, item.year || "")),
@@ -186,48 +222,54 @@ function renderWork(items) {
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
   const filters = $("#work-filters");
   const grid = $("#work-grid");
+  const list = $("#work-list");
+  const num = (i) => String(i + 1).padStart(2, "0");
+  const caption = (item) => item.caption || item.summary;
+  const tag = (item) => item.tag || categoryLabel(item);
 
-  const cards = items.map((item, i) => {
-    // Poster covers already show the title, category, and year, so the text below
-    // only repeats them for screen readers; image covers show them below as usual.
-    const poster = !item.image && !item.images?.length && !videoInfo(item.video);
-    const caseStudy = isCaseStudy(item);
-    return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": JSON.stringify(categoriesOf(item)) },
-      h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
-        workCover(item, { hue: i }),
-        h("div", { class: "work-meta" },
-          h("span", {}, categoryLabel(item)),
-          item.year && h("span", {}, item.year),
-        ),
-        h("h3", {}, item.title),
-        h("p", {}, item.summary),
-        caseStudy && h("span", { class: "work-cta" }, "Read the case study →"),
-      ),
-    );
+  // Featured pieces: big image tiles with a one-line caption. The case study opens in the dialog.
+  // Everything else: a compact typeset list under "All work".
+  const featured = items.some((i) => i.featured) ? items.map((i) => !!i.featured) : items.map(() => true);
+  const entries = items.map((item, i) => {
+    const ids = { "aria-labelledby": `work-title-${i}`, "aria-describedby": `work-sum-${i}` };
+    const cats = JSON.stringify(categoriesOf(item));
+    const el = featured[i]
+      ? h("li", { class: "reveal", "data-category": cats },
+          h("button", { class: isCaseStudy(item) ? "work-card is-case" : "work-card", type: "button", "aria-haspopup": "dialog", ...ids },
+            workCover(item, { hue: i }),
+            h("span", { class: "work-cap" },
+              h("span", { class: "work-num", "aria-hidden": "true" }, num(i)),
+              h("h3", { id: `work-title-${i}` }, item.title),
+              h("span", { class: "work-tag" }, [tag(item), item.year].filter(Boolean).join(" · ")),
+              h("span", { class: "work-text", id: `work-sum-${i}` }, caption(item)),
+            ),
+          ))
+      : h("li", { "data-category": cats },
+          h("button", { class: "work-row", type: "button", "aria-haspopup": "dialog", ...ids },
+            h("span", { class: "work-num", "aria-hidden": "true" }, num(i)),
+            h("span", { class: "work-row-title", id: `work-title-${i}` }, item.title),
+            h("span", { class: "work-text", id: `work-sum-${i}` }, caption(item)),
+            h("span", { class: "work-tag" }, [tag(item), item.year].filter(Boolean).join(" · ")),
+          ));
+    el.querySelector("button").addEventListener("click", () => openWork(item, i));
+    return el;
   });
-  cards.forEach((card, i) => card.querySelector("button").addEventListener("click", () => openWork(items[i], i)));
-  grid.replaceChildren(...cards);
+  grid.replaceChildren(...entries.filter((_, i) => featured[i]));
+  list.replaceChildren(...entries.filter((_, i) => !featured[i]));
 
-  // Show only featured pieces at first; "See all work" reveals the rest and the filters.
-  const featured = items.map((i) => !!i.featured);
   const more = $("#work-more");
-  if (featured.some(Boolean) && !featured.every(Boolean)) {
-    cards.forEach((c, i) => { if (!featured[i]) { c.hidden = true; c.dataset.extra = "1"; } });
-    more.textContent = `See all work (${items.length})`;
+  const extra = entries.length - featured.filter(Boolean).length;
+  if (extra > 0) {
+    more.textContent = `All work (${items.length}) →`;
     more.hidden = false;
     more.addEventListener("click", () => {
-      const firstNew = cards.find((c) => c.dataset.extra);
-      // On phones the extra pieces show as a compact list (see .compact in styles.css).
-      cards.forEach((c) => { if (c.dataset.extra) c.classList.add("compact"); c.hidden = false; c.classList.add("in"); delete c.dataset.extra; });
-      filters.hidden = false;
-      more.remove();
+      list.hidden = false;
+      filters.hidden = cats.length < 2;
+      more.hidden = true;
       // Keep keyboard users in place: move focus to the first newly shown piece.
-      firstNew?.querySelector("button").focus();
+      list.querySelector("button")?.focus();
     });
-  } else {
-    filters.hidden = false;
-    more.remove();
-  }
+  } else more.remove();
 
   if (cats.length < 2) return filters.remove();
   const buttons = ["All", ...cats].map((c) =>
@@ -239,7 +281,9 @@ function renderWork(items) {
     if (!btn) return;
     const f = btn.dataset.filter;
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-    cards.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
+    entries.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
+    const shown = entries.filter((c) => !c.hidden).length;
+    $("#work-count").textContent = f === "All" ? `Showing all ${entries.length} pieces` : `Showing ${shown} of ${entries.length}: ${f}`;
   });
 }
 
@@ -315,23 +359,35 @@ function certificateLine(certs) {
 }
 
 function renderJob(j) {
+  // On the page: one line and 2-3 short points. The full write-up sits under "More"
+  // and is what the printed resume uses.
+  const points = j.points?.length ? j.points : (j.key || []).slice(0, 3);
   const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
-  const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length;
+  const hasMore = j.summary || key.length || j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length || j.tags?.length;
   return h("li", { class: "job reveal" },
     h("div", { class: "job-dates" },
       j.start ? `${j.start}–${j.end}` : "",
       j.since && h("span", { class: "job-since" }, j.since),
       j.location && h("span", { class: "job-location" }, j.location),
     ),
-    h("div", {},
-      h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
-      j.summary && h("p", { class: "job-summary" }, j.summary),
-      key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
-      jobAreas(j),
-      j.tags?.length > 0 && h("div", { class: "tags job-tags", role: "list", "aria-label": "Skills used in this role" },
-        j.tags.map((t) => h("span", { class: "tag", role: "listitem" }, t))),
+    h("div", { class: "job-body" },
+      h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `· ${j.company}`)),
+      (j.line || j.summary) && h("p", { class: "job-line" }, j.line || j.summary),
+      points.length > 0 && h("ul", { class: "job-points" }, points.map(highlight)),
+      // Printed resume only: the full summary and key bullets.
+      h("div", { class: "job-print" },
+        j.summary && h("p", { class: "job-summary" }, j.summary),
+        key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+      ),
       hasMore && h("details", { class: "job-more" },
         h("summary", {}, "More about this role"),
+        j.summary && h("p", { class: "job-summary" }, j.summary),
+        key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
+        j.areas?.length > 0 && h("div", { class: "job-areas-full" },
+          h("p", { class: "job-creative-label" }, "Everything I run here"),
+          jobAreas(j)),
+        j.tags?.length > 0 && h("div", { class: "tags job-tags", role: "list", "aria-label": "Skills used in this role" },
+          j.tags.map((t) => h("span", { class: "tag", role: "listitem" }, t))),
         j.creative?.length > 0 && h("div", { class: "job-creative" },
           h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
           h("ul", {}, j.creative.map((x) => h("li", {}, x))),
@@ -344,17 +400,21 @@ function renderJob(j) {
         ),
       ),
     ),
+    h("div", { class: "job-side" }, j.exit && h("p", { class: "job-exit" }, j.exit)),
   );
 }
 
 // What goes into each part of a role, e.g. Creative, Technology, Marketing.
-function jobAreas(j) {
+// With short, each box shows only its first few items ("top", default 3).
+function jobAreas(j, { short = false } = {}) {
   if (!j.areas?.length) return null;
-  return h("dl", { class: "job-areas" }, j.areas.map((a) =>
-    h("div", { class: "job-area" },
+  return h("dl", { class: short ? "job-areas short" : "job-areas" }, j.areas.map((a) => {
+    const items = short ? (a.items || []).slice(0, a.top || 3) : (a.items || []);
+    return h("div", { class: "job-area" },
       h("dt", {}, a.name),
-      h("dd", {}, h("ul", {}, (a.items || []).map((x) => h("li", {}, x)))),
-    )));
+      h("dd", {}, h("ul", {}, items.map((x) => h("li", {}, x)))),
+    );
+  }));
 }
 
 // "Label: details" becomes a bold label followed by the details.
@@ -365,12 +425,20 @@ function highlight(text) {
 }
 
 function setupTheme() {
-  $("#theme-toggle").addEventListener("click", () => {
-    const root = document.documentElement;
-    const current = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    const next = current === "dark" ? "light" : "dark";
+  const btn = $("#theme-toggle");
+  const root = document.documentElement;
+  const current = () => root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const label = () => {
+    const dark = current() === "dark";
+    btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    btn.setAttribute("aria-pressed", String(dark));
+  };
+  label();
+  btn.addEventListener("click", () => {
+    const next = current() === "dark" ? "light" : "dark";
     root.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch {}
+    label();
   });
 }
 
@@ -380,8 +448,8 @@ function setupChrome() {
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
   // Both buttons open the print dialog, where "Save as PDF" gives a clean resume.
-  $("#print-btn").addEventListener("click", () => window.print());
   $("#hero-resume").addEventListener("click", () => window.print());
+  $("#exp-resume").addEventListener("click", () => window.print());
 }
 
 function setupReveal() {
@@ -452,19 +520,15 @@ function setupIntro(d) {
     box.hidden = false;
     requestAnimationFrame(() => box.classList.add("open"));
     document.addEventListener("keydown", onKey);
-    // Move focus into the pop-up only if the visitor isn't busy with something else.
-    const active = document.activeElement;
-    if (!active || active === document.body) {
-      returnFocus = null;
-      firstFocusable()?.focus({ preventScroll: true });
-    }
+    // Focus stays where it is, so screen-reader and keyboard users keep their place;
+    // the pop-up is announced as a dialog and is the next stop when they press Tab.
   };
   const close = () => {
     const hadFocus = box.contains(document.activeElement);
     box.classList.remove("open");
     document.removeEventListener("keydown", onKey);
     setTimeout(() => { box.hidden = true; }, 250);
-    if (hadFocus) (returnFocus && document.contains(returnFocus) ? returnFocus : $("#main")).focus({ preventScroll: true });
+    if (hadFocus && returnFocus && document.contains(returnFocus)) returnFocus.focus({ preventScroll: true });
   };
   function onKey(e) { if (e.key === "Escape") close(); }
   // Remember where keyboard focus was whenever it enters the pop-up, to return it there on close.
@@ -483,10 +547,11 @@ function setupIntro(d) {
     if (!res.ok) throw new Error(body.error || "Sorry, that didn't go through. Please try again in a moment.");
   };
   const finish = (text) => {
-    step1.hidden = true; form.hidden = true; done.hidden = false;
     $("#intro-done-text").textContent = text;
+    step1.hidden = true; form.hidden = true; done.hidden = false;
     $("#intro-close").focus({ preventScroll: true });
-    setTimeout(close, 5000);
+    // Close on its own only if the visitor has moved on; never while they're still in it.
+    setTimeout(() => { if (!box.contains(document.activeElement)) close(); }, 5000);
   };
 
   setTimeout(show, testing ? 300 : (cfg.delay_seconds ?? 30) * 1000);

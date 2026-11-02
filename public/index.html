@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Herbert Gracia — Head of Brand & Creative Director</title>
-  <meta name="description" content="Head of Brand and Creative Director who leads branding, marketing, growth, and business strategy. Co-founded two apparel brands through exit; leads brand and marketing at USF's Fromm Institute.">
+  <meta name="description" content="Head of Brand and Creative Director in San Francisco. Co-founded and exited two apparel companies; leads brand, marketing, and tech at USF's Fromm Institute.">
   <link rel="canonical" href="/">
   <meta property="og:title" content="Herbert Gracia — Head of Brand & Creative Director">
-  <meta property="og:description" content="Head of Brand and Creative Director who leads branding, marketing, growth, and business strategy. Co-founded two apparel brands through exit; leads brand and marketing at USF's Fromm Institute.">
+  <meta property="og:description" content="Head of Brand and Creative Director in San Francisco. Co-founded and exited two apparel companies; leads brand, marketing, and tech at USF's Fromm Institute.">
   <meta property="og:site_name" content="Herbert Gracia">
   <meta property="og:type" content="website">
   <meta property="og:url" content="/">
@@ -17,8 +17,9 @@
   <meta property="og:image:alt" content="Herbert Gracia, Head of Brand and Creative Director">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="/og.png">
+  <meta name="twitter:image:alt" content="Herbert Gracia, Head of Brand and Creative Director">
   <meta name="twitter:title" content="Herbert Gracia — Head of Brand & Creative Director">
-  <meta name="twitter:description" content="Head of Brand and Creative Director who leads branding, marketing, growth, and business strategy. Co-founded two apparel brands through exit; leads brand and marketing at USF's Fromm Institute.">
+  <meta name="twitter:description" content="Head of Brand and Creative Director in San Francisco. Co-founded and exited two apparel companies; leads brand, marketing, and tech at USF's Fromm Institute.">
   <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -45,7 +46,6 @@
       <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch color theme">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
       </button>
-      <button class="btn btn-small" id="print-btn" type="button">Save as PDF</button>
       <a class="btn btn-small topbar-contact" href="#contact">Contact</a>
     </div>
   </header>
@@ -86,47 +86,55 @@
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
       <p class="hero-role" data-bind="role"></p>
-      <p class="hero-tagline" data-bind="tagline"></p>
+      <p class="hero-tagline" id="hero-tagline" data-bind="tagline"></p>
       <p class="hero-summary" data-bind="summary"></p>
+      <p class="print-contact" id="print-contact"></p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
-        <button class="btn btn-ghost" id="hero-resume" type="button">Download resume</button>
+        <button class="btn btn-ghost" id="hero-resume" type="button">Resume (PDF)</button>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
+      <div class="stats" id="stats"></div>
+      <p class="partners" id="partners" hidden></p>
     </section>
 
-    <div class="stats-band">
-      <div class="stats-wrap">
-        <p class="stats-label">At a glance</p>
-        <div class="stats" id="stats"></div>
-      </div>
-    </div>
-
     <section class="section" id="portfolio">
-      <h2 class="section-title"><span class="num"></span>Featured work</h2>
+      <div class="section-head">
+        <h2 class="section-title"><span class="num"></span>Selected work</h2>
+        <button class="head-link" id="work-more" type="button" hidden></button>
+      </div>
       <div class="work">
         <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by type" hidden></div>
+        <p class="sr-only" id="work-count" role="status"></p>
         <ul class="work-grid" id="work-grid"></ul>
-        <button class="btn btn-ghost work-more" id="work-more" type="button" hidden></button>
+        <ul class="work-list" id="work-list" hidden></ul>
       </div>
     </section>
 
     <section class="section" id="work">
-      <h2 class="section-title"><span class="num"></span>Experience</h2>
+      <div class="section-head">
+        <h2 class="section-title"><span class="num"></span>Experience</h2>
+        <button class="head-link" id="exp-resume" type="button">Resume (PDF) ↓</button>
+      </div>
       <ol class="jobs" id="jobs"></ol>
     </section>
 
     <section class="section" id="skills">
-      <h2 class="section-title"><span class="num"></span>Expertise &amp; education</h2>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span>Expertise</h2></div>
       <dl class="facts" id="facts"></dl>
+      <details class="facts-more">
+        <summary>All skills, tools &amp; industries</summary>
+        <dl class="facts" id="facts-all"></dl>
+      </details>
     </section>
 
     <section class="section contact" id="contact">
-      <h2 class="section-title"><span class="num"></span>Let’s work together</h2>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span>Contact</h2></div>
       <p class="contact-lead">Let’s talk.</p>
-      <p class="contact-sub">Hiring a head of brand, marketing leader, or creative director? I’d love to hear what you’re building.</p>
-      <a class="contact-email" id="contact-email" href="#"></a>
-      <ul class="contact-links" id="contact-links"></ul>
+      <div class="contact-row">
+        <a class="contact-email" id="contact-email" href="#"></a>
+        <ul class="contact-links" id="contact-links"></ul>
+      </div>
 
       <form class="contact-form" id="contact-form" hidden novalidate>
         <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" autocomplete="name" required maxlength="200"></div>
@@ -153,7 +161,7 @@
   </dialog>
 
 
-  <noscript><p class="noscript">This page needs JavaScript to load the resume. You can reach Herbert at herbert.gracia@gmail.com.</p></noscript>
+  <noscript><p class="noscript">Some interactive parts need JavaScript. You can reach Herbert at herbert.gracia@gmail.com.</p></noscript>
   <script src="/app.js" type="module"></script>
 </body>
 </html>

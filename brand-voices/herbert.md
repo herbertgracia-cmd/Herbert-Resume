@@ -32,7 +32,7 @@ Recruiters, hiring managers, founders, creative teams, and collaborators looking
 - Co-founder & Brand Director, FAZE Apparel (2007–2019, through acquisition; buyer kept private): team of 5, 10+ stores and wholesale accounts, our own retail store.
 - Co-founder & Brand Director, State of Flux (2019–2024): co-branded products and pop-up events with Pinterest, Timbuk2, and SFMOMA; our retail store; team of 5; sold my share to my business partner in 2024.
 - Sales: sold directly to customers and to companies (B2C and B2B).
-- At the Fromm Institute at USF since 2005; Assistant Director, Technology, Marketing & Creative since 2022. Manages $80K marketing and $100K technology budgets; his marketing grew enrollment 10%; built Frommcast and leads its video and content. Leads PR: ran the lifelong learning survey and wrote its national press release (PR Newswire).
+- At the Fromm Institute at USF since 2005; Assistant Director, Technology, Marketing & Creative since 2022. Leads a team of 6+ and $150K+ in yearly budgets ($100K technology, $20K newspaper ads with Hearst Media, $3K a month paid social); his marketing grew enrollment 10% in 2 years; started Fromm's YouTube channel (700+ subscribers in 6 months); built Frommcast and leads its video and content. Leads PR: ran the lifelong learning survey and wrote its national press release (PR Newswire), picked up by 500+ news outlets.
 - Ran FAZE Apparel and State of Flux alongside the Fromm role.
 - Degree: B.A., Media Studies & Communications, University of San Francisco.
 - USF AI Certificate Intensive (completed); Applied Agentic AI Certificate in progress (Fall 2026). Never say he holds the Agentic certificate until it is finished.

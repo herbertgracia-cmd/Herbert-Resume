@@ -48,12 +48,10 @@ async function route(request, env) {
         version: VERSION,
         contact: supabase,
         intro: supabase,
-        // Setup check: which Supabase settings the site can see. Names and yes/no only,
-        // never the values themselves.
+        // Setup check: yes/no only, never names or values.
         setup: {
           supabase_url: Boolean(url),
           supabase_key: Boolean(key),
-          setting_names: Object.keys(env).filter((k) => k.toUpperCase().includes("SUPABASE")).sort(),
         },
       });
     }
@@ -115,7 +113,13 @@ function renderHome(page, base) {
     .on("[data-bind]", {
       element: (el) => {
         const key = el.getAttribute("data-bind");
-        if (typeof binds[key] === "string") el.setInnerContent(binds[key]);
+        if (typeof binds[key] !== "string") return;
+        // The tagline's accent words are set in italic color, like on the page.
+        const i = key === "tagline" && d.tagline_accent ? d.tagline.indexOf(d.tagline_accent) : -1;
+        if (i > 0) {
+          const a = d.tagline_accent;
+          el.setInnerContent(`${esc(d.tagline.slice(0, i))}<em>${esc(a)}</em>${esc(d.tagline.slice(i + a.length))}`, { html: true });
+        } else el.setInnerContent(binds[key]);
       },
     })
     .on("h1.hero-name", {
@@ -145,8 +149,10 @@ function renderHome(page, base) {
           (d.experience || [])
             .map((j) => {
               const dates = j.start ? `${esc(j.start)}–${esc(j.end)}` : "";
-              const key = (j.key || []).map((k) => `<li>${esc(k)}</li>`).join("");
-              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div><h3>${esc(j.role)}${j.company ? ` <span class="at">at ${esc(j.company)}</span>` : ""}</h3>${j.summary ? `<p class="job-summary">${esc(j.summary)}</p>` : ""}${key ? `<ul class="job-key">${key}</ul>` : ""}</div></li>`;
+              // Same short version the page shows: one line and 2-3 points.
+              const points = (j.points?.length ? j.points : j.key || []).map((k) => `<li>${esc(k)}</li>`).join("");
+              const line = j.line || j.summary;
+              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div class="job-body"><h3>${esc(j.role)}${j.company ? ` <span class="at">· ${esc(j.company)}</span>` : ""}</h3>${line ? `<p class="job-line">${esc(line)}</p>` : ""}${points ? `<ul class="job-points">${points}</ul>` : ""}</div><div class="job-side">${j.exit ? `<p class="job-exit">${esc(j.exit)}</p>` : ""}</div></li>`;
             })
             .join(""),
           { html: true },
@@ -161,10 +167,11 @@ function personJsonLd(base) {
   const [city, region] = (d.location || "").split(",").map((s) => s.trim());
   const current = (d.experience || []).find((j) => j.end === "Present");
   const languages = (d.skills || []).find((g) => g.group === "Languages")?.items.map((l) => l.replace(/\s*\(.*\)$/, ""));
-  const knowsAbout = (d.skills || [])
-    .filter((g) => g.group !== "Languages")
+  // Every skill group except languages and tools, without notes in parentheses.
+  const knowsAbout = [...new Set((d.skills || [])
+    .filter((g) => !/^Languages$|Tools$/.test(g.group))
     .flatMap((g) => g.items)
-    .slice(0, 12);
+    .map((s) => s.replace(/\s*\(.*?\)/g, "")))];
   const person = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -176,7 +183,12 @@ function personJsonLd(base) {
     email: d.links?.email ? `mailto:${d.links.email}` : undefined,
     address: city ? { "@type": "PostalAddress", addressLocality: city, addressRegion: region } : undefined,
     sameAs: [d.links?.linkedin].filter(Boolean),
-    worksFor: current ? { "@type": "Organization", name: current.company } : undefined,
+    // His current title is kept with the employer, so the target headline above
+    // isn't read as his title there.
+    worksFor: current ? {
+      "@type": "EmployeeRole", roleName: current.role, startDate: current.start,
+      worksFor: { "@type": "Organization", name: current.company },
+    } : undefined,
     alumniOf: d.education?.[0] ? { "@type": "CollegeOrUniversity", name: d.education[0].school } : undefined,
     // Only finished certificates count as credentials; "In progress" ones are left out.
     hasCredential: (d.certifications || []).filter((c) => !c.status || /^completed/i.test(c.status)).map((c) => ({
@@ -327,6 +339,8 @@ async function safeFetch(url, init) {
 }
 
 async function readJson(request) {
+  // The forms send a few KB at most; refuse anything much bigger without reading it.
+  if (Number(request.headers.get("Content-Length")) > 20000) return null;
   try {
     return await request.json();
   } catch {
@@ -337,7 +351,8 @@ async function readJson(request) {
 // ---------- Helpers ----------
 
 function clean(value, max) {
-  return String(value ?? "").trim().slice(0, max);
+  // Only text counts; objects and numbers sent by a script become empty.
+  return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
 function esc(value) {
