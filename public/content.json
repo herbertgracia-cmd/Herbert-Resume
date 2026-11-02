@@ -1,12 +1,12 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. Each job shows its 'key' bullets (3 is best) and its 'tags' (the skills used in that role). 'More about this role' opens a pop-up with 'creative', 'highlights', 'earlier_roles', and any 'photos'. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. Each job shows its 'key' bullets (3 or 4 is best) and its 'tags' (the skills used in that role). 'More about this role' opens a pop-up with 'creative', 'highlights', 'earlier_roles', and any 'photos'. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not. 'looking_for' lists the roles you want; it shows in the top section and the AI chat uses it. 'pillars' fill the 'What I do' section.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name or a list of names from: Web design, Product design, Project design, Print design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI.",
   "_photos_help": "To add pictures to a job's pop-up, put the files in public/work/ and list them in that job's 'photos', e.g. {\"image\": \"/work/faze-lookbook.jpg\", \"caption\": \"Spring lookbook, 2015\"}. A YouTube or Vimeo link works too: {\"video\": \"https://www.youtube.com/watch?v=...\", \"caption\": \"...\"}. Use JPG or PNG about 1600px wide and under 500 KB. The first photo is shown large.",
   "name": "Herbert Gracia",
-  "role": "Brand & creative director · Entrepreneur · Product developer · AI",
+  "role": "Creative Director · Art Director · Brand Builder",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I build brands from concept to market: two apparel brands co-founded, 21 years leading marketing and creative at the University of San Francisco's Fromm Institute, and now working with AI.",
+  "tagline": "I take brands from idea to market. I co-founded two apparel brands and grew one to acquisition, designing every product, store, and campaign and selling direct to consumers and to retail and wholesale accounts. For 21 years I've also led marketing, creative, and growth at the University of San Francisco's Fromm Institute.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -19,15 +19,15 @@
     },
     {
       "value": "2",
-      "label": "apparel brands co-founded, one acquired"
-    },
-    {
-      "value": "21",
-      "label": "years at USF's Fromm Institute"
+      "label": "brands co-founded, one acquired"
     },
     {
       "value": "+10%",
-      "label": "enrollment from my marketing"
+      "label": "enrollment growth from my marketing"
+    },
+    {
+      "value": "1,500+",
+      "label": "people reached by my marketing each year"
     }
   ],
   "about": [
@@ -36,63 +36,57 @@
   ],
   "pillars": [
     {
-      "title": "Brand, design & creative direction",
-      "summary": "Building brands from identity to shelf to screen.",
+      "title": "Creative & art direction",
+      "summary": "Brand identity, campaigns, and visual storytelling across print, web, video, and retail.",
       "proof": [
-        "Led brand strategy, visual identity, and art direction for FAZE Apparel and State of Flux",
-        "Apparel graphics, lookbooks, photography, video, and retail creative",
-        "Lead brand strategy and creative direction for the Fromm Institute",
-        "Leading the Fromm 50th Anniversary campaign"
+        "Designed every State of Flux product, logo, artwork, and collaboration",
+        "Art-directed lookbooks, photography, video, and seasonal campaigns",
+        "Lead creative direction for the Fromm brand and its 50th Anniversary"
       ]
     },
     {
-      "title": "Entrepreneurship",
-      "summary": "Two apparel brands co-founded and built from the ground up.",
+      "title": "Brand building",
+      "summary": "Two brands built from zero, one through acquisition.",
       "proof": [
-        "Co-built FAZE Apparel from concept through acquisition (2007–2019)",
-        "Co-founded State of Flux and built it across product, retail, and e-commerce (2019–2024)",
-        "Built DTC, retail, e-commerce, wholesale, and B2B sales channels",
-        "Worked directly with buyers, retailers, and manufacturing partners"
+        "Co-founded FAZE Apparel and grew it to acquisition",
+        "Co-founded State of Flux and took it to market across DTC, retail, and wholesale",
+        "Brand partnerships with Pinterest, Timbuk2, and SFMOMA"
       ]
     },
     {
-      "title": "Product development & projects",
-      "summary": "From concept and samples to production and launch.",
+      "title": "Product & project management",
+      "summary": "Idea, concept, prototype, production, launch, sale.",
       "proof": [
-        "Directed apparel design through samples, sourcing, materials, manufacturing, and quality control",
-        "Helped build Frommcast, Fromm's online learning and content platform",
-        "Lead website, CRM, and enrollment projects from concept through implementation",
-        "Manage teams, vendors, budgets, timelines, and cross-functional projects"
+        "Own the full product lifecycle: concept, samples, sourcing, manufacturing, QC, and launch",
+        "Design and project-manage stores, pop-ups, and trade-show booths from plan to opening",
+        "Delivered Frommcast and a Salesforce website and CRM, managing vendors, budgets, and timelines"
       ]
     },
     {
-      "title": "Integrated marketing",
-      "summary": "Campaigns across every channel.",
+      "title": "Growth & strategy",
+      "summary": "Go-to-market plans, sales channels, and partnerships.",
       "proof": [
-        "Grew Fromm's communications from zero presence to a multi-channel program, raising enrollment 10%",
-        "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels",
-        "Campaigns, photography, video, social content, and e-commerce for two apparel brands",
-        "Go-to-market strategy"
+        "Built DTC, e-commerce, retail, wholesale, and B2B sales channels",
+        "Drove 10% enrollment growth with a new multi-channel marketing program",
+        "Business development with retirement communities, donors, and city agencies"
       ]
     },
     {
-      "title": "Events & experiential",
-      "summary": "Brand experiences people can walk into.",
+      "title": "Marketing & communications",
+      "summary": "Integrated campaigns, PR, and content that move people to act.",
       "proof": [
-        "Designed trade-show booths and brand environments in Las Vegas, Miami, Los Angeles, and New York",
-        "Led retail store design and build-outs from concept through opening",
-        "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
-        "Produce Fromm's educational programs, community events, and major institutional events"
+        "Integrated marketing across web, email, print, social, video, and paid media",
+        "Leading brand, marketing, and PR for Fromm's 50th Anniversary",
+        "Storyteller and spokesperson at donor, faculty, and community events"
       ]
     },
     {
-      "title": "AI & generative AI",
-      "summary": "Putting AI to work in marketing and beyond.",
+      "title": "Leadership & AI",
+      "summary": "Leading teams and stakeholders, and putting AI to work.",
       "proof": [
-        "Completed the AI Certificate Intensive, focused on agentic AI",
-        "Use generative AI for campaigns, content, audience messaging, research, and social media",
-        "Designing the Fromm Enrollment Helper, an AI guide for older adults",
-        "Directed AI agents to build this website and its NVIDIA-powered chat"
+        "Lead teams, vendors, budgets, and cross-functional projects",
+        "Trusted partner to a 21-member Board; part of the fundraising leadership group",
+        "Use generative and agentic AI in campaigns, content, research, and workflows"
       ]
     }
   ],
@@ -143,24 +137,26 @@
       "start": "2005",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year.",
+      "summary": "Lead brand, marketing, technology, and growth for USF's lifelong-learning nonprofit, serving 1,500+ members a year.",
       "tags": [
         "Leadership",
-        "Creative director",
+        "Creative direction",
         "Brand strategy",
         "Integrated marketing",
-        "Digital advertising",
-        "Web design",
-        "Print design",
+        "Communications & PR",
+        "Paid media",
+        "Web & print design",
         "Video production",
-        "Storytelling",
-        "Product development",
-        "Technology & CRM",
-        "AI & generative AI",
-        "Events",
-        "Fundraising",
-        "Partnerships",
-        "Teams & budgets"
+        "DTC sales",
+        "B2B partnerships",
+        "Business development",
+        "Project management",
+        "Product management",
+        "Salesforce CRM",
+        "Generative AI",
+        "Board relations",
+        "Budget management",
+        "Fundraising"
       ],
       "creative": [
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
@@ -196,9 +192,10 @@
         }
       ],
       "key": [
-        "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, and events",
-        "Grew communications from zero to a multi-channel program reaching 1,500+ learners, increasing enrollment 10%",
-        "Helped build Frommcast, Fromm's online learning and video platform; lead website, CRM, and AI-assisted marketing projects"
+        "Drove 10% enrollment growth by building an integrated marketing program from zero across web, email, print, social, video, and paid media (Google, Meta, LinkedIn)",
+        "Lead brand strategy, creative direction, and PR, including the Institute's 50th Anniversary campaign",
+        "Grow direct-to-consumer enrollment and B2B partnerships with retirement communities, donors, and city agencies",
+        "Manage projects from concept to launch, including the Frommcast video platform and a Salesforce website and CRM with integrated payments; lead teams, vendors, and budgets"
       ],
       "photos": []
     },
@@ -208,26 +205,32 @@
       "start": "2019",
       "end": "2024",
       "location": "San Francisco Bay Area",
-      "summary": "Co-founded and built an apparel brand across product, creative, retail, and e-commerce.",
+      "summary": "Co-founded an apparel brand and led it from idea to market. I designed every product, logo, piece of artwork, collaboration, and pop-up space, and built the sales channels.",
       "tags": [
-        "Entrepreneur",
-        "Creative director",
+        "Entrepreneurship",
+        "Leadership",
+        "Creative direction",
+        "Art direction",
         "Brand strategy",
         "Product design",
-        "Art direction",
-        "Photography & video",
-        "Storytelling",
-        "Sales",
+        "Logo & artwork design",
+        "Pop-up & retail design",
+        "Product management",
+        "Project management",
+        "Go-to-market strategy",
+        "DTC sales",
+        "B2B & wholesale sales",
         "E-commerce",
-        "Retail & wholesale",
-        "Brand collaborations",
-        "Pop-ups & events",
-        "Manufacturing"
+        "Brand partnerships",
+        "Storytelling",
+        "Photography & video",
+        "Sourcing & manufacturing"
       ],
       "creative": [
-        "Led brand strategy, visual identity, creative direction, art direction, and marketing",
+        "Led brand strategy, visual identity, creative direction, art direction, and marketing, designing every logo and piece of artwork",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
-        "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling"
+        "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling",
+        "Designed pop-up shops, retail activations, and brand spaces"
       ],
       "highlights": [
         "Collaborations: Developed collaborations and brand activations with partners including Pinterest, Timbuk2, and SFMOMA.",
@@ -236,9 +239,10 @@
         "Operations: Managed partnerships, vendors, manufacturing relationships, production timelines, and creative execution."
       ],
       "key": [
-        "Built the brand from the ground up across identity, art direction, product design, campaigns, and e-commerce",
-        "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
-        "Built DTC, retail, wholesale, e-commerce, and B2B sales channels"
+        "Directed all creative and design, from products, logos, and artwork to campaigns, photography, video, and e-commerce",
+        "Managed the full product lifecycle from concept, samples, and sourcing through manufacturing and launch",
+        "Drove sales across DTC, e-commerce, retail, wholesale, and B2B channels",
+        "Designed collaborations with Pinterest, Timbuk2, and SFMOMA, plus pop-up shops and retail activations"
       ],
       "photos": []
     },
@@ -248,20 +252,25 @@
       "start": "2007",
       "end": "2019",
       "location": "San Francisco",
-      "summary": "Co-built an apparel brand from concept through acquisition.",
+      "summary": "Co-founded an apparel brand and grew it from idea to acquisition.",
       "tags": [
-        "Entrepreneur",
-        "Creative director",
+        "Entrepreneurship",
+        "Leadership",
+        "Creative direction",
         "Brand identity",
-        "Apparel design",
+        "Apparel & product design",
         "Print design",
-        "Product development",
-        "Sourcing & manufacturing",
-        "Sales",
-        "Wholesale & retail",
-        "Trade-show design",
-        "Retail store design",
-        "Storytelling"
+        "Store & booth design",
+        "Product management",
+        "Project management",
+        "Supply chain & manufacturing",
+        "Go-to-market strategy",
+        "DTC sales",
+        "B2B & wholesale sales",
+        "Account management",
+        "Trade shows",
+        "Storytelling",
+        "Acquisition (exit)"
       ],
       "creative": [
         "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
@@ -275,9 +284,10 @@
         "Launches & Events: Planned and produced product launches, retail events, trade shows, and brand experiences."
       ],
       "key": [
-        "Led brand identity, apparel design, lookbooks, and campaigns, plus product development through manufacturing",
-        "Designed trade-show booths in Las Vegas, Miami, Los Angeles, and New York",
-        "Led retail store design and build-outs from concept through opening"
+        "Led brand identity, creative direction, and apparel design, including graphics, lookbooks, photography, video, and seasonal campaigns",
+        "Managed product development end to end, from sampling and materials through sourcing, manufacturing, quality control, and production",
+        "Built DTC, e-commerce, retail, wholesale, and B2B sales channels, selling directly to buyers and retail accounts",
+        "Designed and project-managed retail stores and trade-show booths in Las Vegas, Miami, Los Angeles, and New York"
       ],
       "photos": []
     }
@@ -307,7 +317,7 @@
         "Web design"
       ],
       "year": "2019–2024",
-      "summary": "Built a brand from the ground up: visual identity, art direction, product design, campaigns, retail graphics, and e-commerce.",
+      "summary": "I designed everything: products, logos, artwork, collaborations, campaigns, e-commerce, and pop-up spaces.",
       "role": "Co-Founder & Brand Director",
       "tags": [
         "Visual identity",
@@ -318,15 +328,19 @@
     },
     {
       "title": "Pinterest, Timbuk2 & SFMOMA",
-      "category": "Collaborations",
+      "category": [
+        "Collaborations",
+        "Product design"
+      ],
       "year": "State of Flux",
-      "summary": "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA.",
+      "summary": "Designed co-branded collaborations and activations with Pinterest, Timbuk2, and SFMOMA.",
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
       "tags": [
         "Brand collaborations",
         "Activations"
       ],
-      "featured": true
+      "featured": true,
+      "role": "Designer & brand lead"
     },
     {
       "title": "Fromm integrated marketing",
@@ -385,9 +399,9 @@
         "Project design"
       ],
       "year": "FAZE Apparel",
-      "summary": "Led retail store design and build-outs from concept through opening.",
+      "summary": "Designed retail stores and managed build-outs from concept through opening.",
       "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
-      "role": "Design lead",
+      "role": "Store designer & project manager",
       "tags": [
         "Retail design",
         "Build-outs"
@@ -436,7 +450,7 @@
       ],
       "year": "FAZE Apparel",
       "summary": "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York.",
-      "role": "Designer & producer",
+      "role": "Booth designer & project manager",
       "tags": [
         "Trade shows",
         "Brand environments"
@@ -444,13 +458,17 @@
     },
     {
       "title": "Pop-ups & retail activations",
-      "category": "Events",
+      "category": [
+        "Project design",
+        "Events"
+      ],
       "year": "State of Flux",
-      "summary": "Planned and produced community events, retail activations, pop-ups, and experiential marketing programs.",
+      "summary": "Designed and produced pop-up shops, retail activations, and community events.",
       "tags": [
         "Pop-ups",
         "Experiential"
-      ]
+      ],
+      "role": "Space designer & producer"
     },
     {
       "title": "Fromm events & programs",
@@ -511,41 +529,67 @@
   ],
   "skills": [
     {
-      "group": "Brand & Creative",
+      "group": "Creative & Art Direction",
       "items": [
-        "Brand strategy",
-        "Visual identity",
         "Creative direction",
         "Art direction",
-        "Photography & video",
+        "Brand identity & logo design",
+        "Campaign development",
+        "Photography & video direction",
         "Visual storytelling"
       ]
     },
     {
-      "group": "Marketing",
+      "group": "Design",
+      "items": [
+        "Product & apparel design",
+        "Store, pop-up & trade-show design",
+        "Print design",
+        "Web & e-commerce design"
+      ]
+    },
+    {
+      "group": "Brand & Growth Strategy",
+      "items": [
+        "Brand strategy & positioning",
+        "Go-to-market strategy",
+        "Business development",
+        "Brand partnerships & collaborations"
+      ]
+    },
+    {
+      "group": "Sales",
+      "items": [
+        "Direct-to-consumer (DTC) & e-commerce",
+        "B2B & wholesale",
+        "Retail & account management",
+        "Partnership development"
+      ]
+    },
+    {
+      "group": "Marketing & Communications",
       "items": [
         "Integrated marketing",
-        "Go-to-market strategy",
-        "Digital ads (Google, Meta, LinkedIn)",
+        "Paid media (Google, Meta, LinkedIn)",
         "Email & social media",
+        "PR & communications",
         "Events & experiential"
       ]
     },
     {
-      "group": "Product & Retail",
+      "group": "Product & Project Management",
       "items": [
-        "Apparel & product design",
+        "Product lifecycle, concept to launch",
         "Sourcing & manufacturing",
-        "Retail & trade-show design",
-        "DTC, wholesale & e-commerce",
-        "B2B sales"
+        "Project planning & delivery",
+        "Vendor, budget & timeline management"
       ]
     },
     {
       "group": "Leadership",
       "items": [
-        "Teams, vendors & budgets",
-        "Cross-functional projects",
+        "Team leadership",
+        "Cross-functional teams",
         "Board & stakeholder relations",
         "Fundraising & donor stewardship"
       ]
@@ -553,10 +597,9 @@
     {
       "group": "AI & Technology",
       "items": [
-        "Artificial intelligence",
         "Generative AI",
         "Agentic AI",
-        "Website & CRM projects",
+        "Website & CRM (Salesforce)",
         "AI assistant design"
       ]
     },
@@ -586,5 +629,12 @@
       "degree": "Nonprofit Leadership, Fundraising, Strategic Management",
       "year": ""
     }
+  ],
+  "looking_for": [
+    "Creative Director",
+    "Art Director",
+    "Design & Brand Building",
+    "Growth & Strategy",
+    "Marketing & Communications"
   ]
 }

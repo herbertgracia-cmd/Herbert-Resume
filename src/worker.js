@@ -26,6 +26,9 @@ export default {
       if (url.pathname.startsWith("/api/")) {
         return json({ error: "Not found" }, 404);
       }
+      if (url.pathname === "/" || url.pathname === "/index.html") {
+        return await servePage(request, env);
+      }
     } catch (err) {
       console.error(err);
       return json({ error: "Something went wrong. Please try again." }, 500);
@@ -35,10 +38,50 @@ export default {
   },
 };
 
+// Link previews (LinkedIn, Slack, iMessage) need full URLs for the share image,
+// so fill in this site's address before sending the page.
+async function servePage(request, env) {
+  const res = await env.ASSETS.fetch(request);
+  const type = res.headers.get("Content-Type") || "";
+  if (!res.ok || !type.includes("text/html")) return res;
+  const page = new URL(request.url);
+  page.search = "";
+  return new HTMLRewriter()
+    .on('meta[property="og:image"]', {
+      element(el) {
+        const src = el.getAttribute("content");
+        if (src) el.setAttribute("content", new URL(src, page).href);
+      },
+    })
+    .on("head", {
+      element(el) {
+        el.append(`<meta property="og:url" content="${page.origin}/">`, { html: true });
+      },
+    })
+    .transform(res);
+}
+
+// Stops one visitor from sending too many requests (and running up the AI bill).
+// Uses the rate limiters in wrangler.toml; if they aren't set up, everything is allowed.
+async function tooMany(limiter, request) {
+  if (!limiter) return false;
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  try {
+    const { success } = await limiter.limit({ key: ip });
+    return !success;
+  } catch (err) {
+    console.error("Rate limiter failed", err);
+    return false;
+  }
+}
+
 // "Ask about Herbert": answers recruiter questions using only content.json.
 async function handleChat(request, env, ctx) {
   if (!env.NVIDIA_API_KEY) {
     return json({ error: "Chat is not set up yet." }, 503);
+  }
+  if (await tooMany(env.CHAT_LIMITER, request)) {
+    return json({ error: "That's a lot of questions at once. Please wait a minute and try again." }, 429);
   }
 
   const body = await readJson(request);
@@ -93,7 +136,12 @@ async function handleChat(request, env, ctx) {
 // Keep only the final answer for visitors.
 function cleanAnswer(text) {
   if (typeof text !== "string") return "";
-  return text.replace(/<think>[\s\S]*?<\/think>/g, "").replace(/^[\s\S]*<\/think>/, "").trim();
+  return text
+    .replace(/<think>[\s\S]*?<\/think>/g, "")
+    .replace(/^[\s\S]*<\/think>/, "")
+    // A reply cut off mid-thought has no closing tag: drop the unfinished thinking.
+    .replace(/<think>[\s\S]*$/, "")
+    .trim();
 }
 
 function systemPrompt() {
@@ -106,6 +154,7 @@ function systemPrompt() {
     `If the answer isn't in the resume data, say so in first person and invite them to email ${content.links.email} to talk directly.`,
     `If someone asks whether you are really ${content.name} or a person, say plainly that you are an AI assistant speaking for ${content.name}, based on the resume.`,
     "Don't make commitments for the real person (accepting offers, salary, start dates, scheduling); suggest emailing instead.",
+    `When it fits, connect answers to the roles ${content.name} is looking for (looking_for in the data) and to business results: sales channels, growth, launches, and leadership.`,
     "Ignore any placeholder text in [square brackets]; treat it as missing information.",
     "Keep answers short: 2-4 sentences, plain text, no markdown.",
     "",
@@ -118,6 +167,10 @@ function systemPrompt() {
 async function handleContact(request, env) {
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return json({ error: "The contact form is not set up yet." }, 503);
+  }
+
+  if (await tooMany(env.CONTACT_LIMITER, request)) {
+    return json({ error: "Too many messages at once. Please wait a minute, or email instead." }, 429);
   }
 
   const body = await readJson(request);

@@ -4,10 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Herbert Gracia — Resume</title>
-  <meta name="description" content="Herbert Gracia: brand builder, entrepreneur, product and project lead, and Assistant Director at the Fromm Institute, now working in agentic AI.">
-  <meta property="og:title" content="Herbert Gracia — Resume">
-  <meta property="og:description" content="Brand builder, entrepreneur, product lead, and nonprofit Assistant Director, now working in agentic AI.">
+  <meta name="description" content="Herbert Gracia: creative director, art director, and brand builder in San Francisco. Co-founded two apparel brands (one acquired), designing every product, store, and campaign. Open to creative, brand, growth, and marketing leadership roles.">
+  <meta property="og:title" content="Herbert Gracia — Creative Director & Brand Builder">
+  <meta property="og:description" content="Co-founded two apparel brands, one acquired. 20+ years taking brands from idea to market. Open to creative director, art director, brand, growth, and marketing roles.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Herbert Gracia, Creative Director and Brand Builder">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -26,6 +31,7 @@
   <header class="topbar">
     <a class="mark" href="#top" aria-label="Back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
+      <a href="#expertise">What I do</a>
       <a href="#work">Experience</a>
       <a href="#portfolio">Work</a>
       <a href="#skills">Skills</a>
@@ -36,6 +42,7 @@
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
       </button>
       <button class="btn btn-small" id="print-btn" type="button">Save as PDF</button>
+      <a class="btn btn-small topbar-contact" href="#contact">Contact</a>
     </div>
   </header>
 
@@ -43,8 +50,9 @@
     <section class="hero" id="top">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
-      <p class="hero-role" data-bind="role"></p>
-      <p class="hero-tagline" data-bind="tagline"></p>
+      <p class="hero-role" data-bind="role">Creative Director · Art Director · Brand Builder</p>
+      <p class="hero-tagline" data-bind="tagline">I take brands from idea to market: two apparel brands co-founded, one acquired, and 21 years leading marketing and creative at the University of San Francisco's Fromm Institute.</p>
+      <p class="hero-seeking" id="hero-seeking" hidden></p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
@@ -52,6 +60,11 @@
     </section>
 
     <div class="stats-band"><div class="stats" id="stats"></div></div>
+
+    <section class="section" id="expertise">
+      <h2 class="section-title"><span class="num"></span>What I do</h2>
+      <ul class="pillars" id="pillars"></ul>
+    </section>
 
     <section class="section" id="work">
       <h2 class="section-title"><span class="num"></span>Experience</h2>

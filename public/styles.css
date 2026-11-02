@@ -138,9 +138,17 @@ img, svg { display: block; }
 .hero-role {
   margin: 28px 0 0; font: 500 clamp(1.1rem, 2.2vw, 1.5rem)/1.3 var(--sans);
 }
+.hero-role .role { white-space: nowrap; }
 .hero-tagline {
   max-width: 56ch; margin: 12px 0 0; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.15rem);
 }
+.hero-seeking {
+  max-width: 62ch; margin: 18px 0 0; font-size: 15px; line-height: 1.6;
+}
+.hero-seeking-label {
+  margin-right: 6px; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent);
+}
+.hero-seeking[hidden] { display: none; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
 /* ---------- Sections ---------- */
@@ -166,6 +174,21 @@ img, svg { display: block; }
 .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
 .stat strong { font: 400 clamp(2.2rem, 4vw, 3.2rem)/1 var(--serif); color: var(--accent); }
 .stat span { font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+/* What I do */
+.pillars {
+  list-style: none; margin: 0; padding: 0; min-width: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 32px;
+}
+.pillar { padding: 20px 0 24px; border-top: 1px solid var(--line); }
+.pillar h3 { margin: 0; font: 400 1.6rem/1.1 var(--serif); }
+.pillar > p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+.pillar ul { margin: 12px 0 0; padding-left: 1.1em; font-size: 15px; }
+.pillar li { margin: 4px 0; }
+.pillar li::marker { color: var(--accent); }
+
+/* Contact button that replaces "Save as PDF" on phones */
+.topbar-contact { display: none; }
 
 /* Skills & industries */
 .facts { display: grid; grid-template-columns: 9rem 1fr; margin: 0; border-top: 1px solid var(--line); }
@@ -431,6 +454,8 @@ img, svg { display: block; }
 /* ---------- Small screens ---------- */
 @media (max-width: 760px) {
   .topbar nav { display: none; }
+  #print-btn { display: none; }
+  .topbar-contact { display: inline-flex; }
   .section { grid-template-columns: 1fr; }
   .section-title { position: static; }
   .contact > :not(.section-title) { grid-column: 1; }
@@ -451,7 +476,7 @@ img, svg { display: block; }
   @page { margin: 12mm 14mm; }
   body { font-size: 10.5pt; line-height: 1.4; }
   .topbar, .hero-cta, .chat-launch, .chat-panel, .contact-form, .contact-lead, .footer, .skip,
-  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-open { display: none !important; }
+  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-open, .topbar-contact, #expertise, #portfolio { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero { padding: 0 0 6pt; }
   .eyebrow { margin-bottom: 6pt; }
@@ -460,6 +485,8 @@ img, svg { display: block; }
   .hero-name .line + .line::before { content: " "; }
   .hero-name .line:last-child { color: #000; }
   .hero-role { margin-top: 4pt; font-size: 12pt; }
+  .hero-seeking { margin-top: 3pt; font-size: 9.5pt; max-width: none; }
+  .hero-seeking-label { color: #000; }
   .hero-tagline { margin-top: 4pt; font-size: 10.5pt; max-width: none; }
   .stats-band { border: 0; }
   .stats { padding: 0; }
@@ -467,6 +494,7 @@ img, svg { display: block; }
   .stat strong { font-size: 13pt; color: #000; }
   .stat span { font-size: 9pt; }
   .section { display: block; padding: 10pt 0 0; }
+  .section-title .num { display: none; }
   .section-title { position: static; margin-bottom: 4pt; border-bottom: 1px solid #000; padding-bottom: 2pt; break-after: avoid; }
   .job { padding: 6pt 0; grid-template-columns: 6.5rem 1fr; gap: 2pt 12pt; }
   .job h3 { font-size: 13pt; break-after: avoid; }
@@ -474,16 +502,14 @@ img, svg { display: block; }
   .job li, .work-card, .facts dd { break-inside: avoid; }
   .job ul { margin-top: 4pt; }
   .job li { margin: 1pt 0; }
-  .job-tags { display: block; margin-top: 3pt; color: var(--muted); font-size: 9pt; }
-  .job-tags .tag { display: inline; padding: 0; border: 0; font: inherit; }
-  .job-tags .tag + .tag::before { content: " · "; }
+  .job-tags { display: none !important; }
   .work-grid { display: block; }
   .work-grid li[data-extra] { display: none !important; }
   .work-card { display: block; padding: 3pt 0; border: 0; background: none; }
   .work-card h3 { display: inline; font-size: 11.5pt; margin: 0; }
   .work-card .work-meta { display: none; }
   .work-card p { display: inline; margin: 0 0 0 6pt; font-size: 10pt; }
-  .facts { grid-template-columns: 6.5rem 1fr; border: 0; }
+  .facts { grid-template-columns: 8.5rem 1fr; border: 0; }
   .facts dt, .facts dd { padding: 2pt 0; border: 0; }
   .contact-email { font-size: 11pt; border: 0; }
   .contact-links a { border: 0; padding: 0 12pt 0 0; }

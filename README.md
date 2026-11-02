@@ -51,6 +51,14 @@ Each job has a **More about this role** button that opens a pop-up with the full
 
 The first one shows large, with small thumbnails underneath to switch between them. The skill chips under each job come from its `tags` list.
 
+## Link preview image
+
+`public/og.png` (1200×630) is the picture LinkedIn, Slack, and texts show when someone shares your link. Replace it with any image of the same size.
+
+## Limits on the chat and contact form
+
+`wrangler.toml` limits each visitor to 10 chat questions and 3 contact messages a minute, so nobody can run up your NVIDIA bill or flood your inbox. Change the numbers under `[[ratelimits]]`.
+
 ## Run it locally
 
 ```bash

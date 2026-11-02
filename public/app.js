@@ -45,6 +45,12 @@ function render(d) {
       i < roles.length - 1 ? " " : null,
     ]).filter(Boolean));
   }
+  // Roles I'm looking for, under the tagline.
+  if (d.looking_for?.length) {
+    const seek = $("#hero-seeking");
+    seek.replaceChildren(h("span", { class: "hero-seeking-label" }, "Open to"), " ", d.looking_for.join(" · "));
+    seek.hidden = false;
+  }
   if (d.links?.linkedin) {
     const li = $("#hero-linkedin");
     li.href = d.links.linkedin;
@@ -61,7 +67,17 @@ function render(d) {
     stats.replaceChildren(...d.stats.map((s) => h("div", { class: "stat" }, h("strong", {}, s.value), h("span", {}, s.label))));
   } else stats.parentElement.remove();
 
-  // Experience: 3 key bullets per job; the rest sits behind "More".
+  // What I do: one short block per area of expertise.
+  if (d.pillars?.length) {
+    $("#pillars").replaceChildren(...d.pillars.map((p) =>
+      h("li", { class: "pillar reveal" },
+        h("h3", {}, p.title),
+        p.summary && h("p", {}, p.summary),
+        p.proof?.length > 0 && h("ul", {}, p.proof.map((x) => h("li", {}, x))),
+      )));
+  } else $("#expertise").remove();
+
+  // Experience: key bullets and skill tags per job; the rest sits in a pop-up.
   $("#jobs").replaceChildren(...d.experience.map(renderJob));
 
   renderWork(d.work || []);
@@ -381,7 +397,7 @@ function setupChat(d) {
   };
   add("bot", `Hi, I'm ${first}, or rather an AI version of me. Ask me about my brands, design work, or experience.`);
 
-  ["What brands have you built?", "What's your creative direction experience?", "How do you use AI in your work?"]
+  ["What roles are you looking for?", "How do you take a product from idea to launch?", "What brands have you built?"]
     .forEach((q) => suggest.append(h("button", { type: "button" }, q)));
   suggest.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") ask(e.target.textContent);
