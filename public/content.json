@@ -1,6 +1,7 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. category must be one of: Design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. Each job shows its 'key' bullets (3 is best) and its 'tags' (the skills used in that role). 'More about this role' opens a pop-up with 'creative', 'highlights', 'earlier_roles', and any 'photos'. Work items with \"featured\": true show first; the rest appear under 'See all work'. The AI chat reads everything in this file, shown or not.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name or a list of names from: Web design, Product design, Project design, Print design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI.",
+  "_photos_help": "To add pictures to a job's pop-up, put the files in public/work/ and list them in that job's 'photos', e.g. {\"image\": \"/work/faze-lookbook.jpg\", \"caption\": \"Spring lookbook, 2015\"}. A YouTube or Vimeo link works too: {\"video\": \"https://www.youtube.com/watch?v=...\", \"caption\": \"...\"}. Use JPG or PNG about 1600px wide and under 500 KB. The first photo is shown large.",
   "name": "Herbert Gracia",
   "role": "Brand & creative director · Entrepreneur · Product developer · AI",
   "location": "San Francisco, CA",
@@ -143,6 +144,24 @@
       "end": "Present",
       "location": "San Francisco",
       "summary": "Lead technology, marketing, and creative for a USF nonprofit serving 1,500+ older adults a year.",
+      "tags": [
+        "Leadership",
+        "Creative director",
+        "Brand strategy",
+        "Integrated marketing",
+        "Digital advertising",
+        "Web design",
+        "Print design",
+        "Video production",
+        "Storytelling",
+        "Product development",
+        "Technology & CRM",
+        "AI & generative AI",
+        "Events",
+        "Fundraising",
+        "Partnerships",
+        "Teams & budgets"
+      ],
       "creative": [
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, digital advertising, partnerships, and events",
         "Develop campaign concepts, brand messaging, and creative assets that strengthen the Fromm brand and reach new audiences",
@@ -180,7 +199,8 @@
         "Lead brand strategy, creative direction, and integrated marketing across web, email, print, social, video, and events",
         "Grew communications from zero to a multi-channel program reaching 1,500+ learners, increasing enrollment 10%",
         "Helped build Frommcast, Fromm's online learning and video platform; lead website, CRM, and AI-assisted marketing projects"
-      ]
+      ],
+      "photos": []
     },
     {
       "role": "Co-Founder & Brand Director",
@@ -189,6 +209,21 @@
       "end": "2024",
       "location": "San Francisco Bay Area",
       "summary": "Co-founded and built an apparel brand across product, creative, retail, and e-commerce.",
+      "tags": [
+        "Entrepreneur",
+        "Creative director",
+        "Brand strategy",
+        "Product design",
+        "Art direction",
+        "Photography & video",
+        "Storytelling",
+        "Sales",
+        "E-commerce",
+        "Retail & wholesale",
+        "Brand collaborations",
+        "Pop-ups & events",
+        "Manufacturing"
+      ],
       "creative": [
         "Led brand strategy, visual identity, creative direction, art direction, and marketing",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
@@ -204,7 +239,8 @@
         "Built the brand from the ground up across identity, art direction, product design, campaigns, and e-commerce",
         "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
         "Built DTC, retail, wholesale, e-commerce, and B2B sales channels"
-      ]
+      ],
+      "photos": []
     },
     {
       "role": "Co-Founder & Brand Director",
@@ -213,6 +249,20 @@
       "end": "2019",
       "location": "San Francisco",
       "summary": "Co-built an apparel brand from concept through acquisition.",
+      "tags": [
+        "Entrepreneur",
+        "Creative director",
+        "Brand identity",
+        "Apparel design",
+        "Print design",
+        "Product development",
+        "Sourcing & manufacturing",
+        "Sales",
+        "Wholesale & retail",
+        "Trade-show design",
+        "Retail store design",
+        "Storytelling"
+      ],
       "creative": [
         "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
         "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
@@ -228,13 +278,17 @@
         "Led brand identity, apparel design, lookbooks, and campaigns, plus product development through manufacturing",
         "Designed trade-show booths in Las Vegas, Miami, Los Angeles, and New York",
         "Led retail store design and build-outs from concept through opening"
-      ]
+      ],
+      "photos": []
     }
   ],
   "work": [
     {
       "title": "FAZE Apparel",
-      "category": "Design",
+      "category": [
+        "Product design",
+        "Print design"
+      ],
       "year": "2007–2019",
       "summary": "Brand identity, apparel design, graphics, lookbooks, and seasonal campaigns for the apparel brand I co-built through acquisition.",
       "role": "Co-Founder & Brand Director",
@@ -247,7 +301,11 @@
     },
     {
       "title": "State of Flux",
-      "category": "Design",
+      "category": [
+        "Product design",
+        "Print design",
+        "Web design"
+      ],
       "year": "2019–2024",
       "summary": "Built a brand from the ground up: visual identity, art direction, product design, campaigns, retail graphics, and e-commerce.",
       "role": "Co-Founder & Brand Director",
@@ -272,7 +330,11 @@
     },
     {
       "title": "Fromm integrated marketing",
-      "category": "Marketing",
+      "category": [
+        "Marketing",
+        "Print design",
+        "Web design"
+      ],
       "year": "",
       "summary": "Grew Fromm from zero presence to a multi-channel program across web, email, print, social, video, and digital ads, raising enrollment 10%.",
       "details": "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels.",
@@ -301,7 +363,10 @@
     },
     {
       "title": "This website",
-      "category": "AI",
+      "category": [
+        "Web design",
+        "AI"
+      ],
       "year": "2026",
       "summary": "Directed AI coding agents to design and build this resume site, including an AI chat that answers recruiter questions from my resume.",
       "details": "The chat runs on NVIDIA's Nemotron model. The site is hosted on Cloudflare Workers, and contact messages are saved in a Supabase database.",
@@ -316,7 +381,9 @@
     },
     {
       "title": "Retail store design",
-      "category": "Design",
+      "category": [
+        "Project design"
+      ],
       "year": "FAZE Apparel",
       "summary": "Led retail store design and build-outs from concept through opening.",
       "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
@@ -363,7 +430,10 @@
     },
     {
       "title": "Trade-show booths",
-      "category": "Events",
+      "category": [
+        "Project design",
+        "Events"
+      ],
       "year": "FAZE Apparel",
       "summary": "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York.",
       "role": "Designer & producer",
@@ -415,7 +485,10 @@
     },
     {
       "title": "Salesforce website & payments",
-      "category": "Technology",
+      "category": [
+        "Web design",
+        "Technology"
+      ],
       "year": "",
       "summary": "Directed a Salesforce-based website redesign with integrated Stripe and CashNet payment and donor systems, so staff manage tuition, donations, and enrollment in-house.",
       "tags": [

@@ -20,7 +20,7 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 ```json
 {
   "title": "Spring catalog redesign",
-  "category": "Design",
+  "category": ["Print design", "Product design"],
   "year": "2025",
   "summary": "One or two sentences shown on the card.",
   "details": "Optional longer story shown when the card is opened.",
@@ -33,10 +33,23 @@ The **Selected work** section is the `work` list in `public/content.json`. Each 
 }
 ```
 
-- **category:** one of `Design`, `Video`, `Storytelling`, `Collaborations`, `Technology`.
+- **category:** one name or a list of names from `Web design`, `Product design`, `Project design`, `Print design`, `Marketing`, `Video`, `Events`, `Storytelling`, `Collaborations`, `Technology`, `AI`. A card shows up under each of its filters.
 - **image:** put the picture in `public/work/` (JPG or PNG, about 1600px wide, under 500 KB).
 - **video:** a YouTube or Vimeo link plays right on the page. YouTube links also give the card its picture automatically.
 - Everything except `title`, `category`, and `summary` is optional. Cards with no picture get a colored cover with the title.
+
+## Add photos to a job
+
+Each job has a **More about this role** button that opens a pop-up with the full details. To show pictures there, list them in that job's `photos` in `public/content.json`:
+
+```json
+"photos": [
+  { "image": "/work/faze-lookbook.jpg", "caption": "Spring lookbook" },
+  { "video": "https://www.youtube.com/watch?v=...", "caption": "Campaign film" }
+]
+```
+
+The first one shows large, with small thumbnails underneath to switch between them. The skill chips under each job come from its `tags` list.
 
 ## Run it locally
 

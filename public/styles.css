@@ -188,16 +188,6 @@ img, svg { display: block; }
 .job li { margin: 4px 0; }
 .job li::marker { color: var(--accent); }
 .job li strong { font-weight: 600; }
-.job-more { margin-top: 12px; }
-.job-more summary {
-  display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
-  font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted);
-}
-.job-more summary::-webkit-details-marker { display: none; }
-.job-more summary::after { content: "+"; font-size: 14px; color: var(--accent); }
-.job-more[open] summary::after { content: "–"; }
-.job-more summary:hover { color: var(--ink); }
-.job-more[open] > :not(summary) { margin-top: 12px; }
 .job-creative {
   margin: 16px 0 4px; padding: 16px 20px 14px; border-radius: 12px;
   background: var(--cat); color: var(--cat-ink);
@@ -218,6 +208,42 @@ img, svg { display: block; }
   :root:not([data-theme="light"]) .job-creative { --cat: #4a2417; --cat-ink: #ffd6c6; }
 }
 :root[data-theme="dark"] .job-creative { --cat: #4a2417; --cat-ink: #ffd6c6; }
+
+/* Skill tags under each job, and the button that opens its pop-up */
+.job-tags { margin-top: 14px; padding-top: 0; }
+.job-open {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 0; border: 0; background: none; cursor: pointer;
+  font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted);
+}
+.job-open::after { content: "→"; font-size: 14px; color: var(--accent); transition: transform .2s; }
+.job-open:hover { color: var(--ink); }
+.job-open:hover::after { transform: translateX(3px); }
+
+/* Job pop-up */
+.job-dialog-text { padding-top: 32px; }
+.job-dialog-text h3 { padding-right: 40px; }
+.job-dialog-text h3 .at { font-style: italic; color: var(--muted); }
+.job-dialog-text ul { margin: 0; padding-left: 1.1em; }
+.job-dialog-text li { margin: 4px 0; }
+.job-dialog-text li::marker { color: var(--accent); }
+.job-dialog-text .job-creative { align-self: stretch; margin: 4px 0 0; }
+.job-dialog-text .job-creative li::marker { color: currentColor; }
+.job-dialog-text .job-earlier { align-self: stretch; margin-top: 4px; }
+.job-dialog-text .job-earlier ol { list-style: none; margin: 0; padding: 0; }
+.job-dialog-text .job-earlier li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0 12px; margin: 8px 0; }
+
+/* Photo gallery inside a pop-up */
+.gallery { background: var(--surface); }
+.gallery-caption { margin: 0; padding: 10px 28px 0; font-size: 14px; color: var(--muted); }
+.gallery-thumbs { display: flex; gap: 8px; padding: 12px 28px 16px; overflow-x: auto; }
+.gallery-thumb {
+  flex: 0 0 auto; width: 84px; aspect-ratio: 4 / 3; padding: 0; border: 2px solid transparent; border-radius: 8px;
+  overflow: hidden; background: var(--line); color: var(--ink); cursor: pointer; opacity: .7; transition: opacity .2s, border-color .2s;
+}
+.gallery-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb:hover, .gallery-thumb[aria-current="true"] { opacity: 1; }
+.gallery-thumb[aria-current="true"] { border-color: var(--accent); }
+.gallery-caption[hidden] { display: none; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
 .tag { font: 400 11px/1 var(--mono); padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; }
@@ -425,7 +451,7 @@ img, svg { display: block; }
   @page { margin: 12mm 14mm; }
   body { font-size: 10.5pt; line-height: 1.4; }
   .topbar, .hero-cta, .chat-launch, .chat-panel, .contact-form, .contact-lead, .footer, .skip,
-  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more { display: none !important; }
+  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-open { display: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero { padding: 0 0 6pt; }
   .eyebrow { margin-bottom: 6pt; }
@@ -448,6 +474,9 @@ img, svg { display: block; }
   .job li, .work-card, .facts dd { break-inside: avoid; }
   .job ul { margin-top: 4pt; }
   .job li { margin: 1pt 0; }
+  .job-tags { display: block; margin-top: 3pt; color: var(--muted); font-size: 9pt; }
+  .job-tags .tag { display: inline; padding: 0; border: 0; font: inherit; }
+  .job-tags .tag + .tag::before { content: " · "; }
   .work-grid { display: block; }
   .work-grid li[data-extra] { display: none !important; }
   .work-card { display: block; padding: 3pt 0; border: 0; background: none; }

@@ -110,13 +110,21 @@ function videoInfo(url) {
 }
 
 function categoryClass(cat) {
-  return "cat-" + String(cat || "other").toLowerCase().replace(/[^a-z]+/g, "-");
+  const name = String(cat || "other").toLowerCase();
+  // All the design types (Web design, Print design...) share the design color.
+  if (name.endsWith("design")) return "cat-design";
+  return "cat-" + name.replace(/[^a-z]+/g, "-");
+}
+
+// "category" can be one name or a list, e.g. ["Product design", "Print design"].
+function categoriesOf(item) {
+  return [].concat(item.category || []).filter(Boolean);
 }
 
 function workCover(item, large = false) {
   const video = videoInfo(item.video);
   const src = item.image || video?.thumb;
-  const cover = h("div", { class: `work-cover ${categoryClass(item.category)}` });
+  const cover = h("div", { class: `work-cover ${categoryClass(categoriesOf(item)[0])}` });
   if (src) {
     cover.append(h("img", { src, alt: item.imageAlt || "", loading: large ? null : "lazy" }));
   } else {
@@ -130,18 +138,21 @@ function renderWork(items) {
   const section = $("#portfolio");
   if (!items.length) return section.remove();
 
-  const CATEGORY_ORDER = ["Design", "Marketing", "Video", "Events", "Storytelling", "Collaborations", "Technology", "AI"];
-  const cats = [...new Set(items.map((i) => i.category).filter(Boolean))]
+  const CATEGORY_ORDER = [
+    "Web design", "Product design", "Project design", "Print design",
+    "Marketing", "Video", "Events", "Storytelling", "Collaborations", "Technology", "AI",
+  ];
+  const cats = [...new Set(items.flatMap(categoriesOf))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
   const filters = $("#work-filters");
   const grid = $("#work-grid");
 
   const cards = items.map((item) =>
-    h("li", { class: "reveal", "data-category": item.category || "" },
+    h("li", { class: "reveal", "data-category": JSON.stringify(categoriesOf(item)) },
       h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
         workCover(item),
         h("div", { class: "work-meta" },
-          h("span", {}, item.category || ""),
+          h("span", {}, categoriesOf(item).slice(0, 2).join(" + ")),
           item.year && h("span", {}, item.year),
         ),
         h("h3", {}, item.title),
@@ -179,7 +190,7 @@ function renderWork(items) {
     if (!btn) return;
     const f = btn.dataset.filter;
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-    cards.forEach((c) => { c.hidden = f !== "All" && c.dataset.category !== f; c.classList.add("in"); });
+    cards.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
   });
 }
 
@@ -207,7 +218,7 @@ function openWork(item) {
   $("#work-dialog-body").replaceChildren(
     media,
     h("div", { class: "work-dialog-text" },
-      h("p", { class: "work-meta" }, h("span", {}, item.category || ""), item.year && h("span", {}, item.year)),
+      h("p", { class: "work-meta" }, h("span", {}, categoriesOf(item).join(" + ")), item.year && h("span", {}, item.year)),
       h("h3", { id: "work-dialog-title" }, item.title),
       h("p", {}, item.summary),
       item.details && h("p", { class: "muted" }, item.details),
@@ -230,28 +241,76 @@ function setupWorkDialog() {
 
 function renderJob(j) {
   const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
-  const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length;
+  const photos = j.photos || [];
+  const hasMore = Boolean(photos.length || j.creative?.length || j.highlights?.length || j.earlier_roles?.length);
+  const more = !hasMore ? null : h("button", { class: "job-open", type: "button", "aria-haspopup": "dialog" },
+    photos.length ? `Photos & more about this role (${photos.length})` : "More about this role");
+  more?.addEventListener("click", () => openJob(j));
   return h("li", { class: "job reveal" },
     h("div", { class: "job-dates" }, j.start ? `${j.start} — ${j.end}` : "", j.location && h("span", { class: "job-location" }, j.location)),
     h("div", {},
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
       j.summary && h("p", { class: "job-summary" }, j.summary),
       key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
-      hasMore && h("details", { class: "job-more" },
-        h("summary", {}, "More about this role"),
-        j.creative?.length > 0 && h("div", { class: "job-creative" },
-          h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
-          h("ul", {}, j.creative.map((x) => h("li", {}, x))),
-        ),
-        j.highlights?.length > 0 && h("ul", {}, j.highlights.map(highlight)),
-        j.earlier_roles?.length > 0 && h("div", { class: "job-earlier" },
-          h("p", { class: "job-creative-label" }, "Earlier roles here"),
-          h("ol", {}, j.earlier_roles.map((r) =>
-            h("li", {}, h("span", { class: "job-earlier-years" }, r.years), h("strong", {}, r.title), r.note && h("span", { class: "job-earlier-note" }, r.note)))),
-        ),
+      j.tags?.length > 0 && h("div", { class: "tags job-tags", role: "list", "aria-label": "Skills used in this role" },
+        j.tags.map((t) => h("span", { class: "tag", role: "listitem" }, t))),
+      more,
+    ),
+  );
+}
+
+// Pop-up for one job: photos (if any) plus everything about the role.
+function openJob(j) {
+  const photos = j.photos || [];
+  $("#work-dialog-body").replaceChildren(
+    ...(photos.length ? [gallery(photos, j.company)] : []),
+    h("div", { class: "work-dialog-text job-dialog-text" },
+      h("p", { class: "work-meta" }, h("span", {}, j.start ? `${j.start} — ${j.end}` : ""), j.location && h("span", {}, j.location)),
+      h("h3", { id: "work-dialog-title" }, j.role, j.company && h("span", { class: "at" }, ` at ${j.company}`)),
+      j.summary && h("p", {}, j.summary),
+      j.tags?.length > 0 && h("div", { class: "tags" }, j.tags.map((t) => h("span", { class: "tag" }, t))),
+      j.creative?.length > 0 && h("div", { class: "job-creative" },
+        h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
+        h("ul", {}, j.creative.map((x) => h("li", {}, x))),
+      ),
+      j.highlights?.length > 0 && h("ul", { class: "job-highlights" }, j.highlights.map(highlight)),
+      j.earlier_roles?.length > 0 && h("div", { class: "job-earlier" },
+        h("p", { class: "job-creative-label" }, "Earlier roles here"),
+        h("ol", {}, j.earlier_roles.map((r) =>
+          h("li", {}, h("span", { class: "job-earlier-years" }, r.years), h("strong", {}, r.title), r.note && h("span", { class: "job-earlier-note" }, r.note)))),
       ),
     ),
   );
+  $("#work-dialog").showModal();
+}
+
+// One big picture with a row of small ones to switch between them.
+// Each photo is { "image": "/work/...jpg" or "video": "YouTube/Vimeo link", "caption": "..." }.
+function gallery(photos, label) {
+  const stage = h("div", { class: "gallery-stage" });
+  const caption = h("p", { class: "gallery-caption" });
+  const show = (i) => {
+    const p = photos[i];
+    const video = videoInfo(p.video);
+    stage.replaceChildren(video
+      ? h("div", { class: "work-media video" }, h("iframe", {
+          src: video.embed, title: p.caption || label,
+          allow: "autoplay; encrypted-media; picture-in-picture; fullscreen", allowfullscreen: "",
+        }))
+      : h("div", { class: "work-media" }, h("img", { src: p.image, alt: p.alt || p.caption || label })));
+    caption.textContent = p.caption || "";
+    caption.hidden = !p.caption;
+    thumbs.forEach((t, k) => t.setAttribute("aria-current", String(k === i)));
+  };
+  const thumbs = photos.map((p, i) => {
+    const src = p.image || videoInfo(p.video)?.thumb;
+    const btn = h("button", { type: "button", class: "gallery-thumb", "aria-label": `Show ${p.caption || `photo ${i + 1}`}` },
+      src ? h("img", { src, alt: "", loading: "lazy" }) : h("span", {}, "▶"));
+    btn.addEventListener("click", () => show(i));
+    return btn;
+  });
+  show(0);
+  return h("div", { class: "gallery" }, stage, caption, photos.length > 1 && h("div", { class: "gallery-thumbs" }, thumbs));
 }
 
 // "Label: details" becomes a bold label followed by the details.
