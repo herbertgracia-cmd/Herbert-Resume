@@ -40,8 +40,8 @@
       "summary": "Brand identity, campaigns, and visual storytelling across print, web, video, and retail.",
       "proof": [
         "Designed every State of Flux product, logo, artwork, and collaboration",
-        "Art-directed lookbooks, photography, video, and seasonal campaigns",
-        "Lead creative direction for the Fromm brand and its 50th Anniversary"
+        "Design everything for Fromm: course catalogs, brochures, posters, ads, and the 50th Anniversary logo",
+        "Art-directed lookbooks, photography, video, and seasonal campaigns"
       ]
     },
     {
@@ -76,7 +76,7 @@
       "summary": "Integrated campaigns, PR, and content that move people to act.",
       "proof": [
         "Integrated marketing across web, email, print, social, video, and paid media",
-        "Manage a $20K newspaper ad budget and $3K a month in paid social",
+        "Manage a $20K-a-year newspaper ad budget with Hearst Media and $3K a month in paid social",
         "Launched a YouTube channel that reached 700+ subscribers in 6 months",
         "Our latest press release was picked up by 500+ news outlets in the U.S. and Europe"
       ]
@@ -191,25 +191,25 @@
       ],
       "key": [
         "Drove 10% enrollment growth through direct-to-consumer marketing and B2B partnerships, building an integrated program from zero across web, email, print, social, video, and paid media",
-        "Manage a $20K newspaper ad budget (San Francisco Chronicle account) and $3K a month in paid social, and design all the ad creative",
-        "Launched Fromm's YouTube channel, reaching 700+ subscribers in 6 months, and grew Facebook and Instagram by 300+ followers",
-        "Lead brand, creative direction, and PR; our latest newswire press release was picked up by 500+ news outlets across the U.S. and Europe",
+        "Design everything for Fromm, from course catalogs, brochures, and posters to the 50th Anniversary logo, and lead brand and creative direction",
+        "Manage a $20K-a-year newspaper ad budget with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social, and design all the ad creative",
+        "Launched Fromm's YouTube channel, reaching 700+ subscribers in 6 months, and grew Facebook and Instagram by 300+ followers in my first year running them",
+        "Lead PR; our latest newswire press release was picked up by 500+ news outlets across the U.S. and Europe",
         "Lead a team of 6+ engineers, photographers, video crew, and student workers, delivering projects such as Frommcast and a Salesforce website and CRM"
       ],
       "areas": [
         {
           "name": "Creative",
           "items": [
+            "Design everything for Fromm, print & digital",
+            "Logo design, incl. the 50th Anniversary logo",
+            "Course catalogs, brochures & posters",
+            "Print ad design (San Francisco Chronicle, SFGATE)",
+            "Newsletter design & production",
             "Brand strategy & identity",
-            "Logo design",
             "Creative & art direction",
             "Campaign concepts & messaging",
-            "Print ad design (San Francisco Chronicle)",
-            "Newsletter design & production",
-            "Print & digital design",
-            "Creative assets for enrollment, faculty programs & events",
-            "Photography & video direction",
-            "50th Anniversary brand"
+            "Photography & video direction"
           ]
         },
         {
@@ -219,7 +219,7 @@
             "Designed the Fromm website",
             "CRM administration & maintenance",
             "Online enrollment & payments (Stripe, CashNet)",
-            "Building an AI chatbot for the website (launching soon), after earning USF's Agentic AI certificate",
+            "Building an AI chatbot for the website (in progress), after earning USF's Agentic AI certificate",
             "Managed the vendor that built our smart classrooms",
             "Frommcast online learning platform",
             "Classroom, hybrid & event technology",
@@ -232,9 +232,9 @@
             "Integrated campaigns across web, email, print, social & video",
             "Enrollment marketing (direct to consumer)",
             "Social media marketing & paid social ($3K a month)",
-            "Newspaper advertising ($20K budget; San Francisco Chronicle account)",
+            "Newspaper advertising: $20K a year with Hearst Media (San Francisco Chronicle, SFGATE)",
             "Launched our YouTube channel: 700+ subscribers in 6 months",
-            "Facebook & Instagram: 300+ new followers",
+            "Facebook & Instagram: 300+ new followers in my first year",
             "Digital ads (Google, Meta, LinkedIn) & email marketing",
             "Community & B2B partnerships, incl. 5+ retirement communities",
             "Events, programs & brand experiences",
@@ -480,11 +480,15 @@
     },
     {
       "title": "Fromm 50th Anniversary",
-      "category": "Marketing",
+      "category": [
+        "Marketing",
+        "Print design"
+      ],
       "year": "Now",
-      "summary": "Leading all brand, marketing, and PR for the Institute's 50th Anniversary celebration.",
-      "role": "Marketing & PR lead",
+      "summary": "Designed the 50th Anniversary logo and lead all brand, marketing, and PR for the Institute's 50th Anniversary celebration.",
+      "role": "Logo designer, marketing & PR lead",
       "tags": [
+        "Logo design",
         "Campaign",
         "Events",
         "PR"
@@ -623,12 +627,26 @@
         "Marketing"
       ],
       "year": "Fromm",
-      "summary": "Manage Fromm's San Francisco Chronicle account and $20K newspaper ad budget, and design every print ad.",
+      "summary": "Manage Fromm's $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle and SFGATE), and design every print ad.",
       "role": "Ad designer & account manager",
       "tags": [
         "Print ads",
         "Media buying",
-        "Design"
+        "Hearst Media"
+      ]
+    },
+    {
+      "title": "Fromm course catalogs & brochures",
+      "category": [
+        "Print design"
+      ],
+      "year": "Fromm",
+      "summary": "Design all of Fromm's course catalogs, brochures, and posters.",
+      "role": "Designer",
+      "tags": [
+        "Catalogs",
+        "Brochures",
+        "Posters"
       ]
     },
     {
@@ -653,23 +671,12 @@
         "Web design"
       ],
       "year": "In progress",
-      "summary": "An AI chatbot for the Fromm website, built after earning USF's Agentic AI certificate. Launching on the site once finished.",
+      "summary": "An AI chatbot for the Fromm website that I'm building after earning USF's Agentic AI certificate. In progress; it goes live on the site when finished.",
       "role": "Designer & builder",
       "tags": [
         "Agentic AI",
         "Chatbot",
         "Web"
-      ]
-    },
-    {
-      "title": "Fromm Enrollment Helper",
-      "category": "AI",
-      "year": "In progress",
-      "summary": "A plain-language AI helper that walks older adults through online enrollment step by step and hands off to staff with the question already summarized.",
-      "tags": [
-        "AI assistant",
-        "Accessibility",
-        "Product design"
       ]
     }
   ],
@@ -689,9 +696,10 @@
       "group": "Design",
       "items": [
         "Logo design",
+        "Catalogs, brochures & posters",
+        "Print & newspaper ads",
         "Product & apparel design",
         "Store, pop-up & trade-show design",
-        "Print design",
         "Web & e-commerce design"
       ]
     },
