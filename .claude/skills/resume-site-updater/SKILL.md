@@ -24,7 +24,7 @@ Herbert's site is a Cloudflare Worker serving plain HTML, CSS, and JavaScript. A
 These keep the site short enough for a recruiter to skim in 30 seconds.
 
 - **Facts only.** Use only what Herbert tells you or what is already in the file. Never invent numbers, clients, dates, budgets, or results. If something is vague, ask.
-- **Headline (`role`)**: one line, about 50 characters, leading with the job he wants, with parts separated by " · ". Currently "Head of Brand · Creative Director · Growth & Strategy". The first two parts become the browser-tab title.
+- **Headline (`role`)**: one line, about 50 characters, leading with the job he wants, with parts separated by " · ". Currently "Head of Brand · Creative Director · Brand Strategy & Growth". The first two parts become the browser-tab title.
 - **Tagline (`tagline`)**: one sentence. **Summary (`summary`)**: two to four sentences under it, ending with what he's ready to lead.
 - **Page order** (in `public/index.html`): hero, stats, Featured work, Experience, Expertise & education, Let's work together. The printed PDF puts Experience before Work.
 - **Stats**: exactly 4. Each `value` is short (like "20+" or "+10%"); a long text value is allowed for at most one. Don't repeat the same fact twice.
@@ -32,6 +32,7 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
   - `role`, `company`, `start`, `end` ("Present" if current), and `location`.
   - `summary`: one sentence.
   - `key`: **exactly 3** bullets, each under about 25 words. The current role uses bold "Led: / Built: / Grew:" labels (a colon near the start makes that text bold) to show what he led, built, and improved; other jobs use plain bullets.
+  - `exit` (founder roles): how it ended, shown as a label under the title, e.g. "Full company acquisition · 2019" or "Partner buyout · 2024". Don't make the two exits sound financially equal.
   - `tags`: the skills used in the role, shown as small chips. Every job includes leadership and sales; use business terms (DTC, B2B, wholesale, go-to-market).
   - `areas` (optional): what goes into each part of the role, shown as boxes, e.g. `{"name": "Technology", "items": [...]}`. The Fromm job has Creative, Technology, Marketing, Communications, and PR. Areas and tags show on the website only; the printed PDF keeps the 3 key bullets.
   - Optional details behind "More about this role": `creative` (brand, design & creative direction work), `highlights` (each starting with "Label: "), and `earlier_roles` (`title`, `years`, `note`).

@@ -31,7 +31,7 @@ Older adults (many 65+) who love learning, plus their families, donors, faculty,
 
 ## Facts we can use
 - Part of the University of San Francisco.
-- Serves 1,500+ older adult learners each year.
+- Serves about 1,000 students a session and 3,000 a year.
 - Frommcast: Fromm's online learning and content platform; recorded classes are moving to Fromm's YouTube programs.
 - Hybrid classes for in-person and online members.
 - Celebrating its 50th Anniversary.

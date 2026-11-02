@@ -95,7 +95,18 @@ function render(d) {
     [(d.certifications || []).length > 1 ? "Certificates" : "Certificate", certificateLine(d.certifications || [])],
     ["Education", (d.education || []).slice(0, 1).map((e) => `${e.school}, ${[e.degree, e.year].filter(Boolean).join(", ")}`).join("")],
   ].filter(([, v]) => v);
-  $("#facts").replaceChildren(...facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)]));
+  // Each item stays on one line with its dot, so no line starts with "·".
+  const factItems = (v) => (!v.includes(" · ") ? v : v.split(" · ").flatMap((x, i, all) => [
+    h("span", { class: "fact-item" }, x, i < all.length - 1 ? " ·" : ""),
+    i < all.length - 1 ? " " : null,
+  ]).filter(Boolean));
+  // Tools and industries stay on the website but are left off the printed resume to keep it to 2 pages.
+  const webOnly = (k) => (/Tools$|^Industries$/.test(k) ? "web-only" : null);
+  $("#facts").replaceChildren(...facts.flatMap(([k, v]) => [h("dt", { class: webOnly(k) }, k), h("dd", { class: webOnly(k) }, factItems(v))]));
+
+  // Printed resume: email and LinkedIn go at the top instead of a contact section at the end.
+  $("#print-contact").textContent = [d.links.email, d.links.linkedin?.replace(/^https?:\/\/(www\.)?/, ""), d.location]
+    .filter(Boolean).join("  ·  ");
 
   const email = $("#contact-email");
   email.textContent = d.links.email;
@@ -193,14 +204,14 @@ function renderWork(items) {
     const poster = !item.image && !item.images?.length && !videoInfo(item.video);
     const caseStudy = isCaseStudy(item);
     return h("li", { class: poster ? "reveal is-poster" : "reveal", "data-category": JSON.stringify(categoriesOf(item)) },
-      h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog" },
+      h("button", { class: "work-card", type: "button", "aria-haspopup": "dialog", "aria-labelledby": `work-title-${i}`, "aria-describedby": `work-sum-${i}` },
         workCover(item, { hue: i }),
         h("div", { class: "work-meta" },
           h("span", {}, categoryLabel(item)),
           item.year && h("span", {}, item.year),
         ),
-        h("h3", {}, item.title),
-        h("p", {}, item.summary),
+        h("h3", { id: `work-title-${i}` }, item.title),
+        h("p", { id: `work-sum-${i}` }, item.summary),
         caseStudy && h("span", { class: "work-cta" }, "Read the case study →"),
       ),
     );
@@ -240,6 +251,8 @@ function renderWork(items) {
     const f = btn.dataset.filter;
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
     cards.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
+    const shown = cards.filter((c) => !c.hidden).length;
+    $("#work-count").textContent = f === "All" ? `Showing all ${cards.length} pieces` : `Showing ${shown} of ${cards.length}: ${f}`;
   });
 }
 
@@ -316,7 +329,7 @@ function certificateLine(certs) {
 
 function renderJob(j) {
   const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
-  const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length;
+  const hasMore = j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length;
   return h("li", { class: "job reveal" },
     h("div", { class: "job-dates" },
       j.start ? `${j.start}–${j.end}` : "",
@@ -325,13 +338,17 @@ function renderJob(j) {
     ),
     h("div", {},
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `at ${j.company}`)),
+      j.exit && h("p", { class: "job-exit" }, j.exit),
       j.summary && h("p", { class: "job-summary" }, j.summary),
       key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
-      jobAreas(j),
+      jobAreas(j, { short: true }),
       j.tags?.length > 0 && h("div", { class: "tags job-tags", role: "list", "aria-label": "Skills used in this role" },
         j.tags.map((t) => h("span", { class: "tag", role: "listitem" }, t))),
       hasMore && h("details", { class: "job-more" },
         h("summary", {}, "More about this role"),
+        j.areas?.length > 0 && h("div", { class: "job-areas-full" },
+          h("p", { class: "job-creative-label" }, "Everything I run here"),
+          jobAreas(j)),
         j.creative?.length > 0 && h("div", { class: "job-creative" },
           h("p", { class: "job-creative-label" }, "Brand, design & creative direction"),
           h("ul", {}, j.creative.map((x) => h("li", {}, x))),
@@ -348,13 +365,16 @@ function renderJob(j) {
 }
 
 // What goes into each part of a role, e.g. Creative, Technology, Marketing.
-function jobAreas(j) {
+// With short, each box shows only its first few items ("top", default 3).
+function jobAreas(j, { short = false } = {}) {
   if (!j.areas?.length) return null;
-  return h("dl", { class: "job-areas" }, j.areas.map((a) =>
-    h("div", { class: "job-area" },
+  return h("dl", { class: short ? "job-areas short" : "job-areas" }, j.areas.map((a) => {
+    const items = short ? (a.items || []).slice(0, a.top || 3) : (a.items || []);
+    return h("div", { class: "job-area" },
       h("dt", {}, a.name),
-      h("dd", {}, h("ul", {}, (a.items || []).map((x) => h("li", {}, x)))),
-    )));
+      h("dd", {}, h("ul", {}, items.map((x) => h("li", {}, x)))),
+    );
+  }));
 }
 
 // "Label: details" becomes a bold label followed by the details.
@@ -365,12 +385,20 @@ function highlight(text) {
 }
 
 function setupTheme() {
-  $("#theme-toggle").addEventListener("click", () => {
-    const root = document.documentElement;
-    const current = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    const next = current === "dark" ? "light" : "dark";
+  const btn = $("#theme-toggle");
+  const root = document.documentElement;
+  const current = () => root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const label = () => {
+    const dark = current() === "dark";
+    btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    btn.setAttribute("aria-pressed", String(dark));
+  };
+  label();
+  btn.addEventListener("click", () => {
+    const next = current() === "dark" ? "light" : "dark";
     root.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch {}
+    label();
   });
 }
 
@@ -452,19 +480,15 @@ function setupIntro(d) {
     box.hidden = false;
     requestAnimationFrame(() => box.classList.add("open"));
     document.addEventListener("keydown", onKey);
-    // Move focus into the pop-up only if the visitor isn't busy with something else.
-    const active = document.activeElement;
-    if (!active || active === document.body) {
-      returnFocus = null;
-      firstFocusable()?.focus({ preventScroll: true });
-    }
+    // Focus stays where it is, so screen-reader and keyboard users keep their place;
+    // the pop-up is announced as a dialog and is the next stop when they press Tab.
   };
   const close = () => {
     const hadFocus = box.contains(document.activeElement);
     box.classList.remove("open");
     document.removeEventListener("keydown", onKey);
     setTimeout(() => { box.hidden = true; }, 250);
-    if (hadFocus) (returnFocus && document.contains(returnFocus) ? returnFocus : $("#main")).focus({ preventScroll: true });
+    if (hadFocus && returnFocus && document.contains(returnFocus)) returnFocus.focus({ preventScroll: true });
   };
   function onKey(e) { if (e.key === "Escape") close(); }
   // Remember where keyboard focus was whenever it enters the pop-up, to return it there on close.
@@ -483,10 +507,11 @@ function setupIntro(d) {
     if (!res.ok) throw new Error(body.error || "Sorry, that didn't go through. Please try again in a moment.");
   };
   const finish = (text) => {
-    step1.hidden = true; form.hidden = true; done.hidden = false;
     $("#intro-done-text").textContent = text;
+    step1.hidden = true; form.hidden = true; done.hidden = false;
     $("#intro-close").focus({ preventScroll: true });
-    setTimeout(close, 5000);
+    // Close on its own only if the visitor has moved on; never while they're still in it.
+    setTimeout(() => { if (!box.contains(document.activeElement)) close(); }, 5000);
   };
 
   setTimeout(show, testing ? 300 : (cfg.delay_seconds ?? 30) * 1000);

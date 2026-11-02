@@ -8,7 +8,7 @@
   --accent: #b8360f; /* 5.3:1 on the page background, readable as small text */
   --accent-ink: #ffffff;
   --field-line: #8a867e; /* form field borders, 3:1 on the background */
-  --ok: #1f8a4c;
+  --ok: #17663a;
 
   --serif: "Instrument Serif", "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -185,13 +185,20 @@ img, svg { display: block; }
 .stat { display: flex; flex-direction: column; gap: 8px; padding: 24px 20px 24px 0; }
 .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
 /* The number grows to fill the space, so every label lines up along the bottom. */
-.stat strong { flex: 1 0 auto; font: 400 clamp(2.2rem, 4vw, 3.2rem)/1 var(--serif); color: var(--accent); }
+.stat strong { flex: none; font: 400 clamp(2.2rem, 4vw, 3.2rem)/1 var(--serif); color: var(--accent); }
 .stat span { font-size: 14px; color: var(--muted); line-height: 1.4; }
 .stat-text strong { font-size: clamp(1.15rem, 1.7vw, 1.4rem); line-height: 1.15; }
 .stat .stat-line { display: block; white-space: nowrap; font-size: inherit; color: inherit; line-height: inherit; }
 
 /* Skills & industries */
-.facts { display: grid; grid-template-columns: 9rem 1fr; margin: 0; border-top: 1px solid var(--line); }
+.facts { display: grid; grid-template-columns: 9rem 1fr; column-gap: 24px; margin: 0; border-top: 1px solid var(--line); }
+.fact-item { white-space: nowrap; }
+.print-contact { display: none; }
+/* How a founder role ended: acquisition, buyout. */
+.job-exit {
+  display: inline-block; margin: 10px 0 0; padding: 5px 10px; border-radius: 999px;
+  background: var(--accent); color: var(--bg); font: 500 11px/1.2 var(--mono); text-transform: uppercase; letter-spacing: .08em;
+}
 .facts dt, .facts dd { padding: 14px 0; border-bottom: 1px solid var(--line); }
 .facts dt { font: 500 11px/1.9 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .facts dd { margin: 0; }
@@ -227,7 +234,7 @@ img, svg { display: block; }
   --cat: #f2c7b5; --cat-ink: #5a1d0b;
 }
 .job-location { display: block; margin-top: 2px; }
-.job-since { display: block; margin-top: 2px; color: var(--ink); }
+.job-since { display: block; margin-top: 2px; color: var(--ink); text-wrap: balance; }
 .job-earlier { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
 .job-earlier .job-creative-label { color: var(--muted); }
 .job .job-earlier ol { list-style: none; margin: 0; padding: 0; }
@@ -245,8 +252,10 @@ img, svg { display: block; }
 
 /* What goes into each part of a role (Creative, Technology, ...) */
 .job-areas {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin: 18px 0 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin: 18px 0 0; align-items: start;
 }
+.job-areas-full { margin-top: 16px; }
+.job-areas-full .job-areas { margin-top: 6px; }
 .job-area { padding: 14px 16px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .job-area dt { font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
 .job-area dd { margin: 6px 0 0; }
@@ -255,6 +264,7 @@ img, svg { display: block; }
 
 /* Skill tags under each job */
 .job-tags { margin-top: 14px; padding-top: 0; }
+.job-tags .tag { border-color: transparent; background: var(--surface); color: var(--muted); }
 
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
 .tag { font: 400 11px/1 var(--mono); padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; }
@@ -396,8 +406,9 @@ img, svg { display: block; }
 .contact-email:hover { color: var(--accent); }
 .contact-links { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 0; padding: 0; }
 .contact-links a {
-  display: inline-block; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px;
+  padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px;
   font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; text-decoration: none;
+  min-height: 44px; display: inline-flex; align-items: center;
 }
 .contact-links a:hover { border-color: var(--ink); }
 
@@ -533,7 +544,8 @@ img, svg { display: block; }
   @page { margin: 12mm 14mm; }
   body { font-size: 10.5pt; line-height: 1.4; }
   .topbar, .hero-cta, .contact-form, .contact-lead, .contact-sub, .work-cta, .footer, .skip, .section-title .num,
-  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more, .hero-photo, .job-areas, .job-tags { display: none !important; }
+  .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more, .hero-photo, .job-areas, .job-tags, .web-only, #contact { display: none !important; }
+  .print-contact { display: block; margin: 3pt 0 0; font-size: 9.5pt; color: #000; }
   .hero { display: block; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero { padding: 0 0 6pt; }

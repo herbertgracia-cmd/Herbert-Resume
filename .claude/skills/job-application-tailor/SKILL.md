@@ -29,7 +29,7 @@ Reply in this order, in plain Markdown:
 1. **Fit summary** (3 sentences): how well he fits, the lead angle, and the biggest gap.
 2. **Match table**: requirement | evidence from his resume | Strong / Partial / Gap.
 3. **Headline** for this application (under 10 words).
-4. **Tailored resume bullets**: 3 per relevant role, most relevant role first. Start each with a strong verb and keep each under 25 words. Use real numbers only (20+ years, 2 apparel brands, 1,500+ learners, +10% enrollment, Pinterest / Timbuk2 / SFMOMA, and so on).
+4. **Tailored resume bullets**: 3 per relevant role, most relevant role first. Start each with a strong verb and keep each under 25 words. Use real numbers only (20+ years, 2 apparel brands, 3,000 students a year, $150K+ budgets, team of 6+, +10% enrollment in 2 years, 500+ news outlets, Pinterest / Timbuk2 / SFMOMA, and so on).
 5. **Cover letter**: under 250 words, first person, warm and direct. Open with why this company, give two proof points, and close with a clear next step. No clichés ("I am writing to express my interest", "team player", "passionate about synergy").
 6. **Interview talking points**: 3 short stories (situation, what Herbert did, result), each tied to a requirement.
 7. **Gaps and questions**: what's missing, and what to ask Herbert.
