@@ -128,6 +128,10 @@ function render(d) {
   }
 
   renderCerts(d.certifications || []);
+  // Printed resume: the exact titles recruiters search for.
+  $("#print-seeking").textContent = d.seeking ? `Seeking: ${d.seeking}` : "";
+  $("#print-industries").textContent = (d.industries || []).length
+    ? `Industries: ${(d.industries || []).map((x) => x.name).join(" · ")}` : "";
 
   // Printed resume: email and LinkedIn go at the top instead of a contact section at the end.
   $("#print-contact").textContent = [d.links.email, d.links.linkedin?.replace(/^https?:\/\/(www\.)?/, ""), d.location]
@@ -246,7 +250,6 @@ function renderWork(items) {
           h("button", { class: isCaseStudy(item) ? "work-card is-case" : "work-card", type: "button", "aria-haspopup": "dialog", ...ids },
             workCover(item, { hue: i }),
             h("span", { class: "work-cap" },
-              h("span", { class: "work-num", "aria-hidden": "true" }, num(i)),
               h("h3", { id: `work-title-${i}` }, item.title),
               h("span", { class: "work-tag" }, [tag(item), item.year].filter(Boolean).join(" · ")),
               h("span", { class: "work-text", id: `work-sum-${i}` }, caption(item)),
@@ -329,7 +332,7 @@ function openWork(item, index = 0) {
   $("#work-dialog-body").replaceChildren(
     media,
     h("div", { class: "work-dialog-text" },
-      h("p", { class: "work-meta" }, h("span", {}, categoriesOf(item).join(" + ")), item.year && h("span", {}, item.year)),
+      h("p", { class: "work-meta" }, h("span", {}, item.tag || categoriesOf(item).join(" + ")), item.year && h("span", {}, item.year)),
       h("h3", { id: "work-dialog-title" }, item.title),
       h("p", {}, item.summary),
       item.details && h("p", { class: "muted" }, item.details),
@@ -355,15 +358,16 @@ function setupWorkDialog() {
 }
 
 function renderJob(j) {
-  // On the page: the role's description and its points, plus how a founder role ended.
-  // Anything longer sits under "More"; the printed resume uses summary and key.
+  // The page shows a short version (one line, 2-3 points, the exit label).
+  // The printed resume and "More" carry the full summary and bullets, which hold the keywords
+  // applicant tracking systems search for.
   const points = j.points?.length ? j.points : (j.key || []).slice(0, 3);
-  const key = j.key?.length ? j.key : (j.highlights || []).slice(0, 3);
+  const key = j.key?.length ? j.key : points;
   const line = j.line || j.summary;
-  // Skip what the page already shows, so "More" never repeats it.
   const moreSummary = j.summary && j.summary !== line ? j.summary : null;
-  const moreKey = key.length && key.join() !== points.join() ? key : [];
-  const hasMore = moreSummary || moreKey.length || j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length || j.tags?.length;
+  const moreKey = key.join() !== points.join() ? key : [];
+  const earlier = (j.earlier_roles || []).map((r) => `${r.title} (${r.years})`).join(" · ");
+  const hasMore = moreSummary || moreKey.length || j.exit_note || j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length || j.tags?.length;
   return h("li", { class: "job reveal" },
     h("div", { class: "job-dates" },
       j.start ? `${j.start}–${j.end}` : "",
@@ -374,19 +378,19 @@ function renderJob(j) {
       h("h3", {}, j.role, j.company && " ", j.company && h("span", { class: "at" }, `· ${j.company}`)),
       line && h("p", { class: "job-line" }, line),
       points.length > 0 && h("ul", { class: "job-points" }, points.map(highlight)),
-      // Printed resume only: the full summary and key bullets, when they differ from the page.
-      (moreSummary || moreKey.length > 0) && h("div", { class: "job-print" },
-        moreSummary && h("p", { class: "job-summary" }, moreSummary),
-        moreKey.length > 0 && h("ul", { class: "job-key" }, moreKey.map(highlight)),
-      ),
-      j.exit && h("div", { class: "job-exit-block" },
-        h("p", { class: "job-exit" }, j.exit),
+      j.exit && h("p", { class: "job-exit" }, j.exit),
+      // Printed resume only.
+      h("div", { class: "job-print" },
+        j.summary && h("p", { class: "job-summary" }, j.summary),
+        key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
         j.exit_note && h("p", { class: "job-exit-note" }, j.exit_note),
+        earlier && h("p", { class: "job-earlier-print" }, `Earlier roles here: ${earlier}`),
       ),
       hasMore && h("details", { class: "job-more" },
         h("summary", {}, "More about this role"),
         moreSummary && h("p", { class: "job-summary" }, moreSummary),
         moreKey.length > 0 && h("ul", { class: "job-key" }, moreKey.map(highlight)),
+        j.exit_note && h("p", { class: "job-exit-note" }, j.exit_note),
         j.areas?.length > 0 && h("div", { class: "job-areas-full" },
           h("p", { class: "job-creative-label" }, "Everything I run here"),
           jobAreas(j)),
@@ -575,7 +579,16 @@ function setupIntro(d) {
     setTimeout(() => { if (!box.contains(document.activeElement)) close(); }, 5000);
   };
 
-  setTimeout(show, testing ? 300 : (cfg.delay_seconds ?? 30) * 1000);
+  // With "once", a returning visitor (a recruiter comparing candidates) doesn't see it again.
+  const seenKey = "intro-seen";
+  let seen = false;
+  try { seen = cfg.once && localStorage.getItem(seenKey) === "1"; } catch {}
+  if (!seen || testing) {
+    setTimeout(() => {
+      show();
+      try { if (cfg.once) localStorage.setItem(seenKey, "1"); } catch {}
+    }, testing ? 300 : (cfg.delay_seconds ?? 30) * 1000);
+  }
 
   $("#intro-close").addEventListener("click", close);
   peek.addEventListener("click", () => {

@@ -87,10 +87,11 @@
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
       <p class="hero-role" data-bind="role"></p>
+      <p class="print-contact" id="print-contact"></p>
+      <p class="print-only print-seeking" id="print-seeking"></p>
       <p class="hero-specialties" data-bind="specialties"></p>
       <p class="hero-tagline" id="hero-tagline" data-bind="tagline"></p>
       <p class="hero-summary" data-bind="summary"></p>
-      <p class="print-contact" id="print-contact"></p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
         <button class="btn btn-ghost" id="hero-resume" type="button">Resume (PDF)</button>
@@ -110,7 +111,7 @@
 
     <section class="section" id="portfolio">
       <div class="section-head">
-        <h2 class="section-title"><span class="num"></span>Selected Work &amp; Brand Impact</h2>
+        <h2 class="section-title"><span class="num"></span><span class="screen-only">Selected Work &amp; Brand Impact</span><span class="print-only">Selected Work</span></h2>
         <button class="head-link" id="work-more" type="button" hidden></button>
       </div>
       <div class="work">
@@ -122,14 +123,15 @@
     </section>
 
     <section class="section" id="certification">
-      <div class="section-head"><h2 class="section-title"><span class="num"></span>Certification</h2></div>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">Certification</span><span class="print-only">Certifications</span></h2></div>
       <div class="certs" id="certs"></div>
     </section>
 
     <section class="section" id="skills">
-      <div class="section-head"><h2 class="section-title"><span class="num"></span>Leadership &amp; Expertise</h2></div>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">Leadership &amp; Expertise</span><span class="print-only">Skills</span></h2></div>
       <dl class="facts" id="facts"></dl>
       <p class="tools" id="tools" hidden></p>
+      <p class="print-only print-industries" id="print-industries"></p>
       <details class="facts-more">
         <summary>All skills, tools &amp; industries</summary>
         <dl class="facts" id="facts-all"></dl>

@@ -152,7 +152,7 @@ function renderHome(page, base) {
               // Same short version the page shows: one line and 2-3 points.
               const points = (j.points?.length ? j.points : j.key || []).map((k) => `<li>${esc(k)}</li>`).join("");
               const line = j.line || j.summary;
-              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div class="job-body"><h3>${esc(j.role)}${j.company ? ` <span class="at">· ${esc(j.company)}</span>` : ""}</h3>${line ? `<p class="job-line">${esc(line)}</p>` : ""}${points ? `<ul class="job-points">${points}</ul>` : ""}${j.exit ? `<div class="job-exit-block"><p class="job-exit">${esc(j.exit)}</p>${j.exit_note ? `<p class="job-exit-note">${esc(j.exit_note)}</p>` : ""}</div>` : ""}</div></li>`;
+              return `<li class="job"><div class="job-dates">${dates}${j.since ? `<span class="job-since">${esc(j.since)}</span>` : ""}${j.location ? `<span class="job-location">${esc(j.location)}</span>` : ""}</div><div class="job-body"><h3>${esc(j.role)}${j.company ? ` <span class="at">· ${esc(j.company)}</span>` : ""}</h3>${line ? `<p class="job-line">${esc(line)}</p>` : ""}${points ? `<ul class="job-points">${points}</ul>` : ""}${j.exit ? `<p class="job-exit">${esc(j.exit)}</p>` : ""}<div class="job-print">${j.summary ? `<p class="job-summary">${esc(j.summary)}</p>` : ""}${(j.key || []).length ? `<ul class="job-key">${j.key.map((k) => `<li>${esc(k)}</li>`).join("")}</ul>` : ""}${j.exit_note ? `<p class="job-exit-note">${esc(j.exit_note)}</p>` : ""}</div></div></li>`;
             })
             .join(""),
           { html: true },

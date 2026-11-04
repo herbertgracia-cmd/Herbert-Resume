@@ -32,7 +32,10 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
 - **Partners (`partners`)**: well-known brands he collaborated with, shown under the stats (not employers). Each `value` is short (like "20+" or "+10%"); a long text value is allowed for at most one. Don't repeat the same fact twice.
 - **Jobs (`experience`)**, newest first. Each job has:
   - `role`, `company`, `start`, `end` ("Present" if current), and `location`.
-  - `line` and `points`: what the page shows: one description, then about 4 points ("Label: text" makes the label bold). Founder roles add `exit` ("Exit: Full Company Acquisition · 2019") and an `exit_note`.
+  - `line` and `points`: what the page shows: one short line, then 2-3 points of 12 words or fewer. Founder roles add `exit` ("Exit: Full Company Acquisition · 2019"); `exit_note` shows under "More" and on the printed resume.
+  - `summary` and `key`: the fuller version for the **printed resume** (the PDF he uploads to job applications) and "More". Put ATS keywords here in real sentences ("Label: text" makes the label bold). Never make `key` identical to `points`, or the resume loses detail.
+- **`seeking`**: target titles, printed under his name so recruiters' title searches match. Keep it to roles he's applying for.
+- **Printed resume**: must stay at 2 pages and include every job's `key`, earlier Fromm roles, tools, and industries. Check with `pdftotext` after any content change.
   - `summary`: the fuller description, shown under "More about this role" and on the printed resume.
   - `key` (under "More" and on the printed resume): **exactly 3** bullets, each under about 25 words. The current role uses bold "Led: / Built: / Grew:" labels (a colon near the start makes that text bold) to show what he led, built, and improved; other jobs use plain bullets.
   - `exit` (founder roles): how it ended, shown as a label under the title, e.g. "Full company acquisition · 2019" or "Partner buyout · 2024". Don't make the two exits sound financially equal.

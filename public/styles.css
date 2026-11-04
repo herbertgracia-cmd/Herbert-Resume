@@ -542,7 +542,7 @@ img, svg { display: block; }
 @media print {
   :root { --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --line: #ccc; --accent: #000; }
   @page { margin: 12mm 14mm; }
-  body { font-size: 10.5pt; line-height: 1.4; }
+  body { font-size: 10pt; line-height: 1.38; }
   .topbar, .hero-cta, .contact-form, .contact-lead, .contact-sub, .work-cta, .footer, .skip, .section-title .num,
   .eyebrow .dot, .work-filters, .work-more, .work-cover, .work-dialog, .job-more, .hero-photo, .job-areas, .job-tags, .web-only, #contact { display: none !important; }
   .print-contact { display: block; margin: 3pt 0 0; font-size: 9.5pt; color: #000; }
@@ -649,11 +649,11 @@ img, svg { display: block; }
   opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s;
 }
 .work-card.is-case:hover .work-cover::after, .work-card.is-case:focus-visible .work-cover::after { opacity: 1; transform: none; }
-.work-cap { display: grid; grid-template-columns: 2.2rem 1fr auto; gap: 4px 0; align-items: baseline; margin-top: 14px; }
+.work-cap { display: grid; grid-template-columns: 1fr; gap: 4px; margin-top: 14px; }
 .work-num { font: 500 11px/1 var(--mono); color: var(--accent); }
 .work-card .work-cap h3 { margin: 0; font: 400 1.65rem/1.1 var(--serif); }
-.work-tag { font: 400 11px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); text-align: right; }
-.work-cap .work-text { grid-column: 2 / -1; margin-top: 2px; max-width: 52ch; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.work-tag { font: 400 11px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.work-cap .work-text { margin-top: 2px; max-width: 52ch; color: var(--muted); font-size: 15px; line-height: 1.45; }
 /* A one-word typeset cover (like "AI") until there's a real image. */
 .work-cover.type-cover { display: flex; flex-direction: column; justify-content: space-between; padding: 22px 24px; background: var(--ink); color: var(--bg); }
 .type-cover b { font: italic 400 clamp(5rem, 11vw, 9rem)/.8 var(--serif); color: var(--accent); }
@@ -684,9 +684,9 @@ img, svg { display: block; }
 .job-line { max-width: 70ch; }
 .job ul.job-points { max-width: 72ch; }
 /* How a founder role ended, right under its points. */
-.job-exit-block { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-top: 14px; }
-.job-exit-block .job-exit { margin: 0; }
-.job-exit-note { margin: 0; flex: 1 1 24rem; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.job-body > .job-exit { margin-top: 14px; }
+.job-exit-note { margin: 10px 0 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.print-only, .job-earlier-print { display: none; }
 
 /* Specialties under the headline; the intro as short paragraphs. */
 .hero-specialties { margin: 6px 0 0; font: 500 12px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
@@ -695,12 +695,12 @@ img, svg { display: block; }
 /* Certification: the featured certificate as a large card. */
 .certs { display: grid; gap: 14px; }
 .cert-card {
-  padding: clamp(22px, 3vw, 36px); border-radius: 14px; background: var(--ink); color: var(--bg);
+  padding: clamp(18px, 2.4vw, 28px); border-radius: 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
 }
 .cert-kicker { margin: 0; font: 500 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
-.cert-card h3 { margin: 10px 0 0; font: 400 clamp(1.9rem, 3.6vw, 3rem)/1.05 var(--serif); }
-.cert-meta { margin: 10px 0 0; font: 500 12px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .06em; opacity: .75; }
-.cert-desc { margin: 14px 0 0; max-width: 60ch; font-size: 1.05rem; line-height: 1.55; opacity: .9; }
+.cert-card h3 { margin: 8px 0 0; font: 400 clamp(1.6rem, 2.8vw, 2.3rem)/1.1 var(--serif); }
+.cert-meta { margin: 8px 0 0; font: 500 12px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.cert-desc { margin: 10px 0 0; max-width: 60ch; font-size: 1rem; line-height: 1.5; color: var(--muted); }
 .cert-more { list-style: none; margin: 0; padding: 0; color: var(--muted); }
 .cert-more strong { color: var(--ink); font-weight: 600; }
 
@@ -730,8 +730,12 @@ img, svg { display: block; }
 .topbar-contact { display: inline-flex; }
 
 @media (max-width: 760px) {
+  html { scroll-padding-top: 76px; }
+  .topbar { flex-wrap: nowrap; padding-bottom: 12px; }
+  .topbar nav { display: none; }
   .hero { position: relative; grid-template-columns: 1fr; padding-top: 24px; }
-  .hero-photo { position: absolute; top: 62px; right: var(--gutter); width: 60px; margin: 0; }
+  .hero-photo { position: absolute; top: 60px; right: var(--gutter); width: 78px; margin: 0; }
+  .hero-role, .hero-specialties { padding-right: 92px; }
   .hero-name { font-size: 3.3rem; }
   .hero-name .line { display: inline; }
   .hero .eyebrow { margin-bottom: 18px; }
@@ -748,7 +752,7 @@ img, svg { display: block; }
   .partners-label { width: 100%; }
   .partner { font-size: 1.2rem; }
   .partner + .partner::before { display: none; }
-  .section { padding-top: 64px; }
+  .section { padding-top: 48px; }
   .work-grid { grid-template-columns: 1fr; gap: 36px; }
   .work-grid li { grid-column: auto !important; }
   .work-card .work-cover { height: auto; aspect-ratio: 4 / 3; }
@@ -795,11 +799,23 @@ img, svg { display: block; }
   .facts { grid-template-columns: 9.5rem 1fr; column-gap: 12pt; }
   .hero-specialties { font-size: 8pt; }
   .hero-summary { white-space: normal; }
-  .job-exit-block { margin-top: 3pt; }
-  .job-exit-block .job-exit { background: none; color: #000; padding: 0; }
+  .job-body > .job-exit { margin-top: 3pt; background: none; color: #000; padding: 0; }
   .job-exit-note { font-size: 9.5pt; }
   .cert-card { padding: 0; background: none; color: #000; }
-  .cert-kicker, .tools, .facts-more { display: none !important; }
+  .cert-kicker, .facts-more, .eyebrow, .job-since, .job-points, .job-line, .screen-only { display: none !important; }
+  .print-only, .job-earlier-print { display: block; }
+  .section-title .print-only { display: inline; }
+  .tools { margin-top: 4pt; font-size: 9.5pt; color: #000; }
+  .tools[hidden] { display: none; }
+  .print-industries { margin: 2pt 0 0; font-size: 9.5pt; }
+  .print-seeking { margin: 0 0 3pt; font-size: 9.5pt; font-weight: 600; }
+  /* The resume lists jobs and skills; the portfolio lives on the website. */
+  #portfolio { display: none !important; }
+  .hero-specialties, .cert-desc { display: none !important; }
+  .cert-card { border: 0; border-radius: 0; }
+  .cert-more { margin-top: 2pt; font-size: 10pt; }
+  .job-earlier-print, .job-exit-note { margin: 3pt 0 0; font-size: 9.5pt; color: #000; }
+  .hero .print-contact { margin: 2pt 0 4pt; }
   .cert-card h3 { margin: 0; font-size: 12pt; }
   .cert-meta, .cert-desc { margin-top: 2pt; font-size: 9.5pt; opacity: 1; }
   #certification { order: 1; }
