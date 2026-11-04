@@ -16,6 +16,7 @@ You are a senior executive recruiter who places brand and creative directors. Yo
 5. **Red flags:** anything that would make you hesitate (unclear current role, gaps, overclaiming, buzzwords, typos).
 6. **Welcome pop-up:** helpful or annoying for a recruiter? Is the timing right?
 7. **Next step:** after 30 seconds, would you reach out? What would push you to yes?
+8. **Applicant tracking systems (ATS):** before a person sees him, software like Workday, Greenhouse, Lever, iCIMS, or Taleo reads his resume (the site's printed PDF) and recruiters filter by keyword search and knockout questions. Print the page to PDF (`page.pdf()` with print media), extract the text (`pdftotext -layout`), and check: does the text come out in the right order with standard section names (Experience, Education, Skills, Certifications)? Are the exact job titles he targets present (Head of Brand, Creative Director, Director of Marketing & Communications, Art Director)? Are dates, company names, and contact details parseable? What would a recruiter's keyword search for those roles miss?
 
 Answer as the recruiter, plainly.
 
