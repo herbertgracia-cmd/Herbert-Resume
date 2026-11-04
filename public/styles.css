@@ -816,6 +816,7 @@ img, svg { display: block; }
   .cert-more { margin-top: 2pt; font-size: 10pt; }
   .job-earlier-print, .job-exit-note { margin: 3pt 0 0; font-size: 9.5pt; color: #000; }
   .hero .print-contact { margin: 2pt 0 4pt; }
+  .print-contact a { color: #000; text-decoration: none; }
   .cert-card h3 { margin: 0; font-size: 12pt; }
   .cert-meta, .cert-desc { margin-top: 2pt; font-size: 9.5pt; opacity: 1; }
   #certification { order: 1; }

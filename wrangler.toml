@@ -29,7 +29,7 @@ simple = { limit = 5, period = 60 }
 [vars]
 # Once a custom domain is live, set its address here (for example
 # "https://herbertgracia.com") so Google and link previews use one main address.
-SITE_URL = ""
+SITE_URL = "https://herbert-resume.herbertgraciacom.workers.dev"
 # Public Supabase values (safe to commit; not used by the site yet).
 SUPABASE_JWKS_URL = "https://lpvwcjhtibuedqxbxzof.supabase.co/auth/v1/.well-known/jwks.json"
 SUPABASE_PUBLISHABLE_KEY = "sb_publishable_kpRJ_KoOReNrhqAEpoY6Fg_81dZGifT"

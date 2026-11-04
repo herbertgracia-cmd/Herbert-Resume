@@ -134,8 +134,16 @@ function render(d) {
     ? `Industries: ${(d.industries || []).map((x) => x.name).join(" · ")}` : "";
 
   // Printed resume: email and LinkedIn go at the top instead of a contact section at the end.
-  $("#print-contact").textContent = [d.links.email, d.links.linkedin?.replace(/^https?:\/\/(www\.)?/, ""), d.location]
-    .filter(Boolean).join("  ·  ");
+  // Printed resume: email, website, LinkedIn, and city under the name.
+  const bare = (u) => u?.replace(/^https?:\/\/(www\.)?/, "");
+  // Links stay clickable in the PDF.
+  const contact = [
+    d.links.email && h("a", { href: `mailto:${d.links.email}` }, d.links.email),
+    safeUrl(d.links.website) && h("a", { href: safeUrl(d.links.website) }, bare(d.links.website)),
+    safeUrl(d.links.linkedin) && h("a", { href: safeUrl(d.links.linkedin) }, bare(d.links.linkedin)),
+    d.location,
+  ].filter(Boolean);
+  $("#print-contact").replaceChildren(...contact.flatMap((x, i) => (i ? ["  ·  ", x] : [x])));
 
   const email = $("#contact-email");
   email.textContent = d.links.email;
@@ -143,7 +151,8 @@ function render(d) {
   const linkNames = { linkedin: "LinkedIn", github: "GitHub", website: "Website" };
   $("#contact-links").replaceChildren(
     ...Object.entries(d.links)
-      .filter(([k, v]) => k !== "email" && safeUrl(v))
+      // The website itself isn't linked from its own contact section.
+      .filter(([k, v]) => k !== "email" && k !== "website" && safeUrl(v))
       .map(([k, v]) => h("li", {}, h("a", { href: safeUrl(v), target: "_blank", rel: "noopener" }, `${linkNames[k] || k} ↗`))),
   );
 
