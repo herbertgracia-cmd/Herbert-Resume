@@ -143,7 +143,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead brand strategy, creative direction, marketing, PR, and technology for USF's nonprofit lifelong learning institute (3,000 students a year).",
+      "summary": "Lead a team of 6+ across brand strategy, creative direction, marketing, PR, and technology for USF's nonprofit lifelong learning institute (3,000 students a year).",
       "earlier_roles": [
         {
           "title": "Specialist, Instructional Technology & Media",
@@ -166,7 +166,7 @@
         "Enrollment Marketing & Growth: Developed multi-channel enrollment marketing (digital ads, social media, email, PR, community outreach) supporting 10% enrollment growth over two years.",
         "Public & Media Relations: Survey press release on PR Newswire picked up by 500+ news outlets; leading the 50th Anniversary PR campaign.",
         "Advertising: Manage $20K a year in newspaper advertising (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
-        "Technology & Innovation: Led the Salesforce-powered website and CRM, Frommcast (700+ YouTube subscribers in six months), hybrid learning technology, and AI applications.",
+        "Product & Technology: Built Frommcast, a subscription streaming platform (\"Netflix for lifelong learning\") with 3,000+ active users and paying subscribers, later moved to YouTube; led the Salesforce website and CRM, hybrid learning, and AI applications.",
         "Budget & Teams: Lead a team of 6+ and a $100K-a-year technology budget, on budget every year, managing vendors and the Salesforce engineers."
       ],
       "since": "Fromm since 2005 · 4 roles",
@@ -196,7 +196,7 @@
             "CRM administration & maintenance",
             "Online enrollment & payments (Stripe, CashNet)",
             "Managed the vendor that built our smart classrooms",
-            "Frommcast online learning platform",
+            "Built Frommcast, our subscription streaming platform (3,000+ active users)",
             "Classroom, hybrid & event technology",
             "Partner with USF's Technology Department"
           ],
@@ -254,11 +254,11 @@
         "DTC & B2B sales",
         "Agentic AI"
       ],
-      "line": "Lead brand strategy, creative direction, marketing, PR, and technology for USF's nonprofit lifelong learning institute (3,000 students a year).",
+      "line": "Lead a team of 6+ across brand, creative, marketing, PR, and technology for USF's nonprofit lifelong learning institute.",
       "points": [
         "Design every catalog, brochure, and ad, plus the 50th Anniversary logo",
         "Grew enrollment 10% in two years with multi-channel marketing and PR",
-        "Lead a team of 6+ and a $100K yearly technology budget"
+        "Built Frommcast, a subscription streaming platform with 3,000+ active users"
       ]
     },
     {
@@ -273,7 +273,8 @@
         "Led brand strategy, visual identity, creative direction, art direction, and marketing",
         "Directed apparel and product design from concept through samples, sourcing, materials, manufacturing, and production",
         "Developed campaigns, photography, video, social content, retail graphics, e-commerce, and brand storytelling",
-        "Designed our pop-up and trade-show spaces"
+        "Designed our pop-up and trade-show spaces",
+        "Designed our retail store"
       ],
       "highlights": [
         "Collaborations: Created co-branded products for sale, plus events and pop-ups, with partners including Pinterest, Timbuk2, and SFMOMA.",
@@ -285,9 +286,9 @@
       ],
       "key": [
         "Led brand identity, creative campaigns, product design, digital storytelling, and e-commerce experiences.",
+        "Designed original products, from embroidered caps and graphic hoodies to upcycled jersey totes, plus our retail store and pop-up spaces.",
         "Developed collaborative products and brand partnerships with Pinterest, Timbuk2, and SFMOMA.",
-        "Oversaw direct-to-consumer, wholesale, B2B, and retail activities while managing a team of five.",
-        "Guided product concepts and creative execution from initial design through launch and marketing."
+        "Oversaw direct-to-consumer, wholesale, B2B, and retail activities while managing a team of five."
       ],
       "tags": [
         "Entrepreneurship",
@@ -329,7 +330,7 @@
       "key": [
         "Developed the brand identity, apparel collections, marketing campaigns, and retail experiences.",
         "Directed art direction for apparel graphics, lookbooks, photography, video, and retail creative.",
-        "Expanded wholesale distribution to more than 10 retail locations and established a branded retail store.",
+        "Expanded wholesale distribution to more than 10 retail locations, and designed and opened our branded retail store.",
         "Led trade-show and experiential marketing initiatives in Las Vegas, Miami, Los Angeles, and New York.",
         "Managed a team of five across creative and retail operations."
       ],
@@ -406,21 +407,37 @@
           "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger"
         },
         {
+          "src": "/work/state-of-flux-curry-tote.jpg",
+          "alt": "A State of Flux tote bag made from a 2009–10 Stephen Curry #30 Warriors jersey, with white straps printed 'never break. never settle. never fold.'"
+        },
+        {
+          "src": "/work/state-of-flux-worldwide-hoodie.jpg",
+          "alt": "Back of a cream State of Flux hoodie with a globe graphic and the words San Francisco, London, Taipei, New York, Tokyo, Worldwide"
+        },
+        {
           "src": "/work/state-of-flux-studio.jpg",
           "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic"
         },
         {
-          "src": "/work/state-of-flux-labels.jpg",
-          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
+          "src": "/work/state-of-flux-mask.jpg",
+          "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch"
+        },
+        {
+          "src": "/work/state-of-flux-mask-2.jpg",
+          "alt": "The other side of the navy State of Flux face mask with gold embroidered varsity letters and a woven label"
         },
         {
           "src": "/work/timbuk2-state-of-flux.jpg",
           "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
+        },
+        {
+          "src": "/work/state-of-flux-labels.jpg",
+          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
         }
       ],
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
       "challenge": "Launch a new apparel brand in a crowded market and give people a reason to notice it, while I kept my full-time role at Fromm.",
-      "approach": "I built a clear identity and product language, from embroidered tiger caps to woven 'Workshop Product' labels. Then I grew reach through co-branded products, events, and pop-ups with Pinterest, Timbuk2, and SFMOMA, and sold direct to customers and to companies through our store, e-commerce, wholesale, and B2B.",
+      "approach": "I built a clear identity and product language, from embroidered tiger caps, upcycled jersey totes, and graphic hoodies to woven 'Workshop Product' labels. Then I grew reach through co-branded products, events, and pop-ups with Pinterest, Timbuk2, and SFMOMA, and sold direct to customers and to companies through our store, e-commerce, wholesale, and B2B, and designed our retail store.",
       "outcome": "An independent brand with its own retail store, online shop, and co-branded products with Pinterest, Timbuk2, and SFMOMA. In 2024 I exited by selling my ownership stake to my business partner.",
       "caption": "Product design & brand collaborations",
       "tag": "Apparel · Retail"
@@ -476,8 +493,8 @@
       "linkLabel": "Watch on YouTube",
       "challenge": "Help Fromm reach learners beyond the classroom, and make creative and marketing work faster with new technology.",
       "role": "Built and lead Frommcast; led the Salesforce-powered website and hybrid classrooms; bring AI into Fromm's creative workflows",
-      "approach": "I built the recording and hybrid-classroom setup and launched Frommcast on YouTube, led the Salesforce-powered website with online payments, and use generative and agentic AI for campaigns, content, and research. I'm building an AI chatbot for Fromm's website and directed AI agents to build this site.",
-      "outcome": "200+ recorded classes, 700+ YouTube subscribers in six months, and this site live; the Fromm chatbot is next.",
+      "approach": "I built Frommcast, a subscription streaming platform, and later moved it to YouTube; led the Salesforce-powered website with online payments, and use generative and agentic AI for campaigns, content, and research. I'm building an AI chatbot for Fromm's website and directed AI agents to build this site.",
+      "outcome": "3,000+ active Frommcast users and paying subscribers, 700+ YouTube subscribers in six months, and this site live; the Fromm chatbot is next.",
       "tags": [
         "Digital product",
         "Video",
@@ -511,8 +528,8 @@
       "title": "Frommcast",
       "category": "Video",
       "year": "",
-      "summary": "Bringing a digital learning product to life: platform, video production, branding, and distribution.",
-      "role": "Built the platform; lead its video and content",
+      "summary": "A subscription streaming platform I built for Fromm, our \"Netflix for lifelong learning\": 3,000+ active users and monthly paying subscribers.",
+      "role": "Built the website and system; lead its video and content",
       "tags": [
         "Digital product",
         "Video production",
@@ -525,9 +542,9 @@
       "link": "https://www.youtube.com/@FrommInstitute",
       "linkLabel": "Watch on YouTube",
       "challenge": "Give older adults a way to keep learning from home, beyond the classroom.",
-      "approach": "I built the recording and hybrid-classroom setup, produced the lecture video, and launched it as Frommcast, a branded channel organized by subject on YouTube.",
-      "outcome": "200+ recorded classes on art, history, science, and more, free for anyone to watch. The YouTube channel I launched reached 700+ subscribers in its first 6 months.",
-      "caption": "200+ recorded classes; 700+ YouTube subscribers in six months.",
+      "approach": "I built Frommcast's website and subscription system, the recording and hybrid-classroom setup, and produced the lecture video, organized by subject like a streaming service. Later we moved the library to YouTube.",
+      "outcome": "3,000+ active users and monthly paying subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers in the channel's first 6 months.",
+      "caption": "Built a subscription streaming platform with 3,000+ active users",
       "tag": "Video · Digital product"
     },
     {
@@ -614,16 +631,29 @@
       "category": [
         "Project design"
       ],
-      "year": "FAZE Apparel",
-      "summary": "Led the design and build-out of our own FAZE retail store, from concept through opening.",
+      "year": "FAZE Apparel & State of Flux",
+      "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, and led their build-outs from concept through opening.",
       "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
-      "role": "Design lead",
+      "role": "Store designer & project lead",
       "tags": [
         "Retail design",
         "Build-outs"
       ],
-      "image": "/work/faze-store.jpg",
-      "imageAlt": "The FAZE Apparel retail store: blue corner storefront with branded banner and window displays"
+      "images": [
+        {
+          "src": "/work/store-build-out.jpg",
+          "alt": "A store build-out in progress: a dark painted floor, white walls and counter, and globe pendant lights"
+        },
+        {
+          "src": "/work/faze-store-interior.jpg",
+          "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass"
+        },
+        {
+          "src": "/work/faze-store.jpg",
+          "alt": "The FAZE Apparel storefront in San Francisco"
+        }
+      ],
+      "caption": "Designed both stores and led their build-outs"
     },
     {
       "title": "Instructional media & video production",
