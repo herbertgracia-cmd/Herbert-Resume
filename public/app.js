@@ -68,7 +68,7 @@ function render(d) {
   // Well-known partners, right under the numbers.
   if (d.partners?.length) {
     const partners = $("#partners");
-    partners.replaceChildren(h("span", { class: "partners-label" }, "Collaborations"), ...d.partners.map((x) => h("span", { class: "partner" }, x)));
+    partners.replaceChildren(h("span", { class: "partners-label" }, d.partners_label || "Collaborations"), ...d.partners.map((x) => h("span", { class: "partner" }, x)));
     partners.hidden = false;
   }
 
@@ -131,6 +131,7 @@ function render(d) {
     tools.hidden = false;
   }
 
+  renderAppliedAI(d.applied_ai);
   renderCerts(d.certifications || []);
   // Printed resume: a fuller summary with the keywords applicant tracking systems look for,
   // and Education as its own section ("School, Degree, graduation year").
@@ -246,8 +247,8 @@ function renderWork(items) {
   if (!items.length) return section.remove();
 
   const CATEGORY_ORDER = [
-    "Web design", "Product design", "Project design", "Print design",
-    "Marketing", "Video", "Events", "Storytelling", "Collaborations", "Technology", "AI",
+    "Apparel & product design", "Print design", "Web design", "Retail & event environments",
+    "Marketing", "Collaborations", "Video", "Events", "Storytelling", "Technology", "AI",
   ];
   const cats = [...new Set(items.flatMap(categoriesOf))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
@@ -374,20 +375,24 @@ function openWork(item, index = 0) {
     media.classList.add("work-media");
   }
 
-  // Case studies read as challenge → my role → approach → outcome; other pieces just list role and partners.
+  // Case studies read as challenge → responsibility → decisions → result (the photos are the work);
+  // other pieces just list role and partners.
   const facts = (isCaseStudy(item)
-    ? [["The challenge", item.challenge], ["My role", item.role], ["Approach", item.approach], ["Outcome", item.outcome], ["With", item.collaborators]]
+    ? [["The challenge", item.challenge], ["My responsibility", item.role], ["The decisions", item.approach], ["The result", item.outcome], ["With", item.collaborators]]
     : [["My role", item.role], ["With", item.collaborators]]
   ).filter(([, v]) => v);
   const linkLabel = item.linkLabel || (item.video && !video ? "Watch" : "View project");
   const linkUrl = safeUrl(item.link || (item.video && !video ? item.video : "")) || "";
 
+  // A short summary sits above the photos, so the story starts before the gallery.
   $("#work-dialog-body").replaceChildren(
-    media,
-    h("div", { class: "work-dialog-text" },
+    h("div", { class: "work-dialog-head" },
       h("p", { class: "work-meta" }, h("span", {}, item.tag || categoriesOf(item).join(" + ")), item.year && h("span", {}, item.year)),
       h("h3", { id: "work-dialog-title" }, item.title),
       h("p", {}, item.summary),
+    ),
+    media,
+    h("div", { class: "work-dialog-text" },
       item.details && h("p", { class: "muted" }, item.details),
       facts.length > 0 && h("dl", { class: isCaseStudy(item) ? "work-facts case" : "work-facts" }, facts.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, v)])),
       item.tags?.length > 0 && h("div", { class: "tags" }, item.tags.map((t) => h("span", { class: "tag" }, t))),
@@ -464,6 +469,23 @@ function renderJob(j) {
       ),
     ),
   );
+}
+
+// Applied AI: one real workflow, step by step, then what's in development.
+// The certificates sit under it (renderCerts).
+function renderAppliedAI(ai) {
+  if (!ai?.steps?.length) return;
+  const box = $("#applied-ai");
+  box.replaceChildren(
+    ai.lead && h("p", { class: "ai-lead" }, ai.lead),
+    h("div", { class: "ai-example" },
+      ai.example_title && h("h3", {}, ai.example_title),
+      h("ol", { class: "ai-steps" }, ai.steps.map((st) => h("li", {}, h("strong", {}, st.label), h("span", {}, st.text)))),
+    ),
+    (ai.also || []).length > 0 && h("ul", { class: "ai-also" },
+      ai.also.map((a) => h("li", {}, a.label && h("span", { class: "ai-badge" }, a.label), " ", a.text))),
+  );
+  box.hidden = false;
 }
 
 // Certificates get their own section; the featured one is shown large.
