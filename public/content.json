@@ -144,7 +144,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead a team of 6+ staff and 20+ volunteers across brand strategy, creative direction, marketing, PR, and technology for USF's nonprofit, higher-education lifelong learning institute (3,000 students a year), working closely with a 21-member Board of Directors.",
+      "summary": "Lead a team of 6+ staff and 20+ volunteers across brand strategy, creative direction, marketing, communications, PR, and technology for USF's nonprofit, higher-education lifelong learning institute (3,000 students a year), working closely with a 21-member Board of Directors.",
       "earlier_roles": [
         {
           "title": "Specialist, Instructional Technology & Media",
@@ -255,11 +255,11 @@
         "Salesforce & engineering",
         "Agentic AI"
       ],
-      "line": "Lead creative, marketing, PR, and technology at USF's lifelong learning institute; team of 6+.",
+      "line": "Lead a team of 6+ at USF's lifelong learning institute, serving 3,000 students a year.",
       "points": [
         "Design every catalog, brochure, and ad, plus the 50th Anniversary logo",
-        "Grew enrollment 10% in 2 years with marketing, PR, and partnerships",
-        "Concept to launch: Frommcast streaming, our Salesforce website and CRM, AI agents"
+        "Built Fromm's marketing from zero into a multi-channel enrollment program",
+        "Built Frommcast streaming; designed our Salesforce website and CRM"
       ]
     },
     {
@@ -302,7 +302,7 @@
       "exit": "Exit: Partner Buyout · 2024",
       "line": "Co-founded an apparel and lifestyle brand while working full-time at Fromm.",
       "points": [
-        "Designed every product, logo, and collab, from concept to market",
+        "Designed every product, logo, and collab, plus our retail store",
         "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA",
         "Sold DTC, wholesale, and B2B; led a team of five"
       ],
@@ -346,9 +346,9 @@
       "exit": "Exit: Full Company Acquisition · 2019",
       "line": "Co-founded an apparel brand and built its wholesale and retail business.",
       "points": [
-        "Built the brand and its products from concept to acquisition",
+        "Built the brand identity, apparel collections, and campaigns",
         "Grew wholesale to 10+ retail locations and opened our branded store",
-        "Sold DTC and B2B; led trade shows in four major cities"
+        "Led trade shows in Las Vegas, Miami, Los Angeles, and New York"
       ],
       "exit_note": "The company was acquired by a privately held business, including its brand assets, logos, designs, and intellectual property rights."
     }
@@ -409,28 +409,56 @@
           "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger"
         },
         {
-          "src": "/work/state-of-flux-curry-tote.jpg",
-          "alt": "A State of Flux tote bag made from a 2009–10 Stephen Curry #30 Warriors jersey, with white straps printed 'never break. never settle. never fold.'"
+          "src": "/work/state-of-flux-good-energy-tee.jpg",
+          "alt": "A cream State of Flux 'Good Energy Club' tee with an orange-and-leaf illustration and a small boxed logo"
+        },
+        {
+          "src": "/work/state-of-flux-dahlia-tee.jpg",
+          "alt": "A white State of Flux tee with green line-drawn dahlias around the X logo and the words 'Life is full of uncertainties, so enjoy the little things'"
+        },
+        {
+          "src": "/work/state-of-flux-imagine-hoodie.jpg",
+          "alt": "A cream State of Flux hoodie with an orange halftone portrait ringed by the words 'Imagine if being you was a crime'"
         },
         {
           "src": "/work/state-of-flux-worldwide-hoodie.jpg",
           "alt": "Back of a cream State of Flux hoodie with a globe graphic and the words San Francisco, London, Taipei, New York, Tokyo, Worldwide"
         },
         {
-          "src": "/work/state-of-flux-studio.jpg",
-          "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic"
+          "src": "/work/state-of-flux-curry-tote.jpg",
+          "alt": "A State of Flux tote bag made from a 2009–10 Stephen Curry #30 Warriors jersey, with white straps printed 'never break. never settle. never fold.'"
         },
         {
-          "src": "/work/state-of-flux-mask.jpg",
-          "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch"
+          "src": "/work/state-of-flux-socks.jpg",
+          "alt": "Four pairs of State of Flux crew socks in purple, white, pink, and green with orange heels and toes and the S×F logo"
+        },
+        {
+          "src": "/work/state-of-flux-knits.jpg",
+          "alt": "A rack of State of Flux knit sweaters in checkerboard, stripe, and mesh patterns"
+        },
+        {
+          "src": "/work/state-of-flux-jogger-labels.jpg",
+          "alt": "Purple and black State of Flux joggers with gold woven labels reading 'Made in USA' and 'Never break. Never settle. Never fold.'"
         },
         {
           "src": "/work/state-of-flux-labels.jpg",
           "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
         },
         {
-          "src": "/work/timbuk2-state-of-flux.jpg",
-          "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
+          "src": "/work/state-of-flux-mask.jpg",
+          "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch"
+        },
+        {
+          "src": "/work/state-of-flux-neon.jpg",
+          "alt": "A yellow neon sign reading 'You are in a State of Flux'"
+        },
+        {
+          "src": "/work/state-of-flux-studio.jpg",
+          "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic"
+        },
+        {
+          "src": "/work/timbuk2-state-of-flux-article.jpg",
+          "alt": "Timbuk2's blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street"
         }
       ],
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
@@ -480,7 +508,7 @@
         "Technology"
       ],
       "year": "2026",
-      "summary": "A team of AI agents I set up to critique design, check accessibility, edit copy, and build creative briefs, plus Fromm's AI enrollment chatbot and this site.",
+      "summary": "A team of AI agents I set up to critique design, check accessibility, edit copy, and build creative briefs. They helped build and review this site; Fromm's AI enrollment chatbot is in progress.",
       "role": "Designed the workflows and direct the agents; building Fromm's chatbot and this site",
       "challenge": "Use AI to make creative work faster and better, not just experiment with it.",
       "approach": "After completing USF's Certificate in Applied Agentic AI, I set up AI agents that each play a role on a creative team: design critic, accessibility checker, copy editor, and brief builder. I use generative AI for concepting, campaigns, and research, and I directed AI coding agents to build this site.",
@@ -497,8 +525,8 @@
     },
     {
       "title": "Creative Innovation",
-      "caption": "Digital, video & AI",
-      "tag": "Frommcast · Web · AI",
+      "caption": "Frommcast, web & video",
+      "tag": "Frommcast · Web · Video",
       "year": "",
       "category": [
         "Video",
@@ -624,8 +652,16 @@
         "Activations"
       ],
       "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together. Pictured: the Timbuk2 × State of Flux bag.",
-      "image": "/work/timbuk2-state-of-flux.jpg",
-      "imageAlt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
+      "images": [
+        {
+          "src": "/work/timbuk2-state-of-flux-article.jpg",
+          "alt": "Timbuk2's blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street"
+        },
+        {
+          "src": "/work/timbuk2-state-of-flux.jpg",
+          "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
+        }
+      ]
     },
     {
       "title": "Retail store design",
@@ -646,8 +682,12 @@
           "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass"
         },
         {
+          "src": "/work/store-before-build-out.jpg",
+          "alt": "A panorama of a store before the build-out: walls stripped to the studs, old paneling, and debris on the floor"
+        },
+        {
           "src": "/work/store-build-out.jpg",
-          "alt": "A store build-out in progress: a dark painted floor, white walls and counter, and globe pendant lights"
+          "alt": "The same store after the build-out: a dark painted floor, white walls and counter, and globe pendant lights"
         },
         {
           "src": "/work/faze-store.jpg",
@@ -984,7 +1024,7 @@
     {
       "group": "Product & Sales",
       "items": [
-        "Concept-to-Market Products",
+        "Product Development",
         "DTC & B2B Sales",
         "E-commerce",
         "Brand Partnerships"
@@ -1023,6 +1063,6 @@
     "GitHub",
     "Cloudflare"
   ],
-  "seeking": "Creative Director · Head of Brand & Creative · Head of Design · Design Director · Brand Development",
-  "resume_summary": "Creative leader, designer, and entrepreneur with 20+ years taking ideas from concept to market across brand strategy, creative direction, design, storytelling, product development, and sales. Co-founded and exited two apparel brands, FAZE Apparel (full acquisition) and State of Flux (partner buyout), designing every product and building direct-to-consumer (DTC), wholesale, and business-to-business (B2B) sales. As Assistant Director at USF's Fromm Institute, I lead brand, design, marketing, PR, and technology, including the Salesforce website and CRM and its engineers, with a team of 6+ and $150K+ budgets. Certified in Applied Agentic AI (2026)."
+  "seeking": "Creative Director · Head of Brand & Creative · Head of Design · Design Director · Art Director · Director of Marketing & Communications",
+  "resume_summary": "Creative leader, designer, and entrepreneur with 20+ years taking ideas from concept to market across brand strategy, creative direction, design, storytelling, product development, and sales. Co-founded and exited two apparel brands, FAZE Apparel (full acquisition) and State of Flux (partner buyout), designing every product and building direct-to-consumer (DTC), wholesale, and business-to-business (B2B) sales. As Assistant Director at USF's Fromm Institute, I lead brand, design, marketing, communications, PR, and technology, including the Salesforce website and CRM and its engineers, with a team of 6+ and $150K+ budgets. Certified in Applied Agentic AI (2026)."
 }
