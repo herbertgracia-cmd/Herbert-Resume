@@ -37,9 +37,9 @@
   <header class="topbar">
     <a class="mark" href="#top" aria-label="HG, back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
-      <a href="#work">Experience</a>
       <a href="#portfolio">Work</a>
-      <a href="#certification">AI Certificates</a>
+      <a href="#work">Experience</a>
+      <a href="#certification">Applied AI</a>
       <a href="#skills">Expertise</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -51,7 +51,7 @@
     </div>
   </header>
 
-  <!-- Welcome pop-up: asks visitors who they are and how Herbert can help. Shown on every visit, after a short delay. -->
+  <!-- Welcome pop-up: only runs if content.json has an "intro" block (currently off). -->
   <section class="intro" id="intro" role="dialog" aria-modal="false" aria-labelledby="intro-title" hidden>
     <button class="intro-peek" id="intro-peek" type="button" hidden></button>
     <button class="icon-btn intro-close" id="intro-close" type="button" aria-label="Close">✕</button>
@@ -94,20 +94,12 @@
       <div class="hero-summary" data-bind="summary"></div>
       <p class="print-only print-summary" id="print-summary"></p>
       <div class="hero-cta">
-        <a class="btn" href="#contact">Get in touch</a>
-        <a class="btn btn-ghost" id="hero-resume" href="/Herbert-Gracia-Resume.pdf" download>Resume (PDF)</a>
+        <a class="btn" href="#portfolio">View selected work</a>
+        <a class="btn btn-ghost" id="hero-resume" href="/Herbert-Gracia-Resume.pdf" download>Download resume</a>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
       <div class="stats" id="stats"></div>
       <p class="partners" id="partners" hidden></p>
-    </section>
-
-    <section class="section" id="work">
-      <div class="section-head">
-        <h2 class="section-title"><span class="num"></span>Experience</h2>
-        <a class="head-link" id="exp-resume" href="/Herbert-Gracia-Resume.pdf" download>Resume (PDF) ↓</a>
-      </div>
-      <ol class="jobs" id="jobs"></ol>
     </section>
 
     <section class="section" id="portfolio">
@@ -123,8 +115,17 @@
       </div>
     </section>
 
+    <section class="section" id="work">
+      <div class="section-head">
+        <h2 class="section-title"><span class="num"></span>Experience</h2>
+        <a class="head-link" id="exp-resume" href="/Herbert-Gracia-Resume.pdf" download>Resume (PDF) ↓</a>
+      </div>
+      <ol class="jobs" id="jobs"></ol>
+    </section>
+
     <section class="section" id="certification">
-      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">AI Certificates</span><span class="print-only">Certifications</span></h2></div>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">Applied AI</span><span class="print-only">Certifications</span></h2></div>
+      <div class="applied-ai screen-only" id="applied-ai" hidden></div>
       <div class="certs" id="certs"></div>
     </section>
 
@@ -134,7 +135,7 @@
     </section>
 
     <section class="section" id="skills">
-      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">Leadership &amp; Expertise</span><span class="print-only">Skills</span></h2></div>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">Expertise &amp; Education</span><span class="print-only">Skills</span></h2></div>
       <dl class="facts" id="facts"></dl>
       <p class="tools" id="tools" hidden></p>
       <p class="print-only print-industries" id="print-industries"></p>
