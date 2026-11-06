@@ -247,8 +247,7 @@ function renderWork(items) {
   if (!items.length) return section.remove();
 
   const CATEGORY_ORDER = [
-    "Apparel & product design", "Print design", "Web design", "Retail & event environments",
-    "Marketing", "Collaborations", "Video", "Events", "Storytelling", "Technology", "AI",
+    "Apparel & product", "Print & web design", "Retail & events", "Marketing & PR", "Video",
   ];
   const cats = [...new Set(items.flatMap(categoriesOf))]
     .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
@@ -264,7 +263,8 @@ function renderWork(items) {
   // Everything else: a compact typeset list under "All work".
   const featured = items.some((i) => i.featured) ? items.map((i) => !!i.featured) : items.map(() => true);
   const entries = items.map((item, i) => {
-    const ids = { "aria-labelledby": `work-title-${i}`, "aria-describedby": `work-sum-${i}` };
+    // Each card button is named by all of its visible text (title, label, caption).
+    const ids = {};
     const cats = JSON.stringify(categoriesOf(item));
     const el = featured[i]
       ? h("li", { class: "reveal", "data-category": cats },
@@ -332,7 +332,8 @@ function openWork(item, index = 0) {
   } else if (item.images?.length > 1) {
     // Several photos: a swipeable strip, one photo per view.
     const strip = h("div", { class: "work-media gallery", tabindex: "0", role: "region", "aria-label": `${item.title} photos` },
-      item.images.map((img) => h("img", { src: img.src, alt: img.alt || item.title })));
+      // Photos after the first load only as they come near; width and height keep the strip from jumping.
+      item.images.map((img, k) => h("img", { src: img.src, alt: img.alt || item.title, loading: k > 1 ? "lazy" : null, decoding: "async", width: img.w || null, height: img.h || null })));
     const count = h("span", { class: "gallery-count", "aria-live": "polite" }, `1 of ${item.images.length}`);
     const imgs = () => [...strip.querySelectorAll("img")];
     // The photo nearest the middle of the strip.
@@ -341,29 +342,38 @@ function openWork(item, index = 0) {
       const all = imgs();
       return all.reduce((best, img, k) => (Math.abs(img.offsetLeft + img.offsetWidth / 2 - mid) < Math.abs(all[best].offsetLeft + all[best].offsetWidth / 2 - mid) ? k : best), 0);
     };
-    // Move exactly one photo, centering it.
-    const step = (dir) => {
-      const all = imgs();
-      const target = all[Math.max(0, Math.min(all.length - 1, current() + dir))];
-      const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
-      strip.scrollTo({ left: target.offsetLeft - (strip.clientWidth - target.offsetWidth) / 2, behavior: smooth ? "smooth" : "auto" });
-    };
     const prev = h("button", { class: "gallery-btn", type: "button", "aria-label": "Previous photo" }, "‹");
     const next = h("button", { class: "gallery-btn", type: "button", "aria-label": "Next photo" }, "›");
-    prev.addEventListener("click", () => step(-1));
-    next.addEventListener("click", () => step(1));
-    // Which photo is centered: update the "3 of 7" counter as people swipe or click,
-    // only when the photo changes (so screen readers hear it once), and grey out
-    // the arrow at either end.
-    prev.disabled = true;
+    // The photo being shown: drives the "3 of 7" counter (updated only when it changes,
+    // so screen readers hear it once) and greys out the arrow at either end.
     let shown = 0;
-    strip.addEventListener("scroll", () => {
-      const k = current();
+    let stepping = null;
+    prev.disabled = true;
+    const show = (k) => {
       if (k === shown) return;
       shown = k;
       count.textContent = `${k + 1} of ${imgs().length}`;
       prev.disabled = k === 0;
       next.disabled = k === imgs().length - 1;
+    };
+    // Arrows move exactly one photo from the one shown, centering it.
+    const step = (dir) => {
+      const all = imgs();
+      const k = Math.max(0, Math.min(all.length - 1, shown + dir));
+      const target = all[k];
+      show(k);
+      clearTimeout(stepping);
+      stepping = setTimeout(() => { stepping = null; }, 700);
+      const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+      strip.scrollTo({ left: target.offsetLeft - (strip.clientWidth - target.offsetWidth) / 2, behavior: smooth ? "smooth" : "auto" });
+    };
+    prev.addEventListener("click", () => step(-1));
+    next.addEventListener("click", () => step(1));
+    // Swiping: follow the photo nearest the middle (the ends count as the first and last photo).
+    strip.addEventListener("scroll", () => {
+      if (stepping) return;
+      const atEnd = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+      show(strip.scrollLeft <= 2 ? 0 : atEnd ? imgs().length - 1 : current());
     }, { passive: true });
     media = h("div", { class: "gallery-wrap" }, strip, h("div", { class: "gallery-bar" }, prev, count, next));
   } else if (item.image || item.images?.length) {
@@ -387,7 +397,7 @@ function openWork(item, index = 0) {
   // A short summary sits above the photos, so the story starts before the gallery.
   $("#work-dialog-body").replaceChildren(
     h("div", { class: "work-dialog-head" },
-      h("p", { class: "work-meta" }, h("span", {}, item.tag || categoriesOf(item).join(" + ")), item.year && h("span", {}, item.year)),
+      h("p", { class: "work-meta" }, item.tag || categoriesOf(item).join(" + "), item.year && ["\u00a0· ", h("span", { class: "nowrap" }, item.year)]),
       h("h3", { id: "work-dialog-title" }, item.title),
       h("p", {}, item.summary),
     ),
@@ -480,7 +490,7 @@ function renderAppliedAI(ai) {
     ai.lead && h("p", { class: "ai-lead" }, ai.lead),
     h("div", { class: "ai-example" },
       ai.example_title && h("h3", {}, ai.example_title),
-      h("ol", { class: "ai-steps" }, ai.steps.map((st) => h("li", {}, h("strong", {}, st.label), h("span", {}, st.text)))),
+      h("ol", { class: "ai-steps", role: "list" }, ai.steps.map((st) => h("li", {}, h("strong", {}, st.label), h("span", {}, st.text)))),
     ),
     (ai.also || []).length > 0 && h("ul", { class: "ai-also" },
       ai.also.map((a) => h("li", {}, a.label && h("span", { class: "ai-badge" }, a.label), " ", a.text))),

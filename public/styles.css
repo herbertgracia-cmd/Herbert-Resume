@@ -368,7 +368,7 @@ img, svg { display: block; }
   box-shadow: 0 30px 80px rgb(0 0 0 / .35); overflow: auto;
 }
 .work-dialog::backdrop { background: rgb(10 10 10 / .6); backdrop-filter: blur(4px); }
-.work-dialog-close { position: absolute; top: 12px; right: 12px; z-index: 2; background: var(--bg); }
+.work-dialog-close { position: sticky; top: 12px; z-index: 2; display: flex; margin: 12px 12px -56px auto; background: var(--bg); } /* stays visible while the story scrolls */
 .work-media { position: relative; background: var(--surface); }
 .work-media img { display: block; width: 100%; max-height: 70dvh; object-fit: contain; }
 .work-media.video { aspect-ratio: 16 / 9; }
@@ -640,6 +640,7 @@ img, svg { display: block; }
   padding: 0; border: 0; background: none; cursor: pointer; min-height: 44px;
   font: 500 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
 }
+.head-link { text-decoration: none; }
 .head-link:hover { color: var(--ink); }
 .head-link[hidden] { display: none; }
 
@@ -887,3 +888,18 @@ img, svg { display: block; }
   .work-dialog-head { padding: 20px 64px 12px 20px; }
 }
 .applied-ai[hidden] { display: none; }
+
+/* Review round: consistent dialog edges, readable wide images and filters on phones */
+.work-media.gallery { padding: 8px 28px; scroll-padding-inline: 28px; }
+.hero .stat span { max-width: 22ch; }
+.job-since { white-space: nowrap; }
+@media (max-width: 760px) {
+  .work-dialog-text, .work-dialog-head, .work-media.gallery { padding-inline: 20px; }
+  .work-dialog-head { padding-right: 64px; }
+  .work-media.gallery { align-items: center; }
+  .work-media.gallery img { width: 86%; height: auto; max-height: 56dvh; }
+  .work-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+  .work-filters::-webkit-scrollbar { display: none; }
+  .work-filters button { flex: none; }
+  .section-title .num { display: block; margin-bottom: 6px; }
+}
