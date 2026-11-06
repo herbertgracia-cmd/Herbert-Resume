@@ -1,6 +1,6 @@
 {
-  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate's 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job's 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item's 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name, or a list of names, from: Web design, Product design, Project design, Print design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
+  "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job’s 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. An 'intro' block would turn on a welcome pop-up (removed for now). A job’s optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate’s 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job’s 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item’s 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name, or a list of names, from: Apparel & product, Print & web design, Retail & events, Marketing & PR, Video. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Leader",
   "location": "San Francisco, CA",
@@ -23,7 +23,7 @@
     },
     {
       "value": "500+",
-      "label": "Outlets syndicated my national press release"
+      "label": "Outlets ran my PR Newswire release"
     }
   ],
   "about": [
@@ -47,7 +47,7 @@
       "proof": [
         "Print & editorial: course catalogs, brochures, posters, newsletters, and ads for the San Francisco Chronicle and SFGATE",
         "Merch & product: apparel graphics, embroidery, woven labels, and co-branded merch with Pinterest, Timbuk2, and SFMOMA",
-        "Identity: logos and brand systems for two apparel brands and Fromm's 50th Anniversary",
+        "Identity: logos and brand systems for two apparel brands and Fromm’s 50th Anniversary",
         "Spaces: two retail stores, trade-show booths, and pop-ups",
         "Digital: the Fromm website, e-commerce, and Frommcast"
       ]
@@ -56,8 +56,8 @@
       "title": "Storytelling, marketing & PR",
       "summary": "Campaigns and stories across every channel.",
       "proof": [
-        "Grew Fromm's marketing from zero to a multi-channel program, raising enrollment 10% across 2025–2026",
-        "National press release picked up by 500+ news outlets",
+        "Grew Fromm’s marketing from zero to a multi-channel program, raising enrollment 10% across 2025–2026",
+        "National press release syndicated through PR Newswire to 500+ news outlets",
         "Campaigns, photography, video, social content, and e-commerce for two apparel brands",
         "Events, pop-ups, and brand activations with Pinterest, Timbuk2, and SFMOMA"
       ]
@@ -76,10 +76,10 @@
       "title": "AI-powered creative",
       "summary": "Using agentic AI to make creative work faster and sharper.",
       "proof": [
-        "Completed USF's Certificate in Applied Agentic AI and AI Certificate Intensive (2026)",
+        "Completed USF’s Certificate in Applied Agentic AI and AI Certificate Intensive (2026)",
         "Set up AI agents that critique design, check accessibility, edit copy, and build creative briefs",
         "Use generative AI for concepting, campaigns, content, and research",
-        "Directed AI agents to build this website; building Fromm's AI enrollment chatbot"
+        "Directed AI agents to build this website; building Fromm’s AI enrollment chatbot"
       ]
     },
     {
@@ -129,7 +129,7 @@
   ],
   "community": [
     "Built strong, transparent relationships with a 21-member Board of Directors, enhancing governance and fiscal accountability across all programs.",
-    "Developed a close partnership with the University of San Francisco Technology Department to jointly improve Fromm's technology infrastructure.",
+    "Developed a close partnership with the University of San Francisco Technology Department to jointly improve Fromm’s technology infrastructure.",
     "United staff and more than 20 volunteers around shared goals, improving program delivery and participant satisfaction.",
     "Leveraged partnerships with 5+ retirement communities, donor networks, and city agencies to expand enrollment across San Francisco."
   ],
@@ -140,7 +140,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead brand strategy, creative direction, marketing, communications, PR, and technology for USF's nonprofit, higher-education lifelong learning institute (3,000 students a year). Manage 6 student staff; direct 2 engineers at an outside Salesforce development company and 3 vendors; work with 20+ volunteers and a 21-member Board of Directors.",
+      "summary": "Lead brand strategy, creative direction, marketing, communications, PR, and technology for USF’s nonprofit, higher-education lifelong learning institute (3,000 students a year). Direct 3 vendors and 2 engineers at an outside Salesforce development company, manage 6 student staff, and work with 20+ volunteers and a 21-member Board of Directors.",
       "earlier_roles": [
         {
           "title": "Specialist, Instructional Technology & Media",
@@ -160,11 +160,11 @@
       ],
       "key": [
         "Creative Direction & Brand: Set one visual identity and voice across catalogs, print ads, email, social, the website, and events; designed the 50th Anniversary logo and campaign.",
-        "Enrollment Marketing: Built Fromm's marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads, social media, email, community partnerships), growing enrollment 10% across 2025–2026.",
+        "Enrollment Marketing: Built Fromm’s marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads, social media, email, community partnerships), growing enrollment 10% in 2025–2026.",
         "Public Relations: Ran a lifelong learning survey and wrote its national press release, syndicated through PR Newswire to 500+ news outlets.",
         "Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
-        "Product & Technology: Built Frommcast, a subscription streaming platform with 3,000+ active users; designed the Fromm website and lead its Salesforce CRM, directing an outside development company; manage a $100K-a-year technology budget, on budget every year.",
-        "Applied AI: Building Fromm's AI enrollment chatbot (in development) after completing USF's Certificate in Applied Agentic AI."
+        "Product & Technology: Built Frommcast, a subscription streaming platform that reached 3,000+ active users and paying subscribers, now a free YouTube library of 200+ classes; designed the Fromm website and lead its Salesforce CRM, directing an outside development company; manage a $100K-a-year technology budget, on budget every year.",
+        "Applied AI: Building Fromm’s AI enrollment chatbot after completing USF’s Certificate in Applied Agentic AI."
       ],
       "since": "Fromm since 2005 · 4 roles",
       "tags": [
@@ -175,10 +175,10 @@
         "Salesforce & technology",
         "Applied AI"
       ],
-      "line": "Manage 6 student staff and direct outside engineers and vendors at USF's lifelong learning institute.",
+      "line": "Lead brand, creative, marketing, PR, and technology for USF’s lifelong learning institute (3,000 students a year).",
       "points": [
         "Set the creative direction across print, digital, and the 50th Anniversary campaign",
-        "Built Fromm's marketing from zero into a multi-channel enrollment program",
+        "Built Fromm’s marketing from zero into a multi-channel enrollment program",
         "Built Frommcast streaming; designed our website and lead its Salesforce CRM"
       ]
     },
@@ -187,7 +187,7 @@
       "company": "State of Flux",
       "start": "2019",
       "end": "2024",
-      "location": "San Francisco Bay Area",
+      "location": "SF Bay Area",
       "summary": "Co-founded and developed an independent apparel and lifestyle brand alongside my full-time role at Fromm, overseeing creative direction, brand strategy, product development, marketing, and retail operations.",
       "creative": [
         "Designed every product, logo, piece of artwork, and collaboration",
@@ -239,7 +239,7 @@
         "Led brand identity, creative direction, apparel design, visual storytelling, and seasonal marketing campaigns",
         "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
         "Designed trade-show booths and brand environments for industry events in Las Vegas, Miami, Los Angeles, and New York",
-        "Led our retail store's design and build-out from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors"
+        "Led our retail store’s design and build-out from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors"
       ],
       "highlights": [
         "Team: Led a team of 5 across design, product, marketing, and sales.",
@@ -264,7 +264,7 @@
         "Exit (acquisition)"
       ],
       "exit": "Exit: Full Company Acquisition · 2019",
-      "line": "Co-founded an apparel brand and built its wholesale and retail business.",
+      "line": "Co-founded an apparel brand alongside my Fromm role and built its wholesale and retail business.",
       "points": [
         "Built the brand identity, apparel collections, and campaigns",
         "Grew wholesale to 10+ retail locations and opened our branded store",
@@ -277,13 +277,12 @@
     {
       "title": "State of Flux",
       "category": [
-        "Apparel & product design",
-        "Collaborations",
-        "Retail & event environments"
+        "Apparel & product",
+        "Retail & events"
       ],
       "year": "2019–2024",
       "summary": "Product design & brand collaborations: original products, co-branded collections with Pinterest, Timbuk2, and SFMOMA, campaigns, and retail.",
-      "role": "Co-founder and brand director. I designed every product and collaboration, taking each from idea to pitch to product, plus the logo, our retail store, and pop-ups. I also loved selling face to face. My business partner and I ran the company with a team of five.",
+      "role": "Co-Founder & Brand Director. I designed every product and collaboration, taking each from idea to pitch to product, plus the logo, our retail store, and pop-ups. I also loved selling face to face. My business partner and I ran the company with a team of five.",
       "tags": [
         "Brand building",
         "Creative direction",
@@ -294,74 +293,101 @@
       "images": [
         {
           "src": "/work/state-of-flux-caps.jpg",
-          "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger"
+          "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger",
+          "w": 800,
+          "h": 800
         },
         {
           "src": "/work/state-of-flux-good-energy-tee.jpg",
-          "alt": "A cream State of Flux 'Good Energy Club' tee with an orange-and-leaf illustration and a small boxed logo"
+          "alt": "A cream State of Flux 'Good Energy Club' tee with an orange-and-leaf illustration and a small boxed logo",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-dahlia-tee.jpg",
-          "alt": "A white State of Flux tee with green line-drawn dahlias around the X logo and the words 'Life is full of uncertainties, so enjoy the little things'"
+          "alt": "A white State of Flux tee with green line-drawn dahlias around the X logo and the words 'Life is full of uncertainties, so enjoy the little things'",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-imagine-hoodie.jpg",
-          "alt": "A cream State of Flux hoodie with an orange halftone portrait ringed by the words 'Imagine if being you was a crime'"
+          "alt": "A cream State of Flux hoodie with an orange halftone portrait ringed by the words 'Imagine if being you was a crime'",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-worldwide-hoodie.jpg",
-          "alt": "Back of a cream State of Flux hoodie with a globe graphic and the words San Francisco, London, Taipei, New York, Tokyo, Worldwide"
+          "alt": "Back of a cream State of Flux hoodie with a globe graphic and the words San Francisco, London, Taipei, New York, Tokyo, Worldwide",
+          "w": 1200,
+          "h": 1200
         },
         {
           "src": "/work/state-of-flux-curry-tote.jpg",
-          "alt": "A State of Flux tote bag made from a 2009–10 Stephen Curry #30 Warriors jersey, with white straps printed 'never break. never settle. never fold.'"
+          "alt": "A State of Flux tote bag made from a 2009–10 Stephen Curry #30 Warriors jersey, with white straps printed 'never break. never settle. never fold.'",
+          "w": 1200,
+          "h": 1200
         },
         {
           "src": "/work/state-of-flux-socks.jpg",
-          "alt": "Four pairs of State of Flux crew socks in purple, white, pink, and green with orange heels and toes and the S×F logo"
+          "alt": "Four pairs of State of Flux crew socks in purple, white, pink, and green with orange heels and toes and the S×F logo",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-knits.jpg",
-          "alt": "A rack of State of Flux knit sweaters in checkerboard, stripe, and mesh patterns"
+          "alt": "A rack of State of Flux knit sweaters in checkerboard, stripe, and mesh patterns",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-jogger-labels.jpg",
-          "alt": "Purple and black State of Flux joggers with gold woven labels reading 'Made in USA' and 'Never break. Never settle. Never fold.'"
+          "alt": "Purple and black State of Flux joggers with gold woven labels reading 'Made in USA' and 'Never break. Never settle. Never fold.'",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-labels.jpg",
-          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
+          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'",
+          "w": 800,
+          "h": 800
         },
         {
           "src": "/work/state-of-flux-mask.jpg",
-          "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch"
+          "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-neon.jpg",
-          "alt": "A yellow neon sign reading 'You are in a State of Flux'"
+          "alt": "A yellow neon sign reading 'You are in a State of Flux'",
+          "w": 1000,
+          "h": 1040
         },
         {
           "src": "/work/state-of-flux-studio.jpg",
-          "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic"
+          "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic",
+          "w": 1080,
+          "h": 1080
         },
         {
           "src": "/work/timbuk2-state-of-flux-article.jpg",
-          "alt": "Timbuk2's blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street"
+          "alt": "Timbuk2’s blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street",
+          "w": 1000,
+          "h": 1093
         }
       ],
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
       "challenge": "Launch a new apparel brand for 18- to 36-year-old men and women in a crowded market, and give them a reason to notice it.",
-      "approach": "I built the brand around its logo: not just an X, but an X that marks the spot, the exact place in time you're in. The tiger became our signature image because tigers are strong, smart, and striking, and it gave everything from embroidered caps to graphic tees one recognizable look. Every product and the collaborations with Pinterest, Timbuk2, and SFMOMA started as my idea, made within what a small independent brand could afford. We sold through our store, e-commerce, wholesale, and B2B.",
-      "outcome": "An independent brand with its own retail store, online shop, and co-branded products with Pinterest, Timbuk2, and SFMOMA. In 2024 I exited by selling my ownership stake to my business partner.",
+      "approach": "I built the brand around its logo: not just an X, but an X that marks the spot, the exact place in time you’re in. The tiger became our signature image because tigers are strong, smart, and striking, and it gave everything from embroidered caps to graphic tees one recognizable look. I designed each product within what a small independent brand could afford. We sold through our store, e-commerce, wholesale, and B2B.",
+      "outcome": "An independent brand with its own retail store, online shop, and co-branded products. In 2024 I sold my ownership stake to my business partner.",
       "caption": "Building an apparel brand across products, partnerships, and retail",
       "tag": "Apparel · Retail"
     },
     {
       "title": "Fromm Institute",
       "category": [
-        "Marketing",
-        "Print design",
-        "Web design"
+        "Print & web design",
+        "Marketing & PR"
       ],
       "year": "2022–Present",
       "summary": "One creative direction across print, digital, events, and press: course catalogs, enrollment ads, the website, and the 50th Anniversary campaign.",
@@ -372,60 +398,72 @@
         "Print & digital",
         "Campaigns"
       ],
-      "challenge": "Fromm had no marketing presence, which limited how many new older adults it could reach. Its 50th anniversary (1976–2026) also had to honor five decades of history while bringing in new members.",
-      "approach": "I kept one look and voice across every channel: Fromm's purple and gold, photos of real members, and plain, warm messages like “No grades. No exams.” That way a catalog, a newspaper ad, and the enrollment landing page read as one brand. For the 50th, I designed a bold “50” badge, paired it with archival member photos from five decades, and carried it into the gala, print, digital, and press. Outreach with 5+ retirement communities and city partners extended the reach.",
-      "outcome": "Enrollment grew 10% across 2025–2026, our survey press release was syndicated to 500+ news outlets, and Facebook and Instagram gained 300+ followers in my first year. The 50th Anniversary campaign runs through 2026.",
+      "challenge": "Before I took on marketing, Fromm had no marketing presence, which limited how many new older adults it could reach. Its 50th anniversary (1976–2026) also had to honor five decades of history while bringing in new members.",
+      "approach": "I kept one look and voice across every channel: Fromm’s purple and gold, photos of real members, and plain, warm messages like “No grades. No exams.” That way a catalog, a newspaper ad, and the enrollment landing page read as one brand. For the 50th, I designed a bold “50” badge, paired it with archival member photos from five decades, and carried it into the gala, print, digital, and press. Outreach with 5+ retirement communities and city partners extended the reach.",
+      "outcome": "Enrollment grew 10% in 2025–2026, our survey press release was syndicated through PR Newswire to 500+ news outlets, and Facebook and Instagram gained 300+ followers in my first year running Fromm’s social media. The 50th Anniversary campaign runs through 2026.",
       "featured": true,
       "caption": "Connecting lifelong learning with new audiences through design and marketing",
       "tag": "Print · Digital · Events",
       "images": [
         {
           "src": "/work/fromm-enrollment-ad.jpg",
-          "alt": "Fromm Institute enrollment ad: members sitting together on the USF campus, a gold 'Winter 2026 Enrollment Is Now Open' seal, and the line 'Be part of our milestone year as we approach our 50th anniversary'"
+          "alt": "Fromm Institute enrollment ad: members sitting together on the USF campus, a gold 'Winter 2026 Enrollment Is Now Open' seal, and the line 'Be part of our milestone year as we approach our 50th anniversary'",
+          "w": 1000,
+          "h": 1016
         },
         {
           "src": "/work/fromm-catalog-cover.jpg",
-          "alt": "Cover of the Fromm Institute Fall Session 2023 course catalog: looking up through golden autumn trees, with the Fromm logo"
+          "alt": "Cover of the Fromm Institute Fall Session 2023 course catalog: looking up through golden autumn trees, with the Fromm logo",
+          "w": 1200,
+          "h": 927
         },
         {
           "src": "/work/fromm-catalog-jazz.jpg",
-          "alt": "Fall 2023 catalog page for 'Queens of Jazz', with four portraits of jazz singers and the professor's bio"
+          "alt": "Fall 2023 catalog page for 'Queens of Jazz', with four portraits of jazz singers and the professor’s bio",
+          "w": 1200,
+          "h": 927
         },
         {
           "src": "/work/fromm-catalog-art.jpg",
-          "alt": "Fall 2023 catalog page for 'Contemporary Art That Wows', with a large art installation photo and the professor's bio"
+          "alt": "Fall 2023 catalog page for 'Contemporary Art That Wows', with a large art installation photo and the professor’s bio",
+          "w": 1200,
+          "h": 927
         },
         {
           "src": "/work/fromm-50-years-flyer.jpg",
-          "alt": "'50 Years of Lifelong Learning' flyer with the gold 50 Years badge, dates for fall classes, the 50th Anniversary Gala, and the Holiday Lecture Series, and class photos"
+          "alt": "'50 Years of Lifelong Learning' flyer with the gold 50 Years badge, dates for fall classes, the 50th Anniversary Gala, and the Holiday Lecture Series, and class photos",
+          "w": 900,
+          "h": 1350
         },
         {
           "src": "/work/fromm-50th-gala-banner.jpg",
-          "alt": "Banner for the Fromm Institute's 50th Anniversary Gala Luncheon: the purple-and-gold '50' badge over a collage of archival member photos"
+          "alt": "Banner for the Fromm Institute’s 50th Anniversary Gala Luncheon: the purple-and-gold '50' badge over a collage of archival member photos",
+          "w": 1400,
+          "h": 547
         },
         {
           "src": "/work/fromm-50th.jpg",
-          "alt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years"
+          "alt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
+          "w": 500,
+          "h": 500
         },
         {
           "src": "/work/fromm-landing-page.jpg",
-          "alt": "Fromm enrollment landing page: 'Learning for the love of it' headline, a sign-up form, and a Frommcast on YouTube section"
-        },
-        {
-          "src": "/work/fromm-logo.jpg",
-          "alt": "The Fromm Institute for Lifelong Learning at the University of San Francisco logo in gold on black"
+          "alt": "Fromm enrollment landing page: 'Learning for the love of it' headline, a sign-up form, and a Frommcast on YouTube section",
+          "w": 1100,
+          "h": 1375
         }
       ]
     },
     {
       "title": "FAZE Apparel",
       "category": [
-        "Apparel & product design",
-        "Retail & event environments"
+        "Apparel & product",
+        "Retail & events"
       ],
       "year": "2007–2019",
       "summary": "Building a brand from concept to acquisition: brand identity, original apparel, retail, and marketing campaigns.",
-      "role": "Co-Founder & Brand Director: brand identity, apparel design, marketing, retail, and a team of five",
+      "role": "Co-Founder & Brand Director. I led brand identity, apparel design, marketing, and retail with a team of five.",
       "tags": [
         "Brand identity",
         "Product development",
@@ -441,22 +479,26 @@
       "images": [
         {
           "src": "/work/faze-store.jpg",
-          "alt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner"
+          "alt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner",
+          "w": 348,
+          "h": 348
         },
         {
           "src": "/work/faze-store-interior.jpg",
-          "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass"
+          "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass",
+          "w": 1024,
+          "h": 681
         }
       ]
     },
     {
       "title": "Retail & event environments",
       "category": [
-        "Retail & event environments"
+        "Retail & events"
       ],
       "year": "FAZE & State of Flux",
       "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, plus FAZE trade-show booths in Las Vegas, Miami, Los Angeles, and New York and State of Flux pop-ups.",
-      "details": "Led the State of Flux store build-out from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors.",
+      "details": "Led both store build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors. Pictured: the State of Flux store before and after.",
       "role": "Space designer & project lead",
       "tags": [
         "Retail design",
@@ -467,19 +509,27 @@
       "images": [
         {
           "src": "/work/faze-store-interior.jpg",
-          "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass"
+          "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass",
+          "w": 1024,
+          "h": 681
         },
         {
           "src": "/work/store-before-build-out.jpg",
-          "alt": "The State of Flux store before the build-out: walls stripped to the studs, old paneling, and debris on the floor"
+          "alt": "The State of Flux store before the build-out: walls stripped to the studs, old paneling, and debris on the floor",
+          "w": 2000,
+          "h": 411
         },
         {
           "src": "/work/store-build-out.jpg",
-          "alt": "The State of Flux store after the build-out: a dark painted floor, white walls and counter, and globe pendant lights"
+          "alt": "The State of Flux store after the build-out: a dark painted floor, white walls and counter, and globe pendant lights",
+          "w": 1600,
+          "h": 1200
         },
         {
           "src": "/work/faze-store.jpg",
-          "alt": "The FAZE Apparel storefront in San Francisco"
+          "alt": "The FAZE Apparel storefront in San Francisco",
+          "w": 348,
+          "h": 348
         }
       ],
       "caption": "Two stores, trade-show booths, and pop-ups",
@@ -489,10 +539,10 @@
       "title": "Frommcast",
       "category": [
         "Video",
-        "Web design"
+        "Print & web design"
       ],
       "year": "",
-      "summary": "A subscription streaming platform I built for Fromm, our \"Netflix for lifelong learning\": 3,000+ active users and monthly paying subscribers.",
+      "summary": "A subscription streaming platform I built for Fromm, our “Netflix for lifelong learning”: 3,000+ active users and monthly paying subscribers.",
       "role": "Built the website and system; lead its video and content",
       "tags": [
         "Digital product",
@@ -507,15 +557,14 @@
       "linkLabel": "Watch on YouTube",
       "challenge": "Give older adults a way to keep learning from home, beyond the classroom.",
       "approach": "I built the website, subscription system, and recording setup, then produced lecture videos organized by subject. Later we moved the library to YouTube.",
-      "outcome": "3,000+ active users and monthly paying subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers in the channel's first 6 months.",
-      "caption": "Fromm's “Netflix for lifelong learning,” later moved to YouTube",
+      "outcome": "3,000+ active users and monthly paying subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers in the channel’s first 6 months.",
+      "caption": "Fromm’s “Netflix for lifelong learning,” later moved to YouTube",
       "tag": "Video · Digital product"
     },
     {
       "title": "Brand collaborations",
       "category": [
-        "Collaborations",
-        "Apparel & product design"
+        "Apparel & product"
       ],
       "year": "State of Flux",
       "summary": "Co-branded products and pop-up events for State of Flux with Pinterest, Timbuk2, and SFMOMA.",
@@ -528,18 +577,22 @@
       "images": [
         {
           "src": "/work/timbuk2-state-of-flux-article.jpg",
-          "alt": "Timbuk2's blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street"
+          "alt": "Timbuk2’s blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street",
+          "w": 1000,
+          "h": 1093
         },
         {
           "src": "/work/timbuk2-state-of-flux.jpg",
-          "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
+          "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag",
+          "w": 480,
+          "h": 320
         }
       ]
     },
     {
       "title": "Fromm website & online enrollment",
       "category": [
-        "Web design"
+        "Print & web design"
       ],
       "year": "",
       "summary": "Designed the Fromm website and lead its Salesforce CRM, directing an outside development company, with Stripe and CashNet payments built in so staff manage tuition and enrollment in-house.",
@@ -547,12 +600,13 @@
         "Salesforce",
         "Stripe",
         "CashNet"
-      ]
+      ],
+      "caption": "Website, Salesforce CRM, and online payments"
     },
     {
       "title": "National press release",
       "category": [
-        "Marketing"
+        "Marketing & PR"
       ],
       "year": "",
       "summary": "A Fromm Institute survey finding that lifelong learning boosts happiness and social connection among older adults. I ran the survey and wrote the press release, which PR Newswire syndicated to 500+ news outlets across the U.S. and Europe.",
@@ -563,7 +617,8 @@
         "Research",
         "Storytelling"
       ],
-      "role": "Ran the survey and wrote the press release"
+      "role": "Ran the survey and wrote the press release",
+      "caption": "Survey and press release syndicated to 500+ outlets"
     }
   ],
   "skills": [
@@ -691,7 +746,7 @@
     {
       "school": "University of San Francisco",
       "degree": "B.A., Media Studies and Communication; Minor in Film",
-      "year": "2002–2005"
+      "year": "2005"
     },
     {
       "school": "Executive & Professional Development",
@@ -717,13 +772,16 @@
         "Creative Direction",
         "Art Direction",
         "Design Leadership",
-        "Team Leadership"
+        "Team Leadership",
+        "Cross-functional Projects",
+        "Board & Stakeholder Relations"
       ]
     },
     {
       "group": "Design",
       "items": [
         "Logos & Identity",
+        "Brand Systems",
         "Print & Editorial",
         "Merch & Product",
         "Web & Digital",
@@ -734,7 +792,7 @@
       "group": "Brand & Storytelling",
       "items": [
         "Brand Strategy",
-        "Storytelling",
+        "Visual Storytelling",
         "Campaign Development",
         "Public Relations (PR)"
       ]
@@ -753,7 +811,9 @@
       "items": [
         "Integrated Marketing",
         "Digital Marketing",
+        "Email Marketing",
         "Enrollment Marketing",
+        "Go-to-Market Strategy",
         "Budget & Vendor Management"
       ]
     },
@@ -761,6 +821,7 @@
       "group": "AI & Technology",
       "items": [
         "Agentic AI",
+        "Generative AI",
         "AI Creative Workflows",
         "Salesforce Admin",
         "Directing Developers"
@@ -781,7 +842,7 @@
     "GitHub",
     "Cloudflare"
   ],
-  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. Co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (partner buyout, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. As Assistant Director at USF’s Fromm Institute, a higher-education nonprofit, I lead creative, marketing, communications, PR, and technology. Certified in Applied Agentic AI (2026).",
+  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. Co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (partner buyout, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Now Assistant Director at USF’s Fromm Institute, a higher-education nonprofit, leading creative, marketing, communications, PR, and technology. Certified in Applied Agentic AI (2026).",
   "partners_label": "State of Flux collaborations",
   "applied_ai": {
     "lead": "I use AI agents as a review team, then make the final calls myself.",
@@ -793,11 +854,11 @@
       },
       {
         "label": "What I set up",
-        "text": "Six AI review agents, each with one job: recruiter, resume keywords and applicant tracking, design, copy editing, accessibility, and search and link previews."
+        "text": "Six AI review agents, each with one job: recruiter, ATS keywords, design, copy editing, accessibility, or search and link previews."
       },
       {
         "label": "What they produced",
-        "text": "Ranked findings with exact fixes: “communications” was missing from my resume, one phrase appeared seven times, and the photo gallery cropped the work."
+        "text": "Ranked findings with exact fixes, such as “communications” missing from my resume, one phrase repeated seven times, and a gallery that cropped the work."
       },
       {
         "label": "How I reviewed it",
@@ -805,14 +866,15 @@
       },
       {
         "label": "The result",
-        "text": "This site and a two-page resume that applicant tracking systems read cleanly, improved over several review rounds."
+        "text": "After several review rounds: this site and a two-page resume that applicant tracking systems read cleanly."
       }
     ],
     "also": [
       {
         "label": "In development",
-        "text": "An AI chatbot for Fromm's website that walks older adults through enrolling and hands off to staff."
+        "text": "An AI chatbot for Fromm’s website that walks older adults through enrolling and hands off to staff."
       }
     ]
-  }
+  },
+  "meta_description": "Brand & creative leader in San Francisco. Co-founded and exited two apparel brands; leads creative, marketing, and technology at USF’s Fromm Institute."
 }
