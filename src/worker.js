@@ -1,7 +1,7 @@
 import content from "../public/content.json";
 
 // Shown at /api/status so you can tell which version is live.
-const VERSION = "2026-10-30.10";
+const VERSION = "2026-11-06.1";
 
 // Form limits: at most 5 submissions a minute per visitor (FORM_LIMITER in wrangler.toml).
 const LIMIT_MESSAGE = "Too many tries. Please wait a minute.";
@@ -102,8 +102,13 @@ function renderHome(page, base) {
   const binds = { name: d.name, role: d.role, specialties: d.specialties, tagline: d.tagline, summary: d.summary, availability: d.availability, location: d.location };
 
   return new HTMLRewriter()
-    .on('meta[property="og:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png`) })
-    .on('meta[name="twitter:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png`) })
+    // The version in the image address makes LinkedIn and Slack fetch a fresh preview after changes.
+    .on('meta[property="og:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png?v=${VERSION}`) })
+    .on('meta[name="twitter:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png?v=${VERSION}`) })
+    // Titles always match the headline in content.json, even before the page's script runs.
+    .on("title", { element: (el) => el.setInnerContent(`${d.name} — ${d.role}`) })
+    .on('meta[property="og:title"], meta[name="twitter:title"]', { element: (el) => el.setAttribute("content", `${d.name} — ${d.role}`) })
+    .on('meta[property="og:image:alt"], meta[name="twitter:image:alt"]', { element: (el) => el.setAttribute("content", `${d.name}, ${d.role}`) })
     .on('meta[property="og:url"]', { element: (el) => el.setAttribute("content", `${base}/`) })
     .on('link[rel="canonical"]', { element: (el) => el.setAttribute("href", `${base}/`) })
     .on("head", {
@@ -114,6 +119,10 @@ function renderHome(page, base) {
       element: (el) => {
         const key = el.getAttribute("data-bind");
         if (typeof binds[key] !== "string") return;
+        if (key === "summary") {
+          el.setInnerContent(d.summary.split(/\n\s*\n/).map((t) => `<p>${esc(t)}</p>`).join(""), { html: true });
+          return;
+        }
         // The tagline's accent words are set in italic color, like on the page.
         const i = key === "tagline" && d.tagline_accent ? d.tagline.indexOf(d.tagline_accent) : -1;
         if (i > 0) {
@@ -137,7 +146,7 @@ function renderHome(page, base) {
               const value = s.value.length > 8
                 ? s.value.split(" · ").map((v) => `<span class="stat-line">${esc(v)}</span>`).join("")
                 : esc(s.value);
-              return `<div class="${s.value.length > 8 ? "stat stat-text" : "stat"}"><strong>${value}</strong><span>${esc(s.label)}</span></div>`;
+              return `<div class="${s.value.length > 8 ? "stat stat-text" : "stat"}"><strong>${value}</strong> <span>${esc(s.label)}</span></div>`;
             })
             .join(""),
           { html: true },
@@ -177,7 +186,7 @@ function personJsonLd(base) {
     "@type": "Person",
     name: d.name,
     jobTitle: d.role.split(" · ").slice(0, 2).join(" & "),
-    description: [d.tagline, d.summary].filter(Boolean).join(" "),
+    description: (d.summary || d.tagline || "").replace(/\s+/g, " ").trim(),
     url: `${base}/`,
     image: d.photo?.src ? `${base}${d.photo.src}` : `${base}/og.png`,
     email: d.links?.email ? `mailto:${d.links.email}` : undefined,

@@ -44,6 +44,8 @@ function render(d) {
     const v = binds[el.dataset.bind];
     if (typeof v === "string") el.textContent = v;
   });
+  // The summary's paragraphs (separated by a blank line) become separate <p>s.
+  $(".hero-summary").replaceChildren(...String(d.summary || "").split(/\n\s*\n/).map((t) => h("p", {}, t)));
   // "Head of Brand · Creative Director · ..." gives the tab title "Head of Brand & Creative Director".
   document.title = `${d.name} — ${d.role.split(" · ").slice(0, 2).join(" & ")}`;
 
@@ -91,7 +93,7 @@ function render(d) {
     stats.replaceChildren(...d.stats.map((s) => {
       const long = s.value.length > 8;
       const value = long ? s.value.split(" · ").map((v) => h("span", { class: "stat-line" }, v)) : s.value;
-      return h("div", { class: long ? "stat stat-text" : "stat" }, h("strong", {}, value), h("span", {}, s.label));
+      return h("div", { class: long ? "stat stat-text" : "stat" }, h("strong", {}, value), " ", h("span", {}, s.label));
     }));
   } else stats.remove();
 
@@ -150,7 +152,8 @@ function render(d) {
     safeUrl(d.links.linkedin) && h("a", { href: safeUrl(d.links.linkedin) }, bare(d.links.linkedin)),
     d.location && h("span", {}, d.location),
   ].filter(Boolean);
-  $("#print-contact").replaceChildren(...contact.flatMap((x, i) => (i ? ["  ·  ", x] : [x])));
+  // Each dot stays with the item after it, so a line never ends with a dot.
+  $("#print-contact").replaceChildren(...contact.flatMap((x, i) => (i ? [" ", h("span", { class: "nowrap" }, "·\u00a0 ", x)] : [x])));
 
   const email = $("#contact-email");
   email.textContent = d.links.email;
@@ -167,7 +170,7 @@ function render(d) {
 
   // Number the sections that are shown: 01, 02, 03...
   // (Hidden from screen readers so headings read "Experience", not "01Experience".)
-  document.querySelectorAll(".section .num").forEach((n, k) => {
+  document.querySelectorAll(".section:not(.print-only) .num").forEach((n, k) => {
     n.textContent = String(k + 1).padStart(2, "0");
     n.setAttribute("aria-hidden", "true");
   });
@@ -329,7 +332,7 @@ function openWork(item, index = 0) {
     // Several photos: a swipeable strip, one photo per view.
     const strip = h("div", { class: "work-media gallery", tabindex: "0", role: "region", "aria-label": `${item.title} photos` },
       item.images.map((img) => h("img", { src: img.src, alt: img.alt || item.title })));
-    const count = h("span", { class: "gallery-count", "aria-live": "polite" }, `1 / ${item.images.length}`);
+    const count = h("span", { class: "gallery-count", "aria-live": "polite" }, `1 of ${item.images.length}`);
     const imgs = () => [...strip.querySelectorAll("img")];
     // The photo nearest the middle of the strip.
     const current = () => {
@@ -341,14 +344,26 @@ function openWork(item, index = 0) {
     const step = (dir) => {
       const all = imgs();
       const target = all[Math.max(0, Math.min(all.length - 1, current() + dir))];
-      strip.scrollTo({ left: target.offsetLeft - (strip.clientWidth - target.offsetWidth) / 2, behavior: "smooth" });
+      const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+      strip.scrollTo({ left: target.offsetLeft - (strip.clientWidth - target.offsetWidth) / 2, behavior: smooth ? "smooth" : "auto" });
     };
     const prev = h("button", { class: "gallery-btn", type: "button", "aria-label": "Previous photo" }, "‹");
     const next = h("button", { class: "gallery-btn", type: "button", "aria-label": "Next photo" }, "›");
     prev.addEventListener("click", () => step(-1));
     next.addEventListener("click", () => step(1));
-    // Which photo is centered: update the "3 / 7" counter as people swipe or click.
-    strip.addEventListener("scroll", () => { count.textContent = `${current() + 1} / ${imgs().length}`; }, { passive: true });
+    // Which photo is centered: update the "3 of 7" counter as people swipe or click,
+    // only when the photo changes (so screen readers hear it once), and grey out
+    // the arrow at either end.
+    prev.disabled = true;
+    let shown = 0;
+    strip.addEventListener("scroll", () => {
+      const k = current();
+      if (k === shown) return;
+      shown = k;
+      count.textContent = `${k + 1} of ${imgs().length}`;
+      prev.disabled = k === 0;
+      next.disabled = k === imgs().length - 1;
+    }, { passive: true });
     media = h("div", { class: "gallery-wrap" }, strip, h("div", { class: "gallery-bar" }, prev, count, next));
   } else if (item.image || item.images?.length) {
     const img = item.images?.[0] || { src: item.image, alt: item.imageAlt };

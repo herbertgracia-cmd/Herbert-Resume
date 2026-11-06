@@ -14,6 +14,6 @@ const page = await browser.newPage();
 await page.emulateMedia({ media: "print" });
 await page.goto(url, { waitUntil: "networkidle" });
 await page.evaluate(() => document.fonts.ready);
-await page.pdf({ path: out, format: "Letter", printBackground: false });
+await page.pdf({ path: out, format: "Letter", printBackground: false, tagged: true, outline: true });
 await browser.close();
 console.log(`Wrote ${out}`);

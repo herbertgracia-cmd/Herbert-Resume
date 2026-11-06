@@ -376,9 +376,10 @@ img, svg { display: block; }
   display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px;
   scrollbar-width: thin;
 }
+/* Each photo shows whole (no cropping), at one height, so wide and tall shots both fit. */
 .work-media.gallery img {
-  flex: 0 0 86%; min-width: 0; width: auto; max-width: 560px; max-height: 62dvh;
-  object-fit: cover; aspect-ratio: 1; border-radius: 10px; scroll-snap-align: center;
+  flex: 0 0 auto; width: auto; height: min(56dvh, 480px); max-width: 86%; max-height: none;
+  object-fit: contain; border-radius: 10px; scroll-snap-align: center;
 }
 .gallery-bar { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 4px 0 8px; background: var(--surface); }
 .gallery-count { min-width: 4.5em; text-align: center; font: 500 12px/1 var(--mono); letter-spacing: .06em; color: var(--muted); }
@@ -386,7 +387,8 @@ img, svg { display: block; }
   width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--ink);
   font-size: 22px; line-height: 1; cursor: pointer;
 }
-.gallery-btn:hover { border-color: var(--ink); }
+.gallery-btn:hover:not(:disabled) { border-color: var(--ink); }
+.gallery-btn:disabled { opacity: .35; cursor: default; }
 .work-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .work-media.work-cover { aspect-ratio: 16 / 5; border-radius: 0; padding: 18px 24px 22px; background-color: var(--cat); background-image: var(--pattern, none); }
 .work-media.work-cover .work-cover-meta { padding-right: 56px; } /* clear the close button */
@@ -700,7 +702,10 @@ img, svg { display: block; }
 
 /* Specialties under the headline; the intro as short paragraphs. */
 .hero-specialties { margin: 6px 0 0; font: 500 12px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
-.hero-summary { white-space: pre-line; }
+.hero-summary p { margin: 0; }
+.hero-summary p + p { margin-top: 10px; }
+.hero-role { text-wrap: balance; }
+.head-link { white-space: nowrap; }
 
 /* Certification: the featured certificate as a large card. */
 .certs { display: grid; gap: 14px; }
@@ -748,6 +753,7 @@ img, svg { display: block; }
   .hero-role { padding-right: 92px; }
   .hero-specialties { display: none; }
   .hero-summary { font-size: 15px; }
+  .hero-summary p + p { display: none; } /* phones: the first paragraph says who he is */
   .hero-name { font-size: 3.3rem; }
   .hero-name .line { display: inline; }
   .hero .eyebrow { margin-bottom: 18px; }
@@ -852,3 +858,4 @@ img, svg { display: block; }
   .cert-meta, .cert-desc { margin-top: 2pt; font-size: 9.5pt; opacity: 1; }
   #certification { order: 1; }
 }
+.nowrap { white-space: nowrap; }
