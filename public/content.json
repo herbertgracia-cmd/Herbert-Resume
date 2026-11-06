@@ -2,10 +2,10 @@
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job's 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. The 'intro' block sets the welcome pop-up's text, choices, and delay; answers are saved to the visitor_intros table in Supabase. A job's optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate's 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job's 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item's 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is one name, or a list of names, from: Web design, Product design, Project design, Print design, Video, Storytelling, Marketing, Events, Collaborations, Technology, AI. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
   "name": "Herbert Gracia",
-  "role": "Head of Brand & Creative",
+  "role": "Head of Brand, Design & Creative",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
-  "tagline": "I build brands, lead creative teams, and turn ideas into experiences that connect.",
+  "tagline": "I take ideas from concept to market: brands, products, and stories, now built with agentic AI.",
   "links": {
     "email": "herbert.gracia@gmail.com",
     "linkedin": "https://www.linkedin.com/in/herbert-gracia",
@@ -36,63 +36,64 @@
   ],
   "pillars": [
     {
-      "title": "Brand, design & creative direction",
-      "summary": "Building brands from identity to shelf to screen.",
+      "title": "Creative leadership & brand",
+      "summary": "Building brands from the first idea to shelf and screen.",
       "proof": [
-        "Led brand strategy, visual identity, and art direction for FAZE Apparel and State of Flux",
-        "Apparel graphics, lookbooks, photography, video, and retail creative",
-        "Lead brand strategy and creative direction for the Fromm Institute",
-        "Leading the Fromm 50th Anniversary campaign"
+        "Led brand strategy, visual identity, and creative direction for FAZE Apparel, State of Flux, and the Fromm Institute",
+        "Lead a team of 6+ staff and 20+ volunteers at Fromm; led teams of 5 at both apparel brands",
+        "Leading the Fromm 50th Anniversary campaign",
+        "Manage $150K+ a year in budgets, vendors, and cross-functional projects"
+      ]
+    },
+    {
+      "title": "Design",
+      "summary": "20+ years of hands-on design, from print to product to space.",
+      "proof": [
+        "Print & editorial: course catalogs, brochures, posters, newsletters, and ads for the San Francisco Chronicle and SFGATE",
+        "Merch & product: apparel graphics, embroidery, woven labels, and co-branded merch with Pinterest, Timbuk2, and SFMOMA",
+        "Identity: logos and brand systems for two apparel brands and Fromm's 50th Anniversary",
+        "Spaces: two retail stores, trade-show booths, and pop-ups",
+        "Digital: the Fromm website, e-commerce, and Frommcast"
+      ]
+    },
+    {
+      "title": "Storytelling, marketing & PR",
+      "summary": "Campaigns and stories across every channel.",
+      "proof": [
+        "Grew Fromm's marketing from zero to a multi-channel program, raising enrollment 10% in 2 years",
+        "National press release picked up by 500+ news outlets",
+        "Campaigns, photography, video, social content, and e-commerce for two apparel brands",
+        "Events, pop-ups, and brand activations with Pinterest, Timbuk2, and SFMOMA"
+      ]
+    },
+    {
+      "title": "Product, sales & technology",
+      "summary": "My concepts, built and taken to market.",
+      "proof": [
+        "Directed apparel products from concept and samples through sourcing, manufacturing, and launch",
+        "Sold direct to consumers and to businesses: DTC, e-commerce, retail, wholesale, and B2B",
+        "Designed the Fromm website and administer its Salesforce CRM, directing the engineers who build it",
+        "Built Frommcast, a subscription streaming platform with 3,000+ active users"
+      ]
+    },
+    {
+      "title": "AI-powered creative",
+      "summary": "Using agentic AI to make creative work faster and sharper.",
+      "proof": [
+        "Completed USF's Certificate in Applied Agentic AI and AI Certificate Intensive (2026)",
+        "Set up AI agents that critique design, check accessibility, edit copy, and build creative briefs",
+        "Use generative AI for concepting, campaigns, content, and research",
+        "Directed AI agents to build this website; building Fromm's AI enrollment chatbot"
       ]
     },
     {
       "title": "Entrepreneurship",
       "summary": "Two apparel brands co-founded, built, and exited.",
       "proof": [
-        "Co-built FAZE Apparel with a team of 5, through acquisition (2007–2019)",
+        "Co-built FAZE Apparel through a full acquisition (2007–2019)",
         "Co-founded State of Flux; sold my share to my business partner in 2024",
-        "Sold direct to customers and to companies; 10+ stores and wholesale accounts",
+        "Grew to 10+ stores and wholesale accounts",
         "Opened and ran our own retail stores"
-      ]
-    },
-    {
-      "title": "Product development & projects",
-      "summary": "From concept and samples to production and launch.",
-      "proof": [
-        "Directed apparel design through samples, sourcing, materials, manufacturing, and quality control",
-        "Built Frommcast, Fromm's online learning and content platform",
-        "Lead website, CRM, and enrollment projects from concept through implementation",
-        "Manage teams, vendors, budgets, timelines, and cross-functional projects"
-      ]
-    },
-    {
-      "title": "Integrated marketing",
-      "summary": "Campaigns across every channel.",
-      "proof": [
-        "Grew Fromm's communications from zero presence to a multi-channel program, raising enrollment 10%",
-        "Direct digital marketing across Google, Facebook/Meta, LinkedIn, email, and community channels",
-        "Campaigns, photography, video, social content, and e-commerce for two apparel brands",
-        "Go-to-market strategy"
-      ]
-    },
-    {
-      "title": "Events & experiential",
-      "summary": "Brand experiences people can walk into.",
-      "proof": [
-        "Designed trade-show booths and brand environments in Las Vegas, Miami, Los Angeles, and New York",
-        "Led retail store design and build-outs from concept through opening",
-        "Brand collaborations and activations with Pinterest, Timbuk2, and SFMOMA",
-        "Produce Fromm's educational programs, community events, and major institutional events"
-      ]
-    },
-    {
-      "title": "AI & generative AI",
-      "summary": "Putting AI to work in marketing and beyond.",
-      "proof": [
-        "Completed USF's Certificate in Applied Agentic AI and AI Certificate Intensive (2026)",
-        "Use generative AI for campaigns, content, audience messaging, research, and social media",
-        "Building an AI chatbot for Fromm's website (in progress)",
-        "Directed AI agents to build this website, including its visitor welcome pop-up"
       ]
     }
   ],
@@ -162,12 +163,12 @@
         }
       ],
       "key": [
-        "Creative & Brand Leadership: Lead creative direction, art direction, visual identity, and brand storytelling; design the layout of every publication, course catalog, brochure, newsletter, and print ad; designed the 50th Anniversary logo and campaign.",
+        "Creative & Design Leadership: Lead creative direction, art direction, visual identity, and brand storytelling; design every course catalog, brochure, newsletter, poster, and print ad; designed the 50th Anniversary logo and campaign.",
         "Enrollment Marketing & Growth: Built Fromm's marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads, social media, email, PR, community partnerships), growing enrollment 10% in 2 years.",
         "Public & Media Relations: Ran a lifelong learning survey and wrote its national press release (PR Newswire), picked up by 500+ news outlets; leading the 50th Anniversary PR campaign.",
         "Advertising & Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE), designing every ad, plus $3K a month in paid social.",
-        "Product & Technology: Built Frommcast, a subscription streaming platform (\"Netflix for lifelong learning\") with 3,000+ active users and monthly paying subscribers, later moved to YouTube (700+ subscribers in 6 months).",
-        "Technology & Operations: Led the Salesforce website and CRM with online enrollment and payments (Stripe, CashNet), hybrid learning, and AI applications; manage a $100K-a-year technology budget, on budget every year."
+        "Product & Technology: Built Frommcast, a subscription streaming platform with 3,000+ active users; designed the Salesforce website and CRM, administer Salesforce, and direct its engineers; manage a $100K-a-year technology budget, on budget every year.",
+        "AI-Powered Creative: Completed USF's Certificate in Applied Agentic AI; set up AI agents that critique design, check accessibility, edit copy, and build creative briefs; building Fromm's AI enrollment chatbot."
       ],
       "since": "Fromm since 2005 · 4 roles",
       "areas": [
@@ -188,16 +189,16 @@
         {
           "name": "Technology",
           "items": [
+            "Designed the Fromm website and lead its Salesforce CRM, from concept through launch",
+            "Administer Salesforce and direct the engineers who build our website and CRM",
+            "Set up AI agents that critique design, check accessibility, edit copy, and build briefs",
             "Manage a $100K-a-year technology upgrade budget for the Fromm building, on budget every year",
-            "Manage the Salesforce engineers who build our website and CRM",
             "Building an AI chatbot for the website, applying my USF Applied Agentic AI certificate",
-            "Strong vendor relationships that keep upgrades on time and on budget",
-            "Designed the Fromm website",
-            "CRM administration & maintenance",
             "Online enrollment & payments (Stripe, CashNet)",
-            "Managed the vendor that built our smart classrooms",
             "Built Frommcast, our subscription streaming platform (3,000+ active users)",
+            "Managed the vendor that built our smart classrooms",
             "Classroom, hybrid & event technology",
+            "Strong vendor relationships that keep upgrades on time and on budget",
             "Partner with USF's Technology Department"
           ],
           "top": 3
@@ -209,7 +210,7 @@
             "Newspaper advertising: $20K a year with Hearst Media (San Francisco Chronicle, SFGATE)",
             "Community & B2B partnerships, incl. 5+ retirement communities",
             "Integrated campaigns across web, email, print, social & video",
-            "Enrollment marketing (direct to consumer)",
+            "Enrollment marketing (B2C)",
             "Launched our YouTube channel: 700+ subscribers in 6 months",
             "Facebook & Instagram: 300+ new followers in my first year",
             "Digital ads (Google, Meta, LinkedIn) & email marketing",
@@ -249,16 +250,16 @@
       "tags": [
         "Leadership (team of 6+)",
         "Creative direction",
-        "Communications & PR",
-        "Budget & vendor management",
-        "DTC & B2B sales",
+        "Design",
+        "Marketing & PR",
+        "Salesforce & engineering",
         "Agentic AI"
       ],
-      "line": "Lead a team of 6+ at USF's nonprofit lifelong learning institute (3,000 students a year).",
+      "line": "Lead creative, marketing, PR, and technology at USF's lifelong learning institute; team of 6+.",
       "points": [
         "Design every catalog, brochure, and ad, plus the 50th Anniversary logo",
-        "Grew enrollment 10% in 2 years with multi-channel marketing and PR",
-        "Built Frommcast, a subscription streaming platform with 3,000+ active users"
+        "Grew enrollment 10% in 2 years with marketing, PR, and partnerships",
+        "Concept to launch: Frommcast streaming, our Salesforce website and CRM, AI agents"
       ]
     },
     {
@@ -301,8 +302,9 @@
       "exit": "Exit: Partner Buyout · 2024",
       "line": "Co-founded an apparel and lifestyle brand while working full-time at Fromm.",
       "points": [
+        "Designed every product, logo, and collab, from concept to market",
         "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA",
-        "Led product design, DTC, wholesale, and B2B sales; team of five"
+        "Sold DTC, wholesale, and B2B; led a team of five"
       ],
       "exit_note": "Sold my ownership stake to my business partner in 2024."
     },
@@ -344,8 +346,9 @@
       "exit": "Exit: Full Company Acquisition · 2019",
       "line": "Co-founded an apparel brand and built its wholesale and retail business.",
       "points": [
+        "Built the brand and its products from concept to acquisition",
         "Grew wholesale to 10+ retail locations and opened our branded store",
-        "Led trade shows in Las Vegas, Miami, Los Angeles, and New York"
+        "Sold DTC and B2B; led trade shows in four major cities"
       ],
       "exit_note": "The company was acquired by a privately held business, including its brand assets, logos, designs, and intellectual property rights."
     }
@@ -471,6 +474,28 @@
       ]
     },
     {
+      "title": "AI-powered creative",
+      "category": [
+        "AI",
+        "Technology"
+      ],
+      "year": "2026",
+      "summary": "A team of AI agents I set up to critique design, check accessibility, edit copy, and build creative briefs, plus Fromm's AI enrollment chatbot and this site.",
+      "role": "Designed the workflows and direct the agents; building Fromm's chatbot and this site",
+      "challenge": "Use AI to make creative work faster and better, not just experiment with it.",
+      "approach": "After completing USF's Certificate in Applied Agentic AI, I set up AI agents that each play a role on a creative team: design critic, accessibility checker, copy editor, and brief builder. I use generative AI for concepting, campaigns, and research, and I directed AI coding agents to build this site.",
+      "outcome": "This site is live and reviewed by my own agents. Fromm's AI enrollment chatbot is next.",
+      "tags": [
+        "Agentic AI",
+        "Generative AI",
+        "Creative workflows"
+      ],
+      "caption": "AI agents that review design, copy, and accessibility",
+      "tag": "AI",
+      "cover": "AI",
+      "cover_note": "Agentic · Generative"
+    },
+    {
       "title": "Creative Innovation",
       "caption": "Digital, video & AI",
       "tag": "Frommcast · Web · AI",
@@ -541,25 +566,6 @@
       "outcome": "3,000+ active users and monthly paying subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers in the channel's first 6 months.",
       "caption": "Fromm's \"Netflix for lifelong learning,\" later moved to YouTube",
       "tag": "Video · Digital product"
-    },
-    {
-      "title": "AI & creative operations",
-      "category": "AI",
-      "year": "2026",
-      "summary": "AI-assisted marketing at Fromm, an AI chatbot for Fromm's website, and this website, built by directing AI agents.",
-      "role": "Bring AI into Fromm's marketing and creative workflows; building Fromm's website chatbot and this site",
-      "challenge": "Find practical uses for AI that make marketing and operations work better, not just experiments.",
-      "approach": "I use generative AI for campaigns, content, and research; I'm building Fromm's enrollment chatbot; and I directed AI coding agents to build this site.",
-      "outcome": "This site is live and shows me who visits and why. The Fromm chatbot is next.",
-      "tags": [
-        "Generative AI",
-        "Agentic AI",
-        "Marketing operations"
-      ],
-      "caption": "AI-assisted marketing, a website chatbot, and this site.",
-      "tag": "AI",
-      "cover": "AI",
-      "cover_note": "Generative · Agentic"
     },
     {
       "title": "Course catalogs & brochures",
@@ -780,7 +786,7 @@
     {
       "group": "Product & Experience",
       "items": [
-        "Product Development",
+        "Concept-to-market product development",
         "Retail Design",
         "Experiential Marketing",
         "Brand Partnerships"
@@ -800,9 +806,10 @@
     {
       "group": "Design",
       "items": [
+        "Logos & visual identity",
         "Catalogs, brochures & posters",
         "Print & newspaper ads",
-        "Newsletters",
+        "Merch & apparel graphics",
         "Web & e-commerce design",
         "Retail, pop-up & trade-show design"
       ]
@@ -843,10 +850,11 @@
       "group": "AI & Technology",
       "items": [
         "Agentic AI",
+        "AI agents for creative workflows",
         "Generative AI",
         "AI chatbot design",
-        "Website & CRM (Salesforce)",
-        "Smart classroom technology"
+        "Salesforce administration & CRM",
+        "Directing engineering teams"
       ]
     },
     {
@@ -937,8 +945,8 @@
     "src": "/herbert.jpg",
     "alt": "Herbert Gracia"
   },
-  "summary": "Creative leader and entrepreneur with 20+ years of experience. I co-founded and exited two apparel brands, FAZE Apparel and State of Flux.\n\nToday, as Assistant Director at the University of San Francisco's Fromm Institute, I lead creative, marketing, and technology.",
-  "tagline_accent": "experiences that connect.",
+  "summary": "Creative leader, designer, and entrepreneur with 20+ years of taking my own ideas from concept to market. I co-founded and exited two apparel brands, FAZE Apparel and State of Flux, designing the products and selling them direct to consumers and businesses.\n\nToday, as Assistant Director at the University of San Francisco's Fromm Institute, I lead creative, marketing, PR, and technology, and I use agentic AI to make the creative work faster and bigger. I'm ready to lead brand and creative for a growing company.",
+  "tagline_accent": "now built with agentic AI.",
   "partners": [
     "Pinterest",
     "Timbuk2",
@@ -950,17 +958,36 @@
       "items": [
         "Creative Direction",
         "Art Direction",
-        "Visual Identity",
-        "Design Leadership"
+        "Design Leadership",
+        "Team Leadership"
+      ]
+    },
+    {
+      "group": "Design",
+      "items": [
+        "Logos & Identity",
+        "Print & Editorial",
+        "Merch & Product",
+        "Web & Digital",
+        "Retail & Event Spaces"
       ]
     },
     {
       "group": "Brand & Storytelling",
       "items": [
         "Brand Strategy",
-        "Brand Management",
-        "Content Strategy",
-        "Campaign Development"
+        "Storytelling",
+        "Campaign Development",
+        "Public Relations (PR)"
+      ]
+    },
+    {
+      "group": "Product & Sales",
+      "items": [
+        "Concept-to-Market Products",
+        "DTC & B2B Sales",
+        "E-commerce",
+        "Brand Partnerships"
       ]
     },
     {
@@ -968,39 +995,21 @@
       "items": [
         "Integrated Marketing",
         "Digital Marketing",
-        "Public Relations (PR)",
-        "Enrollment Marketing"
-      ]
-    },
-    {
-      "group": "Executive & Business Leadership",
-      "items": [
-        "Team Leadership",
-        "Budget & Vendor Management",
-        "Strategic Planning",
-        "Business Development"
+        "Enrollment Marketing",
+        "Budget & Vendor Management"
       ]
     },
     {
       "group": "AI & Technology",
       "items": [
-        "Applied Agentic AI",
-        "AI-Powered Automation",
-        "Salesforce",
-        "Marketing Technology"
-      ]
-    },
-    {
-      "group": "Product & Growth",
-      "items": [
-        "Product Development",
-        "Go-to-Market Strategy",
-        "DTC & E-commerce",
-        "Brand Partnerships"
+        "Agentic AI",
+        "AI Creative Workflows",
+        "Salesforce Admin",
+        "Leading Engineers"
       ]
     }
   ],
-  "specialties": "Creative Direction · Brand Strategy · Storytelling · Marketing · Design · AI",
+  "specialties": "Creative Direction · Brand · Design · Storytelling · Product · AI-Powered Creative",
   "tools": [
     "Adobe Creative Cloud / Creative Suite (Photoshop, Illustrator, InDesign, Premiere Pro)",
     "Figma",
@@ -1014,6 +1023,6 @@
     "GitHub",
     "Cloudflare"
   ],
-  "seeking": "Head of Brand · Creative Director · Art Director · Director of Marketing & Communications · Brand Strategy & Growth",
-  "resume_summary": "Creative leader and entrepreneur with 20+ years in brand strategy, creative direction, art direction, and integrated marketing. I co-founded and exited two apparel brands, FAZE Apparel (full acquisition) and State of Flux (partner buyout), building DTC, e-commerce, wholesale, and B2B sales. Today, as Assistant Director at the University of San Francisco's Fromm Institute, I lead brand, marketing, communications, PR, and technology with a team of 6+, $150K+ in annual budgets, and cross-functional projects."
+  "seeking": "Creative Director · Head of Brand & Creative · Head of Design · Design Director · Brand Development",
+  "resume_summary": "Creative leader, designer, and entrepreneur with 20+ years taking ideas from concept to market across brand strategy, creative direction, design, storytelling, product development, and sales. Co-founded and exited two apparel brands, FAZE Apparel (full acquisition) and State of Flux (partner buyout), designing every product and building direct-to-consumer (DTC), wholesale, and business-to-business (B2B) sales. As Assistant Director at USF's Fromm Institute, I lead brand, design, marketing, PR, and technology, including the Salesforce website and CRM and its engineers, with a team of 6+ and $150K+ budgets. Certified in Applied Agentic AI (2026)."
 }
