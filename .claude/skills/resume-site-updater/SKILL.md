@@ -35,12 +35,17 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
   - `line` and `points`: what the page shows: one short line, then 2-3 points of 12 words or fewer. Founder roles add `exit` ("Exit: Full Company Acquisition · 2019"); `exit_note` shows under "More" and on the printed resume.
   - `summary` and `key`: the fuller version for the **printed resume** (the PDF he uploads to job applications) and "More". Put ATS keywords here in real sentences ("Label: text" makes the label bold). Never make `key` identical to `points`, or the resume loses detail.
 - **`seeking`**: target titles, printed under his name so recruiters' title searches match. Keep it to roles he's applying for.
-- **Printed resume**: must stay at 2 pages and include every job's `key`, earlier Fromm roles, tools, and industries. Check with `pdftotext` after any content change.
+- **Printed resume**: must stay at 2 pages and include every job's `summary` and `key`, earlier Fromm roles, Education, and tools. It uses `resume_summary` (a keyword-rich version of `summary`) instead of the page summary, and a print-only Education section. Partners and industries are hidden in print to save space. Check the page count with `pdfinfo` after any content change.
+- **Downloadable PDF** (`public/Herbert-Gracia-Resume.pdf`): the "Resume (PDF)" buttons download this file. After any change to content or print styles, rebuild it with the local server running (`npm run dev`):
+  ```bash
+  NODE_PATH=$(npm root -g) node scripts/make-resume-pdf.mjs
+  ```
+  Restart `npm run dev` first if the PDF is new, since files added after it starts aren't served.
   - `summary`: the fuller description, shown under "More about this role" and on the printed resume.
-  - `key` (under "More" and on the printed resume): **exactly 3** bullets, each under about 25 words. The current role uses bold "Led: / Built: / Grew:" labels (a colon near the start makes that text bold) to show what he led, built, and improved; other jobs use plain bullets.
+  - `key` (under "More" and on the printed resume): bullets of about 25 words or fewer. The current role (Fromm) has 6, each starting with a bold label ("Creative & Brand Leadership: ..."; a colon near the start makes that text bold); State of Flux and FAZE have 4 plain bullets each. Adding bullets may push the resume to 3 pages, so check.
   - `exit` (founder roles): how it ended, shown as a label under the title, e.g. "Full company acquisition · 2019" or "Partner buyout · 2024". Don't make the two exits sound financially equal.
   - `tags`: the skills used in the role, shown as small chips. Every job includes leadership and sales; use business terms (DTC, B2B, wholesale, go-to-market).
-  - `areas` (optional): what goes into each part of the role, shown as boxes, e.g. `{"name": "Technology", "items": [...]}`. The Fromm job has Creative, Technology, Marketing, Communications, and PR. Areas and tags show on the website only; the printed PDF keeps the 3 key bullets.
+  - `areas` (optional): what goes into each part of the role, shown as boxes, e.g. `{"name": "Technology", "items": [...]}`. The Fromm job has Creative, Technology, Marketing, Communications, and PR. Areas and tags show on the website only; the printed PDF shows the `key` bullets instead.
   - Optional details behind "More about this role": `creative` (brand, design & creative direction work), `highlights` (each starting with "Label: "), and `earlier_roles` (`title`, `years`, `note`).
 - **Work (`work`)**: each item needs `title`, `category`, and `summary`.
   - `category` is one name, or a list of names, from Web design, Product design, Project design, Print design, Marketing, Video, Events, Storytelling, Collaborations, Technology, AI. A card shows under each of its filters. "Project design" means designed spaces: stores, pop-ups, and trade-show booths.
@@ -71,11 +76,12 @@ These keep the site short enough for a recruiter to skim in 30 seconds.
    ```bash
    node -e "const d=require('./public/content.json');console.log('stats',d.stats.length,'featured',d.work.filter(w=>w.featured).length,'key',d.experience.map(j=>j.key?.length))"
    ```
-   Expect 4 stats, 6 featured, and 3 key bullets per job.
+   Expect 4 stats, 3 featured, and key bullets of 6, 4, 4.
 3. **If the headline, name, availability, location, or first 3 stats changed**, rebuild the preview image with `node scripts/make-og.mjs` and look at `public/og.png`. Make sure the bottom row fits.
 4. **Build check:** run `npm run check`; it must finish without errors.
 5. **Look at it** if you changed layout or added images: run `npm run dev` and open http://localhost:8787 on a desktop width and a phone width (390px). No sideways scrolling, and no errors in the console.
-6. **Publish:** commit with a plain-English message saying what changed, then push. Cloudflare deploys the repo's default branch automatically within a couple of minutes.
+6. **Rebuild the resume PDF** if content or print styles changed (see "Downloadable PDF" above) and confirm it's still 2 pages.
+7. **Publish:** commit with a plain-English message saying what changed, then push. Cloudflare deploys the repo's default branch automatically within a couple of minutes.
 
 ## Don't
 

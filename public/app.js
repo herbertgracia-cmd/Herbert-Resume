@@ -116,7 +116,9 @@ function render(d) {
     h("span", { class: "fact-item" }, x, i < all.length - 1 ? " ·" : ""),
     i < all.length - 1 ? " " : null,
   ]).filter(Boolean));
-  const factRows = (rows) => rows.flatMap(([k, v]) => [h("dt", {}, k), h("dd", {}, factItems(v))]);
+  // Education gets its own section on the printed resume, so it isn't printed inside Skills.
+  const rowClass = (k) => (k === "Education" ? "screen-only" : null);
+  const factRows = (rows) => rows.flatMap(([k, v]) => [h("dt", { class: rowClass(k) }, k), h("dd", { class: rowClass(k) }, factItems(v))]);
   $("#facts").replaceChildren(...factRows(facts));
   $("#facts-all").replaceChildren(...factRows(allFacts));
 
@@ -128,10 +130,15 @@ function render(d) {
   }
 
   renderCerts(d.certifications || []);
+  // Printed resume: a fuller summary with the keywords applicant tracking systems look for,
+  // and Education as its own section ("School, Degree, graduation year").
+  $("#print-summary").textContent = d.resume_summary || d.summary;
+  const edu = (d.education || [])[0];
+  $("#print-edu").textContent = edu ? `${edu.school}, ${edu.degree}, ${String(edu.year || "").slice(-4)}`.replace(/, $/, "") : "";
   // Printed resume: the exact titles recruiters search for.
   $("#print-seeking").textContent = d.seeking ? `Seeking: ${d.seeking}` : "";
   $("#print-industries").textContent = (d.industries || []).length
-    ? `Industries: ${(d.industries || []).map((x) => x.name).join(" · ")}` : "";
+    ? `Industries: ${(d.industries || []).map((x) => x.name.replace(/ & (manufacturing|online video|generative AI|experiential)$/, "")).join(" · ")}` : "";
 
   // Printed resume: email and LinkedIn go at the top instead of a contact section at the end.
   // Printed resume: email, website, LinkedIn, and city under the name.
@@ -141,7 +148,7 @@ function render(d) {
     d.links.email && h("a", { href: `mailto:${d.links.email}` }, d.links.email),
     safeUrl(d.links.website) && h("a", { href: safeUrl(d.links.website) }, bare(d.links.website)),
     safeUrl(d.links.linkedin) && h("a", { href: safeUrl(d.links.linkedin) }, bare(d.links.linkedin)),
-    d.location,
+    d.location && h("span", {}, d.location),
   ].filter(Boolean);
   $("#print-contact").replaceChildren(...contact.flatMap((x, i) => (i ? ["  ·  ", x] : [x])));
 
@@ -244,7 +251,8 @@ function renderWork(items) {
   const filters = $("#work-filters");
   const grid = $("#work-grid");
   const list = $("#work-list");
-  const num = (i) => String(i + 1).padStart(2, "0");
+  let row = 0;
+  const num = () => String(++row).padStart(2, "0");
   const caption = (item) => item.caption || item.summary;
   const tag = (item) => item.tag || categoryLabel(item);
 
@@ -266,7 +274,7 @@ function renderWork(items) {
           ))
       : h("li", { "data-category": cats },
           h("button", { class: "work-row", type: "button", "aria-haspopup": "dialog", ...ids },
-            h("span", { class: "work-num", "aria-hidden": "true" }, num(i)),
+            h("span", { class: "work-num", "aria-hidden": "true" }, num()),
             h("span", { class: "work-row-title", id: `work-title-${i}` }, item.title),
             h("span", { class: "work-text", id: `work-sum-${i}` }, caption(item)),
             h("span", { class: "work-tag" }, [tag(item), item.year].filter(Boolean).join(" · ")),
@@ -319,8 +327,29 @@ function openWork(item, index = 0) {
       }));
   } else if (item.images?.length > 1) {
     // Several photos: a swipeable strip, one photo per view.
-    media = h("div", { class: "work-media gallery", tabindex: "0", role: "region", "aria-label": `${item.title} photos` },
+    const strip = h("div", { class: "work-media gallery", tabindex: "0", role: "region", "aria-label": `${item.title} photos` },
       item.images.map((img) => h("img", { src: img.src, alt: img.alt || item.title })));
+    const count = h("span", { class: "gallery-count", "aria-live": "polite" }, `1 / ${item.images.length}`);
+    const imgs = () => [...strip.querySelectorAll("img")];
+    // The photo nearest the middle of the strip.
+    const current = () => {
+      const mid = strip.scrollLeft + strip.clientWidth / 2;
+      const all = imgs();
+      return all.reduce((best, img, k) => (Math.abs(img.offsetLeft + img.offsetWidth / 2 - mid) < Math.abs(all[best].offsetLeft + all[best].offsetWidth / 2 - mid) ? k : best), 0);
+    };
+    // Move exactly one photo, centering it.
+    const step = (dir) => {
+      const all = imgs();
+      const target = all[Math.max(0, Math.min(all.length - 1, current() + dir))];
+      strip.scrollTo({ left: target.offsetLeft - (strip.clientWidth - target.offsetWidth) / 2, behavior: "smooth" });
+    };
+    const prev = h("button", { class: "gallery-btn", type: "button", "aria-label": "Previous photo" }, "‹");
+    const next = h("button", { class: "gallery-btn", type: "button", "aria-label": "Next photo" }, "›");
+    prev.addEventListener("click", () => step(-1));
+    next.addEventListener("click", () => step(1));
+    // Which photo is centered: update the "3 / 7" counter as people swipe or click.
+    strip.addEventListener("scroll", () => { count.textContent = `${current() + 1} / ${imgs().length}`; }, { passive: true });
+    media = h("div", { class: "gallery-wrap" }, strip, h("div", { class: "gallery-bar" }, prev, count, next));
   } else if (item.image || item.images?.length) {
     const img = item.images?.[0] || { src: item.image, alt: item.imageAlt };
     const fit = { contain: " fit-contain", "contain-light": " fit-contain light" }[item.imageFit] || "";
@@ -375,7 +404,7 @@ function renderJob(j) {
   const line = j.line || j.summary;
   const moreSummary = j.summary && j.summary !== line ? j.summary : null;
   const moreKey = key.join() !== points.join() ? key : [];
-  const earlier = (j.earlier_roles || []).map((r) => `${r.title} (${r.years})`).join(" · ");
+  const earlier = j.earlier_roles || [];
   const hasMore = moreSummary || moreKey.length || j.exit_note || j.creative?.length || j.highlights?.length || j.earlier_roles?.length || j.areas?.length || j.tags?.length;
   return h("li", { class: "job reveal" },
     h("div", { class: "job-dates" },
@@ -393,7 +422,9 @@ function renderJob(j) {
         j.summary && h("p", { class: "job-summary" }, j.summary),
         key.length > 0 && h("ul", { class: "job-key" }, key.map(highlight)),
         j.exit_note && h("p", { class: "job-exit-note" }, j.exit_note),
-        earlier && h("p", { class: "job-earlier-print" }, `Earlier roles here: ${earlier}`),
+        earlier.length > 0 && h("div", { class: "job-earlier-print" },
+          h("p", {}, "Earlier roles here:"),
+          h("ul", {}, earlier.map((r) => h("li", {}, `${r.title}, ${r.years}`)))),
       ),
       hasMore && h("details", { class: "job-more" },
         h("summary", {}, "More about this role"),
@@ -454,7 +485,7 @@ function jobAreas(j, { short = false } = {}) {
 // "Label: details" becomes a bold label followed by the details.
 function highlight(text) {
   const i = text.indexOf(": ");
-  if (i > 0 && i < 40) return h("li", {}, h("strong", {}, text.slice(0, i)), " ", text.slice(i + 2));
+  if (i > 0 && i < 40) return h("li", {}, h("strong", {}, text.slice(0, i + 1)), " ", text.slice(i + 2));
   return h("li", {}, text);
 }
 
@@ -482,8 +513,7 @@ function setupChrome() {
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
   // Both buttons open the print dialog, where "Save as PDF" gives a clean resume.
-  $("#hero-resume").addEventListener("click", () => window.print());
-  $("#exp-resume").addEventListener("click", () => window.print());
+
 }
 
 function setupReveal() {
