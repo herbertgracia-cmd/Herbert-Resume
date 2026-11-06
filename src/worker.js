@@ -108,6 +108,7 @@ function renderHome(page, base) {
     // Titles always match the headline in content.json, even before the page's script runs.
     .on("title", { element: (el) => el.setInnerContent(`${d.name} — ${d.role}`) })
     .on('meta[property="og:title"], meta[name="twitter:title"]', { element: (el) => el.setAttribute("content", `${d.name} — ${d.role}`) })
+    .on('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]', { element: (el) => d.meta_description && el.setAttribute("content", d.meta_description) })
     .on('meta[property="og:image:alt"], meta[name="twitter:image:alt"]', { element: (el) => el.setAttribute("content", `${d.name}, ${d.role}`) })
     .on('meta[property="og:url"]', { element: (el) => el.setAttribute("content", `${base}/`) })
     .on('link[rel="canonical"]', { element: (el) => el.setAttribute("href", `${base}/`) })
@@ -176,9 +177,8 @@ function personJsonLd(base) {
   const [city, region] = (d.location || "").split(",").map((s) => s.trim());
   const current = (d.experience || []).find((j) => j.end === "Present");
   const languages = (d.skills || []).find((g) => g.group === "Languages")?.items.map((l) => l.replace(/\s*\(.*\)$/, ""));
-  // Every skill group except languages and tools, without notes in parentheses.
-  const knowsAbout = [...new Set((d.skills || [])
-    .filter((g) => !/^Languages$|Tools$/.test(g.group))
+  // The short skills list on the page (no near-duplicates), without notes in parentheses.
+  const knowsAbout = [...new Set((d.skills_short || [])
     .flatMap((g) => g.items)
     .map((s) => s.replace(/\s*\(.*?\)/g, "")))];
   const person = {
