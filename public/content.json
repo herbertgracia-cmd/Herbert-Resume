@@ -15,11 +15,11 @@
   "stats": [
     {
       "value": "2",
-      "label": "Brands co-founded & successfully exited"
+      "label": "Brands co-founded & exited"
     },
     {
       "value": "10%",
-      "label": "Enrollment growth at Fromm over 2 years"
+      "label": "Enrollment growth at Fromm in 2 years"
     },
     {
       "value": "500+",
@@ -143,7 +143,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead a team of 6+ across brand strategy, creative direction, marketing, PR, and technology for USF's nonprofit lifelong learning institute (3,000 students a year).",
+      "summary": "Lead a team of 6+ staff and 20+ volunteers across brand strategy, creative direction, marketing, PR, and technology for USF's nonprofit, higher-education lifelong learning institute (3,000 students a year), working closely with a 21-member Board of Directors.",
       "earlier_roles": [
         {
           "title": "Specialist, Instructional Technology & Media",
@@ -162,12 +162,12 @@
         }
       ],
       "key": [
-        "Creative & Brand Leadership: Direct visual identity, art direction, brand storytelling, and design for every publication, course catalog, brochure, print ad, and the 50th Anniversary logo.",
-        "Enrollment Marketing & Growth: Developed multi-channel enrollment marketing (digital ads, social media, email, PR, community outreach) supporting 10% enrollment growth over two years.",
-        "Public & Media Relations: Survey press release on PR Newswire picked up by 500+ news outlets; leading the 50th Anniversary PR campaign.",
-        "Advertising: Manage $20K a year in newspaper advertising (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
-        "Product & Technology: Built Frommcast, a subscription streaming platform (\"Netflix for lifelong learning\") with 3,000+ active users and paying subscribers, later moved to YouTube; led the Salesforce website and CRM, hybrid learning, and AI applications.",
-        "Budget & Teams: Lead a team of 6+ and a $100K-a-year technology budget, on budget every year, managing vendors and the Salesforce engineers."
+        "Creative & Brand Leadership: Lead creative direction, art direction, visual identity, and brand storytelling; design the layout of every publication, course catalog, brochure, newsletter, and print ad; designed the 50th Anniversary logo and campaign.",
+        "Enrollment Marketing & Growth: Built Fromm's marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads, social media, email, PR, community partnerships), growing enrollment 10% in 2 years.",
+        "Public & Media Relations: Ran a lifelong learning survey and wrote its national press release (PR Newswire), picked up by 500+ news outlets; leading the 50th Anniversary PR campaign.",
+        "Advertising & Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE), designing every ad, plus $3K a month in paid social.",
+        "Product & Technology: Built Frommcast, a subscription streaming platform (\"Netflix for lifelong learning\") with 3,000+ active users and monthly paying subscribers, later moved to YouTube (700+ subscribers in 6 months).",
+        "Technology & Operations: Led the Salesforce website and CRM with online enrollment and payments (Stripe, CashNet), hybrid learning, and AI applications; manage a $100K-a-year technology budget, on budget every year."
       ],
       "since": "Fromm since 2005 · 4 roles",
       "areas": [
@@ -254,10 +254,10 @@
         "DTC & B2B sales",
         "Agentic AI"
       ],
-      "line": "Lead a team of 6+ across brand, creative, marketing, PR, and technology for USF's nonprofit lifelong learning institute.",
+      "line": "Lead a team of 6+ at USF's nonprofit lifelong learning institute (3,000 students a year).",
       "points": [
         "Design every catalog, brochure, and ad, plus the 50th Anniversary logo",
-        "Grew enrollment 10% in two years with multi-channel marketing and PR",
+        "Grew enrollment 10% in 2 years with multi-channel marketing and PR",
         "Built Frommcast, a subscription streaming platform with 3,000+ active users"
       ]
     },
@@ -285,10 +285,10 @@
         "Business Exit: Exited the company through a partner buyout in 2024, selling my ownership stake to my business partner."
       ],
       "key": [
-        "Led brand identity, creative campaigns, product design, digital storytelling, and e-commerce experiences.",
         "Designed original products, from embroidered caps and graphic hoodies to upcycled jersey totes, plus our retail store and pop-up spaces.",
-        "Developed collaborative products and brand partnerships with Pinterest, Timbuk2, and SFMOMA.",
-        "Oversaw direct-to-consumer, wholesale, B2B, and retail activities while managing a team of five."
+        "Led brand identity, creative direction, campaigns, photography, and e-commerce.",
+        "Built brand partnerships with Pinterest, Timbuk2, and SFMOMA, creating co-branded products for sale plus events and pop-ups.",
+        "Oversaw direct-to-consumer (DTC), e-commerce, wholesale, B2B, and retail sales while managing a team of five."
       ],
       "tags": [
         "Entrepreneurship",
@@ -299,12 +299,12 @@
         "Brand partnerships"
       ],
       "exit": "Exit: Partner Buyout · 2024",
-      "line": "Co-founded an apparel and lifestyle brand alongside my full-time role at Fromm.",
+      "line": "Co-founded an apparel and lifestyle brand while working full-time at Fromm.",
       "points": [
         "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA",
         "Led product design, DTC, wholesale, and B2B sales; team of five"
       ],
-      "exit_note": "Successfully exited the business through the sale of my ownership stake to my business partner."
+      "exit_note": "Sold my ownership stake to my business partner in 2024."
     },
     {
       "role": "Co-Founder & Brand Director",
@@ -328,11 +328,10 @@
         "Business Exit: Completed the sale of the entire business and its intellectual property to a privately held company."
       ],
       "key": [
-        "Developed the brand identity, apparel collections, marketing campaigns, and retail experiences.",
-        "Directed art direction for apparel graphics, lookbooks, photography, video, and retail creative.",
+        "Art-directed apparel graphics, lookbooks, photography, video, and retail creative.",
         "Expanded wholesale distribution to more than 10 retail locations, and designed and opened our branded retail store.",
         "Led trade-show and experiential marketing initiatives in Las Vegas, Miami, Los Angeles, and New York.",
-        "Managed a team of five across creative and retail operations."
+        "Led a team of five across design, product, marketing, and sales; managed sampling, sourcing, materials, manufacturing, quality control, and production."
       ],
       "tags": [
         "Entrepreneurship",
@@ -343,7 +342,7 @@
         "Exit (acquisition)"
       ],
       "exit": "Exit: Full Company Acquisition · 2019",
-      "line": "Co-founded an apparel brand alongside my role at Fromm and built it to acquisition.",
+      "line": "Co-founded an apparel brand and built its wholesale and retail business.",
       "points": [
         "Grew wholesale to 10+ retail locations and opened our branded store",
         "Led trade shows in Las Vegas, Miami, Los Angeles, and New York"
@@ -423,21 +422,17 @@
           "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch"
         },
         {
-          "src": "/work/state-of-flux-mask-2.jpg",
-          "alt": "The other side of the navy State of Flux face mask with gold embroidered varsity letters and a woven label"
+          "src": "/work/state-of-flux-labels.jpg",
+          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
         },
         {
           "src": "/work/timbuk2-state-of-flux.jpg",
           "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag"
-        },
-        {
-          "src": "/work/state-of-flux-labels.jpg",
-          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'"
         }
       ],
       "collaborators": "Pinterest, Timbuk2, SFMOMA",
       "challenge": "Launch a new apparel brand in a crowded market and give people a reason to notice it, while I kept my full-time role at Fromm.",
-      "approach": "I built a clear identity and product language, from embroidered tiger caps, upcycled jersey totes, and graphic hoodies to woven 'Workshop Product' labels. Then I grew reach through co-branded products, events, and pop-ups with Pinterest, Timbuk2, and SFMOMA, and sold direct to customers and to companies through our store, e-commerce, wholesale, and B2B, and designed our retail store.",
+      "approach": "I built a clear product language, from embroidered tiger caps and upcycled jersey totes to woven 'Workshop Product' labels. Co-branded products and pop-ups grew our reach, and we sold through our store, e-commerce, wholesale, and B2B. I also designed our retail store.",
       "outcome": "An independent brand with its own retail store, online shop, and co-branded products with Pinterest, Timbuk2, and SFMOMA. In 2024 I exited by selling my ownership stake to my business partner.",
       "caption": "Product design & brand collaborations",
       "tag": "Apparel · Retail"
@@ -542,9 +537,9 @@
       "link": "https://www.youtube.com/@FrommInstitute",
       "linkLabel": "Watch on YouTube",
       "challenge": "Give older adults a way to keep learning from home, beyond the classroom.",
-      "approach": "I built Frommcast's website and subscription system, the recording and hybrid-classroom setup, and produced the lecture video, organized by subject like a streaming service. Later we moved the library to YouTube.",
+      "approach": "I built the website, subscription system, and recording setup, then produced lecture videos organized by subject. Later we moved the library to YouTube.",
       "outcome": "3,000+ active users and monthly paying subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers in the channel's first 6 months.",
-      "caption": "Built a subscription streaming platform with 3,000+ active users",
+      "caption": "Fromm's \"Netflix for lifelong learning,\" later moved to YouTube",
       "tag": "Video · Digital product"
     },
     {
@@ -631,7 +626,7 @@
       "category": [
         "Project design"
       ],
-      "year": "FAZE Apparel & State of Flux",
+      "year": "FAZE & State of Flux",
       "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, and led their build-outs from concept through opening.",
       "details": "Coordinated architects, contractors, fabricators, fixtures, graphics, and vendors.",
       "role": "Store designer & project lead",
@@ -641,19 +636,20 @@
       ],
       "images": [
         {
-          "src": "/work/store-build-out.jpg",
-          "alt": "A store build-out in progress: a dark painted floor, white walls and counter, and globe pendant lights"
-        },
-        {
           "src": "/work/faze-store-interior.jpg",
           "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass"
+        },
+        {
+          "src": "/work/store-build-out.jpg",
+          "alt": "A store build-out in progress: a dark painted floor, white walls and counter, and globe pendant lights"
         },
         {
           "src": "/work/faze-store.jpg",
           "alt": "The FAZE Apparel storefront in San Francisco"
         }
       ],
-      "caption": "Designed both stores and led their build-outs"
+      "caption": "Two stores, from concept through opening",
+      "tag": "Retail · Build-out"
     },
     {
       "title": "Instructional media & video production",
@@ -889,7 +885,7 @@
       "issuer": "University of San Francisco",
       "year": "2026",
       "status": "Completed",
-      "description": "Agentic AI, autonomous workflows, AI-powered systems, and business applications.",
+      "description": "Autonomous workflows and business applications for AI agents.",
       "featured": true
     },
     {
@@ -941,7 +937,7 @@
     "src": "/herbert.jpg",
     "alt": "Herbert Gracia"
   },
-  "summary": "Creative leader and entrepreneur with 20+ years of experience. I co-founded and exited two apparel businesses: FAZE Apparel (full acquisition) and State of Flux (partner buyout).\n\nToday, as Assistant Director at the University of San Francisco's Fromm Institute, I lead creative, marketing, and technology.",
+  "summary": "Creative leader and entrepreneur with 20+ years of experience. I co-founded and exited two apparel brands, FAZE Apparel and State of Flux.\n\nToday, as Assistant Director at the University of San Francisco's Fromm Institute, I lead creative, marketing, and technology.",
   "tagline_accent": "experiences that connect.",
   "partners": [
     "Pinterest",
@@ -993,11 +989,20 @@
         "Salesforce",
         "Marketing Technology"
       ]
+    },
+    {
+      "group": "Product & Growth",
+      "items": [
+        "Product Development",
+        "Go-to-Market Strategy",
+        "DTC & E-commerce",
+        "Brand Partnerships"
+      ]
     }
   ],
   "specialties": "Creative Direction · Brand Strategy · Storytelling · Marketing · Design · AI",
   "tools": [
-    "Adobe Creative Cloud (Photoshop, Illustrator, InDesign, Premiere Pro)",
+    "Adobe Creative Cloud / Creative Suite (Photoshop, Illustrator, InDesign, Premiere Pro)",
     "Figma",
     "Final Cut Pro",
     "Canva",
@@ -1009,5 +1014,6 @@
     "GitHub",
     "Cloudflare"
   ],
-  "seeking": "Head of Brand · Creative Director · Art Director · Director of Marketing & Communications · Brand Strategy & Growth"
+  "seeking": "Head of Brand · Creative Director · Art Director · Director of Marketing & Communications · Brand Strategy & Growth",
+  "resume_summary": "Creative leader and entrepreneur with 20+ years in brand strategy, creative direction, art direction, and integrated marketing. I co-founded and exited two apparel brands, FAZE Apparel (full acquisition) and State of Flux (partner buyout), building DTC, e-commerce, wholesale, and B2B sales. Today, as Assistant Director at the University of San Francisco's Fromm Institute, I lead brand, marketing, communications, PR, and technology with a team of 6+, $150K+ in annual budgets, and cross-functional projects."
 }

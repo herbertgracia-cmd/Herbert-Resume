@@ -39,7 +39,7 @@
     <nav aria-label="Sections">
       <a href="#work">Experience</a>
       <a href="#portfolio">Work</a>
-      <a href="#certification">AI Certificate</a>
+      <a href="#certification">AI Certificates</a>
       <a href="#skills">Expertise</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -92,9 +92,10 @@
       <p class="hero-specialties" data-bind="specialties"></p>
       <p class="hero-tagline" id="hero-tagline" data-bind="tagline"></p>
       <p class="hero-summary" data-bind="summary"></p>
+      <p class="print-only print-summary" id="print-summary"></p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Get in touch</a>
-        <button class="btn btn-ghost" id="hero-resume" type="button">Resume (PDF)</button>
+        <a class="btn btn-ghost" id="hero-resume" href="/Herbert-Gracia-Resume.pdf" download>Resume (PDF)</a>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
       <div class="stats" id="stats"></div>
@@ -104,7 +105,7 @@
     <section class="section" id="work">
       <div class="section-head">
         <h2 class="section-title"><span class="num"></span>Experience</h2>
-        <button class="head-link" id="exp-resume" type="button">Resume (PDF) ↓</button>
+        <a class="head-link" id="exp-resume" href="/Herbert-Gracia-Resume.pdf" download>Resume (PDF) ↓</a>
       </div>
       <ol class="jobs" id="jobs"></ol>
     </section>
@@ -123,8 +124,13 @@
     </section>
 
     <section class="section" id="certification">
-      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">Certification</span><span class="print-only">Certifications</span></h2></div>
+      <div class="section-head"><h2 class="section-title"><span class="num"></span><span class="screen-only">AI Certificates</span><span class="print-only">Certifications</span></h2></div>
       <div class="certs" id="certs"></div>
+    </section>
+
+    <section class="section print-only" id="print-education">
+      <div class="section-head"><h2 class="section-title"><span class="num"></span>Education</h2></div>
+      <p class="print-edu" id="print-edu"></p>
     </section>
 
     <section class="section" id="skills">
