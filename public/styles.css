@@ -903,3 +903,15 @@ img, svg { display: block; }
   .work-filters button { flex: none; }
   .section-title .num { display: block; margin-bottom: 6px; }
 }
+
+/* Printed resume: contact line fits on one line; no repeated numbers row;
+   skills read "Label: items" in order for applicant tracking systems. */
+@media print {
+  .print-contact { font-size: 8.5pt !important; }
+  .hero > .stats { display: none !important; }
+  .facts { display: block !important; }
+  .facts dt { display: inline; padding: 0; }
+  .facts dt::after { content: ": "; }
+  .facts dd { display: inline; margin: 0; padding: 0; }
+  .facts dd::after { content: "\A"; white-space: pre; }
+}

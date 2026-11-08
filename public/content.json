@@ -140,7 +140,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead brand strategy, creative direction, marketing, communications, PR, and technology for USF’s nonprofit, higher-education lifelong learning institute (3,000 students a year). Direct 3 vendors and 2 engineers at an outside Salesforce development company, manage 6 student staff, and work with 20+ volunteers and a 21-member Board of Directors.",
+      "summary": "Lead brand strategy, creative direction, marketing, communications, PR, and technology for USF’s nonprofit, higher-education lifelong learning institute (3,000 students a year). Direct 2 engineers at an outside Salesforce development company and 3 vendors, manage 6 student staff, and work with 20+ volunteers and a 21-member Board of Directors.",
       "earlier_roles": [
         {
           "title": "Specialist, Instructional Technology & Media",
@@ -159,12 +159,12 @@
         }
       ],
       "key": [
-        "Creative Direction & Brand: Set one visual identity and voice across catalogs, print ads, email, social, the website, and events; designed the 50th Anniversary logo and campaign.",
-        "Enrollment Marketing: Built Fromm’s marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads, social media, email, community partnerships), growing enrollment 10% in 2025–2026.",
+        "Creative Direction & Brand: Set and maintain one visual identity and voice across catalogs, print ads, email, social, the website, and events; designed the 50th Anniversary logo and campaign.",
+        "Enrollment Marketing: Built Fromm’s marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads; social media; email; and community partnerships), growing enrollment 10% in 2025–2026.",
         "Public Relations: Ran a lifelong learning survey and wrote its national press release, syndicated through PR Newswire to 500+ news outlets.",
         "Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
         "Product & Technology: Built Frommcast, a subscription streaming platform that reached 3,000+ active users and paying subscribers, now a free YouTube library of 200+ classes; designed the Fromm website and lead its Salesforce CRM, directing an outside development company; manage a $100K-a-year technology budget, on budget every year.",
-        "Applied AI: Building Fromm’s AI enrollment chatbot after completing USF’s Certificate in Applied Agentic AI."
+        "Applied AI: Building Fromm’s AI enrollment chatbot."
       ],
       "since": "Fromm since 2005 · 4 roles",
       "tags": [
@@ -209,7 +209,7 @@
         "Designed original products, from embroidered caps and graphic hoodies to upcycled jersey totes, plus our retail store and pop-up spaces.",
         "Led brand identity, creative direction, campaigns, photography, and e-commerce.",
         "Built brand partnerships with Pinterest, Timbuk2, and SFMOMA, creating co-branded products for sale plus events and pop-ups.",
-        "Oversaw direct-to-consumer (DTC), e-commerce, wholesale, B2B, and retail sales while managing a team of five."
+        "Oversaw direct-to-consumer (DTC), e-commerce, wholesale, B2B, and retail sales while managing a team of 5."
       ],
       "tags": [
         "Entrepreneurship",
@@ -225,8 +225,7 @@
         "Designed every product, logo, and collab, plus our retail store",
         "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA",
         "Sold DTC, wholesale, and B2B; led a team of five"
-      ],
-      "exit_note": "Sold my ownership stake to my business partner in 2024."
+      ]
     },
     {
       "role": "Co-Founder & Brand Director",
@@ -253,7 +252,7 @@
         "Art-directed apparel graphics, lookbooks, photography, video, and retail creative.",
         "Expanded wholesale distribution to more than 10 retail locations, and designed and opened our branded retail store.",
         "Led trade-show and experiential marketing initiatives in Las Vegas, Miami, Los Angeles, and New York.",
-        "Led a team of five across design, product, marketing, and sales; managed sampling, sourcing, materials, manufacturing, quality control, and production."
+        "Led a team of 5 across design, product, marketing, and sales; managed sampling, sourcing, materials, manufacturing, quality control, and production."
       ],
       "tags": [
         "Entrepreneurship",
@@ -842,7 +841,7 @@
     "GitHub",
     "Cloudflare"
   ],
-  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. Co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (partner buyout, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Now Assistant Director at USF’s Fromm Institute, a higher-education nonprofit, leading creative, marketing, communications, PR, and technology. Certified in Applied Agentic AI (2026).",
+  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. Co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (partner buyout, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Now Assistant Director at USF’s Fromm Institute, a higher-education nonprofit, leading creative, marketing, communications, PR, and technology. Completed USF’s Certificate in Applied Agentic AI (2026).",
   "partners_label": "State of Flux collaborations",
   "applied_ai": {
     "lead": "I use AI agents as a review team, then make the final calls myself.",
