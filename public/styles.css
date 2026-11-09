@@ -823,7 +823,7 @@ img, svg { display: block; }
   .job-body > .job-exit { margin-top: 3pt; background: none; color: #000; padding: 0; }
   .job-exit-note { font-size: 9.5pt; }
   .cert-card { padding: 0; background: none; color: #000; }
-  .cert-kicker, .facts-more, .eyebrow, .job-since, .job-points, .job-line, .screen-only { display: none !important; }
+  .cert-kicker, .facts-more, .eyebrow, .job-points, .job-line, .screen-only { display: none !important; }
   .print-only, .job-earlier-print { display: block; }
   .section-title .print-only { display: inline; }
   .tools { margin-top: 4pt; font-size: 9.5pt; color: #000; }
@@ -914,4 +914,9 @@ img, svg { display: block; }
   .facts dt::after { content: ": "; }
   .facts dd { display: inline; margin: 0; padding: 0; }
   .facts dd::after { content: "\A"; white-space: pre; }
+}
+
+/* Printed resume: show "Fromm since 2005 · 4 roles" under the dates, so the long tenure isn't missed. */
+@media print {
+  .job-since { display: block; white-space: normal; margin-top: 2pt; font-size: 8pt; line-height: 1.25; }
 }
