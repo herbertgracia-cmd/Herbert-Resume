@@ -1,7 +1,7 @@
 """Search LinkedIn's public job listings (no login) with curl and collect unique postings.
 
 Usage: python3 -I scripts/jobs/linkedin_search.py <out.json> "<query>" ["<query>" ...]
-Searches the San Francisco Bay Area (and US remote with the suffix " |remote") for the past week.
+Searches the San Francisco Bay Area (and US remote with the suffix " |remote") for the past 14 days; returns the first 10 results per query.
 """
 import html, json, re, subprocess, sys, time, urllib.parse
 

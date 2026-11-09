@@ -49,7 +49,8 @@ Rules for fetching:
 Rules for what counts:
 - **Only list a job as confirmed** when you opened the posting and it doesn't say "No longer accepting applications". Compare any deadline or posted date with today's date.
 - **Pay comes only from the posting's own text.** A LinkedIn page also lists similar jobs with their own pay, so never take a number from elsewhere on the page. If the text has no pay, say "Not listed".
-- **Work setup** (hybrid, on-site, remote, days in office) also comes from the posting text; if it isn't stated, say so.
+- **Work setup** (hybrid, on-site, remote, days in office) also comes from the posting text. The fetch script's `modes` field is only a hint (perks lists mention "in office" too), so read the sentence it came from; if the setup isn't stated, say so.
+- **Fundraising-led roles** (development, major gifts, donor marketing) don't fit: Herbert doesn't do fundraising. List them only as low-fit, with that reason.
 - Anything you couldn't open goes in a separate "Unconfirmed leads" list with where you saw it. Never invent a job, link, salary, or date.
 
 ## Scoring (0–100)
