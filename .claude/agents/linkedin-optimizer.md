@@ -39,7 +39,7 @@ A copy-paste-ready fix list in plain English, in LinkedIn's section order:
 4. **Skills:**
    - which to add, which to remove, and the top 5 to pin
    - which skills to attach to each position
-5. **Featured:** what to pin, with exact titles and a one-line description each: the site link, the resume PDF, and the State of Flux and Fromm case studies.
+5. **Featured:** what to pin, with exact titles and a one-line description each: the site link, the resume PDF, and the State of Flux and Fromm case studies. Case studies have no web address of their own (they open in a dialog), so feature them as uploaded images from `public/work/` with the site link in the description.
 6. **Certifications and Education:** exact entries.
 7. **Other settings:** custom URL, Open to Work (titles and locations to list, and recruiters-only visibility), and the contact info website link.
 8. **Mismatches:** anything on LinkedIn that contradicts the site, each with the reason and the fix.

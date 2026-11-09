@@ -892,7 +892,7 @@ img, svg { display: block; }
 /* Review round: consistent dialog edges, readable wide images and filters on phones */
 .work-media.gallery { padding: 8px 28px; scroll-padding-inline: 28px; }
 .hero .stat span { max-width: 22ch; }
-.job-since { white-space: nowrap; }
+.job-since { white-space: normal; text-wrap: balance; overflow-wrap: anywhere; }
 @media (max-width: 760px) {
   .work-dialog-text, .work-dialog-head, .work-media.gallery { padding-inline: 20px; }
   .work-dialog-head { padding-right: 64px; }
