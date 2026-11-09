@@ -23,7 +23,9 @@ for s in slugs:
     appl = re.search(r"num-applicants__caption[^>]*>\s*(.*?)\s*<", t, re.S)
     low = body.lower()
     modes = [w for w in ("hybrid", "on-site", "onsite", "in-office", "in office", "in person", "in-person", "remote") if w in low]
-    days = re.search(r"(\d|three|four|two|five)\s*(?:days?)\s*(?:a|per)\s*week", low)
+    # Days in the office, e.g. "3 days a week" or "8 days per month". Treat "modes" as hints only: perks lists
+    # also mention "in office", so confirm the work setup by reading the posting text.
+    days = re.search(r"(\d+|one|two|three|four|five)\s*days?\s*(?:a|per|each)\s*(?:week|month)", low)
     # Pay comes from the posting text only: the page also lists similar jobs with their own pay.
     pay_in_text = re.findall(r"\$\s?\d[\d,]*(?:\.\d+)?\s*(?:k|K)?(?:\s*USD)?(?:\s*(?:/|per)\s*(?:hour|hr|year|yr))?\s*(?:-|–|to)\s*\$\s?\d[\d,]*(?:\.\d+)?\s*(?:k|K)?", body)
     rec = {
