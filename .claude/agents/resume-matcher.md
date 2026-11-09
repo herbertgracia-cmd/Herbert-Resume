@@ -20,9 +20,9 @@ You make sure the resume Herbert uploads is perfect and says exactly what his we
 1. **Facts match.** Compare the PDF with the site for:
    - the headline
    - each job's title, company, dates, and location
-   - every number: 20+, 2, 10%, 2025–2026, 500+, 3,000, 3,000+, 6, 2, 3, 20+, 21, $20K, $3K, $100K, 200+, 700+, 10+
+   - every number: 20+, 2005, 2, 10%, 2025–2026, 500+, 3,000, 3,000+, 6, 2, 3, 20+, 21, $20K, $3K, $100K, 200+, 10+, team of 5, 50th (700+ is on the site only)
    - exits: acquired in 2019; partner buyout in 2024
-   - certifications and education
+   - certifications and education (only the first `education` entry prints; flag the second if it should be added)
    - partner names
 
    List every mismatch.
