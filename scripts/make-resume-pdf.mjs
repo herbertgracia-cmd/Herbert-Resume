@@ -4,6 +4,7 @@
 //
 // Headline versions for job applications (same resume, only the line under the name changes):
 //   node scripts/make-resume-pdf.mjs --headline "Creative Director" --out applications/resumes/Herbert-Gracia-Resume-Creative-Director.pdf
+// Add --no-website to leave the site address off the contact line (while the site is not ready to share).
 //
 // Needs Playwright. If it isn't installed: npm install --no-save playwright && npx playwright install chromium
 import { createRequire } from "node:module";
@@ -17,6 +18,8 @@ const flag = (name) => {
   const i = args.indexOf(name);
   return i >= 0 ? args.splice(i, 2)[1] : null;
 };
+const noWebsite = args.includes("--no-website");
+if (noWebsite) args.splice(args.indexOf("--no-website"), 1);
 const headline = flag("--headline");
 const outArg = flag("--out");
 const url = args[0] || "http://localhost:8787/";
@@ -27,6 +30,14 @@ const page = await browser.newPage();
 await page.emulateMedia({ media: "print" });
 await page.goto(url, { waitUntil: "networkidle" });
 await page.evaluate(() => document.fonts.ready);
+if (noWebsite) {
+  // Remove the site link (and its "·" separator) from the printed contact line.
+  await page.evaluate(() => {
+    for (const a of document.querySelectorAll("#print-contact a")) {
+      if (/herbert-resume|workers\.dev/.test(a.href)) (a.closest(".nowrap") || a).remove();
+    }
+  });
+}
 if (headline) {
   // Only the headline under the name changes; everything else matches the site.
   await page.evaluate((text) => { document.querySelector(".hero-role").textContent = text; }, headline);
