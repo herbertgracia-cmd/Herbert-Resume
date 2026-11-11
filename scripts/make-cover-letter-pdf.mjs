@@ -2,13 +2,16 @@
 // into a one-page PDF to upload with an application. Only the letter body (after the "---" line) is used.
 //   node scripts/make-cover-letter-pdf.mjs <cover-letter.md> <out.pdf> ["Headline under the name"]
 // Use the same headline as the resume version sent with it (default: the site's headline).
+// Add --no-website anywhere to leave the site address off the letterhead.
 // Needs Playwright (run node with NODE_PATH=$(npm root -g) in the cloud workspace).
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { resolve } from "node:path";
 
 const { chromium } = createRequire(import.meta.url)("playwright");
-const [src, outArg, headlineArg] = process.argv.slice(2);
+const argv = process.argv.slice(2);
+const noWebsite = argv.includes("--no-website");
+const [src, outArg, headlineArg] = argv.filter((a) => a !== "--no-website");
 if (!src || !outArg) {
   console.error("Usage: node scripts/make-cover-letter-pdf.mjs <cover-letter.md> <out.pdf>");
   process.exit(1);
@@ -36,7 +39,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 </style></head><body>
   <h1>${esc(content.name)}</h1>
   <p class="role">${esc(headlineArg || content.role)}</p>
-  <p class="contact">${esc(content.links?.email || "")} · ${esc(site)} · ${esc((content.links?.linkedin || "").replace(/^https?:\/\/(www\.)?/, ""))} · ${esc(content.location || "")}</p>
+  <p class="contact">${[content.links?.email, noWebsite ? "" : site, (content.links?.linkedin || "").replace(/^https?:\/\/(www\.)?/, ""), content.location].filter(Boolean).map(esc).join(" · ")}</p>
   <p class="date">${date}</p>
   ${paras.map((p) => `<p>${esc(p).replace(/\n/g, "<br>")}</p>`).join("\n  ")}
   <p class="sign">Sincerely,<br>${esc(content.name)}</p>
