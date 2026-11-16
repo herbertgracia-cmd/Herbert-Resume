@@ -27,6 +27,12 @@ Creative Director, Associate Creative Director, Head of Brand, Brand Director, A
 ## Location
 San Francisco Bay Area (on-site or hybrid), or US remote.
 
+## Pay floor
+Herbert makes $150K a year now. He'll only take less for an exceptional job.
+- Rank jobs whose posted base pay reaches $150K above jobs that don't.
+- Mark each job: **Yes** (the whole range is $150K+), **Maybe** (only the top of the range reaches $150K, or a contract that works out to about that), **No** (the top of the range is under $150K), or **Not listed**.
+- List **No** jobs only in a separate "Under $150K" group at the end, with one line on what would make each one worth it.
+
 ## How to search
 In this cloud workspace, WebFetch usually can't open job sites (it fails with `getaddrinfo ENOTFOUND`), but `curl` through Bash can, for the hosts the environment allows. So find jobs with the two scripts in `scripts/jobs/`, which read LinkedIn's public job pages with no login:
 
@@ -59,7 +65,7 @@ Score each job on how well it matches:
 - the must-have requirements, compared with `content.json`
 - sector
 - location
-- whether the pay range is plausible for a director-level candidate
+- pay against his $150K floor (see Pay floor)
 
 List the gaps honestly. For example: requires 10 years managing a 15-person in-house team; requires Figma product design; requires a master's degree.
 
