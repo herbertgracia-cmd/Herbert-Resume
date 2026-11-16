@@ -2,7 +2,7 @@
 // into a one-page PDF to upload with an application. Only the letter body (after the "---" line) is used.
 //   node scripts/make-cover-letter-pdf.mjs <cover-letter.md> <out.pdf> ["Headline under the name"]
 // Use the same headline as the resume version sent with it (default: the site's headline).
-// Add --no-website anywhere to leave the site address off the letterhead.
+// Add --no-website anywhere to leave the site address off the letterhead. The contact line stays on one line.
 // Needs Playwright (run node with NODE_PATH=$(npm root -g) in the cloud workspace).
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -32,7 +32,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   body { font: 10.5pt/1.5 Inter, "Helvetica Neue", Arial, sans-serif; color: #111; }
   h1 { font: 400 24pt/1.1 Georgia, "Times New Roman", serif; margin: 0; }
   .role { margin: 2pt 0 0; font-size: 10.5pt; }
-  .contact { margin: 4pt 0 18pt; font-size: 9pt; color: #333; padding-bottom: 8pt; border-bottom: 1px solid #000; }
+  .contact { margin: 4pt 0 18pt; font-size: 8.2pt; white-space: nowrap; color: #333; padding-bottom: 8pt; border-bottom: 1px solid #000; }
   p { margin: 0 0 9pt; }
   .date { margin-bottom: 14pt; }
   .sign { margin-top: 14pt; }
