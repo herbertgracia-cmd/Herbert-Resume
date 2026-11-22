@@ -300,7 +300,7 @@
         "line": "Built Fromm’s marketing from zero.",
         "points": [
           "Go-to-market: a multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social) that grew enrollment 10% in 2025–2026",
-          "Field marketing: research showed our community responds to in-person outreach, so I built and lead a volunteer team at San Francisco farmers markets, starting with a test at Clement Street and expanding to the Ferry Building and Fort Mason. The Fall 2026 session brought in 80+ new students, and a new-student survey tracks which channels bring them in",
+          "Field marketing: research showed our community responds to in-person outreach, so I built and lead a volunteer team at San Francisco farmers markets (Clement Street, then the Ferry Building and Fort Mason). Our new-student survey showed 29 of Fall 2026’s 80+ new students, more than 1 in 3, found us there",
           "B2B sales: sell Fromm courses to retirement communities so residents can attend from their own locations; 4 communities signed so far, with a marketing plan I built to add more",
           "Media buying: a $20K-a-year Hearst Media account (San Francisco Chronicle, SFGATE) and $3K a month in paid social"
         ],
@@ -589,13 +589,21 @@
         "Events"
       ],
       "year": "2026",
-      "summary": "Research showed Fromm’s community responds to in-person outreach, so I built a volunteer team to represent Fromm at San Francisco farmers markets. The Fall 2026 session brought in 80+ new students.",
+      "summary": "Research showed Fromm’s community responds to in-person outreach, so I built a volunteer team to represent Fromm at San Francisco farmers markets. In Fall 2026, 29 of our 80+ new students said they found us at a farmers market.",
       "caption": "A volunteer team at Clement Street, the Ferry Building, and Fort Mason",
-      "result": "80+ new students, Fall 2026",
+      "result": "29 of 80+ new students came from the markets",
       "role": "Found the opportunity through research; built and lead the volunteer team; planned the outreach",
       "challenge": "Research showed that Fromm’s community, adults 50 and over, responds better to meeting people in person than to ads alone.",
       "approach": "I built a volunteer team to represent Fromm at San Francisco farmers markets, starting with a test at Clement Street and expanding to the Ferry Building and Fort Mason. We survey every new student on how they found us, so we can see which channels work.",
-      "outcome": "The Fall 2026 session brought in 80+ new students, part of growing enrollment from about 900 to nearly 1,000 students per session, about 10%. Next: more markets to grow Winter 2027 enrollment."
+      "outcome": "The Fall 2026 session brought in 80+ new students, and our survey showed 29 of them, more than 1 in 3, found us at a farmers market. That’s part of growing enrollment from about 900 to nearly 1,000 students per session, about 10%. Next: more markets to grow Winter 2027 enrollment.",
+      "images": [
+        {
+          "src": "/work/fromm-farmers-market.jpg",
+          "alt": "Herbert (right) with a fellow Fromm representative at the Clement Street farmers market, holding a sign: “University level classes for adults 50+. No tests. No grades. Just learning.” Below, the post Herbert designed: “Meet Fromm on Clement Street, Farmers Market, November 1 & 8.”",
+          "w": 601,
+          "h": 601
+        }
+      ]
     },
     {
       "title": "FAZE Apparel",
