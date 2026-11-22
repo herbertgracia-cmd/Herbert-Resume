@@ -98,17 +98,23 @@
         <a class="btn btn-ghost" id="hero-resume" href="/Herbert-Gracia-Resume.pdf" download>Download resume</a>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
+      <nav class="hero-cats screen-only" id="hero-cats" aria-label="Jump to work by category" hidden></nav>
       <div class="stats" id="stats"></div>
       <p class="partners" id="partners" hidden></p>
     </section>
 
+    <div class="work-strip screen-only" id="work-strip" hidden>
+      <div class="work-strip-track" id="work-strip-track"></div>
+    </div>
+
     <section class="section" id="portfolio">
       <div class="section-head">
-        <h2 class="section-title"><span class="num"></span><span class="screen-only">Selected Work &amp; Brand Impact</span><span class="print-only">Selected Work</span></h2>
+        <h2 class="section-title"><span class="num"></span><span class="screen-only">Selected Work</span><span class="print-only">Selected Work</span></h2>
         <button class="head-link" id="work-more" type="button" hidden></button>
       </div>
       <div class="work">
-        <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by type" hidden></div>
+        <div class="work-filters" id="work-filters" role="group" aria-label="Filter work by category" hidden></div>
+        <p class="work-intro" id="work-intro"></p>
         <p class="sr-only" id="work-count" role="status"></p>
         <ul class="work-grid" id="work-grid"></ul>
         <ul class="work-list" id="work-list" hidden></ul>

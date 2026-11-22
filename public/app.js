@@ -100,7 +100,8 @@ function render(d) {
   // Experience: 3 key bullets per job; the rest sits behind "More".
   $("#jobs").replaceChildren(...d.experience.map(renderJob));
 
-  renderWork(d.work || []);
+  renderWork(d.work || [], d.work_categories || []);
+  renderStrip(d.work || []);
 
   // Expertise: a short list on the page; every skill group, tool, and industry under "All skills".
   const groups = (d.skills || []).filter((g) => g.group !== "Languages");
@@ -242,81 +243,122 @@ function workCover(item, { large = false, hue = 0 } = {}) {
   return cover;
 }
 
-function renderWork(items) {
+function renderWork(items, catMeta = []) {
   const section = $("#portfolio");
   if (!items.length) return section.remove();
 
-  const CATEGORY_ORDER = [
-    "Apparel & product", "Print & web design", "Retail & events", "Marketing & PR", "Video",
-  ];
+  // Tabs come from content.json "work_categories" (Brand, Design, Events, Marketing, PR), in that order.
+  const order = catMeta.map((c) => c.name);
+  const intros = Object.fromEntries(catMeta.map((c) => [c.name, c.intro]));
   const cats = [...new Set(items.flatMap(categoriesOf))]
-    .sort((a, b) => (CATEGORY_ORDER.indexOf(a) + 1 || 99) - (CATEGORY_ORDER.indexOf(b) + 1 || 99));
+    .sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99));
   const filters = $("#work-filters");
   const grid = $("#work-grid");
-  const list = $("#work-list");
-  let row = 0;
-  const num = () => String(++row).padStart(2, "0");
+  const introEl = $("#work-intro");
+  $("#work-list")?.remove();
+  $("#work-more")?.remove();
   const caption = (item) => item.caption || item.summary;
-  const tag = (item) => item.tag || categoryLabel(item);
 
-  // Featured pieces: big image tiles with a one-line caption. The case study opens in the dialog.
-  // Everything else: a compact typeset list under "All work".
-  const featured = items.some((i) => i.featured) ? items.map((i) => !!i.featured) : items.map(() => true);
+  // Every piece is an image tile; the case study opens in the dialog.
   const entries = items.map((item, i) => {
-    // Each card button is named by all of its visible text (title, label, caption).
-    const ids = {};
-    const cats = JSON.stringify(categoriesOf(item));
-    const el = featured[i]
-      ? h("li", { class: "reveal", "data-category": cats },
-          h("button", { class: isCaseStudy(item) ? "work-card is-case" : "work-card", type: "button", "aria-haspopup": "dialog", ...ids },
-            workCover(item, { hue: i }),
-            h("span", { class: "work-cap" },
-              h("h3", { id: `work-title-${i}` }, item.title),
-              h("span", { class: "work-tag" }, [tag(item), item.year].filter(Boolean).join(" · ")),
-              h("span", { class: "work-text", id: `work-sum-${i}` }, caption(item)),
-            ),
-          ))
-      : h("li", { "data-category": cats },
-          h("button", { class: "work-row", type: "button", "aria-haspopup": "dialog", ...ids },
-            h("span", { class: "work-num", "aria-hidden": "true" }, num()),
-            h("span", { class: "work-row-title", id: `work-title-${i}` }, item.title),
-            h("span", { class: "work-text", id: `work-sum-${i}` }, caption(item)),
-            h("span", { class: "work-tag" }, [tag(item), item.year].filter(Boolean).join(" · ")),
-          ));
+    const el = h("li", { class: "reveal work-tile", "data-category": JSON.stringify(categoriesOf(item)) },
+      h("button", { class: isCaseStudy(item) ? "work-card is-case" : "work-card", type: "button", "aria-haspopup": "dialog" },
+        workCover(item, { hue: i, large: i === 0 }),
+        h("span", { class: "work-cap" },
+          h("span", { class: "work-chips" }, categoriesOf(item).map((c) => h("span", { class: `work-chip ${categoryClass(c)}` }, c))),
+          h("h3", {}, item.title),
+          h("span", { class: "work-text" }, caption(item)),
+          h("span", { class: "work-open", "aria-hidden": "true" }, isCaseStudy(item) ? "Case study ↗" : "View ↗"),
+        ),
+      ));
     el.querySelector("button").addEventListener("click", () => openWork(item, i));
+    el.style.viewTransitionName = `work-tile-${i}`; // lets tiles glide to their new spots when a tab changes
     return el;
   });
-  grid.replaceChildren(...entries.filter((_, i) => featured[i]));
-  list.replaceChildren(...entries.filter((_, i) => !featured[i]));
+  grid.replaceChildren(...entries);
 
-  const more = $("#work-more");
-  const extra = entries.length - featured.filter(Boolean).length;
-  if (extra > 0) {
-    more.textContent = `All work (${items.length}) →`;
-    more.hidden = false;
-    more.addEventListener("click", () => {
-      list.hidden = false;
-      filters.hidden = cats.length < 2;
-      more.hidden = true;
-      // Keep keyboard users in place: move focus to the first newly shown piece.
-      list.querySelector("button")?.focus();
-    });
-  } else more.remove();
+  // The category tabs stick just under the top bar, whose height changes with the screen size.
+  const bar = document.querySelector(".topbar");
+  const setBarHeight = () => document.documentElement.style.setProperty("--topbar-h", `${bar?.offsetHeight || 64}px`);
+  setBarHeight();
+  addEventListener("resize", setBarHeight);
 
+  // The first visible tile is large; the last one stretches so the final row has no gap.
+  const markLead = () => {
+    const shown = entries.filter((e) => !e.hidden);
+    entries.forEach((e) => { e.classList.remove("is-lead"); e.style.gridColumn = ""; e.style.gridRow = ""; });
+    shown[0]?.classList.add("is-lead");
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean).length;
+    if (cols < 2 || shown.length < 2) return;
+    // Only two pieces on desktop: the second stands full height beside the large one.
+    if (cols >= 3 && shown.length === 2) { shown[1].style.gridRow = "span 2"; return; }
+    const leadCells = cols >= 3 ? 4 : cols; // 2x2 on desktop, a full row on tablets
+    const filled = (leadCells + shown.length - 1) % cols;
+    if (filled) shown[shown.length - 1].style.gridColumn = `span ${cols - filled + 1}`;
+  };
+  addEventListener("resize", () => markLead());
+  markLead();
+  const allIntro = "Brand, design, events, marketing, and PR work from 20+ years. Pick a category to see just that work.";
+  introEl.textContent = allIntro;
   if (cats.length < 2) return filters.remove();
+
+  const count = (c) => (c === "All" ? items.length : items.filter((it) => categoriesOf(it).includes(c)).length);
   const buttons = ["All", ...cats].map((c) =>
-    h("button", { type: "button", "aria-pressed": String(c === "All"), "data-filter": c }, c),
+    h("button", { type: "button", "aria-pressed": String(c === "All"), "data-filter": c },
+      c, h("span", { class: "work-filter-n", "aria-hidden": "true" }, count(c))),
   );
   filters.replaceChildren(...buttons);
-  filters.addEventListener("click", (e) => {
-    const btn = e.target.closest("button");
-    if (!btn) return;
-    const f = btn.dataset.filter;
-    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+  filters.hidden = false;
+
+  const apply = (f) => {
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === f)));
     entries.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
+    markLead();
+    introEl.textContent = f === "All" ? allIntro : intros[f] || "";
     const shown = entries.filter((c) => !c.hidden).length;
     $("#work-count").textContent = f === "All" ? `Showing all ${entries.length} pieces` : `Showing ${shown} of ${entries.length}: ${f}`;
+  };
+  // Smooth re-layout where the browser supports view transitions; instant otherwise.
+  const select = (f) => {
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (document.startViewTransition && !still) document.startViewTransition(() => apply(f));
+    else apply(f);
+  };
+  filters.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (btn) select(btn.dataset.filter);
   });
+
+  // Hero shortcuts: each category jumps to the work and opens that tab.
+  const heroCats = $("#hero-cats");
+  if (heroCats) {
+    heroCats.replaceChildren(...cats.map((c) => {
+      const a = h("a", { href: "#portfolio", class: `hero-cat ${categoryClass(c)}` }, c);
+      a.addEventListener("click", () => select(c));
+      return a;
+    }));
+    heroCats.hidden = false;
+  }
+}
+
+// A slow strip of work photos under the hero (small copies from /work/thumbs/).
+// Each photo opens its piece; the strip pauses on hover and stays still for reduced motion.
+function renderStrip(items) {
+  const strip = $("#work-strip");
+  const track = $("#work-strip-track");
+  if (!strip || !track) return;
+  const shots = [];
+  items.forEach((item, i) => (item.images || []).slice(0, 3).forEach((img) => shots.push({ item, i, img })));
+  if (shots.length < 4) return strip.remove();
+  const tile = ({ item, i, img }, copy) => {
+    const b = h("button", { type: "button", class: "strip-shot", "aria-label": `Open ${item.title}`, tabindex: copy ? "-1" : null, "aria-hidden": copy ? "true" : null },
+      h("img", { src: "/work/thumbs/" + img.src.split("/").pop(), alt: "", loading: "lazy", decoding: "async" }));
+    b.addEventListener("click", () => openWork(item, i));
+    return b;
+  };
+  // The list runs twice so the loop is seamless; the copy is hidden from screen readers and the keyboard.
+  track.replaceChildren(...shots.map((s) => tile(s, false)), ...shots.map((s) => tile(s, true)));
+  strip.hidden = false;
 }
 
 function openWork(item, index = 0) {

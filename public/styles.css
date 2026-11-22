@@ -920,3 +920,130 @@ img, svg { display: block; }
 @media print {
   .job-since { display: block; white-space: normal; margin-top: 2pt; font-size: 8pt; line-height: 1.25; }
 }
+
+/* ===== Portfolio, Nov 2026: bolder and image-first, with category tabs. Screen only (the printed resume is untouched). ===== */
+:root {
+  --c-brand: #b8360f; --c-design: #1d4ed8; --c-events: #7c3aed; --c-marketing: #047857; --c-pr: #a14a00;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --c-brand: #ff8a65; --c-design: #8fb0ff; --c-events: #c9a8ff; --c-marketing: #5ad7a6; --c-pr: #f5b454; }
+}
+:root[data-theme="dark"] { --c-brand: #ff8a65; --c-design: #8fb0ff; --c-events: #c9a8ff; --c-marketing: #5ad7a6; --c-pr: #f5b454; }
+.cat-brand { --c: var(--c-brand); }
+.cat-design { --c: var(--c-design); }
+.cat-events { --c: var(--c-events); }
+.cat-marketing { --c: var(--c-marketing); }
+.cat-pr { --c: var(--c-pr); }
+.cat-brand { --pattern: repeating-linear-gradient(90deg, var(--tint) 0 1px, transparent 1px 18px); }
+.cat-pr { --pattern: repeating-linear-gradient(0deg, var(--tint) 0 2px, transparent 2px 12px); }
+
+@media screen {
+  /* Hero: jump straight to a kind of work. */
+  .hero-cats { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 26px; }
+  .hero-cats[hidden] { display: none; }
+  .hero-cat {
+    position: relative; font: italic 400 clamp(1.6rem, 3vw, 2.3rem)/1.1 var(--serif); color: var(--ink); text-decoration: none;
+    padding-bottom: 2px; background: linear-gradient(var(--c), var(--c)) 0 100% / 0 2px no-repeat; transition: background-size .35s ease, color .2s;
+  }
+  .hero-cat::before { content: ""; display: inline-block; width: .32em; height: .32em; margin: 0 .3em .12em 0; border-radius: 50%; background: var(--c); }
+  .hero-cat:hover, .hero-cat:focus-visible { color: var(--c); background-size: 100% 2px; }
+
+  /* A slow strip of work photos between the hero and the work. */
+  .work-strip { overflow: hidden; padding: 8px 0 clamp(24px, 5vh, 48px); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .work-strip[hidden] { display: none; }
+  .work-strip-track { display: flex; gap: 12px; width: max-content; animation: strip-scroll 70s linear infinite; }
+  .work-strip:hover .work-strip-track, .work-strip:focus-within .work-strip-track { animation-play-state: paused; }
+  .strip-shot { flex: 0 0 auto; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: var(--surface); cursor: pointer; }
+  .strip-shot img { display: block; height: clamp(120px, 15vw, 190px); width: auto; transition: transform .5s ease, filter .3s; }
+  .strip-shot:hover img, .strip-shot:focus-visible img { transform: scale(1.06); }
+  @keyframes strip-scroll { to { transform: translateX(calc(-50% - 6px)); } }
+
+  /* Category tabs: stick under the top bar while you browse. */
+  #portfolio .work-filters {
+    position: sticky; top: var(--topbar-h, 64px); z-index: 5; gap: 8px; margin: 0 calc(var(--gutter) * -1); padding: 10px var(--gutter);
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  }
+  #portfolio .work-filters::-webkit-scrollbar { display: none; }
+  #portfolio .work-filters button {
+    flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px;
+    font: 500 13px/1 var(--sans); text-transform: none; letter-spacing: 0; transition: background-color .2s, color .2s, border-color .2s;
+  }
+  #portfolio .work-filters button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .work-filter-n { font: 500 11px/1 var(--mono); opacity: .6; }
+  .work-intro { margin: -6px 0 0; max-width: 70ch; color: var(--muted); font-size: 1.05rem; line-height: 1.5; min-height: 3em; }
+
+  /* The grid: image tiles, the first one large. */
+  #portfolio .work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: clamp(230px, 22vw, 300px); grid-auto-flow: dense; gap: 16px;
+  }
+  #portfolio .work-grid > li { grid-column: auto; grid-row: auto; min-width: 0; }
+  #portfolio .work-grid > li.is-lead { grid-column: span 2; grid-row: span 2; }
+  #portfolio .work-card { position: relative; display: block; width: 100%; height: 100%; padding: 0; border-radius: 16px; overflow: hidden; background: var(--surface); }
+  #portfolio .work-card .work-cover { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; border-radius: 0; }
+  #portfolio .work-card .work-cover img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+  #portfolio .work-card:hover .work-cover img, #portfolio .work-card:focus-visible .work-cover img { transform: scale(1.06); }
+  #portfolio .work-card.is-case .work-cover::after { content: none; }
+
+  /* Caption over the photo: chips and title always; the summary slides in on hover or focus. */
+  #portfolio .work-cap {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; flex-direction: column; gap: 6px; margin: 0;
+    padding: 48px 18px 16px; color: #fff; background: linear-gradient(to top, rgb(0 0 0 / .82), rgb(0 0 0 / .45) 55%, transparent);
+  }
+  #portfolio .work-card .work-cap h3 { margin: 0; color: inherit; font: 400 clamp(1.4rem, 2vw, 1.75rem)/1.05 var(--serif); }
+  #portfolio .is-lead .work-card .work-cap h3 { font-size: clamp(1.9rem, 3.4vw, 3rem); }
+  #portfolio .work-cap .work-text {
+    max-width: 60ch; max-height: 0; opacity: 0; overflow: hidden; margin: 0; color: rgb(255 255 255 / .88); font-size: 14.5px; line-height: 1.45;
+    transition: max-height .45s ease, opacity .35s ease;
+  }
+  #portfolio .work-card:hover .work-text, #portfolio .work-card:focus-visible .work-text { max-height: 7em; opacity: 1; }
+  .work-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .work-chip {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 999px;
+    background: rgb(255 255 255 / .16); color: #fff; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .work-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+  .work-open {
+    position: absolute; top: 14px; right: 14px; padding: 8px 12px; border-radius: 999px; background: var(--bg); color: var(--ink);
+    font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; opacity: 0; transform: translateY(-4px); transition: opacity .3s, transform .3s;
+  }
+  #portfolio .work-card:hover .work-open, #portfolio .work-card:focus-visible .work-open { opacity: 1; transform: none; }
+
+  /* Pieces without a photo yet: a bold typeset poster, captioned in the page's ink color. */
+  #portfolio .work-card:has(> .work-cover:not(.has-image)) .work-cap { background: none; color: var(--cat-ink); padding-top: 16px; }
+  #portfolio .work-card:has(> .work-cover:not(.has-image)) .work-cap h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  #portfolio .work-card:has(> .work-cover:not(.has-image)) .work-cap .work-text { color: var(--cat-ink); }
+  #portfolio .work-card:has(> .work-cover:not(.has-image)) .work-chip { background: color-mix(in srgb, var(--cat-ink) 12%, transparent); color: var(--cat-ink); }
+  #portfolio .work-card .work-cover:not(.has-image) .work-cover-meta > :first-child { visibility: hidden; }
+  #portfolio .work-card .work-cover:not(.has-image) { padding: 18px 20px; justify-content: flex-start; gap: 14px; }
+
+  /* Touch screens have no hover: show the summary (two lines) and the open label. */
+  @media (hover: none) {
+    #portfolio .work-cap .work-text { max-height: 2.9em; opacity: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    .work-open { opacity: 1; transform: none; }
+  }
+
+  /* Tab changes: tiles cross-fade and glide. */
+  ::view-transition-group(*) { animation-duration: .45s; animation-timing-function: cubic-bezier(.2,.7,.2,1); }
+
+  @media (max-width: 900px) {
+    #portfolio .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(220px, 36vw, 300px); }
+    #portfolio .work-grid > li.is-lead { grid-column: span 2; grid-row: span 1; }
+  }
+  @media (max-width: 600px) {
+    #portfolio .work-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; gap: 12px; }
+    #portfolio .work-grid > li.is-lead { grid-column: auto; grid-row: span 1; }
+    .hero-cats { gap: 4px 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .work-strip-track { animation: none; }
+    .work-strip { overflow-x: auto; mask-image: none; }
+    .strip-shot[aria-hidden="true"] { display: none; }
+    #portfolio .work-card .work-cover img, .strip-shot img { transition: none; }
+  }
+}
+@media screen {
+  /* Small tiles show their first three categories; the large tile and the open view show all. */
+  #portfolio .work-grid > li:not(.is-lead) .work-chip:nth-child(n+4) { display: none; }
+}
