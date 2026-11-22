@@ -267,6 +267,7 @@ function renderWork(items, catMeta = []) {
         h("span", { class: "work-cap" },
           h("span", { class: "work-chips" }, categoriesOf(item).map((c) => h("span", { class: `work-chip ${categoryClass(c)}` }, c))),
           h("h3", {}, item.title),
+          item.result && h("span", { class: "work-result" }, item.result),
           h("span", { class: "work-text" }, caption(item)),
           h("span", { class: "work-open", "aria-hidden": "true" }, isCaseStudy(item) ? "Read case study →" : "See the work →"),
         ),
@@ -285,7 +286,7 @@ function renderWork(items, catMeta = []) {
 
   // The first visible tile is large; the last one stretches so the final row has no gap.
   const markLead = () => {
-    const shown = entries.filter((e) => !e.hidden);
+    const shown = [...grid.children].filter((e) => !e.hidden); // on-screen order
     entries.forEach((e) => { e.classList.remove("is-lead"); e.style.gridColumn = ""; e.style.gridRow = ""; });
     shown[0]?.classList.add("is-lead");
     const cols = getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean).length;
@@ -312,6 +313,9 @@ function renderWork(items, catMeta = []) {
 
   const apply = (f) => {
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === f)));
+    // Each tab leads with the pieces where that category comes first (e.g. the 50th and the stores on Events).
+    const rank = (el) => (f === "All" ? 0 : JSON.parse(el.dataset.category).indexOf(f));
+    grid.append(...entries.map((el, i) => [el, i]).sort((a, b) => rank(a[0]) - rank(b[0]) || a[1] - b[1]).map(([el]) => el));
     entries.forEach((c) => { c.hidden = f !== "All" && !JSON.parse(c.dataset.category).includes(f); c.classList.add("in"); });
     markLead();
     introEl.textContent = f === "All" ? allIntro : intros[f] || "";

@@ -1,6 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job’s 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. An 'intro' block would turn on a welcome pop-up (removed for now). A job’s optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate’s 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job’s 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item’s 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections. Optional 'result': one short line (a number or outcome) shown on the tile face.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Leader",
   "location": "San Francisco, CA",
@@ -381,7 +381,8 @@
       "approach": "I built the brand around its logo: not just an X, but an X that marks the spot, the exact place in time you’re in. The tiger became our signature image because tigers are strong, smart, and striking, and it gave everything from embroidered caps to graphic tees one recognizable look. I designed each product within what a small independent brand could afford. We sold through our store, e-commerce, wholesale, and B2B.",
       "outcome": "An independent brand with its own retail store, online shop, and co-branded products. In 2024 I sold my ownership stake to my business partner.",
       "caption": "Building an apparel brand across products, partnerships, and retail",
-      "tag": "Apparel · Retail"
+      "tag": "Apparel · Retail",
+      "result": "Exited via partner buyout, 2024"
     },
     {
       "title": "Fromm Institute",
@@ -455,7 +456,8 @@
           "w": 1100,
           "h": 1375
         }
-      ]
+      ],
+      "result": "Enrollment +10%, 2025–2026"
     },
     {
       "title": "FAZE Apparel",
@@ -492,7 +494,8 @@
           "w": 1024,
           "h": 681
         }
-      ]
+      ],
+      "result": "Acquired, 2019"
     },
     {
       "title": "Retail & event environments",
@@ -502,7 +505,7 @@
       ],
       "year": "FAZE & State of Flux",
       "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, plus FAZE trade-show booths in Las Vegas, Miami, Los Angeles, and New York and State of Flux pop-ups.",
-      "details": "Led both store build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors. Pictured: the State of Flux store before and after.",
+      "details": "Led both store build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors. Pictured: the FAZE store, and the State of Flux store before and after its build-out.",
       "role": "Space designer & project lead",
       "tags": [
         "Retail design",
@@ -537,7 +540,41 @@
         }
       ],
       "caption": "Two stores, trade-show booths, and pop-ups",
-      "tag": "Retail · Trade shows · Pop-ups"
+      "tag": "Retail · Trade shows · Pop-ups",
+      "result": "2 stores · booths in 4 cities"
+    },
+    {
+      "title": "Fromm 50th Anniversary",
+      "category": [
+        "Events",
+        "Brand",
+        "Design"
+      ],
+      "year": "2025–2026",
+      "summary": "For Fromm’s 50th (1976–2026), I designed a bold purple-and-gold “50” badge and carried it into the gala, print, digital, and press.",
+      "caption": "Logo, campaign, and gala branding for Fromm’s 50th",
+      "result": "Gala, print, digital & press",
+      "role": "Designed the 50th Anniversary logo and campaign",
+      "images": [
+        {
+          "src": "/work/fromm-50th-gala-banner.jpg",
+          "alt": "Banner for the Fromm Institute’s 50th Anniversary Gala Luncheon: the purple-and-gold '50' badge over a collage of archival member photos",
+          "w": 1400,
+          "h": 547
+        },
+        {
+          "src": "/work/fromm-50th.jpg",
+          "alt": "Fromm Institute 50th anniversary graphic: a purple and gold '50, 1976–2026' badge over a collage of photos of members through the years",
+          "w": 500,
+          "h": 500
+        },
+        {
+          "src": "/work/fromm-50-years-flyer.jpg",
+          "alt": "'50 Years of Lifelong Learning' flyer with the gold 50 Years badge, dates for fall classes, the 50th Anniversary Gala, and the Holiday Lecture Series, and class photos",
+          "w": 900,
+          "h": 1350
+        }
+      ]
     },
     {
       "title": "Frommcast",
@@ -563,7 +600,8 @@
       "approach": "I built the website, subscription system, and recording setup, then produced lecture videos organized by subject. Later we moved the library to YouTube.",
       "outcome": "3,000+ active users and monthly paying subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers in the channel’s first 6 months.",
       "caption": "Fromm’s “Netflix for lifelong learning”: 3,000+ active users",
-      "tag": "Video · Digital product"
+      "tag": "Video · Digital product",
+      "result": "3,000+ active users"
     },
     {
       "title": "Brand collaborations",
@@ -594,7 +632,8 @@
           "h": 320
         }
       ],
-      "caption": "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA"
+      "caption": "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA",
+      "result": "Pinterest · Timbuk2 · SFMOMA"
     },
     {
       "title": "Fromm website & online enrollment",
@@ -602,14 +641,24 @@
         "Design",
         "Marketing"
       ],
-      "year": "",
+      "year": "2022–Present",
       "summary": "Designed the Fromm website and lead its Salesforce CRM, directing an outside development company, with Stripe and CashNet payments built in so staff manage tuition and enrollment in-house.",
       "tags": [
         "Salesforce",
         "Stripe",
         "CashNet"
       ],
-      "caption": "Website, Salesforce CRM, and online payments"
+      "caption": "Website, Salesforce CRM, and online payments",
+      "result": "Salesforce CRM · online enrollment",
+      "images": [
+        {
+          "src": "/work/fromm-landing-page.jpg",
+          "alt": "Fromm enrollment landing page: 'Learning for the love of it' headline, a sign-up form, and a Frommcast on YouTube section",
+          "w": 1100,
+          "h": 1375
+        }
+      ],
+      "role": "Designed the site; lead its Salesforce CRM"
     },
     {
       "title": "National press release",
@@ -627,7 +676,8 @@
         "Storytelling"
       ],
       "role": "Ran the survey and wrote the press release",
-      "caption": "Survey and press release syndicated to 500+ outlets"
+      "caption": "Survey and press release syndicated to 500+ outlets",
+      "result": "Syndicated to 500+ outlets"
     }
   ],
   "work_categories": [
@@ -859,7 +909,7 @@
       ]
     }
   ],
-  "specialties": "Brand Strategy · Creative Direction · Product & Campaigns",
+  "specialties": "Brand Strategy · Creative Direction · Partnerships · Events",
   "tools": [
     "Adobe Creative Cloud / Creative Suite (Photoshop, Illustrator, InDesign, Premiere Pro)",
     "Figma",
