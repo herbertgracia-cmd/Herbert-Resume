@@ -300,12 +300,12 @@
         "line": "Built Fromm’s marketing from zero.",
         "points": [
           "Go-to-market: a multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social) that grew enrollment 10% in 2025–2026",
-          "B2B sales and partnerships: sell Fromm programs to retirement communities (5+ partners) and work with city agencies to open new enrollment channels",
+          "B2B sales: sell Fromm courses to retirement communities so residents can attend from their own locations; 4 communities signed so far, with a marketing plan I built to add more",
           "Media buying: a $20K-a-year Hearst Media account (San Francisco Chronicle, SFGATE) and $3K a month in paid social"
         ],
         "work": [
           "Fromm Institute",
-          "Salesforce website & online enrollment"
+          "Retirement community partnerships"
         ]
       },
       {
@@ -722,6 +722,17 @@
       "result": "1,500+ subscribers · 700+ on YouTube"
     },
     {
+      "title": "Retirement community partnerships",
+      "category": [
+        "Marketing"
+      ],
+      "year": "2025–Present",
+      "summary": "A B2B program that brings Fromm’s courses to retirement communities, so residents can attend classes from their own locations. I’ve sold it to 4 communities so far and built the marketing plan to keep adding more.",
+      "caption": "Fromm courses sold to retirement communities, streamed to residents",
+      "result": "4 communities signed",
+      "role": "Built the offer and the marketing plan; sell to and manage the partner communities"
+    },
+    {
       "title": "Brand collaborations",
       "category": [
         "Brand",
@@ -790,7 +801,7 @@
       "role": "Designed the site and the enrollment flow; manage the outside engineers and vendors; connected the payments",
       "challenge": "Fromm enrolled students in person and by phone, and students outside San Francisco couldn’t attend classes.",
       "approach": "I designed the website and an 8-step online enrollment (student information, membership, classes, parking, giving, about you, review, and payment) that runs in Salesforce, and connected Stripe for payments. I manage the outside engineers and vendors who build it. We also added Zoom classes so students outside San Francisco can attend.",
-      "outcome": "About 70% of enrollment now happens online, with in-person and phone enrollment still available. Staff manage tuition and enrollment in-house, and Salesforce dashboards track enrollments and online vs. in-person attendance. Next: an AI chatbot to help students who get stuck, and redesigned enrollment emails."
+      "outcome": "About 70% of enrollment now happens online, with in-person and phone enrollment still available. Staff manage tuition and enrollment in-house, and Salesforce dashboards track enrollments and online vs. in-person attendance. The Zoom classes also opened a B2B channel: retirement communities buy access so residents can attend from their own locations (4 so far). Next: an AI chatbot to help students who get stuck, and redesigned enrollment emails."
     },
     {
       "title": "National press release",
