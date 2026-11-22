@@ -272,13 +272,135 @@
       "exit_note": "The company was acquired by a privately held business, including its brand assets, logos, designs, and intellectual property rights."
     }
   ],
+  "now": {
+    "eyebrow": "Now · Since 2022",
+    "title": "Assistant Director, Technology, Marketing & Creative",
+    "org": "Fromm Institute for Lifelong Learning, University of San Francisco",
+    "facts": [
+      "3,000 students a year",
+      "At Fromm since 2005, 4 roles"
+    ],
+    "team": "Lead brand, marketing, communications, and technology. Manage 6 student staff, 3 vendors, and 2 engineers at an outside Salesforce development company; work with a 21-member Board of Directors and 20+ volunteers.",
+    "areas": [
+      {
+        "name": "Brand, Design & Events",
+        "line": "One look and voice across every channel, and the moments people show up for.",
+        "points": [
+          "Brand strategy and creative direction: one visual identity and voice across catalogs, print ads, email, social, the website, and events",
+          "50th Anniversary campaign (1976–2026): designed the logo and campaign and carried it across the gala, print, digital, and press",
+          "Government and stakeholder relations: coordinated with the City and the Mayor of San Francisco’s office on the proclamation making November 14 “Fromm Day” in San Francisco, and managed everything the Mayor’s team needed at the gala"
+        ],
+        "work": [
+          "Fromm 50th Anniversary",
+          "Fromm Institute"
+        ]
+      },
+      {
+        "name": "Marketing, Growth & B2B Sales",
+        "line": "Built Fromm’s marketing from zero.",
+        "points": [
+          "Go-to-market: a multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social) that grew enrollment 10% in 2025–2026",
+          "B2B sales and partnerships: sell Fromm programs to retirement communities (5+ partners) and work with city agencies to open new enrollment channels",
+          "Media buying: a $20K-a-year Hearst Media account (San Francisco Chronicle, SFGATE) and $3K a month in paid social"
+        ],
+        "work": [
+          "Fromm Institute",
+          "Fromm website & online enrollment"
+        ]
+      },
+      {
+        "name": "PR & Communications",
+        "line": "Earned media at national scale.",
+        "points": [
+          "Lifelong learning survey: ran the survey and wrote the release; PR Newswire syndicated it to 505 outlets (265 newspapers, 180 broadcast media), with a potential audience of 106.7M, including 164 journalists",
+          "Fromm Day and 50th Anniversary gala: a release picked up by 465 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, with a potential audience of 140.1M and 39.4K views",
+          "Audience growth: 300+ new Facebook and Instagram followers in my first year running social"
+        ],
+        "work": [
+          "National press release"
+        ]
+      },
+      {
+        "name": "Technology, Product & AI",
+        "line": "I own Fromm’s technology end to end and build the products we run on.",
+        "points": [
+          "Platforms: the online enrollment and payments system (Salesforce CRM, Stripe, CashNet), the website, and our internal tools",
+          "Product development, idea to market: built Frommcast, a subscription streaming platform for lifelong learning, to 1,500+ subscribers, then moved it to YouTube (200+ free classes, 700+ subscribers)",
+          "Budget and vendor management: a $100K-a-year technology budget, on budget every year; direct an outside development company",
+          "Applied AI: building Fromm’s AI enrollment chatbot; Certificate in Applied Agentic AI (2026)"
+        ],
+        "work": [
+          "Frommcast",
+          "Fromm website & online enrollment"
+        ]
+      }
+    ],
+    "path_label": "My path at Fromm",
+    "path": [
+      {
+        "year": "2005",
+        "title": "Program Manager"
+      },
+      {
+        "year": "2012",
+        "title": "Instructional Technology Manager"
+      },
+      {
+        "year": "2019",
+        "title": "Specialist, Instructional Technology & Media",
+        "note": "Special projects: built Frommcast from idea to market"
+      },
+      {
+        "year": "2022",
+        "title": "Assistant Director, Technology, Marketing & Creative"
+      }
+    ],
+    "path_caption": "From programs and events, to technology and media, to leading brand, marketing, and technology."
+  },
+  "entrepreneur": {
+    "eyebrow": "Entrepreneur · 2007–2024",
+    "headline": "Co-founded and exited two apparel brands.",
+    "sub": "Full ownership of brand, product, and go-to-market: brand building, logo and product design, creative direction, photo shoots, product development and manufacturing, project management, and sales.",
+    "brands": [
+      {
+        "name": "FAZE Apparel",
+        "years": "2007–2019",
+        "exit": "Acquired, 2019",
+        "points": [
+          "Wholesale and B2B sales: with our sales team, sold direct to retailers and grew distribution to 10+ retail accounts",
+          "Retail: designed, built out, and opened our flagship store",
+          "Trade shows and experiential marketing: designed every booth and brand experience in Las Vegas, Miami, Los Angeles, and New York",
+          "Exit: sold the full company, including its brand assets and IP, to a privately held business"
+        ],
+        "work": [
+          "FAZE Apparel",
+          "Retail & event environments"
+        ]
+      },
+      {
+        "name": "State of Flux",
+        "years": "2019–2024",
+        "exit": "Partner buyout, 2024",
+        "points": [
+          "Brand partnerships and co-branding with SFMOMA, Timbuk2, Pinterest, Harmonic Brewing, and more, from co-branded products to pop-ups",
+          "Direct-to-consumer (DTC), e-commerce, wholesale, and B2B channels, plus our own retail store",
+          "Pop-up retail activations in San Francisco, New York, Los Angeles, and Las Vegas",
+          "Product development: designed every product, from concept through sampling, sourcing, and manufacturing",
+          "Exit: sold my ownership stake to my business partner"
+        ],
+        "work": [
+          "State of Flux",
+          "Brand collaborations"
+        ]
+      }
+    ]
+  },
   "work": [
     {
       "title": "State of Flux",
       "category": [
         "Brand",
-        "Design",
-        "Events"
+        "Design"
       ],
       "year": "2019–2024",
       "summary": "Product design & brand collaborations: original products, co-branded collections with Pinterest, Timbuk2, and SFMOMA, campaigns, and retail.",
@@ -387,10 +509,8 @@
     {
       "title": "Fromm Institute",
       "category": [
-        "Brand",
-        "Design",
         "Marketing",
-        "Events"
+        "Brand"
       ],
       "year": "2022–Present",
       "summary": "One creative direction across print, digital, events, and press: course catalogs, enrollment ads, the website, and the 50th Anniversary campaign.",
@@ -462,9 +582,7 @@
     {
       "title": "FAZE Apparel",
       "category": [
-        "Brand",
-        "Design",
-        "Events"
+        "Brand"
       ],
       "year": "2007–2019",
       "summary": "Building a brand from concept to acquisition: brand identity, original apparel, retail, and marketing campaigns.",
@@ -547,7 +665,6 @@
       "title": "Fromm 50th Anniversary",
       "category": [
         "Events",
-        "Brand",
         "Design"
       ],
       "year": "2025–2026",
@@ -579,8 +696,7 @@
     {
       "title": "Frommcast",
       "category": [
-        "Marketing",
-        "Design"
+        "Marketing"
       ],
       "year": "",
       "summary": "A subscription streaming platform I built for Fromm, our “Netflix for lifelong learning”: 1,500+ monthly subscribers.",
@@ -607,7 +723,6 @@
       "title": "Brand collaborations",
       "category": [
         "Brand",
-        "Events",
         "PR"
       ],
       "year": "State of Flux",
@@ -632,8 +747,8 @@
           "h": 320
         }
       ],
-      "caption": "Co-branded products and pop-ups with Pinterest, Timbuk2, and SFMOMA",
-      "result": "Pinterest · Timbuk2 · SFMOMA"
+      "caption": "Co-branded products and pop-ups with SFMOMA, Timbuk2, Pinterest, and Harmonic Brewing",
+      "result": "SFMOMA · Timbuk2 · Pinterest · Harmonic Brewing"
     },
     {
       "title": "Fromm website & online enrollment",
@@ -663,8 +778,7 @@
     {
       "title": "National press release",
       "category": [
-        "PR",
-        "Marketing"
+        "PR"
       ],
       "year": "",
       "summary": "A Fromm Institute survey finding that lifelong learning boosts happiness and social connection among older adults. I ran the survey and wrote the press release, which PR Newswire syndicated to 500+ news outlets across the U.S. and Europe.",
@@ -677,7 +791,27 @@
       ],
       "role": "Ran the survey and wrote the press release",
       "caption": "Survey and press release syndicated to 500+ outlets",
-      "result": "Syndicated to 500+ outlets"
+      "result": "505 outlets · 106.7M potential reach"
+    },
+    {
+      "title": "Fromm Day & 50th Anniversary release",
+      "category": [
+        "PR",
+        "Events"
+      ],
+      "year": "2026",
+      "summary": "A press release for Fromm Day in San Francisco (November 14, by mayoral proclamation) and Fromm’s 50th Anniversary gala, picked up by 465 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar.",
+      "caption": "Picked up by Yahoo Finance, AP News, KTLA, and Morningstar",
+      "result": "465 outlets · 140.1M potential reach",
+      "role": "Coordinated the proclamation with the Mayor’s office; wrote and distributed the release",
+      "images": [
+        {
+          "src": "/work/fromm-50th-gala-banner.jpg",
+          "alt": "Banner for the Fromm Institute’s 50th Anniversary Gala Luncheon: the purple-and-gold '50' badge over a collage of archival member photos",
+          "w": 1400,
+          "h": 547
+        }
+      ]
     }
   ],
   "work_categories": [

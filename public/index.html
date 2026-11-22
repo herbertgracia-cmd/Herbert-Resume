@@ -37,10 +37,11 @@
   <header class="topbar">
     <a class="mark" href="#top" aria-label="HG, back to top"><span data-bind="initials">HG</span></a>
     <nav aria-label="Sections">
+      <a href="#now">Now</a>
+      <a href="#entrepreneur">Entrepreneur</a>
       <a href="#portfolio">Work</a>
-      <a href="#work">Experience</a>
       <a href="#certification">Applied AI</a>
-      <a href="#skills">Expertise</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="topbar-actions">
@@ -82,6 +83,7 @@
   </section>
 
   <main id="main" tabindex="-1">
+    <div class="sky screen-only" aria-hidden="true"><span class="sky-glow one"></span><span class="sky-glow two"></span><span class="sky-glow three"></span></div>
     <section class="hero" id="top">
       <img class="hero-photo" src="/herbert.jpg" alt="Herbert Gracia" width="600" height="600" fetchpriority="high">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
@@ -94,8 +96,7 @@
       <div class="hero-summary" data-bind="summary"></div>
       <p class="print-only print-summary" id="print-summary"></p>
       <div class="hero-cta">
-        <a class="btn" href="#portfolio">View selected work</a>
-        <a class="btn btn-ghost" id="hero-resume" href="/Herbert-Gracia-Resume.pdf" download>Download resume</a>
+        <a class="btn" id="hero-resume" href="/Herbert-Gracia-Resume.pdf" download>Download resume</a>
         <a class="btn btn-ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn ↗</a>
       </div>
       <nav class="hero-cats screen-only" id="hero-cats" aria-label="Jump to work by category" hidden></nav>
@@ -103,9 +104,15 @@
       <p class="partners" id="partners" hidden></p>
     </section>
 
-    <div class="work-strip screen-only" id="work-strip" hidden>
-      <div class="work-strip-track" id="work-strip-track"></div>
-    </div>
+    <section class="section screen-only now" id="now" aria-labelledby="now-title" hidden>
+      <div class="section-head"><h2 class="section-title" id="now-title"><span class="num"></span>Now</h2></div>
+      <div id="now-body"></div>
+    </section>
+
+    <section class="section screen-only founder" id="entrepreneur" aria-labelledby="ent-title" hidden>
+      <div class="section-head"><h2 class="section-title" id="ent-title"><span class="num"></span>Entrepreneur</h2></div>
+      <div id="ent-body"></div>
+    </section>
 
     <section class="section" id="portfolio">
       <div class="section-head">
@@ -121,7 +128,7 @@
       </div>
     </section>
 
-    <section class="section" id="work">
+    <section class="section print-only" id="work">
       <div class="section-head">
         <h2 class="section-title"><span class="num"></span>Experience</h2>
         <a class="head-link" id="exp-resume" href="/Herbert-Gracia-Resume.pdf" download>Resume (PDF) ↓</a>

@@ -100,8 +100,9 @@ function render(d) {
   // Experience: 3 key bullets per job; the rest sits behind "More".
   $("#jobs").replaceChildren(...d.experience.map(renderJob));
 
+  renderNow(d.now, d.work || []);
+  renderFounder(d.entrepreneur, d.work || []);
   renderWork(d.work || [], d.work_categories || []);
-  renderStrip(d.work || []);
 
   // Expertise: a short list on the page; every skill group, tool, and industry under "All skills".
   const groups = (d.skills || []).filter((g) => g.group !== "Languages");
@@ -217,14 +218,19 @@ function categoryLabel(item, max = 2) {
 // Covers repeat the card's text, so screen readers skip them.
 function workCover(item, { large = false, hue = 0 } = {}) {
   const video = videoInfo(item.video);
-  const src = item.image || item.images?.[0]?.src || video?.thumb;
-  const cover = h("div", { class: `work-cover ${categoryClass(item.category)} hue-${hue % 6}`, "aria-hidden": "true" });
+  const src = item.cover_image || item.image || item.images?.[0]?.src || video?.thumb;
+  // Poster colors follow the piece's first category, so every PR poster matches the PR tab.
+  const CAT_HUE = { "cat-brand": 0, "cat-design": 1, "cat-marketing": 3, "cat-events": 4, "cat-pr": 5 };
+  const catHue = CAT_HUE[categoryClass(item.category)] ?? hue;
+  const cover = h("div", { class: `work-cover ${categoryClass(item.category)} hue-${catHue % 6}`, "aria-hidden": "true" });
   if (src) {
     cover.classList.add("has-image");
     // Logos show whole on a dark background instead of being cropped.
     if (item.imageFit === "contain") cover.classList.add("fit-contain");
     if (item.imageFit === "contain-light") cover.classList.add("fit-contain", "light");
-    cover.append(h("img", { src, alt: "", loading: large ? null : "lazy" }));
+    const img = h("img", { src, alt: "", loading: large ? null : "lazy" });
+    if (item.cover_position) img.style.objectPosition = item.cover_position;
+    cover.append(img);
   } else if (item.cover) {
     // A typeset cover: one big word (like "AI") on dark, until there's a real image.
     cover.classList.add("type-cover");
@@ -262,14 +268,19 @@ function renderWork(items, catMeta = []) {
   // Every piece is an image tile; the case study opens in the dialog.
   const entries = items.map((item, i) => {
     const el = h("li", { class: "reveal work-tile", "data-category": JSON.stringify(categoriesOf(item)) },
-      h("button", { class: isCaseStudy(item) ? "work-card is-case" : "work-card", type: "button", "aria-haspopup": "dialog" },
+      h("button", {
+          class: isCaseStudy(item) ? "work-card is-case" : "work-card", type: "button", "aria-haspopup": "dialog",
+          "aria-labelledby": `work-title-${i}`, "aria-describedby": `work-desc-${i}`,
+        },
         workCover(item, { hue: i, large: i === 0 }),
+        h("span", { class: "work-open", "aria-hidden": "true" }, isCaseStudy(item) ? "Read case study →" : "See the work →"),
         h("span", { class: "work-cap" },
-          h("span", { class: "work-chips" }, categoriesOf(item).map((c) => h("span", { class: `work-chip ${categoryClass(c)}` }, c))),
-          h("h3", {}, item.title),
-          item.result && h("span", { class: "work-result" }, item.result),
-          h("span", { class: "work-text" }, caption(item)),
-          h("span", { class: "work-open", "aria-hidden": "true" }, isCaseStudy(item) ? "Read case study →" : "See the work →"),
+          h("span", { class: "work-chips", "aria-hidden": "true" }, categoriesOf(item).map((c) => h("span", { class: `work-chip ${categoryClass(c)}` }, c))),
+          h("h3", { id: `work-title-${i}` }, item.title),
+          h("span", { id: `work-desc-${i}` },
+            item.result && h("span", { class: "work-result" }, item.result),
+            h("span", { class: "work-text" }, caption(item)),
+          ),
         ),
       ));
     el.querySelector("button").addEventListener("click", () => openWork(item, i));
@@ -345,24 +356,71 @@ function renderWork(items, catMeta = []) {
   }
 }
 
-// A slow strip of work photos under the hero (small copies from /work/thumbs/).
-// Each photo opens its piece; the strip pauses on hover and stays still for reduced motion.
-function renderStrip(items) {
-  const strip = $("#work-strip");
-  const track = $("#work-strip-track");
-  if (!strip || !track) return;
-  const shots = [];
-  items.forEach((item, i) => { const imgs = (item.images || []).slice(0, 3); imgs.forEach((img, n) => shots.push({ item, i, img, n: n + 1, count: imgs.length })); });
-  if (shots.length < 4) return strip.remove();
-  const tile = ({ item, i, img, n, count }, copy) => {
-    const b = h("button", { type: "button", class: "strip-shot", "aria-label": count > 1 ? `Open ${item.title}, photo ${n} of ${count}` : `Open ${item.title}`, tabindex: copy ? "-1" : null, "aria-hidden": copy ? "true" : null },
-      h("img", { src: "/work/thumbs/" + img.src.split("/").pop(), alt: "", loading: "lazy", decoding: "async" }));
-    b.addEventListener("click", () => openWork(item, i));
-    return b;
-  };
-  // The list runs twice so the loop is seamless; the copy is hidden from screen readers and the keyboard.
-  track.replaceChildren(...shots.map((s) => tile(s, false)), ...shots.map((s) => tile(s, true)));
-  strip.hidden = false;
+// A small button that opens one of the work pieces, by its title in content.json.
+function workLink(title, items) {
+  const i = items.findIndex((w) => w.title === title);
+  if (i < 0) return null;
+  const b = h("button", { type: "button", class: "see-work" }, `${title} →`);
+  b.addEventListener("click", () => openWork(items[i], i));
+  return b;
+}
+
+// Now: the current job, broken into focus areas, plus the path of titles at Fromm.
+function renderNow(now, items) {
+  const section = $("#now");
+  if (!now) return section.remove();
+  const body = $("#now-body");
+  body.replaceChildren(
+    h("div", { class: "now-head" },
+      h("p", { class: "now-eyebrow" }, now.eyebrow),
+      h("h3", { class: "now-title" }, now.title),
+      h("p", { class: "now-org" }, now.org),
+      h("ul", { class: "now-facts", role: "list" }, (now.facts || []).map((f) => h("li", {}, f))),
+      h("p", { class: "now-team" }, now.team),
+    ),
+    h("ol", { class: "now-areas", role: "list" }, (now.areas || []).map((a, k) =>
+      h("li", { class: "now-area reveal" },
+        h("p", { class: "now-area-num", "aria-hidden": "true" }, String(k + 1).padStart(2, "0")),
+        h("h4", {}, a.name),
+        h("p", { class: "now-area-line" }, a.line),
+        h("ul", { class: "now-points" }, a.points.map(highlight)),
+        (a.work || []).length > 0 && h("p", { class: "see-row" }, h("span", { class: "see-label" }, "See"), ...a.work.map((t) => workLink(t, items))),
+      ))),
+    now.path && h("div", { class: "now-path" },
+      h("p", { class: "now-path-label" }, now.path_label || "Path"),
+      h("ol", { class: "path", role: "list" }, now.path.map((p, k) =>
+        h("li", { class: k === now.path.length - 1 ? "path-step is-now" : "path-step" },
+          h("span", { class: "path-year" }, p.year),
+          h("span", { class: "path-title" }, p.title),
+          p.note && h("span", { class: "path-note" }, p.note),
+        ))),
+      now.path_caption && h("p", { class: "now-path-caption" }, now.path_caption),
+    ),
+  );
+  section.hidden = false;
+}
+
+// Entrepreneur: the two apparel brands, side by side, with their exits.
+function renderFounder(ent, items) {
+  const section = $("#entrepreneur");
+  if (!ent) return section.remove();
+  $("#ent-body").replaceChildren(
+    h("div", { class: "founder-head" },
+      h("p", { class: "now-eyebrow" }, ent.eyebrow),
+      h("h3", { class: "founder-headline" }, ent.headline),
+      h("p", { class: "founder-sub" }, ent.sub),
+    ),
+    h("ul", { class: "brands", role: "list" }, (ent.brands || []).map((b) =>
+      h("li", { class: "brand-card reveal" },
+        h("div", { class: "brand-top" },
+          h("h4", {}, b.name),
+          h("p", { class: "brand-meta" }, h("span", {}, b.years), h("span", { class: "brand-exit" }, b.exit)),
+        ),
+        h("ul", { class: "now-points" }, b.points.map(highlight)),
+        (b.work || []).length > 0 && h("p", { class: "see-row" }, h("span", { class: "see-label" }, "See"), ...b.work.map((t) => workLink(t, items))),
+      ))),
+  );
+  section.hidden = false;
 }
 
 function openWork(item, index = 0) {
