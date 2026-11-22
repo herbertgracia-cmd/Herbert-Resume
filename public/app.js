@@ -268,7 +268,7 @@ function renderWork(items, catMeta = []) {
           h("span", { class: "work-chips" }, categoriesOf(item).map((c) => h("span", { class: `work-chip ${categoryClass(c)}` }, c))),
           h("h3", {}, item.title),
           h("span", { class: "work-text" }, caption(item)),
-          h("span", { class: "work-open", "aria-hidden": "true" }, isCaseStudy(item) ? "Case study ↗" : "View ↗"),
+          h("span", { class: "work-open", "aria-hidden": "true" }, isCaseStudy(item) ? "Read case study →" : "See the work →"),
         ),
       ));
     el.querySelector("button").addEventListener("click", () => openWork(item, i));
@@ -298,7 +298,7 @@ function renderWork(items, catMeta = []) {
   };
   addEventListener("resize", () => markLead());
   markLead();
-  const allIntro = "Brand, design, events, marketing, and PR work from 20+ years. Pick a category to see just that work.";
+  const allIntro = "20+ years of brand, design, events, marketing, and PR. Pick a tab to see one kind of work.";
   introEl.textContent = allIntro;
   if (cats.length < 2) return filters.remove();
 
@@ -348,10 +348,10 @@ function renderStrip(items) {
   const track = $("#work-strip-track");
   if (!strip || !track) return;
   const shots = [];
-  items.forEach((item, i) => (item.images || []).slice(0, 3).forEach((img) => shots.push({ item, i, img })));
+  items.forEach((item, i) => { const imgs = (item.images || []).slice(0, 3); imgs.forEach((img, n) => shots.push({ item, i, img, n: n + 1, count: imgs.length })); });
   if (shots.length < 4) return strip.remove();
-  const tile = ({ item, i, img }, copy) => {
-    const b = h("button", { type: "button", class: "strip-shot", "aria-label": `Open ${item.title}`, tabindex: copy ? "-1" : null, "aria-hidden": copy ? "true" : null },
+  const tile = ({ item, i, img, n, count }, copy) => {
+    const b = h("button", { type: "button", class: "strip-shot", "aria-label": count > 1 ? `Open ${item.title}, photo ${n} of ${count}` : `Open ${item.title}`, tabindex: copy ? "-1" : null, "aria-hidden": copy ? "true" : null },
       h("img", { src: "/work/thumbs/" + img.src.split("/").pop(), alt: "", loading: "lazy", decoding: "async" }));
     b.addEventListener("click", () => openWork(item, i));
     return b;
