@@ -220,7 +220,7 @@ function workCover(item, { large = false, hue = 0 } = {}) {
   const video = videoInfo(item.video);
   const src = item.cover_image || item.image || item.images?.[0]?.src || video?.thumb;
   // Poster colors follow the piece's first category, so every PR poster matches the PR tab.
-  const CAT_HUE = { "cat-brand": 0, "cat-design": 1, "cat-marketing": 3, "cat-events": 4, "cat-pr": 5 };
+  const CAT_HUE = { "cat-brand": 0, "cat-design": 1, "cat-tech-projects": 2, "cat-marketing": 3, "cat-events": 4, "cat-pr": 5 };
   const catHue = CAT_HUE[categoryClass(item.category)] ?? hue;
   const cover = h("div", { class: `work-cover ${categoryClass(item.category)} hue-${catHue % 6}`, "aria-hidden": "true" });
   if (src) {

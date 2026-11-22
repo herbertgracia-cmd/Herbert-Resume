@@ -1,6 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job’s 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. An 'intro' block would turn on a welcome pop-up (removed for now). A job’s optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate’s 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job’s 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item’s 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections. Optional 'result': one short line (a number or outcome) shown on the tile face.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR, Tech & Projects (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections. Optional 'result': one short line (a number or outcome) shown on the tile face.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Leader",
   "location": "San Francisco, CA",
@@ -305,7 +305,7 @@
         ],
         "work": [
           "Fromm Institute",
-          "Fromm website & online enrollment"
+          "Salesforce website & online enrollment"
         ]
       },
       {
@@ -324,14 +324,15 @@
         "name": "Technology, Product & AI",
         "line": "I own Fromm’s technology end to end and build the products we run on.",
         "points": [
-          "Platforms: the online enrollment and payments system (Salesforce CRM, Stripe, CashNet), the website, and our internal tools",
+          "Platforms: replaced in-person enrollment with online enrollment I designed in Salesforce, with Stripe payments; about 70% of enrollment now happens online, and Zoom classes let students outside San Francisco attend",
           "Product development, idea to market: built Frommcast, a subscription streaming platform for lifelong learning, to 1,500+ subscribers, then moved it to YouTube (200+ free classes, 700+ subscribers)",
           "Budget and vendor management: a $100K-a-year technology budget, on budget every year; direct an outside development company",
-          "Applied AI: building Fromm’s AI enrollment chatbot; Certificate in Applied Agentic AI (2026)"
+          "Next: an AI chatbot to help students who get stuck in enrollment, and redesigned enrollment emails",
+          "Applied AI: Certificate in Applied Agentic AI (2026)"
         ],
         "work": [
-          "Frommcast",
-          "Fromm website & online enrollment"
+          "Salesforce website & online enrollment",
+          "Frommcast"
         ]
       }
     ],
@@ -619,7 +620,7 @@
       "title": "Retail & event environments",
       "category": [
         "Events",
-        "Design"
+        "Tech & Projects"
       ],
       "year": "FAZE & State of Flux",
       "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, plus FAZE trade-show booths in Las Vegas, Miami, Los Angeles, and New York and State of Flux pop-ups.",
@@ -659,7 +660,7 @@
       ],
       "caption": "Two stores, trade-show booths, and pop-ups",
       "tag": "Retail · Trade shows · Pop-ups",
-      "result": "2 stores · booths in 4 cities"
+      "result": "2 store build-outs · booths in 4 cities"
     },
     {
       "title": "Fromm 50th Anniversary",
@@ -696,6 +697,7 @@
     {
       "title": "Frommcast",
       "category": [
+        "Tech & Projects",
         "Marketing"
       ],
       "year": "",
@@ -714,10 +716,10 @@
       "linkLabel": "Watch on YouTube",
       "challenge": "Give older adults a way to keep learning from home, beyond the classroom.",
       "approach": "I built the website, subscription system, and recording setup, then produced lecture videos organized by subject. Later we moved the library to YouTube.",
-      "outcome": "1,500+ monthly subscribers on the Frommcast platform. On YouTube: 200+ recorded classes, free to watch, and 700+ subscribers.",
+      "outcome": "1,500+ monthly subscribers on the Frommcast platform. On YouTube: 236 videos, including recorded classes and course previews, free to watch, and 700+ subscribers.",
       "caption": "Fromm’s “Netflix for lifelong learning”: 1,500+ subscribers",
       "tag": "Video · Digital product",
-      "result": "1,500+ subscribers"
+      "result": "1,500+ subscribers · 700+ on YouTube"
     },
     {
       "title": "Brand collaborations",
@@ -751,21 +753,33 @@
       "result": "SFMOMA · Timbuk2 · Pinterest · Harmonic Brewing"
     },
     {
-      "title": "Fromm website & online enrollment",
+      "title": "Salesforce website & online enrollment",
       "category": [
-        "Design",
-        "Marketing"
+        "Tech & Projects",
+        "Design"
       ],
       "year": "2022–Present",
-      "summary": "Designed the Fromm website and lead its Salesforce CRM, directing an outside development company, with Stripe and CashNet payments built in so staff manage tuition and enrollment in-house.",
+      "summary": "I replaced in-person enrollment with an online enrollment platform I designed, running in Salesforce with Stripe and CashNet payments. About 70% of enrollment now happens online.",
       "tags": [
         "Salesforce",
         "Stripe",
         "CashNet"
       ],
-      "caption": "Website, Salesforce CRM, and online payments",
-      "result": "Salesforce CRM · online enrollment",
+      "caption": "Online enrollment I designed in Salesforce: about 70% of enrollment now online",
+      "result": "~70% of enrollment online",
       "images": [
+        {
+          "src": "/work/fromm-online-enrollment.jpg",
+          "alt": "Fromm’s Winter 2027 online enrollment page: an 8-step flow from student information to payment, starting with a choice between returning and new student",
+          "w": 1190,
+          "h": 942
+        },
+        {
+          "src": "/work/fromm-salesforce-dashboard.jpg",
+          "alt": "Fromm’s Salesforce dashboard: 67 session enrollments and 60 course enrollments for the current session, and attendance by type: 185 in person, 45 combined, 38 online",
+          "w": 1152,
+          "h": 696
+        },
         {
           "src": "/work/fromm-landing-page.jpg",
           "alt": "Fromm enrollment landing page: 'Learning for the love of it' headline, a sign-up form, and a Frommcast on YouTube section",
@@ -773,7 +787,10 @@
           "h": 1375
         }
       ],
-      "role": "Designed the site; lead its Salesforce CRM"
+      "role": "Designed the site and the enrollment flow; manage the outside engineers and vendors; connected the payments",
+      "challenge": "Fromm enrolled students in person and by phone, and students outside San Francisco couldn’t attend classes.",
+      "approach": "I designed the website and an 8-step online enrollment (student information, membership, classes, parking, giving, about you, review, and payment) that runs in Salesforce, and connected Stripe for payments. I manage the outside engineers and vendors who build it. We also added Zoom classes so students outside San Francisco can attend.",
+      "outcome": "About 70% of enrollment now happens online, with in-person and phone enrollment still available. Staff manage tuition and enrollment in-house, and Salesforce dashboards track enrollments and online vs. in-person attendance. Next: an AI chatbot to help students who get stuck, and redesigned enrollment emails."
     },
     {
       "title": "National press release",
@@ -834,6 +851,10 @@
     {
       "name": "PR",
       "intro": "Earned media: a survey and national press release that PR Newswire syndicated to 500+ news outlets, and Timbuk2’s blog post on our State of Flux collaboration."
+    },
+    {
+      "name": "Tech & Projects",
+      "intro": "I build and run the systems behind the brand: Fromm’s Salesforce enrollment platform (about 70% of enrollment now online), Frommcast, an AI enrollment chatbot in progress, and two store build-outs from concept to opening."
     }
   ],
   "skills": [

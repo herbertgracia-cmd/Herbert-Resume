@@ -923,17 +923,18 @@ img, svg { display: block; }
 
 /* ===== Portfolio, Nov 2026: bolder and image-first, with category tabs. Screen only (the printed resume is untouched). ===== */
 :root {
-  --c-brand: #b8360f; --c-design: #1d4ed8; --c-events: #7c3aed; --c-marketing: #047857; --c-pr: #a14a00;
+  --c-brand: #b8360f; --c-design: #1d4ed8; --c-events: #7c3aed; --c-marketing: #047857; --c-pr: #0e7490; --c-tech: #475569;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --c-brand: #ff8a65; --c-design: #8fb0ff; --c-events: #c9a8ff; --c-marketing: #5ad7a6; --c-pr: #f5b454; }
+  :root:not([data-theme="light"]) { --c-brand: #ff8a65; --c-design: #8fb0ff; --c-events: #c9a8ff; --c-marketing: #5ad7a6; --c-pr: #5fd4e6; --c-tech: #b4c2d6; }
 }
-:root[data-theme="dark"] { --c-brand: #ff8a65; --c-design: #8fb0ff; --c-events: #c9a8ff; --c-marketing: #5ad7a6; --c-pr: #f5b454; }
+:root[data-theme="dark"] { --c-brand: #ff8a65; --c-design: #8fb0ff; --c-events: #c9a8ff; --c-marketing: #5ad7a6; --c-pr: #5fd4e6; --c-tech: #b4c2d6; }
 .cat-brand { --c: var(--c-brand); }
 .cat-design { --c: var(--c-design); }
 .cat-events { --c: var(--c-events); }
 .cat-marketing { --c: var(--c-marketing); }
 .cat-pr { --c: var(--c-pr); }
+.cat-tech-projects { --c: var(--c-tech); --pattern: linear-gradient(var(--tint) 1px, transparent 1px) 0 0 / 12px 12px, linear-gradient(90deg, var(--tint) 1px, transparent 1px) 0 0 / 12px 12px; }
 .cat-brand { --pattern: repeating-linear-gradient(90deg, var(--tint) 0 1px, transparent 1px 18px); }
 .cat-pr { --pattern: repeating-linear-gradient(0deg, var(--tint) 0 2px, transparent 2px 12px); }
 
