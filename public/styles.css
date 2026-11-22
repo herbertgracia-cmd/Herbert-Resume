@@ -1058,3 +1058,149 @@ img, svg { display: block; }
     #portfolio .work-filters button { min-height: 44px; padding: 10px 13px; }
   }
 }
+
+/* ===== "The Gracia Edition" (Nov 2026): a modern front page. Screen only; the printed resume is untouched. =====
+   Layout: masthead (dateline + SF sky box, the name between two rules), the lead story (role, deck, two text
+   columns, portrait), a ruled "In this edition" index and a strip of front-page numbers; then Now as the lead story. */
+@media screen {
+  :root {
+    --bg: #f5f6f4; --surface: #eceee9; --ink: #111317; --muted: #5a5f69; --line: #d3d6db; --accent: #2a36e0; --accent-ink: #ffffff;
+    --rule: #111317;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #0e1013; --surface: #171a1f; --ink: #eceef1; --muted: #9ca2ae; --line: #2a2e36; --accent: #9aa4ff; --accent-ink: #0e1013; --rule: #eceef1; }
+  }
+  :root[data-theme="dark"] { --bg: #0e1013; --surface: #171a1f; --ink: #eceef1; --muted: #9ca2ae; --line: #2a2e36; --accent: #9aa4ff; --accent-ink: #0e1013; --rule: #eceef1; }
+
+  /* ---- Masthead ---- */
+  .edition .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 240px;
+    grid-template-areas:
+      "date date sky"
+      "name name name"
+      "role role photo"
+      "deck deck photo"
+      "lead lead photo"
+      "story story photo"
+      "cta cta cta"
+      "cats cats cats"
+      "stats stats stats"
+      "partners partners partners";
+    grid-template-rows: auto auto auto auto auto 1fr auto auto auto auto; /* the story row takes the photo's extra height */
+    column-gap: clamp(20px, 3vw, 40px); row-gap: 0;
+    padding-top: clamp(28px, 5vh, 56px);
+  }
+  .edition .hero > * { grid-column: auto; }
+  .edition .eyebrow { grid-area: date; align-self: end; margin: 0 0 12px; font-size: 11.5px; letter-spacing: .12em; color: var(--ink); }
+  .edition .sky-box { grid-area: sky; justify-self: end; align-self: end; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font: 500 11px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .edition .sky-label { color: var(--ink); }
+  .sky-swatch { width: 54px; height: 32px; border: 1px solid var(--rule); background: var(--sky, linear-gradient(#6fa3d8, #cfe3f5)); background-size: 100% 220%; animation: sky-drift 18s ease-in-out infinite alternate; }
+  .sky-box[data-phase="night"] { --sky: linear-gradient(180deg, #070b1f, #1b2357 55%, #3a3170); }
+  .sky-box[data-phase="dawn"]  { --sky: linear-gradient(180deg, #4b5fa8, #e59a8c 55%, #f6d6a8); }
+  .sky-box[data-phase="day"]   { --sky: linear-gradient(180deg, #3d86d6, #8fc3ee 55%, #e4f1fb); }
+  .sky-box[data-phase="dusk"]  { --sky: linear-gradient(180deg, #2d2a6b, #c65a6a 55%, #f3a865); }
+  @keyframes sky-drift { to { background-position: 0 100%; } }
+
+  .edition .hero-name {
+    grid-area: name; position: relative; padding: 14px 0 12px; margin: 0;
+    font: 400 clamp(3.2rem, 11.2vw, 10.5rem)/.86 var(--serif); letter-spacing: -.025em; white-space: nowrap;
+  }
+  .edition .hero-name .line:last-child { color: var(--ink); }
+  .edition .hero-name::before, .edition .hero-name::after { content: ""; position: absolute; left: 0; right: 0; background: var(--rule); transform-origin: left; }
+  .edition .hero-name::before { top: 0; height: 3px; }
+  .edition .hero-name::after { bottom: 0; height: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); height: 3px; background: none; }
+
+  .edition .hero-role { grid-area: role; margin: 22px 0 0; font: 400 clamp(1.9rem, 3.4vw, 3rem)/1.02 var(--serif); letter-spacing: -.01em; }
+  .edition .hero-specialties { grid-area: deck; margin: 10px 0 0; font: 500 12px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+  .edition .hero-tagline { grid-area: lead; max-width: none; margin: 18px 0 0; color: var(--ink); font: italic 400 clamp(1.25rem, 2vw, 1.6rem)/1.25 var(--serif); }
+  .edition .hero-tagline em, .edition .hero-tagline i, .edition .hero-tagline .accent { color: var(--accent); }
+  .edition .hero-summary { grid-area: story; max-width: none; margin: 16px 0 0; columns: 2; column-gap: 32px; column-rule: 1px solid var(--line); font-size: .98rem; line-height: 1.6; }
+  .edition .hero-summary p { margin: 0 0 .8em; }
+  .edition .hero-photo {
+    grid-area: photo; align-self: start; margin-top: 26px; width: 100%; aspect-ratio: 4 / 5;
+    border-radius: 0; box-shadow: none; border: 1px solid var(--rule); filter: grayscale(1) contrast(1.05); transition: filter .5s ease;
+  }
+  .edition .hero-photo:hover { filter: none; }
+  .edition .hero-cta { grid-area: cta; margin-top: 26px; }
+  .edition .hero-cta .btn { border-radius: 0; }
+
+  .edition .hero-cats {
+    grid-area: cats; position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px;
+    margin-top: 30px; padding: 12px 0; border-block: 1px solid var(--rule);
+  }
+  .edition .hero-cats-label { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-right: 4px; }
+  .edition .hero-cat { font: 400 1.15rem/1.3 var(--serif); }
+  .edition .hero-cat::before { width: .42em; height: .42em; margin: 0 .35em .1em 0; }
+
+  .edition .stats { grid-area: stats; margin-top: 0; border-top: 0; }
+  .edition .partners { grid-area: partners; }
+
+  /* The front page draws its rules in on load; text is readable from the first frame. */
+  @media (prefers-reduced-motion: no-preference) {
+    .edition .hero-name::before, .edition .hero-name::after, .edition .hero-cats::before { animation: rule-draw 1.1s cubic-bezier(.6, 0, .2, 1) both; }
+    .edition .hero-name::after { animation-delay: .15s; }
+    .edition .hero-photo { animation: frame-in 1.2s .3s ease both; }
+  }
+  @keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes frame-in { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+  @media (prefers-reduced-motion: reduce) { .sky-swatch { animation: none; } }
+
+  /* ---- Now: the lead story ---- */
+  .edition #now { grid-template-columns: 1fr; }
+  .edition #now .section-title, .edition #entrepreneur .section-title { position: static; padding-bottom: 8px; border-bottom: 3px solid var(--rule); }
+  .now-eyebrow { margin: 0; font: 500 11.5px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+  .now-title { margin: 8px 0 0; font: 400 clamp(1.9rem, 3.8vw, 3.2rem)/1.04 var(--serif); letter-spacing: -.01em; text-wrap: balance; }
+  .now-org { margin: 8px 0 0; font: italic 400 1.15rem/1.35 var(--serif); color: var(--muted); }
+  .now-facts { display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; margin: 10px 0 0; padding: 0; font: 500 11.5px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+  .now-facts li + li::before { content: "·"; margin: 0 10px; color: var(--muted); }
+  .now-team { max-width: 75ch; margin: 14px 0 0; font-size: 1rem; line-height: 1.6; }
+  .now-areas { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+  .now-area { padding: 18px 18px 6px; border-left: 1px solid var(--line); min-width: 0; }
+  .now-area:first-child { padding-left: 0; border-left: 0; }
+  .now-area-num { margin: 0; font: 500 11px/1 var(--mono); color: var(--accent); letter-spacing: .1em; }
+  .now-area h4 { margin: 8px 0 0; font: 400 1.45rem/1.08 var(--serif); text-wrap: balance; }
+  .now-area-line { margin: 6px 0 0; font: italic 400 1rem/1.35 var(--serif); color: var(--muted); }
+  .now-points { margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.5; }
+  .now-points li { padding: 8px 0; border-top: 1px dotted var(--line); }
+  .now-points li strong { font-weight: 600; }
+  .see-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 12px; }
+  .see-label { font: 500 10.5px/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+  .see-work { min-height: 32px; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 0; background: transparent; color: var(--ink); font: 500 12.5px/1.2 var(--sans); cursor: pointer; text-align: left; }
+  .see-work:hover, .see-work:focus-visible { background: var(--ink); color: var(--bg); }
+  .now-path { margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .now-path-label { margin: 0; font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+  .path { position: relative; list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .path::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: var(--line); }
+  .path-step { position: relative; padding-top: 22px; min-width: 0; }
+  .path-step::before { content: ""; position: absolute; top: 0; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1px solid var(--rule); }
+  .path-step.is-now::before { background: var(--accent); border-color: var(--accent); }
+  .path-year { display: block; font: 400 1.5rem/1 var(--serif); }
+  .path-title { display: block; margin-top: 4px; font-size: 14px; line-height: 1.35; }
+  .path-note { display: block; margin-top: 4px; font-size: 12.5px; color: var(--muted); }
+  .now-path-caption { margin: 14px 0 0; font: italic 400 1.05rem/1.4 var(--serif); color: var(--muted); }
+
+  @media (max-width: 1000px) {
+    .now-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .now-area:nth-child(3) { padding-left: 0; border-left: 0; }
+    .now-area:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+  @media (max-width: 760px) {
+    .edition .hero {
+      grid-template-columns: minmax(0, 1fr) 96px;
+      grid-template-areas: "date date" "sky sky" "name name" "role photo" "deck deck" "lead lead" "story story" "cta cta" "cats cats" "stats stats" "partners partners";
+      grid-template-rows: none;
+    }
+    .edition .sky-box { justify-self: start; margin: 0 0 10px; }
+    .edition .hero-name { font-size: clamp(2.6rem, 15vw, 4.6rem); white-space: normal; }
+    .edition .hero-photo { position: static; width: 100%; margin-top: 20px; aspect-ratio: 1; }
+    .edition .hero-specialties { display: block; }
+    .edition .hero-summary { columns: 1; }
+    .path { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+    .path::before { display: none; }
+  }
+  @media (max-width: 560px) {
+    .now-areas { grid-template-columns: 1fr; }
+    .now-area, .now-area:nth-child(3) { padding-left: 0; border-left: 0; }
+    .now-area + .now-area { border-top: 1px solid var(--line); }
+  }
+}

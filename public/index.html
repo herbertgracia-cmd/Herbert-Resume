@@ -82,9 +82,12 @@
     </div>
   </section>
 
-  <main id="main" tabindex="-1">
-    <div class="sky screen-only" aria-hidden="true"><span class="sky-glow one"></span><span class="sky-glow two"></span><span class="sky-glow three"></span></div>
+  <main id="main" class="edition" tabindex="-1">
     <section class="hero" id="top">
+      <aside class="sky-box screen-only" id="sky-box" aria-label="The sky over San Francisco right now" hidden>
+        <span class="sky-swatch" aria-hidden="true"></span>
+        <span class="sky-text"><span class="sky-label">SF sky</span> <span id="sky-time"></span> · <span id="sky-phase"></span></span>
+      </aside>
       <img class="hero-photo" src="/herbert.jpg" alt="Herbert Gracia" width="600" height="600" fetchpriority="high">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
