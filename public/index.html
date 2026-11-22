@@ -83,11 +83,13 @@
   </section>
 
   <main id="main" class="edition" tabindex="-1">
+    <div class="reel" id="reel">
+    <div class="reel-stage screen-only" aria-hidden="true">
+      <canvas id="reel-canvas"></canvas>
+      <p class="reel-hint" id="reel-hint">Scroll</p>
+    </div>
     <section class="hero" id="top">
-      <aside class="sky-box screen-only" id="sky-box" aria-label="The sky over San Francisco right now" hidden>
-        <span class="sky-swatch" aria-hidden="true"></span>
-        <span class="sky-text"><span class="sky-label">SF sky</span> <span id="sky-time"></span> · <span id="sky-phase"></span></span>
-      </aside>
+      <div class="hero-panel-bg screen-only" aria-hidden="true"></div>
       <img class="hero-photo" src="/herbert.jpg" alt="Herbert Gracia" width="600" height="600" fetchpriority="high">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span><span data-bind="availability"></span> · <span data-bind="location"></span></p>
       <h1 class="hero-name" data-bind="name">Herbert Gracia</h1>
@@ -106,6 +108,7 @@
       <div class="stats" id="stats"></div>
       <p class="partners" id="partners" hidden></p>
     </section>
+    </div>
 
     <section class="section screen-only now" id="now" aria-labelledby="now-title" hidden>
       <div class="section-head"><h2 class="section-title" id="now-title"><span class="num"></span>Now</h2></div>

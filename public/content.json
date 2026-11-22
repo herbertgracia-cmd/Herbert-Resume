@@ -925,6 +925,21 @@
       "intro": "I build and run the systems behind the brand: Fromm’s Salesforce enrollment platform (about 70% of enrollment now online), Frommcast, an AI enrollment chatbot in progress, and two store build-outs from concept to opening."
     }
   ],
+  "_reel_help": "'reel' lists the photos (file names in public/work/) that fly in the opening 3D ribbon, in order. The first 8 show on phones, all 12 on larger screens. Each opens the work piece it belongs to.",
+  "reel": [
+    "state-of-flux-caps.jpg",
+    "fromm-farmers-market.jpg",
+    "faze-store.jpg",
+    "fromm-50th.jpg",
+    "state-of-flux-dahlia-tee.jpg",
+    "timbuk2-state-of-flux.jpg",
+    "faze-store-interior.jpg",
+    "fromm-enrollment-ad.jpg",
+    "state-of-flux-socks.jpg",
+    "store-build-out.jpg",
+    "state-of-flux-good-energy-tee.jpg",
+    "fromm-catalog-cover.jpg"
+  ],
   "skills": [
     {
       "group": "Product & Experience",

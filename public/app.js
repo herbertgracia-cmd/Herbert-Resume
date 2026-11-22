@@ -34,7 +34,7 @@ setupTheme();
 setupChrome();
 setupWorkDialog();
 setupReveal();
-setupSky();
+setupReel(data);
 setupFeatures(data);
 
 function render(d) {
@@ -348,7 +348,7 @@ function renderWork(items, catMeta = []) {
   // Hero shortcuts: each category jumps to the work and opens that tab.
   const heroCats = $("#hero-cats");
   if (heroCats) {
-    heroCats.replaceChildren(h("span", { class: "hero-cats-label" }, "In this edition"), ...cats.map((c) => {
+    heroCats.replaceChildren(h("span", { class: "hero-cats-label" }, "Explore the work"), ...cats.map((c) => {
       const a = h("a", { href: "#portfolio", class: `hero-cat ${categoryClass(c)}` }, c);
       a.addEventListener("click", () => select(c));
       return a;
@@ -424,25 +424,26 @@ function renderFounder(ent, items) {
   section.hidden = false;
 }
 
-// The small "SF sky" box in the masthead: the sky's colors right now in San Francisco
-// (night, dawn, day, or dusk by the local hour there), with the time.
-function setupSky() {
-  const box = $("#sky-box");
-  if (!box) return;
-  const phases = [
-    [5, "Night"], [7, "Dawn"], [17, "Day"], [20, "Dusk"], [24, "Night"],
-  ];
-  const paint = () => {
-    const now = new Date();
-    const hour = Number(new Intl.DateTimeFormat("en-US", { hour: "numeric", hour12: false, timeZone: "America/Los_Angeles" }).format(now)) % 24;
-    const phase = phases.find(([end]) => hour < end)[1];
-    box.dataset.phase = phase.toLowerCase();
-    $("#sky-phase").textContent = phase;
-    $("#sky-time").textContent = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles" }).format(now);
-  };
-  paint();
-  setInterval(paint, 60_000);
-  box.hidden = false;
+// The opening 3D scene (reel.js): only where WebGL works and reduced motion is off.
+// Photos only (no screenshots), one per piece first, then extra photos up to the cap.
+function setupReel(d) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const probe = document.createElement("canvas");
+  if (!(probe.getContext("webgl2") || probe.getContext("webgl"))) return;
+  const items = d.work || [];
+  const cap = innerWidth < 700 ? 8 : 12;
+  // The photos come from content.json "reel" (file names), each opening the piece it belongs to.
+  const tiles = [];
+  for (const file of d.reel || []) {
+    const index = items.findIndex((w) => (w.images || []).some((im) => im.src.split("/").pop() === file));
+    if (index >= 0 && tiles.length < cap) tiles.push({ item: items[index], index, src: "/work/thumbs/" + file });
+  }
+  if (tiles.length < 4) return;
+  const root = document.documentElement;
+  root.classList.add("reel-on");
+  import("/reel.js")
+    .then((m) => { if (!m.start({ tiles, onOpen: openWork })) root.classList.remove("reel-on"); })
+    .catch(() => root.classList.remove("reel-on"));
 }
 
 function openWork(item, index = 0) {
