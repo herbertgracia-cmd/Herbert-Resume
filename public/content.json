@@ -1,6 +1,6 @@
 {
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job’s 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. An 'intro' block would turn on a welcome pop-up (removed for now). A job’s optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate’s 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job’s 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item’s 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
-  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR, Tech & Projects (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections. Optional 'result': one short line (a number or outcome) shown on the tile face.",
+  "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR & Communications, Tech & Projects (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections. Optional 'result': one short line (a number or outcome) shown on the tile face.",
   "name": "Herbert Gracia",
   "role": "Brand & Creative Leader",
   "location": "San Francisco, CA",
@@ -159,11 +159,11 @@
         }
       ],
       "key": [
-        "Creative Direction & Brand: Set and maintain one visual identity and voice across catalogs, print ads, email, social, the website, and events; designed the 50th Anniversary logo and campaign.",
-        "Enrollment Marketing: Built Fromm’s marketing from zero into a multi-channel enrollment program (Google, Meta, and LinkedIn ads; social media; email; and community partnerships), growing enrollment 10% in 2025–2026.",
-        "Public Relations: Ran a lifelong learning survey and wrote its national press release, syndicated through PR Newswire to 500+ news outlets.",
+        "Creative Direction & Brand: Set and maintain one visual identity and voice across catalogs, print ads, email, social, the website, and events; designed the 50th Anniversary logo and campaign and coordinated the mayoral proclamation making November 14 Fromm Day in San Francisco.",
+        "Marketing & B2B Sales: Built Fromm’s marketing from zero into a multi-channel program (Google, Meta, and LinkedIn ads; email; social; farmers-market outreach that brought in 29 of Fall 2026’s 80+ new students), growing enrollment 10% in 2025–2026; sell Fromm courses to retirement communities (4 signed).",
+        "Public Relations: Wrote two national releases syndicated through PR Newswire: a lifelong learning survey (505 outlets) and Fromm Day and the 50th Anniversary gala (465 outlets, including Yahoo Finance, AP News, and KTLA).",
         "Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
-        "Product & Technology: Built Frommcast, a subscription streaming platform that reached 1,500+ subscribers, now a free YouTube library of 200+ classes with 700+ subscribers; designed the Fromm website and lead its Salesforce CRM, directing an outside development company; manage a $100K-a-year technology budget, on budget every year.",
+        "Product & Technology: Designed the Fromm website and its Salesforce online enrollment with Stripe payments, moving about 70% of enrollment online; built Frommcast (1,500+ subscribers), now a YouTube library of 200+ classes with 700+ subscribers; direct an outside development company and a $100K-a-year technology budget, on budget every year.",
         "Applied AI: Building Fromm’s AI enrollment chatbot."
       ],
       "since": "Fromm since 2005 · 4 roles",
@@ -208,7 +208,7 @@
       "key": [
         "Designed original products, from embroidered caps and graphic hoodies to upcycled jersey totes, plus our retail store and pop-up spaces.",
         "Led brand identity, creative direction, campaigns, photography, and e-commerce.",
-        "Built brand partnerships with Pinterest, Timbuk2, and SFMOMA, creating co-branded products for sale plus events and pop-ups.",
+        "Built brand partnerships with Pinterest, Timbuk2, SFMOMA, and Harmonic Brewing, creating co-branded products for sale plus events and pop-ups.",
         "Oversaw direct-to-consumer (DTC), e-commerce, wholesale, B2B, and retail sales while managing a team of 5."
       ],
       "tags": [
@@ -251,7 +251,7 @@
       "key": [
         "Art-directed apparel graphics, lookbooks, photography, video, and retail creative.",
         "Expanded wholesale distribution to more than 10 retail locations, and designed and opened our branded retail store.",
-        "Led trade-show and experiential marketing initiatives in Las Vegas, Miami, Los Angeles, and New York.",
+        "Designed booths and led trade-show and experiential marketing in Las Vegas, Miami, Los Angeles, and New York; managed pop-ups and block parties with City of San Francisco permits.",
         "Led a team of 5 across design, product, marketing, and sales; managed sampling, sourcing, materials, manufacturing, quality control, and production."
       ],
       "tags": [
@@ -301,7 +301,7 @@
         "points": [
           "Go-to-market: a multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social) that grew enrollment 10% in 2025–2026",
           "Field marketing: research showed our community responds to in-person outreach, so I built and lead a volunteer team at San Francisco farmers markets (Clement Street, then the Ferry Building and Fort Mason). Our new-student survey showed 29 of Fall 2026’s 80+ new students, more than 1 in 3, found us there",
-          "B2B sales: sell Fromm courses to retirement communities so residents can attend from their own locations; 4 communities signed so far, with a marketing plan I built to add more",
+          "B2B sales and partnerships: work with 5+ retirement communities, and 4 now buy Fromm courses so residents can attend from their own locations, with a marketing plan I built to add more",
           "Media buying: a $20K-a-year Hearst Media account (San Francisco Chronicle, SFGATE) and $3K a month in paid social"
         ],
         "work": [
@@ -326,7 +326,7 @@
         "name": "Technology, Product & AI",
         "line": "I own Fromm’s technology end to end and build the products we run on.",
         "points": [
-          "Platforms: replaced in-person enrollment with online enrollment I designed in Salesforce, with Stripe payments; about 70% of enrollment now happens online, and Zoom classes let students outside San Francisco attend",
+          "Platforms: designed the Fromm website and its online enrollment in Salesforce, with Stripe payments, replacing in-person enrollment; about 70% of enrollment now happens online, and Zoom classes let students outside San Francisco attend",
           "Product development, idea to market: built Frommcast, a subscription streaming platform for lifelong learning, to 1,500+ subscribers, then moved it to YouTube (200+ free classes, 700+ subscribers)",
           "Budget and vendor management: a $100K-a-year technology budget, on budget every year; direct an outside development company",
           "Next: an AI chatbot to help students who get stuck in enrollment, and redesigned enrollment emails",
@@ -752,7 +752,15 @@
       "outcome": "1,500+ monthly subscribers on the Frommcast platform. On YouTube: 236 videos, including recorded classes and course previews, free to watch, and 700+ subscribers.",
       "caption": "Fromm’s “Netflix for lifelong learning”: 1,500+ subscribers",
       "tag": "Video · Digital product",
-      "result": "1,500+ subscribers · 700+ on YouTube"
+      "result": "1,500+ subscribers · 700+ on YouTube",
+      "images": [
+        {
+          "src": "/work/frommcast-youtube.jpg",
+          "alt": "The Fromm Institute YouTube channel: the “Learn Anytime, Anywhere with Frommcast!” banner, 704 subscribers and 236 videos, and a row of Frommcast recorded courses",
+          "w": 1330,
+          "h": 758
+        }
+      ]
     },
     {
       "title": "Retirement community partnerships",
@@ -760,7 +768,7 @@
         "Marketing"
       ],
       "year": "2025–Present",
-      "summary": "A B2B program that brings Fromm’s courses to retirement communities, so residents can attend classes from their own locations. I’ve sold it to 4 communities so far and built the marketing plan to keep adding more.",
+      "summary": "A B2B program that brings Fromm’s courses to retirement communities, so residents can attend classes from their own locations. I work with 5+ communities; 4 now buy courses, and I built the marketing plan to keep adding more.",
       "caption": "Fromm courses sold to retirement communities, streamed to residents",
       "result": "4 communities signed",
       "role": "Built the offer and the marketing plan; sell to and manage the partner communities"
@@ -769,7 +777,7 @@
       "title": "Brand collaborations",
       "category": [
         "Brand",
-        "PR"
+        "PR & Communications"
       ],
       "year": "State of Flux",
       "summary": "Co-branded products and pop-up events for State of Flux with Pinterest, Timbuk2, and SFMOMA.",
@@ -839,7 +847,7 @@
     {
       "title": "National press release",
       "category": [
-        "PR"
+        "PR & Communications"
       ],
       "year": "",
       "summary": "A Fromm Institute survey finding that lifelong learning boosts happiness and social connection among older adults. I ran the survey and wrote the press release, which PR Newswire syndicated to 500+ news outlets across the U.S. and Europe.",
@@ -852,12 +860,21 @@
       ],
       "role": "Ran the survey and wrote the press release",
       "caption": "Survey and press release syndicated to 500+ outlets",
-      "result": "505 outlets · 106.7M potential reach"
+      "result": "505 outlets · 106.7M potential reach",
+      "images": [
+        {
+          "src": "/work/pr-newswire-survey.jpg",
+          "alt": "PR Newswire results for the lifelong learning survey release: 265 newspapers and 180 broadcast outlets among its pickups, 870 release views, and 5,159 multimedia views",
+          "w": 905,
+          "h": 375
+        }
+      ],
+      "imageFit": "contain-light"
     },
     {
       "title": "Fromm Day & 50th Anniversary release",
       "category": [
-        "PR",
+        "PR & Communications",
         "Events"
       ],
       "year": "2026",
@@ -867,12 +884,19 @@
       "role": "Coordinated the proclamation with the Mayor’s office; wrote and distributed the release",
       "images": [
         {
+          "src": "/work/pr-newswire-fromm-day.jpg",
+          "alt": "PR Newswire results for the Fromm Day and 50th Anniversary release: 465 pickups, 39.4K traffic, a 140.1M audience, and top placements on Yahoo Finance, AP News, KTLA, and Morningstar",
+          "w": 900,
+          "h": 617
+        },
+        {
           "src": "/work/fromm-50th-gala-banner.jpg",
           "alt": "Banner for the Fromm Institute’s 50th Anniversary Gala Luncheon: the purple-and-gold '50' badge over a collage of archival member photos",
           "w": 1400,
           "h": 547
         }
-      ]
+      ],
+      "imageFit": "contain-light"
     }
   ],
   "work_categories": [
@@ -893,8 +917,8 @@
       "intro": "Campaigns tied to results: the multi-channel program I built at Fromm grew enrollment 10% in 2025–2026."
     },
     {
-      "name": "PR",
-      "intro": "Earned media: a survey and national press release that PR Newswire syndicated to 500+ news outlets, and Timbuk2’s blog post on our State of Flux collaboration."
+      "name": "PR & Communications",
+      "intro": "Earned media and communication at scale: two PR Newswire releases picked up by 465 and 505 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, plus the mayoral proclamation making November 14 Fromm Day in San Francisco."
     },
     {
       "name": "Tech & Projects",
@@ -1122,7 +1146,7 @@
     "GitHub",
     "Cloudflare"
   ],
-  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. At USF’s Fromm Institute, a higher-education nonprofit where I’ve worked since 2005, I lead creative, marketing, communications, PR, and technology; I built its marketing from zero, grew enrollment 10% in 2025–2026, and wrote a national press release syndicated to 500+ news outlets. I also co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (partner buyout, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Completed USF’s Certificate in Applied Agentic AI (2026).",
+  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. At USF’s Fromm Institute, a higher-education nonprofit where I’ve worked since 2005, I lead creative, marketing, communications, PR, and technology; I built its marketing from zero, grew enrollment 10% in 2025–2026, moved about 70% of enrollment online, and wrote national press releases syndicated to 500+ news outlets. I also co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (partner buyout, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Completed USF’s Certificate in Applied Agentic AI (2026).",
   "partners_label": "State of Flux collaborations",
   "applied_ai": {
     "lead": "I use AI agents as a review team, then make the final calls myself.",

@@ -933,10 +933,10 @@ img, svg { display: block; }
 .cat-design { --c: var(--c-design); }
 .cat-events { --c: var(--c-events); }
 .cat-marketing { --c: var(--c-marketing); }
-.cat-pr { --c: var(--c-pr); }
+.cat-pr, .cat-pr-communications { --c: var(--c-pr); }
 .cat-tech-projects { --c: var(--c-tech); --pattern: linear-gradient(var(--tint) 1px, transparent 1px) 0 0 / 12px 12px, linear-gradient(90deg, var(--tint) 1px, transparent 1px) 0 0 / 12px 12px; }
 .cat-brand { --pattern: repeating-linear-gradient(90deg, var(--tint) 0 1px, transparent 1px 18px); }
-.cat-pr { --pattern: repeating-linear-gradient(0deg, var(--tint) 0 2px, transparent 2px 12px); }
+.cat-pr, .cat-pr-communications { --pattern: repeating-linear-gradient(0deg, var(--tint) 0 2px, transparent 2px 12px); }
 
 @media screen {
   /* Hero: jump straight to a kind of work. */
