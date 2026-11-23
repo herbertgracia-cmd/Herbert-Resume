@@ -51,7 +51,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
 - 3,000 students a year.
 - Leads brand, marketing, communications, PR, and technology. Manages 6 student staff, 3 vendors, and 2 engineers at an outside Salesforce development company. Works with a 21-member Board and 20+ volunteers.
 - **Marketing:** built Fromm's marketing from zero; enrollment grew 10% in 2025–2026.
-  - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): 29 of Fall 2026's 80+ new students found Fromm there.
+  - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): 29 of Fall 2026's 80+ new students found Fromm there. The in-person campaign grew new students 15%.
   - 5+ retirement community partners, 4 of which buy courses.
   - Budgets: $20K a year with Hearst Media (SF Chronicle, SFGATE), $3K a month in paid social, and $100K a year in technology, on budget every year.
 - **PR:**
