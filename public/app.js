@@ -51,7 +51,7 @@ function render(d) {
   // The summary's paragraphs (separated by a blank line) become separate <p>s.
   $(".hero-summary").replaceChildren(...String(d.summary || "").split(/\n\s*\n/).map((t) => h("p", {}, t)));
   // "Head of Brand · Creative Director · ..." gives the tab title "Head of Brand & Creative Director".
-  document.title = `${d.name} — ${d.role.split(" · ").slice(0, 2).join(" & ")}`;
+  document.title = d.seo_title || `${d.name} — ${d.role.split(" · ").slice(0, 2).join(" & ")}`;
 
   // Hero role: "A · B · C" becomes separate pieces with accent dots.
   const roleEl = $(".hero-role");
@@ -449,7 +449,8 @@ function setupReel(d) {
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const probe = document.createElement("canvas");
   const webgl = !!(probe.getContext("webgl2") || probe.getContext("webgl"));
-  if (still || !webgl) return reelGrid(tiles, go);
+  const saveData = navigator.connection?.saveData; // respect "save data" on phones: skip the 3D download
+  if (still || !webgl || saveData) return reelGrid(tiles, go);
   import("/reel.js")
     .then((m) => { if (!m.start({ tiles, onOpen: go, label: reelLabel })) reelGrid(tiles, go); })
     .catch(() => reelGrid(tiles, go));
