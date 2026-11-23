@@ -1289,3 +1289,9 @@ img, svg { display: block; }
   @media (prefers-reduced-motion: reduce) { .reel-grid { transition: opacity .3s ease; transform: none; } .reel-tile img { transition: none; } }
 }
 @media screen and (prefers-reduced-motion: reduce) { .reel-hint::after { animation: none; } }
+@media screen {
+  /* The stage stays in the flow (so it stops sticking when the opening section ends) and the hero is pulled up
+     over it. A negative margin on the stage itself let it stay stuck one screen too long, over the next section. */
+  .reel-on .reel-stage { margin-bottom: 0; }
+  .reel-on .reel > .hero { margin-top: -100vh; margin-top: -100svh; }
+}
