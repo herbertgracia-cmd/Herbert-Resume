@@ -658,7 +658,7 @@
         "Tech & Projects"
       ],
       "year": "FAZE & State of Flux",
-      "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, plus FAZE trade-show booths in Las Vegas, Miami, Los Angeles, and New York and State of Flux pop-ups.",
+      "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, plus trade-show booths for both brands in Las Vegas, Miami, Los Angeles, and New York, and our pop-ups.",
       "details": "Also managed our pop-ups and block parties, including permits with the City of San Francisco. Led both store build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors. Pictured: the FAZE store, and the State of Flux store before and after its build-out.",
       "role": "Space designer & project lead",
       "tags": [
@@ -929,18 +929,32 @@
   ],
   "_reel_help": "'reel' lists the photos (file names in public/work/) that fly in the opening 3D ribbon, in order. The first 8 show on phones, all 12 on larger screens. Each opens the work piece it belongs to.",
   "reel": [
-    "state-of-flux-caps.jpg",
-    "fromm-farmers-market.jpg",
-    "faze-store.jpg",
-    "fromm-50th.jpg",
-    "state-of-flux-dahlia-tee.jpg",
-    "timbuk2-state-of-flux.jpg",
-    "faze-store-interior.jpg",
-    "fromm-enrollment-ad.jpg",
-    "state-of-flux-socks.jpg",
-    "store-build-out.jpg",
-    "state-of-flux-good-energy-tee.jpg",
-    "fromm-catalog-cover.jpg"
+    {
+      "category": "Brand",
+      "file": "fromm-50th.jpg",
+      "proof": "Fromm’s 50th Anniversary identity"
+    },
+    {
+      "category": "Design",
+      "file": "state-of-flux-good-energy-tee.jpg",
+      "proof": "Every product at two apparel brands"
+    },
+    {
+      "category": "Events",
+      "file": "faze-store-interior.jpg",
+      "proof": "Stores, pop-ups & trade shows in 4 cities"
+    },
+    {
+      "category": "Marketing",
+      "file": "fromm-farmers-market.jpg",
+      "proof": "Enrollment up 10% in 2025–26"
+    },
+    {
+      "category": "PR & Communications",
+      "file": "pr-newswire-fromm-day.jpg",
+      "proof": "Releases picked up by 500+ news outlets",
+      "label": "PR & Comms"
+    }
   ],
   "skills": [
     {
@@ -1150,7 +1164,7 @@
       ]
     }
   ],
-  "specialties": "Brand Strategy · Creative Direction · Partnerships · Events",
+  "specialties": "Now: leads marketing, PR, communications & technology at USF’s Fromm Institute · Co-founded and exited 2 apparel brands",
   "tools": [
     "Adobe Creative Cloud / Creative Suite (Photoshop, Illustrator, InDesign, Premiere Pro)",
     "Figma",
