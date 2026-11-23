@@ -30,7 +30,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
 ## Always
 - First person. Lead with what happened, then how, then why it matters.
 - One number per point, written exactly as verified (465 outlets, not "nearly 500").
-- Name real partners and places: Pinterest, Timbuk2, SFMOMA, Harmonic Brewing; Las Vegas, Miami, Los Angeles, New York; the Mayor of San Francisco's office.
+- Name real partners and places: Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway, Big Boi (Outkast); Las Vegas, Miami, Los Angeles, New York; the Mayor of San Francisco's office.
 - Thank the people involved (team, volunteers, partners, the City) when sharing a win.
 - Be precise about roles:
   - **Fromm:** he leads all marketing, PR, and communications, plus technology.
@@ -64,8 +64,8 @@ I'm a brand and creative leader who builds things, from brands and products to r
   - Built Frommcast to 1,500+ subscribers, then moved it to YouTube (700+ subscribers, 200+ free classes).
 
 **Entrepreneur**
-- **FAZE Apparel** (2007–2019), co-founder: acquired in 2019. 10+ retail accounts, a flagship store, and trade shows in Las Vegas, Miami, Los Angeles, and New York.
-- **State of Flux** (2019–2024), co-founder: collaborations with Pinterest, Timbuk2, SFMOMA, and Harmonic Brewing. Flagship store; pop-ups in San Francisco, New York, Los Angeles, and Las Vegas. Exited through a partner buyout in 2024.
+- **FAZE Apparel** (2007–2019), co-founder: acquired in 2019. 10+ retail accounts, a flagship store, and trade shows in Las Vegas, Miami, Los Angeles, and New York. Designed tour merchandise for Big Boi of Outkast (designs can't be shown).
+- **State of Flux** (2019–2024), co-founder: collaborations with Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, and the Outside Lands and BreakAway music festivals. Flagship store; pop-ups in San Francisco, New York, Los Angeles, and Las Vegas. Exited through a partner buyout in 2024.
 - **Both brands:** designed every product; teams of 5; block parties with City of San Francisco permits.
 
 **Education:** B.A., Media Studies and Communication, minor in Film, University of San Francisco. USF Certificate in Applied Agentic AI (2026). Speaks English and Spanish.

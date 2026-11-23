@@ -1327,6 +1327,8 @@ img, svg { display: block; }
   .reel-on .hero-panel-bg::before { content: ""; position: absolute; left: -100vmax; right: -100vmax; top: 0; height: 110px; background: linear-gradient(#0b0c10, transparent); }
   .reel-on .edition .hero-photo, .reel-on .edition .hero-summary { margin-top: 112px; } /* start below the fade */
   .edition .hero .stat span { max-width: none; text-wrap: balance; } /* labels on one line where they fit */
+  .edition .partner + .partner::before { content: none; } /* no separator dots: a wrapped line never starts with one */
+  .edition .partners { column-gap: 30px; }
   @media (max-width: 760px) {
     .hero-cta #hero-linkedin:not([hidden]) { display: inline-flex; } /* recruiters look for it on the first screen */
     .reel-on .edition .hero-name { justify-self: stretch; font-size: clamp(2.6rem, 15vw, 4.6rem); }
