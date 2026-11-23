@@ -28,6 +28,9 @@ function safeUrl(url) {
   }
 }
 
+// Set by renderWork: opens a Selected Work tab and scrolls to it (used by the opening reel).
+let jumpToCategory = () => { location.hash = "#portfolio"; };
+
 const data = await fetch("/content.json").then((r) => r.json());
 render(data);
 setupTheme();
@@ -345,6 +348,13 @@ function renderWork(items, catMeta = []) {
     if (btn) select(btn.dataset.filter);
   });
 
+  jumpToCategory = (c) => {
+    if (buttons.some((b) => b.dataset.filter === c)) select(c);
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    $("#portfolio").scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
+    history.replaceState(null, "", "#portfolio");
+  };
+
   // Hero shortcuts: each category jumps to the work and opens that tab.
   const heroCats = $("#hero-cats");
   if (heroCats) {
@@ -424,50 +434,56 @@ function renderFounder(ent, items) {
   section.hidden = false;
 }
 
-// The opening reel. Full 3D (reel.js) where WebGL works and motion is allowed; otherwise the same photos
-// as a plain grid that fades in as you scroll, so no one lands on an empty, gray stage.
-// The photos come from content.json "reel" (file names); each opens the piece it belongs to.
+// The opening reel: five photos, one per skill (content.json "reel": category, file, proof). Full 3D (reel.js)
+// where WebGL works and motion is allowed; otherwise the same five as a labeled grid. Each one opens that
+// skill's tab in Selected Work.
 function setupReel(d) {
-  const items = d.work || [];
-  const cap = innerWidth < 700 ? 8 : 12;
-  const tiles = [];
-  for (const file of d.reel || []) {
-    const index = items.findIndex((w) => (w.images || []).some((im) => im.src.split("/").pop() === file));
-    if (index >= 0 && tiles.length < cap) tiles.push({ item: items[index], index, src: "/work/thumbs/" + file });
-  }
-  if (tiles.length < 4) return;
+  const tiles = (d.reel || []).filter((r) => r && r.category && r.file).slice(0, 6).map((r, i) => ({
+    category: r.category, name: r.label || r.category, proof: r.proof || "", num: String(i + 1).padStart(2, "0"),
+    cls: categoryClass(r.category), src: "/work/" + r.file,
+  }));
+  if (tiles.length < 3) return;
   const root = document.documentElement;
   root.classList.add("reel-on");
+  const go = (cat) => jumpToCategory(cat);
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const probe = document.createElement("canvas");
   const webgl = !!(probe.getContext("webgl2") || probe.getContext("webgl"));
-  if (still || !webgl) return reelGrid(tiles);
+  if (still || !webgl) return reelGrid(tiles, go);
   import("/reel.js")
-    .then((m) => { if (!m.start({ tiles, onOpen: openWork })) reelGrid(tiles); })
-    .catch(() => reelGrid(tiles));
+    .then((m) => { if (!m.start({ tiles, onOpen: go, label: reelLabel })) reelGrid(tiles, go); })
+    .catch(() => reelGrid(tiles, go));
 }
 
-// The no-3D reel: a grid of the same photos that fades in once you start scrolling.
-function reelGrid(tiles) {
+// One skill label: "● 01 Design →" plus its proof line. A real link to the work, so it works by keyboard too.
+function reelLabel(t, onOpen) {
+  const a = h("a", { href: "#portfolio", class: `reel-label ${t.cls}` },
+    h("span", { class: "reel-label-name" }, h("span", { class: "reel-dot", "aria-hidden": "true" }), h("span", { class: "reel-num" }, t.num), ` ${t.name} `, h("span", { "aria-hidden": "true" }, "→")),
+    t.proof ? h("span", { class: "reel-label-proof" }, t.proof) : null);
+  a.addEventListener("click", (e) => { e.preventDefault(); onOpen(t.category); });
+  return a;
+}
+
+// The no-3D reel: the five photos as a labeled grid that fades in once you start scrolling.
+function reelGrid(tiles, onOpen) {
   const stage = document.querySelector(".reel-stage");
   const wrap = $("#reel");
   const root = document.documentElement;
   if (!stage || !wrap) return;
   $("#reel-canvas")?.remove();
-  stage.removeAttribute("aria-hidden");
   stage.classList.add("is-grid");
-  const grid = h("div", { class: "reel-grid" }, tiles.map((t) => {
-    const b = h("button", { type: "button", class: "reel-tile", "aria-label": `Open ${t.item.title}` },
-      h("img", { src: t.src, alt: "", loading: "lazy", decoding: "async" }));
-    b.addEventListener("click", () => openWork(t.item, t.index));
-    return b;
+  const grid = h("ul", { class: "reel-grid", role: "list", "aria-label": "My work by skill" }, tiles.map((t) => {
+    const img = h("img", { src: t.src, alt: "", loading: "lazy", decoding: "async" });
+    const pic = h("button", { type: "button", class: "reel-tile", tabindex: "-1", "aria-hidden": "true" }, img);
+    pic.addEventListener("click", () => onOpen(t.category));
+    return h("li", { class: "reel-cell" }, pic, reelLabel(t, onOpen));
   }));
   stage.prepend(grid);
   const hint = $("#reel-hint");
   const onScroll = () => {
     const r = wrap.getBoundingClientRect();
     const p = Math.min(1, Math.max(0, -r.top / Math.max(1, wrap.offsetHeight - innerHeight)));
-    stage.classList.toggle("is-shown", p > 0.08);
+    stage.classList.toggle("is-shown", p > 0.06);
     const panel = document.querySelector(".hero-panel-bg");
     root.classList.toggle("over-reel", (panel ? panel.getBoundingClientRect().top : r.bottom) > 72);
     if (hint) hint.style.opacity = String(1 - Math.min(1, p * 6));

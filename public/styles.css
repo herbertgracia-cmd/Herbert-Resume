@@ -1295,3 +1295,66 @@ img, svg { display: block; }
   .reel-on .reel-stage { margin-bottom: 0; }
   .reel-on .reel > .hero { margin-top: -100vh; margin-top: -100svh; }
 }
+
+/* ---- Five skills on the opening (Nov 23): labeled photos, name kept clear, shorter scroll. Screen only. ---- */
+@media screen {
+  .reel-labels { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+  .reel-label {
+    position: absolute; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; gap: 4px;
+    width: var(--lw, 240px); margin-left: calc(var(--lw, 240px) / -2); padding: 10px 0 0; text-align: center;
+    color: #f4f5f7; text-decoration: none; opacity: 0; will-change: transform, opacity;
+  }
+  .reel-label-name { display: inline-flex; align-items: center; gap: 8px; font: 500 12px/1.2 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+  .reel-num { color: rgb(244 245 247 / .6); }
+  .reel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c, #aab3ff); flex: none; }
+  .reel-label-proof { font: 400 13.5px/1.35 var(--sans); color: #c9cdd6; }
+  .reel-label.is-carousel .reel-label-proof { display: none; }
+  .reel-label:hover .reel-label-name, .reel-label:focus-visible .reel-label-name { color: var(--c, #aab3ff); }
+  .reel-label:focus-visible { outline: 2px solid #aab3ff; outline-offset: 4px; opacity: 1 !important; }
+  /* The stage is always dark, so the labels use the dark-theme category colors. */
+  .reel-stage .cat-brand { --c: #ff8a65; } .reel-stage .cat-design { --c: #8fb0ff; } .reel-stage .cat-events { --c: #c9a8ff; }
+  .reel-stage .cat-marketing { --c: #5ad7a6; } .reel-stage .cat-pr, .reel-stage .cat-pr-communications { --c: #5fd4e6; }
+
+  /* The name, title, and line about Fromm stay in a left column so the photos turn beside them, not over them. */
+  .reel-on .edition .hero-name { justify-self: start; font-size: clamp(3rem, 8.6vw, 8.4rem); }
+  .reel-on .edition .hero-tagline { max-width: 34ch; }
+  .reel-on .edition .hero-specialties { max-width: 64ch; color: #d9dce3; }
+  .reel-on .edition .hero-specialties { font-size: 12.5px; line-height: 1.6; }
+  .reel-on .edition .hero { grid-template-rows: auto auto auto auto auto auto 95vh auto auto auto auto; }
+  /* The five labeled photos replace the "Explore the work" row. */
+  .reel-on .edition .hero-cats { display: none; }
+  /* Fade from the dark stage into the summary panel instead of a hard cut. */
+  .reel-on .reel { overflow-x: clip; } /* keeps the full-width fade from widening the page */
+  .reel-on .hero-panel-bg::before { content: ""; position: absolute; left: -100vmax; right: -100vmax; top: 0; height: 110px; background: linear-gradient(#0b0c10, transparent); }
+  @media (max-width: 760px) {
+    .hero-cta #hero-linkedin:not([hidden]) { display: inline-flex; } /* recruiters look for it on the first screen */
+    .reel-on .edition .hero-name { justify-self: stretch; font-size: clamp(2.6rem, 15vw, 4.6rem); }
+    .reel-on .edition .hero { grid-template-rows: auto auto auto auto auto auto 120vh auto auto auto auto; }
+    .reel-label-name { font-size: 11px; }
+    .reel-label-proof { font-size: 12.5px; }
+  }
+
+  /* No-3D version: the same five as a labeled grid. */
+  .reel-grid { list-style: none; margin: 0; padding: 0; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .reel-cell { display: flex; flex-direction: column; min-width: 0; }
+  .reel-cell .reel-label { position: static; width: auto; max-width: none; margin: 0; opacity: 1; }
+  @media (max-width: 900px) { .reel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+  @media (max-width: 600px) { .reel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+
+  /* ---- Entrepreneur ---- */
+  .founder-head { max-width: 75ch; }
+  .founder-headline { margin: 8px 0 0; font: 400 clamp(1.9rem, 3.8vw, 3.2rem)/1.04 var(--serif); letter-spacing: -.01em; text-wrap: balance; }
+  .founder-sub { margin: 12px 0 0; font-size: 1rem; line-height: 1.6; }
+  .brands { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+  .brand-card { padding: 18px 24px 6px; border-left: 1px solid var(--line); min-width: 0; }
+  .brand-card:first-child { padding-left: 0; border-left: 0; }
+  .brand-top h4 { margin: 0; font: 400 1.9rem/1.05 var(--serif); }
+  .brand-meta { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 8px 0 0; font: 500 11.5px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .brand-meta span + span::before { content: "·"; margin: 0 10px; }
+  .brand-exit { color: var(--accent); }
+  @media (max-width: 760px) {
+    .brands { grid-template-columns: 1fr; }
+    .brand-card { padding-left: 0; border-left: 0; }
+    .brand-card + .brand-card { border-top: 1px solid var(--line); }
+  }
+}
