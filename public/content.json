@@ -427,10 +427,22 @@
       "featured": true,
       "images": [
         {
+          "src": "/work/state-of-flux-store-opening.jpg",
+          "alt": "The State of Flux logo on the store window, with a crowd inside at the store's opening, in black and white",
+          "w": 1000,
+          "h": 995
+        },
+        {
           "src": "/work/state-of-flux-caps.jpg",
           "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger",
           "w": 800,
           "h": 800
+        },
+        {
+          "src": "/work/state-of-flux-checker-knit.jpg",
+          "alt": "An orange and cream checkerboard knit shirt with a green gothic letter and SF on the back",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-x-logo.jpg",
@@ -439,62 +451,20 @@
           "h": 900
         },
         {
+          "src": "/work/state-of-flux-topo-tee.jpg",
+          "alt": "Close-up of a navy tee printed with a topographic map, the X logo in red outline, and the words 'Explore today' and 'tomorrow is not guaranteed'",
+          "w": 1000,
+          "h": 1000
+        },
+        {
+          "src": "/work/state-of-flux-photo-studio-tee.jpg",
+          "alt": "A white State of Flux Workshop 'Photography Studio' tee with a cartoon camera character, on a cutting mat with sewing tools and woven labels",
+          "w": 1000,
+          "h": 1000
+        },
+        {
           "src": "/work/state-of-flux-good-energy-tee.jpg",
           "alt": "A cream State of Flux 'Good Energy Club' tee with an orange-and-leaf illustration and a small boxed logo",
-          "w": 1000,
-          "h": 1000
-        },
-        {
-          "src": "/work/state-of-flux-dahlia-tee.jpg",
-          "alt": "A white State of Flux tee with green line-drawn dahlias around the X logo and the words 'Life is full of uncertainties, so enjoy the little things'",
-          "w": 1000,
-          "h": 1000
-        },
-        {
-          "src": "/work/state-of-flux-imagine-hoodie.jpg",
-          "alt": "A cream State of Flux hoodie with an orange halftone portrait ringed by the words 'Imagine if being you was a crime'",
-          "w": 1000,
-          "h": 1000
-        },
-        {
-          "src": "/work/state-of-flux-worldwide-hoodie.jpg",
-          "alt": "Back of a cream State of Flux hoodie with a globe graphic and the words San Francisco, London, Taipei, New York, Tokyo, Worldwide",
-          "w": 1200,
-          "h": 1200
-        },
-        {
-          "src": "/work/state-of-flux-curry-tote.jpg",
-          "alt": "A State of Flux tote bag made from a 2009–10 Stephen Curry #30 Warriors jersey, with white straps printed 'never break. never settle. never fold.'",
-          "w": 1200,
-          "h": 1200
-        },
-        {
-          "src": "/work/state-of-flux-socks.jpg",
-          "alt": "Four pairs of State of Flux crew socks in purple, white, pink, and green with orange heels and toes and the S×F logo",
-          "w": 1000,
-          "h": 1000
-        },
-        {
-          "src": "/work/state-of-flux-knits.jpg",
-          "alt": "A rack of State of Flux knit sweaters in checkerboard, stripe, and mesh patterns",
-          "w": 1000,
-          "h": 1000
-        },
-        {
-          "src": "/work/state-of-flux-jogger-labels.jpg",
-          "alt": "Purple and black State of Flux joggers with gold woven labels reading 'Made in USA' and 'Never break. Never settle. Never fold.'",
-          "w": 1000,
-          "h": 1000
-        },
-        {
-          "src": "/work/state-of-flux-labels.jpg",
-          "alt": "A pile of black and gold State of Flux woven labels reading 'Workshop Product'",
-          "w": 800,
-          "h": 800
-        },
-        {
-          "src": "/work/state-of-flux-mask.jpg",
-          "alt": "A navy State of Flux face mask with gold embroidered varsity letters and a lightning-bolt patch",
           "w": 1000,
           "h": 1000
         },
@@ -505,16 +475,10 @@
           "h": 1040
         },
         {
-          "src": "/work/state-of-flux-studio.jpg",
-          "alt": "Herbert in the State of Flux workshop, wearing a State of Flux shirt, under a 'Happy Hispanic Heritage Month' graphic",
-          "w": 1080,
-          "h": 1080
-        },
-        {
-          "src": "/work/timbuk2-state-of-flux-article.jpg",
-          "alt": "Timbuk2’s blog post 'Timbuk2 collaborates with State of Flux', showing the team outside the State of Flux shop on Valencia Street",
+          "src": "/work/state-of-flux-socks.jpg",
+          "alt": "Four pairs of State of Flux crew socks in purple, white, pink, and green with orange heels and toes and the S×F logo",
           "w": 1000,
-          "h": 1093
+          "h": 1000
         }
       ],
       "collaborators": "Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway Music Festival",
@@ -523,7 +487,8 @@
       "outcome": "An independent brand with its own retail store, online shop, and co-branded products. In 2024 I sold my ownership stake to my business partner.",
       "caption": "Building an apparel brand across products, partnerships, and retail",
       "tag": "Apparel · Retail",
-      "result": "Exited via partner buyout, 2024"
+      "result": "Exited via partner buyout, 2024",
+      "cover_image": "/work/state-of-flux-caps.jpg"
     },
     {
       "title": "Fromm Institute",
@@ -639,7 +604,7 @@
       ],
       "featured": true,
       "challenge": "Take an independent apparel brand from an idea to a real business.",
-      "approach": "I built the brand identity and apparel collections and supported our marketing campaigns. I grew wholesale to more than 10 retail locations, opened our own branded store, and led trade shows in Las Vegas, Miami, Los Angeles, and New York.",
+      "approach": "I built the brand identity and apparel collections and supported our marketing campaigns. I grew wholesale to more than 10 retail locations, opened our own branded store, and led trade shows in Las Vegas, Miami, Los Angeles, and New York. Big Boi of Outkast wore our caps, and I designed tour merchandise for him.",
       "outcome": "In 2019 a privately held business acquired the company, including its brand assets, logos, designs, and intellectual property rights.",
       "caption": "From brand identity and product development to retail and acquisition",
       "tag": "Brand · Retail",
@@ -661,6 +626,12 @@
           "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass",
           "w": 1024,
           "h": 681
+        },
+        {
+          "src": "/work/faze-big-boi-cap.jpg",
+          "alt": "Big Boi of Outkast wearing an original black FAZE cap with gold lettering",
+          "w": 276,
+          "h": 429
         }
       ],
       "result": "Acquired, 2019"
