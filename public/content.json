@@ -457,10 +457,10 @@
           "h": 1000
         },
         {
-          "src": "/work/state-of-flux-x-logo.jpg",
-          "alt": "The State of Flux X logo, cut in black and white, on weathered wood with scattered strips of vinyl",
-          "w": 900,
-          "h": 900
+          "src": "/work/state-of-flux-floral-tee.jpg",
+          "alt": "A cream State of Flux tee printed with yellow and pink wildflowers growing through a green X logo, above the line 'Life is full of uncertainties, so enjoy the little things'",
+          "w": 1000,
+          "h": 1000
         },
         {
           "src": "/work/state-of-flux-topo-tee.jpg",
@@ -469,10 +469,10 @@
           "h": 1000
         },
         {
-          "src": "/work/state-of-flux-photo-studio-tee.jpg",
-          "alt": "A white State of Flux Workshop 'Photography Studio' tee with a cartoon camera character, on a cutting mat with sewing tools and woven labels",
-          "w": 1000,
-          "h": 1000
+          "src": "/work/state-of-flux-x-logo.jpg",
+          "alt": "The State of Flux X logo, cut in black and white, on weathered wood with scattered strips of vinyl",
+          "w": 900,
+          "h": 900
         },
         {
           "src": "/work/state-of-flux-neon.jpg",
@@ -616,6 +616,18 @@
           "h": 1200
         },
         {
+          "src": "/work/faze-trade-show-booth.jpg",
+          "alt": "Herbert in a FAZE cap at the FAZE booth at the Agenda trade show in Las Vegas, handing out yellow FAZE tote bags in front of a wall of FAZE caps",
+          "w": 1200,
+          "h": 1200
+        },
+        {
+          "src": "/work/faze-storefront.jpg",
+          "alt": "The FAZE store in San Francisco: a black banner with the gold lightning logo over the corner entrance and a 'Yup, we're open' sign on the sidewalk",
+          "w": 900,
+          "h": 1200
+        },
+        {
           "src": "/work/faze-store-interior.jpg",
           "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass",
           "w": 1024,
@@ -640,12 +652,6 @@
           "h": 612
         },
         {
-          "src": "/work/faze-store.jpg",
-          "alt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner",
-          "w": 348,
-          "h": 348
-        },
-        {
           "src": "/work/faze-big-boi-cap.jpg",
           "alt": "Big Boi of Outkast wearing an original black FAZE cap with gold lettering",
           "w": 276,
@@ -664,7 +670,7 @@
       ],
       "year": "FAZE & State of Flux",
       "summary": "Designed both of our retail stores, FAZE Apparel and State of Flux, plus trade-show booths for both brands in Las Vegas, Miami, Los Angeles, and New York, and our pop-ups.",
-      "details": "Also managed our pop-ups and block parties, including permits with the City of San Francisco. Led both store build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors. Pictured: the FAZE store, and the State of Flux store before and after its build-out.",
+      "details": "Also managed our pop-ups and block parties, including permits with the City of San Francisco. Led both store build-outs from concept through opening, coordinating architects, contractors, fabricators, fixtures, graphics, and vendors. Pictured: the FAZE store, the FAZE booth at the Agenda trade show in Las Vegas, the State of Flux store before and after its build-out, and the FAZE storefront.",
       "role": "Space designer & project lead",
       "tags": [
         "Retail design",
@@ -680,6 +686,12 @@
           "h": 681
         },
         {
+          "src": "/work/faze-trade-show-booth.jpg",
+          "alt": "Herbert in a FAZE cap at the FAZE booth at the Agenda trade show in Las Vegas, handing out yellow FAZE tote bags in front of a wall of FAZE caps",
+          "w": 1200,
+          "h": 1200
+        },
+        {
           "src": "/work/store-before-build-out.jpg",
           "alt": "The State of Flux store before the build-out: walls stripped to the studs, old paneling, and debris on the floor",
           "w": 2000,
@@ -692,10 +704,10 @@
           "h": 1200
         },
         {
-          "src": "/work/faze-store.jpg",
-          "alt": "The FAZE Apparel storefront in San Francisco",
-          "w": 348,
-          "h": 348
+          "src": "/work/faze-storefront.jpg",
+          "alt": "The FAZE store in San Francisco: a black banner with the gold lightning logo over the corner entrance and a 'Yup, we're open' sign on the sidewalk",
+          "w": 900,
+          "h": 1200
         }
       ],
       "caption": "Two stores, trade-show booths, and pop-ups",
@@ -952,7 +964,7 @@
     },
     {
       "category": "Events",
-      "file": "faze-store-interior.jpg",
+      "file": "faze-trade-show-booth-crop.jpg",
       "proof": "Stores, pop-ups & trade shows in 4 cities"
     },
     {
