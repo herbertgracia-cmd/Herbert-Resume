@@ -433,6 +433,12 @@
           "h": 800
         },
         {
+          "src": "/work/state-of-flux-x-logo.jpg",
+          "alt": "The State of Flux X logo, cut in black and white, on weathered wood with scattered strips of vinyl",
+          "w": 900,
+          "h": 900
+        },
+        {
           "src": "/work/state-of-flux-good-energy-tee.jpg",
           "alt": "A cream State of Flux 'Good Energy Club' tee with an orange-and-leaf illustration and a small boxed logo",
           "w": 1000,
@@ -645,6 +651,12 @@
           "h": 348
         },
         {
+          "src": "/work/faze-leather-label.jpg",
+          "alt": "The FAZE lightning logo and 'Made in the USA' stamped on tan leather labels",
+          "w": 612,
+          "h": 612
+        },
+        {
           "src": "/work/faze-store-interior.jpg",
           "alt": "Inside the FAZE Apparel store: the FAZE letters in framed mosaics above the windows, a crystal chandelier, and the FAZE logo and 'USA Made' decals on the glass",
           "w": 1024,
@@ -790,7 +802,7 @@
         "Brand collaborations",
         "Activations"
       ],
-      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together. Pictured: the Timbuk2 × State of Flux bag.",
+      "details": "Products made for sale with each partner, plus events and pop-ups that brought the brands together, and merch for the Outside Lands and BreakAway music festivals. Pictured: the Timbuk2 × State of Flux bag and the Harmonic Brewing × State of Flux IPA.",
       "images": [
         {
           "src": "/work/timbuk2-state-of-flux-article.jpg",
@@ -799,10 +811,16 @@
           "h": 1093
         },
         {
+          "src": "/work/harmonic-brewing-state-of-flux.jpg",
+          "alt": "Harmonic Brewing and State of Flux IPA cans on ice, with the yellow State of Flux X logo on a black label",
+          "w": 894,
+          "h": 1086
+        },
+        {
           "src": "/work/timbuk2-state-of-flux.jpg",
           "alt": "A model outside a storefront wearing a black and orange Timbuk2 × State of Flux crossbody bag",
-          "w": 480,
-          "h": 320
+          "w": 1000,
+          "h": 522
         }
       ],
       "caption": "Co-branded products and pop-ups with SFMOMA, Timbuk2, Pinterest, Harmonic Brewing, and two music festivals",
