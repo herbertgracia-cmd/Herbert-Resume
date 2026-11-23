@@ -20,9 +20,9 @@ function strip(d, S) {
   return `<header class="sb-strip"><div class="sb-wrap">
     <div class="sb-cell"><b>NOW</b>${esc(S.strip?.now)}</div>
     <div class="sb-cell"><b>STATUS</b>${esc(S.strip?.status)}</div>
-    <div class="sb-cell"><b>EMAIL</b><span class="sb-sel">${esc(L.email)}</span></div>
+    <div class="sb-cell"><b>EMAIL</b><a class="sb-mail" href="mailto:${esc(L.email)}">${esc(L.email)}</a></div>
     <div class="sb-actions">
-      <button class="sb-theme" id="sb-theme" type="button" aria-label="Switch color theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg></button>
+      <button class="sb-theme" id="sb-theme" type="button" aria-label="Dark theme" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg></button>
       ${L.linkedin ? `<a href="${esc(L.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>` : ""}
       <a class="sb-solid" href="${PDF}" download>PDF ↓</a>
     </div>
@@ -36,7 +36,7 @@ function hero(d, S) {
     <div>
       <nav class="sb-tapes" aria-label="Jump to"><a class="sb-tp sb-tp1" href="#sb-resume">Resume ↓</a><a class="sb-tp sb-tp2" href="#sb-skills">Skills ↓</a></nav>
       <p class="sb-label">${esc(S.eyebrow)}</p>
-      <h1 id="sb-name">${esc(d.name).replace(/ (\S+)$/, "<br><em>$1</em>")}</h1>
+      <h1 id="sb-name">${esc(d.name).replace(/ (\S+)$/, " <br><em>$1</em>")}</h1>
       <p class="sb-role">${esc(S.titles)}</p>
       <p class="sb-now"><strong>Now:</strong> ${esc(S.now)}</p>
       <div class="sb-facts">${facts}</div>
@@ -44,7 +44,7 @@ function hero(d, S) {
     <figure class="sb-fig">
       ${H.note ? `<p class="sb-note" aria-hidden="true">${esc(H.note)}</p>` : ""}
       <div class="sb-photo"><span class="sb-tape sb-t1"></span><span class="sb-tape sb-t2"></span><img src="${esc(H.src)}" alt="${esc(H.alt)}" width="${H.w || 500}" height="${H.h || 500}" fetchpriority="high"></div>
-      ${I.src ? `<div class="sb-photo sb-mini"><span class="sb-tape sb-t1"></span><img src="${esc(I.src)}" alt="${esc(I.alt)}" width="${I.w || 600}" height="${I.h || 600}"><span class="sb-hand sb-minicap">${esc(I.note)}</span></div>` : ""}
+      ${I.src ? `<div class="sb-photo sb-mini"><span class="sb-tape sb-t1"></span><img src="${esc(thumb(I.src))}" data-full="${esc(I.src)}" alt="${esc(I.alt)}" width="${I.w || 600}" height="${I.h || 600}"><span class="sb-hand sb-minicap">${esc(I.note)}</span></div>` : ""}
       <figcaption class="sb-figcap"><span class="sb-label">${esc(H.caption)}</span><span class="sb-label">${esc(H.caption2)}</span></figcaption>
     </figure>
   </section>`;
@@ -59,11 +59,11 @@ function sheet(s, i) {
         <span class="sb-seam" aria-hidden="true"><svg viewBox="0 0 14 600" preserveAspectRatio="none"><path class="sb-pen" d="M7 0 C 3 80, 11 160, 6 240 S 4 400, 8 480 S 6 560, 7 600"/></svg></span>
         <span class="sb-knob" aria-hidden="true">⇆</span>
         <span class="sb-tagb">${esc(s.wipe.before_label)}</span><span class="sb-taga">${esc(s.wipe.after_label)}</span>
-        <input type="range" min="0" max="100" value="50" aria-label="${esc(s.wipe.aria)}">
+        <input type="range" min="0" max="100" step="5" value="50" aria-label="${esc(s.wipe.aria)}" aria-valuetext="Half and half">
       </div>
       <div class="sb-wipe-cap"><span class="sb-label">${esc(s.wipe.caption)}</span><span class="sb-hand sb-hand-sm">drag me ⇆</span></div>`
-    : `<div class="sb-pgrid">${(s.grid || []).map((g) => `<figure><img src="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy"><figcaption class="sb-label">${esc(g.caption)}</figcaption></figure>`).join("")}</div>`;
-  const side = (s.side || []).map((g) => `<figure class="${s.side.length === 1 ? "sb-st" : ""}">${g.note ? `<span class="sb-scribble" aria-hidden="true">${esc(g.note)}</span>` : ""}<img src="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy"><figcaption class="sb-label">${esc(g.caption)}</figcaption></figure>`).join("");
+    : `<div class="sb-pgrid">${(s.grid || []).map((g) => `<figure><img src="${esc(thumb(g.src))}" data-full="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy"><figcaption class="sb-label">${esc(g.caption)}</figcaption></figure>`).join("")}</div>`;
+  const side = (s.side || []).map((g) => `<figure class="${s.side.length === 1 ? "sb-st" : ""}">${g.note ? `<span class="sb-scribble" aria-hidden="true">${esc(g.note)}</span>` : ""}<img src="${esc(thumb(g.src))}" data-full="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy"><figcaption class="sb-label">${esc(g.caption)}</figcaption></figure>`).join("");
   return `<article class="sb-sheet" id="sb-sheet-${i}" aria-labelledby="sb-sheet-title-${i}">
     <div class="sb-sheet-hdr">
       <div><b>COMPANY</b><span>${esc(s.company)}</span></div>
@@ -149,9 +149,19 @@ function contact(d) {
     ? `${esc(tag.slice(0, k))}<span class="sb-u">first idea${pen("", "0 0 200 14", "M2 9 C 40 2, 90 13, 130 6 S 185 9, 198 4", 230, 'preserveAspectRatio="none"')}</span>${esc(tag.slice(k + 10))}`
     : esc(tag);
   return `<section class="sb-wrap sb-sec sb-contact" id="sb-contact" aria-labelledby="sb-ct-title">
-    <div class="sb-sec-head"><h2 id="sb-ct-title">Let’s talk</h2><span class="sb-label">${esc(d.location || "San Francisco")} · open to new roles</span></div>
-    <div class="sb-sign"><p class="sb-tag sb-end">${tagline}</p></div>
-    <p class="sb-ct">Hiring for brand, creative, or marketing leadership? Email <span class="sb-sel">${esc(L.email)}</span>${L.linkedin ? `, <a href="${esc(L.linkedin)}" target="_blank" rel="noopener">message me on LinkedIn ↗</a>,` : ""} or <a href="${PDF}" download>download my resume ↓</a>.</p>
+    <div class="sb-sec-head"><h2 id="sb-ct-title">Let’s talk</h2><span class="sb-label">${esc(d.location || "San Francisco")} · ${esc(d.availability || "Open to new roles")}</span></div>
+    <div class="sb-ct-grid">
+      <div class="sb-ct-left">
+        <div class="sb-sign"><p class="sb-tag sb-end">${tagline}</p></div>
+        <p class="sb-ct">Hiring for brand, creative, or marketing leadership? I’d like to hear about it.</p>
+        <ul class="sb-ct-links">
+          <li><span class="sb-label">Email</span><a href="mailto:${esc(L.email)}">${esc(L.email)}</a></li>
+          ${L.linkedin ? `<li><span class="sb-label">LinkedIn</span><a href="${esc(L.linkedin)}" target="_blank" rel="noopener">linkedin.com/in/herbert-gracia ↗</a></li>` : ""}
+          <li><span class="sb-label">Resume</span><a href="${PDF}" download>Download the PDF ↓</a></li>
+        </ul>
+      </div>
+      <div class="sb-ct-form" id="sb-form-slot" hidden><p class="sb-label sb-form-h">Send me a note</p></div>
+    </div>
   </section>`;
 }
 
@@ -171,7 +181,8 @@ function wire(root) {
     const range = wipe.querySelector("input");
     const setPos = (v) => wipe.style.setProperty("--pos", v + "%");
     setPos(50);
-    range.addEventListener("input", () => setPos(range.value));
+    const said = (v) => range.setAttribute("aria-valuetext", v <= 5 ? "Showing the after view" : v >= 95 ? "Showing the before view" : `${Math.round(v)}% before view`);
+    range.addEventListener("input", () => { setPos(range.value); said(+range.value); });
     if (!("IntersectionObserver" in window) || still) return;
     const io = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
@@ -186,6 +197,12 @@ function wire(root) {
   // Small thumbnails first; fall back to the full image if a thumbnail doesn't exist.
   root.querySelectorAll("img[data-full]").forEach((img) => img.addEventListener("error", () => { if (img.src.indexOf(img.dataset.full) < 0) img.src = img.dataset.full; }, { once: true }));
 
+  // The contact form lives in the old markup, where app.js wires it up; move it here once it's switched on.
+  const slot = $("#sb-form-slot", root), form = document.getElementById("contact-form");
+  const place = () => { if (form && !form.hidden && slot.hidden) { slot.append(form); slot.hidden = false; } };
+  place();
+  if (form && slot.hidden) new MutationObserver((m, o) => { place(); if (!slot.hidden) o.disconnect(); }).observe(form, { attributes: true, attributeFilter: ["hidden"] });
+
   // Case studies open in the existing work dialog (app.js).
   root.addEventListener("click", (e) => {
     const b = e.target.closest("[data-work]");
@@ -195,7 +212,7 @@ function wire(root) {
   // Light/dark toggle, saved the same way theme.js reads it.
   const btn = $("#sb-theme", root), html = document.documentElement;
   const cur = () => html.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  const label = () => { const dark = cur() === "dark"; btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme"); btn.setAttribute("aria-pressed", String(dark)); };
+  const label = () => btn.setAttribute("aria-pressed", String(cur() === "dark"));
   label();
   btn.addEventListener("click", () => { const next = cur() === "dark" ? "light" : "dark"; html.dataset.theme = next; try { localStorage.setItem("theme", next); } catch {} label(); });
 
@@ -212,7 +229,7 @@ try {
   if (!S || !root) throw new Error("no sketchbook content");
   root.innerHTML = strip(d, S) + `<main id="sb-main" class="sb-main" tabindex="-1">${hero(d, S)}
     <section class="sb-wrap sb-sec" id="sb-work" aria-labelledby="sb-work-title">
-      <div class="sb-sec-head"><h2 id="sb-work-title">Selected work</h2><span class="sb-label">Current role first · what I did and how it went</span></div>
+      <div class="sb-sec-head"><h2 id="sb-work-title">Selected work</h2><span class="sb-label">Current role first · what I built and what it delivered</span></div>
       ${(S.sheets || []).map(sheet).join("")}
       ${more(d, S)}
     </section>

@@ -1,6 +1,6 @@
 /* Sketchbook × Tech Pack: the on-screen site (Nov 2026). Loaded with media="screen", so the printed resume
    (styles.css print rules) is untouched. sketchbook.js renders #sb from content.json; the old screen layout is hidden. */
-.topbar, #main, .footer { display: none !important; }
+.has-js .topbar, .has-js #main, .has-js .footer { display: none !important; }
 .sb[hidden] { display: none !important; }
 
 /* Layout: a designer's tech pack on graph paper. Spec strip on top, hero sheet, a "points of measure" table for the five skills,
@@ -227,3 +227,35 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .sb-earlier-h { margin: 14px 0 6px; }
 .sb-sheet + .sb-sheet { margin-top: 34px; }
 .sb-main:focus { outline: none; }
+
+/* Review fixes (Nov 23): readable orange text, tape contrast and focus, strip focus in dark mode. */
+.sb .sb-tp { color: #fff8ec; background: #b93d12; }
+.sb .sb-tp:hover { background: #a93810; }
+.sb .sb-tp:focus-visible { outline: none; filter: drop-shadow(0 0 0 var(--sb-ink)) drop-shadow(0 0 2px var(--sb-ink)) drop-shadow(0 0 1px var(--sb-ink)); text-decoration: underline; text-underline-offset: 4px; }
+.sb .sb-job .sb-x, .sb .sb-ct a, .sb .sb-hand, .sb .sb-ct-links a { color: var(--sb-pen-text); }
+.sb-strip :focus-visible { outline-color: var(--sb-paper) !important; }
+.sb-strip .sb-mail { text-decoration: none; }
+.sb-strip .sb-mail:hover { text-decoration: underline; }
+
+/* Contact: sign-off and links on the left, message form on the right. */
+.sb-ct-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; margin-top: 8px; }
+.sb-ct-grid .sb-ct { font: 400 1.35rem/1.4 var(--sb-serif); margin-top: 14px; }
+.sb-ct-links { list-style: none; margin: 22px 0 0; padding: 0; border-top: 1.5px solid var(--sb-ink); }
+.sb-ct-links li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--sb-rule); align-items: baseline; }
+.sb-ct-links a { font: 500 1.05rem/1.4 var(--sb-sans); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.sb-ct-form { background: var(--sb-sheet); border: 1.5px solid var(--sb-ink); padding: 22px; margin-top: 24px; }
+.sb-form-h { margin: 0 0 8px; color: var(--sb-pen-text); opacity: 1; }
+.sb-ct-form .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0; max-width: none; }
+.sb-ct-form .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; margin: 0; }
+.sb-ct-form .field-wide, .sb-ct-form .form-foot { grid-column: 1 / -1; }
+.sb-ct-form label { font: 600 12px/1.3 var(--sb-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--sb-ink); }
+.sb-ct-form .optional { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .7; }
+.sb-ct-form input, .sb-ct-form textarea { width: 100%; font: 400 16px/1.4 var(--sb-sans); color: var(--sb-ink); background: var(--sb-paper); border: 1px solid var(--sb-ink); border-radius: 0; padding: 10px 12px; }
+.sb-ct-form input:focus-visible, .sb-ct-form textarea:focus-visible { outline: 2px solid var(--sb-pen-text); outline-offset: 1px; }
+.sb-ct-form .form-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.sb-ct-form .btn { background: var(--sb-ink); color: var(--sb-paper); border: 0; border-radius: 0; padding: 13px 22px; font: 700 14px/1 var(--sb-mono); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.sb-ct-form .btn:hover { background: #b93d12; color: #fff8ec; }
+.sb-ct-form .form-status { margin: 0; font-size: 15px; }
+.sb-ct-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 900px) { .sb-ct-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; } .sb-ct-form .contact-form { grid-template-columns: minmax(0, 1fr); } .sb-ct-links li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.sb-ct-form .contact-form { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0; }
