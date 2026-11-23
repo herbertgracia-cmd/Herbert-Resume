@@ -85,8 +85,13 @@ async function route(request, env) {
 
   // Home page: fill in the parts search engines and link previews read.
   if (url.pathname === "/" || url.pathname === "/index.html") {
-    const page = await env.ASSETS.fetch(request);
-    return renderHome(page, base);
+    // Fetch the template without the browser's cache validators: the page changes whenever content.json
+    // does, but the template file's ETag doesn't, so passing them through would answer 304 with stale text.
+    const page = await env.ASSETS.fetch(new Request(url.toString(), { headers: { Accept: "text/html" } }));
+    const res = new Response(renderHome(page, base).body, page);
+    res.headers.delete("ETag");
+    res.headers.delete("Last-Modified");
+    return res;
   }
 
   return env.ASSETS.fetch(request);
@@ -106,8 +111,10 @@ function renderHome(page, base) {
     .on('meta[property="og:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png?v=${VERSION}`) })
     .on('meta[name="twitter:image"]', { element: (el) => el.setAttribute("content", `${base}/og.png?v=${VERSION}`) })
     // Titles always match the headline in content.json, even before the page's script runs.
-    .on("title", { element: (el) => el.setInnerContent(`${d.name} — ${d.role}`) })
-    .on('meta[property="og:title"], meta[name="twitter:title"]', { element: (el) => el.setAttribute("content", `${d.name} — ${d.role}`) })
+    .on("title", { element: (el) => el.setInnerContent(d.seo_title || `${d.name} — ${d.role}`) })
+    .on('meta[property="og:title"], meta[name="twitter:title"]', { element: (el) => el.setAttribute("content", d.seo_title || `${d.name} — ${d.role}`) })
+    // LinkedIn in the raw HTML, so crawlers can tie the site to the profile.
+    .on("#hero-linkedin", { element: (el) => { if (d.links?.linkedin) { el.setAttribute("href", d.links.linkedin); el.setAttribute("rel", "me noopener"); el.removeAttribute("hidden"); } } })
     .on('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]', { element: (el) => d.meta_description && el.setAttribute("content", d.meta_description) })
     .on('meta[property="og:image:alt"], meta[name="twitter:image:alt"]', { element: (el) => el.setAttribute("content", `${d.name}, ${d.role}`) })
     .on('meta[property="og:url"]', { element: (el) => el.setAttribute("content", `${base}/`) })
@@ -182,7 +189,6 @@ function personJsonLd(base) {
     .flatMap((g) => g.items)
     .map((s) => s.replace(/\s*\(.*?\)/g, "")))];
   const person = {
-    "@context": "https://schema.org",
     "@type": "Person",
     name: d.name,
     jobTitle: d.role.split(" · ").slice(0, 2).join(" & "),
@@ -209,7 +215,8 @@ function personJsonLd(base) {
     knowsAbout,
   };
   // "<" is escaped so the data can never close the script tag early.
-  return JSON.stringify(person).replace(/</g, "\\u003c");
+  const profile = { "@context": "https://schema.org", "@type": "ProfilePage", url: `${base}/`, mainEntity: person };
+  return JSON.stringify(profile).replace(/</g, "\\u003c");
 }
 
 // ---------- Forms ----------
