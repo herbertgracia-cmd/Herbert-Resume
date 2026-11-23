@@ -65,8 +65,8 @@ I'm a brand and creative leader who builds things, from brands and products to r
 
 **Entrepreneur**
 - **FAZE Apparel** (2007–2019), co-founder: acquired in 2019. 10+ retail accounts, a flagship store, and trade shows in Las Vegas, Miami, Los Angeles, and New York. Designed tour merchandise for Big Boi of Outkast (designs can't be shown).
-- **State of Flux** (2019–2024), co-founder: collaborations with Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, and the Outside Lands and BreakAway music festivals. Flagship store; pop-ups in San Francisco, New York, Los Angeles, and Las Vegas. Exited through a partner buyout in 2024.
-- **Both brands:** designed every product; teams of 5; block parties with City of San Francisco permits.
+- **State of Flux** (2019–2024), co-founder: collaborations with Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, and the Outside Lands and BreakAway music festivals. Flagship store; pop-ups in San Francisco, New York, Los Angeles, and Las Vegas. Exited in 2024.
+- **Both brands:** designed every product; teams of 5; led manufacturing in the USA, China, Mexico, and India, traveling to each factory for quality and deadlines; block parties with City of San Francisco permits.
 
 **Education:** B.A., Media Studies and Communication, minor in Film, University of San Francisco. USF Certificate in Applied Agentic AI (2026). Speaks English and Spanish.
 
