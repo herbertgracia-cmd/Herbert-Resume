@@ -433,6 +433,18 @@
           "h": 995
         },
         {
+          "src": "/work/state-of-flux-design-wall.jpg",
+          "alt": "Herbert at the State of Flux Summer '23 design wall: line sheets for caps, tees, hoodies, and knits pinned up, with color swatch cards spread across the table",
+          "w": 1074,
+          "h": 1101
+        },
+        {
+          "src": "/work/state-of-flux-sketches.jpg",
+          "alt": "Herbert's hand sketches for State of Flux: striped joggers from the front, back, and side, and a V-neck jersey with a chevron panel",
+          "w": 929,
+          "h": 1200
+        },
+        {
           "src": "/work/state-of-flux-caps.jpg",
           "alt": "Three State of Flux trucker caps in green, white, and black, each with an embroidered orange tiger",
           "w": 800,
@@ -463,22 +475,10 @@
           "h": 1000
         },
         {
-          "src": "/work/state-of-flux-good-energy-tee.jpg",
-          "alt": "A cream State of Flux 'Good Energy Club' tee with an orange-and-leaf illustration and a small boxed logo",
-          "w": 1000,
-          "h": 1000
-        },
-        {
           "src": "/work/state-of-flux-neon.jpg",
           "alt": "A yellow neon sign reading 'You are in a State of Flux'",
           "w": 1000,
           "h": 1040
-        },
-        {
-          "src": "/work/state-of-flux-socks.jpg",
-          "alt": "Four pairs of State of Flux crew socks in purple, white, pink, and green with orange heels and toes and the S×F logo",
-          "w": 1000,
-          "h": 1000
         }
       ],
       "collaborators": "Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway Music Festival",
@@ -610,16 +610,10 @@
       "tag": "Brand · Retail",
       "images": [
         {
-          "src": "/work/faze-store.jpg",
-          "alt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner",
-          "w": 348,
-          "h": 348
-        },
-        {
-          "src": "/work/faze-leather-label.jpg",
-          "alt": "The FAZE lightning logo and 'Made in the USA' stamped on tan leather labels",
-          "w": 612,
-          "h": 612
+          "src": "/work/faze-lightning-hoodie.jpg",
+          "alt": "The back of a mustard FAZE hoodie printed with the FAZE lightning-triangle logo, worn with a FAZE cap in front of a wall of concert posters",
+          "w": 800,
+          "h": 1200
         },
         {
           "src": "/work/faze-store-interior.jpg",
@@ -628,13 +622,39 @@
           "h": 681
         },
         {
+          "src": "/work/faze-sf-bucket-hat.jpg",
+          "alt": "A FAZE bucket hat printed with a collage of San Francisco photos, the Golden Gate Bridge and Sutro Tower, worn on a rooftop",
+          "w": 1200,
+          "h": 800
+        },
+        {
+          "src": "/work/faze-leather-pouches.jpg",
+          "alt": "FAZE zip pouches in mustard and black pebbled leather, each with a woven FAZE tab",
+          "w": 700,
+          "h": 700
+        },
+        {
+          "src": "/work/faze-leather-label.jpg",
+          "alt": "The FAZE lightning logo and 'Made in the USA' stamped on tan leather labels",
+          "w": 612,
+          "h": 612
+        },
+        {
+          "src": "/work/faze-store.jpg",
+          "alt": "The FAZE Apparel storefront on a San Francisco street corner, with the FAZE lightning-bolt banner",
+          "w": 348,
+          "h": 348
+        },
+        {
           "src": "/work/faze-big-boi-cap.jpg",
           "alt": "Big Boi of Outkast wearing an original black FAZE cap with gold lettering",
           "w": 276,
           "h": 429
         }
       ],
-      "result": "Acquired, 2019"
+      "result": "Acquired, 2019",
+      "cover_image": "/work/faze-lightning-hoodie.jpg",
+      "cover_position": "center 60%"
     },
     {
       "title": "Retail & event environments",
