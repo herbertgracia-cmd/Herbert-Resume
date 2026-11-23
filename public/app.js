@@ -468,7 +468,8 @@ function reelGrid(tiles) {
     const r = wrap.getBoundingClientRect();
     const p = Math.min(1, Math.max(0, -r.top / Math.max(1, wrap.offsetHeight - innerHeight)));
     stage.classList.toggle("is-shown", p > 0.08);
-    root.classList.toggle("over-reel", r.bottom > 72);
+    const panel = document.querySelector(".hero-panel-bg");
+    root.classList.toggle("over-reel", (panel ? panel.getBoundingClientRect().top : r.bottom) > 72);
     if (hint) hint.style.opacity = String(1 - Math.min(1, p * 6));
   };
   onScroll();

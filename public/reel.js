@@ -118,7 +118,9 @@ export function start({ tiles, onOpen }) {
     const r = wrap.getBoundingClientRect();
     const travel = Math.max(1, wrap.offsetHeight - innerHeight);
     progress = clamp01(-r.top / travel);
-    document.documentElement.classList.toggle("over-reel", r.bottom > 72); // dark top bar while over the stage
+    // Dark top bar while the dark stage is under it; light again once the summary panel reaches the top.
+    const panel = document.querySelector(".hero-panel-bg");
+    document.documentElement.classList.toggle("over-reel", (panel ? panel.getBoundingClientRect().top : r.bottom) > 72);
   };
   readScroll();
   addEventListener("scroll", readScroll, { passive: true });
