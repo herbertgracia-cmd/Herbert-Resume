@@ -4,7 +4,7 @@
 //
 // Headline versions for job applications (same resume, only the line under the name changes):
 //   node scripts/make-resume-pdf.mjs --headline "Creative Director" --out applications/resumes/Herbert-Gracia-Resume-Creative-Director.pdf
-// Add --no-website to leave the site address off the contact line (while the site is not ready to share).
+// Add --no-website to leave the site address off the contact line.
 //
 // Needs Playwright. If it isn't installed: npm install --no-save playwright && npx playwright install chromium
 import { createRequire } from "node:module";
