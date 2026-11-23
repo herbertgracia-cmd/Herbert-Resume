@@ -424,15 +424,12 @@ function renderFounder(ent, items) {
   section.hidden = false;
 }
 
-// The opening 3D scene (reel.js): only where WebGL works and reduced motion is off.
-// Photos only (no screenshots), one per piece first, then extra photos up to the cap.
+// The opening reel. Full 3D (reel.js) where WebGL works and motion is allowed; otherwise the same photos
+// as a plain grid that fades in as you scroll, so no one lands on an empty, gray stage.
+// The photos come from content.json "reel" (file names); each opens the piece it belongs to.
 function setupReel(d) {
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const probe = document.createElement("canvas");
-  if (!(probe.getContext("webgl2") || probe.getContext("webgl"))) return;
   const items = d.work || [];
   const cap = innerWidth < 700 ? 8 : 12;
-  // The photos come from content.json "reel" (file names), each opening the piece it belongs to.
   const tiles = [];
   for (const file of d.reel || []) {
     const index = items.findIndex((w) => (w.images || []).some((im) => im.src.split("/").pop() === file));
@@ -441,9 +438,41 @@ function setupReel(d) {
   if (tiles.length < 4) return;
   const root = document.documentElement;
   root.classList.add("reel-on");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const probe = document.createElement("canvas");
+  const webgl = !!(probe.getContext("webgl2") || probe.getContext("webgl"));
+  if (still || !webgl) return reelGrid(tiles);
   import("/reel.js")
-    .then((m) => { if (!m.start({ tiles, onOpen: openWork })) root.classList.remove("reel-on"); })
-    .catch(() => root.classList.remove("reel-on"));
+    .then((m) => { if (!m.start({ tiles, onOpen: openWork })) reelGrid(tiles); })
+    .catch(() => reelGrid(tiles));
+}
+
+// The no-3D reel: a grid of the same photos that fades in once you start scrolling.
+function reelGrid(tiles) {
+  const stage = document.querySelector(".reel-stage");
+  const wrap = $("#reel");
+  const root = document.documentElement;
+  if (!stage || !wrap) return;
+  $("#reel-canvas")?.remove();
+  stage.removeAttribute("aria-hidden");
+  stage.classList.add("is-grid");
+  const grid = h("div", { class: "reel-grid" }, tiles.map((t) => {
+    const b = h("button", { type: "button", class: "reel-tile", "aria-label": `Open ${t.item.title}` },
+      h("img", { src: t.src, alt: "", loading: "lazy", decoding: "async" }));
+    b.addEventListener("click", () => openWork(t.item, t.index));
+    return b;
+  }));
+  stage.prepend(grid);
+  const hint = $("#reel-hint");
+  const onScroll = () => {
+    const r = wrap.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / Math.max(1, wrap.offsetHeight - innerHeight)));
+    stage.classList.toggle("is-shown", p > 0.08);
+    root.classList.toggle("over-reel", r.bottom > 72);
+    if (hint) hint.style.opacity = String(1 - Math.min(1, p * 6));
+  };
+  onScroll();
+  addEventListener("scroll", onScroll, { passive: true });
 }
 
 function openWork(item, index = 0) {
