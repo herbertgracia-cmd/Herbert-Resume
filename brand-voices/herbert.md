@@ -29,7 +29,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
 
 ## Always
 - First person. Lead with what happened, then how, then why it matters.
-- One number per point, written exactly as verified (465 outlets, not "nearly 500").
+- One number per point, written exactly as verified (493 outlets, not "nearly 500").
 - Name real partners and places: Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway, Big Boi (Outkast); Las Vegas, Miami, Los Angeles, New York; the Mayor of San Francisco's office.
 - Thank the people involved (team, volunteers, partners, the City) when sharing a win.
 - Be precise about roles:
@@ -56,7 +56,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
   - Budgets: $20K a year with Hearst Media (SF Chronicle, SFGATE), $3K a month in paid social, and $100K a year in technology, on budget every year.
 - **PR:**
   - Lifelong learning survey release: 505 outlets, 106.7M potential audience, 164 journalists.
-  - Fromm Day and 50th Anniversary release: 465 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar; 140.1M potential audience; 39.4K views.
+  - Fromm Day and 50th Anniversary release: 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar; 140.1M potential audience; 41.5K views, and 1.7K engagements.
   - Coordinated with the Mayor's office on the proclamation making November 14 "Fromm Day" in San Francisco.
 - **50th Anniversary (1976–2026):** designed the logo and campaign across the gala, print, digital, and press.
 - **Technology:**

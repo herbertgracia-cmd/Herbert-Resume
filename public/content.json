@@ -161,7 +161,7 @@
       "key": [
         "Creative Direction & Brand: Set and maintain one visual identity and brand voice across catalogs, print ads, email, social media, the website, and events; designed the 50th Anniversary logo and campaign.",
         "Marketing & B2B Sales: Built Fromm’s marketing from zero into an integrated, multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social media; farmers-market outreach that brought in 29 of Fall 2026’s 80+ new students and grew new students 15%), growing enrollment 10% in 2025–2026; sell Fromm courses to retirement communities (4 signed).",
-        "Public Relations & Earned Media: Wrote two national releases syndicated through PR Newswire: a lifelong learning survey (505 outlets) and Fromm Day and the 50th Anniversary gala (465 outlets, including Yahoo Finance, AP News, and KTLA); worked with the Mayor of San Francisco’s office on the proclamation making November 14 Fromm Day.",
+        "Public Relations & Earned Media: Wrote two national releases syndicated through PR Newswire: a lifelong learning survey (505 outlets) and Fromm Day and the 50th Anniversary gala (493 outlets, including Yahoo Finance, AP News, and KTLA); worked with the Mayor of San Francisco’s office on the proclamation making November 14 Fromm Day.",
         "Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
         "Product & Technology: Designed the Fromm website and its Salesforce CRM and online enrollment with Stripe payments, moving about 70% of enrollment online; built Frommcast (1,500+ subscribers), now a YouTube library of 200+ classes with 700+ subscribers; direct an outside development company and a $100K-a-year technology budget, on budget every year.",
         "Applied AI: Building Fromm’s AI enrollment chatbot."
@@ -316,7 +316,7 @@
         "line": "Earned media at national scale.",
         "points": [
           "Lifelong learning survey: ran the survey and wrote the release; PR Newswire syndicated it to 505 outlets (265 newspapers, 180 broadcast media), with a potential audience of 106.7M, including 164 journalists",
-          "Fromm Day and 50th Anniversary gala: a release picked up by 465 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, with a potential audience of 140.1M and 39.4K views",
+          "Fromm Day and 50th Anniversary gala: a release picked up by 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, with a potential audience of 140.1M and 41.5K views, and 1.7K engagements",
           "Audience growth: 300+ new Facebook and Instagram followers in my first year running social"
         ],
         "work": [
@@ -815,19 +815,20 @@
         "Events"
       ],
       "year": "2026",
-      "summary": "A press release for Fromm Day in San Francisco (November 14, by mayoral proclamation) and Fromm’s 50th Anniversary gala, picked up by 465 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar.",
+      "summary": "A press release for Fromm Day in San Francisco (November 14, by mayoral proclamation) and Fromm’s 50th Anniversary gala, picked up by 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar.",
       "caption": "Picked up by Yahoo Finance, AP News, KTLA, and Morningstar",
       "result": "140.1M potential reach · AP News, Yahoo Finance",
       "role": "Coordinated the proclamation with the Mayor’s office; wrote and distributed the release",
       "images": [
         {
           "src": "/work/pr-newswire-fromm-day.jpg",
-          "alt": "PR Newswire results for the Fromm Day and 50th Anniversary release: 465 pickups, 39.4K traffic, a 140.1M audience, and top placements on Yahoo Finance, AP News, KTLA, and Morningstar",
+          "alt": "PR Newswire results page for the Fromm Day and 50th Anniversary release, with top placements on Yahoo Finance, AP News, KTLA, and Morningstar",
           "w": 900,
           "h": 617
         }
       ],
-      "imageFit": "contain-light"
+      "imageFit": "contain-light",
+      "details": "Release: “San Francisco Proclaims Fromm Day as the Fromm Institute Turns 50.” PR Newswire results: 493 pickups, 41.5K views, 1.7K engagements, and a potential audience of 140.1M."
     }
   ],
   "work_categories": [
@@ -849,7 +850,7 @@
     },
     {
       "name": "PR & Communications",
-      "intro": "Earned media and communication at scale: two PR Newswire releases picked up by 465 and 505 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, plus the mayoral proclamation making November 14 Fromm Day in San Francisco."
+      "intro": "Earned media and communication at scale: two PR Newswire releases picked up by 493 and 505 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, plus the mayoral proclamation making November 14 Fromm Day in San Francisco."
     },
     {
       "name": "Tech & Projects",
@@ -1113,7 +1114,7 @@
     "GitHub",
     "Cloudflare"
   ],
-  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. At USF’s Fromm Institute, a nonprofit in higher education where I’ve worked since 2005, I lead marketing and communications, PR, creative, and technology; I built its marketing from zero, grew enrollment 10% in 2025–2026, moved about 70% of enrollment online, and wrote two national press releases syndicated to 505 and 465 news outlets. I also co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (exited, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Completed USF’s Certificate in Applied Agentic AI (2026).",
+  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. At USF’s Fromm Institute, a nonprofit in higher education where I’ve worked since 2005, I lead marketing and communications, PR, creative, and technology; I built its marketing from zero, grew enrollment 10% in 2025–2026, moved about 70% of enrollment online, and wrote two national press releases syndicated to 505 and 493 news outlets. I also co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (exited, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Completed USF’s Certificate in Applied Agentic AI (2026).",
   "partners_label": "Collaborations",
   "applied_ai": {
     "lead": "I use AI agents as a review team, then make the final calls myself.",
@@ -1184,7 +1185,7 @@
         "label": "Of enrollment now online, on the site I designed"
       },
       {
-        "num": "465",
+        "num": "493",
         "label": "Outlets ran the Fromm Day release"
       },
       {
@@ -1225,7 +1226,7 @@
           ],
           [
             "PR.",
-            "Two national releases (505 and 465 outlets); worked with the Mayor’s office on the Fromm Day proclamation."
+            "Two national releases (505 and 493 outlets); worked with the Mayor’s office on the Fromm Day proclamation."
           ],
           [
             "Technology.",
