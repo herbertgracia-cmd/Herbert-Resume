@@ -27,12 +27,16 @@
   <link rel="preload" href="/content.json" as="fetch" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Geist:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/sketchbook.css" media="screen">
   <script src="/theme.js"></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#sb-main">Skip to content</a>
+
+  <!-- The on-screen site (sketchbook.js). The layout below stays for the printed resume and search engines. -->
+  <div class="sb screen-only" id="sb" hidden></div>
 
   <header class="topbar">
     <a class="mark" href="#top" aria-label="HG, back to top"><span data-bind="initials">HG</span></a>
@@ -199,5 +203,6 @@
 
   <noscript><p class="noscript">Some interactive parts need JavaScript. You can reach Herbert at herbert.gracia@gmail.com.</p></noscript>
   <script src="/app.js" type="module"></script>
+  <script src="/sketchbook.js" type="module"></script>
 </body>
 </html>

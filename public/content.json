@@ -1143,5 +1143,239 @@
     ]
   },
   "meta_description": "Brand & creative leader in San Francisco: creative direction, marketing, PR & communications at USF’s Fromm Institute; co-founded and exited 2 apparel brands.",
-  "seo_title": "Herbert Gracia — Brand & Creative Leader · San Francisco"
+  "seo_title": "Herbert Gracia — Brand & Creative Leader · San Francisco",
+  "sketchbook": {
+    "eyebrow": "20+ years · San Francisco Bay Area or remote",
+    "titles": "Creative Director · Head of Brand · Marketing & Communications",
+    "now": "Assistant Director, Technology, Marketing & Creative at USF’s Fromm Institute. I lead its marketing, PR, communications, and the technology it runs on. Before that, I co-founded and exited two San Francisco apparel brands.",
+    "strip": {
+      "now": "Fromm · USF",
+      "status": "Open to new roles"
+    },
+    "hero_image": {
+      "src": "/work/fromm-50th.jpg",
+      "w": 500,
+      "h": 500,
+      "alt": "The Fromm Institute 50th Anniversary logo Herbert designed, over archive photos of Fromm students and faculty",
+      "note": "the 50th identity I designed for Fromm",
+      "caption": "Fromm Institute · 50th Anniversary, 1976–2026",
+      "caption2": "Logo & campaign"
+    },
+    "inset_image": {
+      "src": "/work/state-of-flux-design-wall.jpg",
+      "w": 1074,
+      "h": 1101,
+      "alt": "Herbert at the State of Flux Summer ’23 design wall, with line sheets and color swatches",
+      "note": "me, State of Flux line review"
+    },
+    "facts": [
+      {
+        "num": "10%",
+        "label": "Enrollment growth at Fromm, 2025–26",
+        "ring": true
+      },
+      {
+        "num": "~70%",
+        "label": "Of enrollment now online, on the site I designed"
+      },
+      {
+        "num": "465",
+        "label": "Outlets ran the Fromm Day release"
+      },
+      {
+        "num": "2",
+        "label": "Apparel brands co-founded & exited"
+      }
+    ],
+    "sheets": [
+      {
+        "work": "Fromm Institute",
+        "company": "Fromm Institute, USF",
+        "when_label": "Since",
+        "when": "2005 · 4 roles",
+        "role": "Assistant Director, Technology, Marketing & Creative",
+        "status": "Current · 3,000 students a year",
+        "title": "Fromm Institute",
+        "tags": [
+          "Brand",
+          "Marketing",
+          "PR & Comms",
+          "Technology"
+        ],
+        "lede": "USF’s institute for lifelong learning. I lead its brand, marketing, communications, and the technology it runs on.",
+        "wipe": {
+          "before": "/work/fromm-salesforce-dashboard-crop.jpg",
+          "before_alt": "The Salesforce dashboard behind the site: enrollments for the session and online versus in-person attendance",
+          "before_label": "Behind the scenes",
+          "after": "/work/fromm-online-enrollment-crop.jpg",
+          "after_alt": "The Winter 2027 online enrollment page students use",
+          "after_label": "What students see",
+          "caption": "Salesforce enrollment I designed",
+          "aria": "Drag to compare the Salesforce dashboard with the enrollment page students see"
+        },
+        "callouts": [
+          [
+            "Marketing.",
+            "Built it from zero; enrollment up 10% in 2025–26."
+          ],
+          [
+            "PR.",
+            "Fromm Day release in 465 outlets; the Mayor’s proclamation."
+          ],
+          [
+            "Technology.",
+            "Designed the Salesforce site and enrollment; about 70% now online."
+          ],
+          [
+            "Product.",
+            "Frommcast: 1,500+ subscribers, now 200+ free classes on YouTube."
+          ],
+          [
+            "Budget & team.",
+            "$100K a year in technology; 6 staff, 3 vendors, 2 engineers."
+          ]
+        ],
+        "side": [
+          {
+            "src": "/work/fromm-farmers-market.jpg",
+            "alt": "A Fromm staff member and a student at the Clement Street farmers market booth",
+            "caption": "Farmers market"
+          },
+          {
+            "src": "/work/frommcast-youtube.jpg",
+            "alt": "The Frommcast channel on YouTube",
+            "caption": "Frommcast"
+          }
+        ]
+      },
+      {
+        "work": "State of Flux",
+        "company": "State of Flux",
+        "when_label": "Years",
+        "when": "2019–2024",
+        "role": "Co-Founder & Brand Director",
+        "status": "Exited · partner buyout",
+        "title": "State of Flux",
+        "tags": [
+          "Design",
+          "Brand",
+          "Events",
+          "Partnerships"
+        ],
+        "lede": "An independent apparel and lifestyle brand I co-founded: every product from first sketch to shelf, and every collaboration.",
+        "grid": [
+          {
+            "src": "/work/state-of-flux-caps.jpg",
+            "alt": "State of Flux tiger caps in green, white, and navy",
+            "caption": "Tiger caps"
+          },
+          {
+            "src": "/work/state-of-flux-floral-tee.jpg",
+            "alt": "A cream State of Flux tee with wildflowers growing through a green X logo",
+            "caption": "Floral X tee"
+          },
+          {
+            "src": "/work/state-of-flux-checker-knit.jpg",
+            "alt": "An orange and cream checkerboard knit shirt with a green gothic letter and SF on the back",
+            "caption": "Checkerboard knit"
+          },
+          {
+            "src": "/work/harmonic-brewing-state-of-flux.jpg",
+            "alt": "Harmonic Brewing and State of Flux IPA cans on ice",
+            "caption": "Harmonic Brewing collab"
+          }
+        ],
+        "callouts": [
+          [
+            "Product.",
+            "Designed every product, logo, and collaboration."
+          ],
+          [
+            "Partnerships.",
+            "Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway."
+          ],
+          [
+            "Retail.",
+            "Designed our store and pop-up spaces."
+          ],
+          [
+            "Sales & team.",
+            "DTC, e-commerce, wholesale, and B2B, with a team of 5."
+          ]
+        ],
+        "side": [
+          {
+            "src": "/work/state-of-flux-store-opening.jpg",
+            "alt": "The State of Flux logo on the store window, with a crowd inside, in black and white",
+            "caption": "Our store",
+            "note": "our store, full house"
+          }
+        ]
+      },
+      {
+        "work": "FAZE Apparel",
+        "company": "FAZE Apparel",
+        "when_label": "Years",
+        "when": "2007–2019",
+        "role": "Co-Founder & Brand Director",
+        "status": "Exited · acquired 2019",
+        "title": "FAZE Apparel",
+        "tags": [
+          "Events",
+          "Design",
+          "Brand",
+          "Retail"
+        ],
+        "lede": "The apparel brand I co-founded and built from concept to acquisition.",
+        "grid": [
+          {
+            "src": "/work/faze-lightning-hoodie.jpg",
+            "alt": "The back of a mustard FAZE hoodie with the lightning-triangle logo",
+            "caption": "Lightning hoodie"
+          },
+          {
+            "src": "/work/faze-trade-show-booth.jpg",
+            "alt": "Herbert at the FAZE booth at the Agenda trade show in Las Vegas",
+            "caption": "Trade show, Las Vegas"
+          },
+          {
+            "src": "/work/faze-storefront.jpg",
+            "alt": "The FAZE store in San Francisco with the lightning banner",
+            "caption": "Our store"
+          },
+          {
+            "src": "/work/faze-sf-bucket-hat.jpg",
+            "alt": "A FAZE bucket hat printed with a collage of San Francisco photos",
+            "caption": "SF photo bucket hat"
+          }
+        ],
+        "callouts": [
+          [
+            "Product.",
+            "Art-directed graphics, lookbooks, and photography; designed tour merch for Big Boi of Outkast."
+          ],
+          [
+            "Retail & wholesale.",
+            "Grew to 10+ retail locations; designed and opened our store."
+          ],
+          [
+            "Events.",
+            "Trade shows in Las Vegas, Miami, Los Angeles, and New York; pop-ups and block parties."
+          ],
+          [
+            "Team.",
+            "A team of 5 across design, product, and sales; supported my business partner on marketing."
+          ]
+        ],
+        "side": [
+          {
+            "src": "/work/faze-big-boi-cap.jpg",
+            "alt": "Big Boi of Outkast wearing an original black FAZE cap",
+            "caption": "Big Boi of Outkast in a FAZE cap",
+            "note": "worn by Big Boi"
+          }
+        ]
+      }
+    ]
+  }
 }

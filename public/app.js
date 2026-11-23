@@ -36,8 +36,10 @@ render(data);
 setupTheme();
 setupChrome();
 setupWorkDialog();
+// sketchbook.js opens case studies by title through this.
+window.hgOpenWork = (title) => { const i = (data.work || []).findIndex((w) => w.title === title); if (i >= 0) openWork(data.work[i], i); };
 setupReveal();
-setupReel(data);
+// The 3D opening (setupReel) is retired: the Sketchbook layout (sketchbook.js) replaced it on screen.
 setupFeatures(data);
 
 function render(d) {
