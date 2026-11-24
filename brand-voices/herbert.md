@@ -49,7 +49,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
 **Now: Fromm Institute for Lifelong Learning, University of San Francisco**
 - Assistant Director, Technology, Marketing & Creative since 2022; at Fromm since 2005, in 4 roles.
 - 3,000 students a year.
-- Leads brand, marketing, communications, PR, and technology. Manages 6 student staff, 3 vendors, and 2 engineers at an outside Salesforce development company. Works with a 21-member Board and 20+ volunteers.
+- Leads brand, marketing, communications, PR, and technology. Directs vendors and volunteers.
 - **Marketing:** built Fromm's marketing from zero; enrollment grew 10% in 2025–2026.
   - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): 29 of Fall 2026's 80+ new students found Fromm there. The in-person campaign grew new students 15%.
   - 5+ retirement community partners, 4 of which buy courses.
@@ -58,7 +58,6 @@ I'm a brand and creative leader who builds things, from brands and products to r
   - Lifelong learning survey release: 505 outlets, 106.7M potential audience, 164 journalists.
   - Fromm Day and 50th Anniversary release: 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar; 140.1M potential audience; 41.5K views, and 1.7K engagements.
   - Coordinated with the Mayor's office on the proclamation making November 14 "Fromm Day" in San Francisco; Fromm also received a Certificate of Honor.
-  - Agencies directed: SND Software and BugID.
   - Marketing budget: $32K a year ($20K newspaper ads, $12K paid social).
 - **50th Anniversary (1976–2026):** designed the logo and campaign across the gala, print, digital, and press.
 - **Technology:**
@@ -68,7 +67,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
 **Entrepreneur**
 - **FAZE Apparel** (2007–2019), co-founder: acquired in 2019. 10+ retail accounts, a flagship store, and trade shows in Las Vegas, Miami, Los Angeles, and New York. Created a collab with Big Boi of Outkast.
 - **State of Flux** (2019–2024), co-founder: collaborations with Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, and the Outside Lands and BreakAway music festivals. Flagship store; pop-ups in San Francisco, New York, Los Angeles, and Las Vegas. Exited in 2024.
-- **Both brands:** designed every product; teams of 5; led manufacturing in the USA, China, Mexico, and India, traveling to each factory for quality and deadlines; block parties with City of San Francisco permits.
+- **Both brands:** designed every product; teams of 5; led manufacturing in the USA, China, and Mexico, traveling to each factory for quality and deadlines; block parties with City of San Francisco permits.
 
 **Education:** B.A., Media Studies and Communication, minor in Film, University of San Francisco. USF Certificate in Applied Agentic AI (2026). Speaks English and Spanish.
 
