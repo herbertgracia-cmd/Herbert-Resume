@@ -135,7 +135,7 @@ function render(d) {
   // Tools support the skills above, so they sit in one smaller line.
   if (d.tools?.length) {
     const tools = $("#tools");
-    tools.replaceChildren(h("span", { class: "tools-label" }, "Tools"), " ", d.tools.join(" · "));
+    tools.replaceChildren(h("span", { class: "tools-label" }, "Tools:"), " ", d.tools.join(" · "));
     tools.hidden = false;
   }
 
@@ -688,7 +688,7 @@ function renderCerts(certs) {
       top.description && h("p", { class: "cert-desc" }, top.description),
     ),
     // Same school as the featured one? Leave it out instead of repeating it.
-    rest.length > 0 && h("ul", { class: "cert-more" }, rest.map((c) => h("li", {}, "Also: ", h("strong", {}, c.name), `, ${meta({ ...c, issuer: c.issuer === top.issuer ? "" : c.issuer })}`))),
+    rest.length > 0 && h("ul", { class: "cert-more" }, rest.map((c) => h("li", {}, "Also: ", h("strong", {}, c.name), `, ${meta(c)}`))),
   );
 }
 
