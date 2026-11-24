@@ -1084,6 +1084,7 @@
       "items": [
         "Integrated Marketing",
         "Digital Marketing",
+        "Paid Media (Google, Meta, LinkedIn)",
         "Email Marketing",
         "Enrollment Marketing",
         "Go-to-Market Strategy",
@@ -1253,7 +1254,12 @@
             "alt": "The Frommcast channel on YouTube",
             "caption": "Frommcast"
           }
-        ]
+        ],
+        "card": {
+          "image": "/work/fromm-catalog-cover.jpg",
+          "line": "Marketing, PR & technology · enrollment up 10%",
+          "meta": "2005–now · Current"
+        }
       },
       {
         "work": "State of Flux",
@@ -1321,7 +1327,12 @@
             "caption": "Our store",
             "note": "our store, full house"
           }
-        ]
+        ],
+        "card": {
+          "image": "/work/state-of-flux-caps.jpg",
+          "line": "Collabs with SFMOMA, Pinterest, Timbuk2, and more",
+          "meta": "2019–2024 · Exited"
+        }
       },
       {
         "work": "FAZE Apparel",
@@ -1389,7 +1400,12 @@
             "caption": "Big Boi of Outkast in a FAZE cap",
             "note": "worn by Big Boi"
           }
-        ]
+        ],
+        "card": {
+          "image": "/work/faze-lightning-hoodie.jpg",
+          "line": "10+ retail accounts, our own store, and an acquisition",
+          "meta": "2007–2019 · Acquired"
+        }
       }
     ]
   }
