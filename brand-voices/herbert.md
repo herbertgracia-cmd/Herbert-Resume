@@ -53,11 +53,13 @@ I'm a brand and creative leader who builds things, from brands and products to r
 - **Marketing:** built Fromm's marketing from zero; enrollment grew 10% in 2025–2026.
   - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): 29 of Fall 2026's 80+ new students found Fromm there. The in-person campaign grew new students 15%.
   - 5+ retirement community partners, 4 of which buy courses.
-  - Budgets: $20K a year with Hearst Media (SF Chronicle, SFGATE), $3K a month in paid social, and $100K a year in technology, on budget every year.
+  - Budgets: $20K a year with Hearst Media (SF Chronicle, SFGATE), $12K a year in paid social, and $100K a year in technology, on budget every year.
 - **PR:**
   - Lifelong learning survey release: 505 outlets, 106.7M potential audience, 164 journalists.
   - Fromm Day and 50th Anniversary release: 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar; 140.1M potential audience; 41.5K views, and 1.7K engagements.
-  - Coordinated with the Mayor's office on the proclamation making November 14 "Fromm Day" in San Francisco.
+  - Coordinated with the Mayor's office on the proclamation making November 14 "Fromm Day" in San Francisco; Fromm also received a Certificate of Honor.
+  - Agencies directed: SND Software and BugID.
+  - Marketing budget: $32K a year ($20K newspaper ads, $12K paid social).
 - **50th Anniversary (1976–2026):** designed the logo and campaign across the gala, print, digital, and press.
 - **Technology:**
   - Designed the website and online enrollment in Salesforce with Stripe; about 70% of enrollment is now online.
