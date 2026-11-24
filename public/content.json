@@ -2,7 +2,7 @@
   "_readme": "All resume text lives here. Edit this file and push to GitHub; the live site updates automatically. The page shows each job’s 'key' bullets (3 is best) and hides 'creative', 'highlights', and 'earlier_roles' behind a 'More' link. Work items with \"featured\": true show first; the rest appear under 'See all work'. An 'intro' block would turn on a welcome pop-up (removed for now). A job’s optional 'since' note (for example 'At Fromm since 2005') shows under its dates. A certificate’s 'status' (for example \"Completed\" or \"In progress, Fall 2026\") shows next to it; anything not completed is left out of the data Google reads. The page shows the short versions: each job’s 'line' and 'points' (2-3 bullets, 12 words or fewer), each work item’s 'caption' and 'tag', 'skills_short', and 'partners'. The longer 'summary', 'key', 'areas', 'tags', and full 'skills' sit behind 'More' and are used for the printed resume.",
   "_work_help": "Each item in 'work' is one card. Optional: 'image' (or 'images': a list of {\"src\", \"alt\"} for a small gallery) (a picture you put in public/work/, e.g. \"/work/poster.jpg\"), 'imageFit': \"contain\" or \"contain-light\" (show a logo or screenshot whole on a dark or white background instead of cropping it), 'video' (a YouTube or Vimeo link; YouTube also gives the card its picture), 'link' (any web page), 'role', 'collaborators', 'details'. 'category' is a list of one or more of the tabs in 'work_categories': Brand, Design, Events, Marketing, PR & Communications, Tech & Projects (a piece shows under every tab it lists). Each tab's one-line intro lives in 'work_categories'. Featured pieces can also be case studies: add 'challenge', 'approach', and 'outcome' (with 'role' as your part); the open view then shows them as sections. Optional 'result': one short line (a number or outcome) shown on the tile face.",
   "name": "Herbert Gracia",
-  "role": "Brand & Creative Leader",
+  "role": "Creative Director & Brand Leader",
   "location": "San Francisco, CA",
   "availability": "Open to new roles",
   "tagline": "I build brands from the first idea to the products, campaigns, and experiences people connect with.",
@@ -38,7 +38,7 @@
         "Led brand strategy, visual identity, and creative direction for FAZE Apparel, State of Flux, and the Fromm Institute",
         "Lead 6 student staff and direct 2 outside engineers and 3 vendors at Fromm; led teams of 5 at both apparel brands",
         "Leading the Fromm 50th Anniversary campaign",
-        "Manage budgets ($20K a year in newspaper ads, $3K a month in paid social, $100K a year in technology), vendors, and cross-functional projects"
+        "Manage budgets ($20K a year in newspaper ads, $12K a year in paid social, $100K a year in technology), vendors, and cross-functional projects"
       ]
     },
     {
@@ -68,7 +68,7 @@
       "proof": [
         "Directed apparel products from concept and samples through sourcing, manufacturing, and launch",
         "Sold direct to consumers and to businesses: DTC, e-commerce, retail, wholesale, and B2B",
-        "Designed the Fromm website and lead its Salesforce CRM, directing an outside development company",
+        "Designed the Fromm website and lead its Salesforce CRM, directing development agencies SND Software and BugID",
         "Built Frommcast, a subscription streaming platform with 1,500+ subscribers"
       ]
     },
@@ -140,7 +140,7 @@
       "start": "2022",
       "end": "Present",
       "location": "San Francisco",
-      "summary": "Lead brand strategy, creative direction, marketing, communications, PR, and technology for USF’s nonprofit, higher-education lifelong learning institute (3,000 students a year). Direct 2 engineers at an outside Salesforce development company and 3 vendors, manage 6 student staff, and work with 20+ volunteers and a 21-member Board of Directors.",
+      "summary": "Run all marketing, communications, PR, and technology for USF’s lifelong learning institute (3,000 students a year) on a $132K annual budget. Direct development agencies SND Software and BugID and 3 vendors; manage 6 student staff and 20+ volunteers; work with a 21-member Board of Directors.",
       "earlier_roles": [
         {
           "title": "Specialist, Instructional Technology & Media",
@@ -159,12 +159,11 @@
         }
       ],
       "key": [
-        "Creative Direction & Brand: Set and maintain one visual identity and brand voice across catalogs, print ads, email, social media, the website, and events; designed the 50th Anniversary logo and campaign.",
-        "Marketing & B2B Sales: Built Fromm’s marketing from zero into an integrated, multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social media; farmers-market outreach that brought in 29 of Fall 2026’s 80+ new students and grew new students 15%), growing enrollment 10% in 2025–2026; sell Fromm courses to retirement communities (4 signed).",
-        "Public Relations & Earned Media: Wrote two national releases syndicated through PR Newswire: a lifelong learning survey (505 outlets) and Fromm Day and the 50th Anniversary gala (493 outlets, including Yahoo Finance, AP News, and KTLA); worked with the Mayor of San Francisco’s office on the proclamation making November 14 Fromm Day.",
-        "Media Buying: Manage a $20K-a-year newspaper ad account with Hearst Media (San Francisco Chronicle, SFGATE) and $3K a month in paid social.",
-        "Product & Technology: Designed the Fromm website and its Salesforce CRM and online enrollment with Stripe payments, moving about 70% of enrollment online; built Frommcast (1,500+ subscribers), now a YouTube library of 200+ classes with 700+ subscribers; direct an outside development company and a $100K-a-year technology budget, on budget every year.",
-        "Applied AI: Building Fromm’s AI enrollment chatbot."
+        "Creative Direction & Brand: Set one visual identity and brand voice across catalogs, print ads, email, social media, the website, and events; designed the 50th Anniversary logo and campaign.",
+        "Marketing & Growth: Built Fromm’s marketing from zero into an integrated acquisition program (Google, Meta, and LinkedIn ads; email; social media; San Francisco Chronicle and SFGATE print through Hearst Media) on a $32K annual media budget; enrollment grew 10% in 2025–2026.",
+        "Field Marketing & B2B: Launched farmers-market outreach with a volunteer team that brought in 1 in 3 new students (29 of Fall 2026’s 80+) and grew new students 15%; sell Fromm courses to retirement communities (4 signed).",
+        "Public Relations & Earned Media: Wrote two national PR Newswire releases (505 and 493 outlets, including Yahoo Finance, AP News, and KTLA); worked with the Mayor of San Francisco’s office on the Fromm Day proclamation; Fromm also received a Certificate of Honor.",
+        "Product & Technology: Designed the website and Salesforce CRM enrollment with Stripe, moving about 70% of enrollment online; built Frommcast to 1,500+ subscribers, now a YouTube library of 200+ classes (700+ subscribers); $100K technology budget, on budget every year."
       ],
       "since": "Fromm since 2005 · 4 roles",
       "tags": [
@@ -188,7 +187,7 @@
       "start": "2019",
       "end": "2024",
       "location": "SF Bay Area",
-      "summary": "Co-founded and developed an independent apparel and lifestyle brand, overseeing creative direction, brand identity, product development, partnerships, and retail operations.",
+      "summary": "Independent San Francisco apparel and lifestyle brand. Led a team of 5 and sold direct-to-consumer (DTC), e-commerce, wholesale, and B2B.",
       "creative": [
         "Designed every product, logo, piece of artwork, and collaboration",
         "Led visual identity, creative direction, and art direction, and supported my business partner on marketing and PR",
@@ -206,10 +205,9 @@
         "Business Exit: Exited the company in 2024."
       ],
       "key": [
-        "Designed original products, from custom caps, graphic hoodies, and tees to cut-and-sew pieces, plus our retail store and pop-up spaces.",
-        "Led brand identity, creative direction, photography, and e-commerce; supported my business partner on marketing and PR.",
-        "Led partnerships and collaborations with Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, and the Outside Lands and BreakAway music festivals, from co-branded products to events and pop-ups.",
-        "Oversaw direct-to-consumer (DTC), e-commerce, wholesale, B2B, and retail sales while managing a team of 5; led manufacturing in the USA, China, Mexico, and India."
+        "Product & Manufacturing: Designed every product, from custom caps, graphic hoodies, and tees to cut-and-sew pieces; led manufacturing in the USA, China, Mexico, and India.",
+        "Partnerships: Led all collaborations, with Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, and the Outside Lands and BreakAway music festivals, from co-branded products to events and pop-ups.",
+        "Brand & Retail: Led brand identity, creative direction, photography, and e-commerce; designed our retail store and pop-up spaces; supported my business partner on marketing and PR."
       ],
       "tags": [
         "Entrepreneurship",
@@ -233,7 +231,7 @@
       "start": "2007",
       "end": "2019",
       "location": "San Francisco",
-      "summary": "Co-founded and built an apparel business from initial concept, leading brand development, creative direction, product, retail strategy, and business operations, and supporting my business partner on marketing.",
+      "summary": "Built an apparel brand from concept to acquisition, with a team of 5, 10+ retail accounts, and our own store; supported my business partner on marketing.",
       "creative": [
         "Led brand identity, creative direction, apparel design, and visual storytelling, and supported our seasonal marketing campaigns",
         "Developed apparel graphics, lookbooks, photography, video, wholesale presentations, retail creative, and marketing materials",
@@ -250,10 +248,10 @@
         "Business Exit: Completed the sale of the entire business and its intellectual property to a privately held company."
       ],
       "key": [
-        "Art-directed apparel graphics, lookbooks, photography, video, and retail creative; designed tour merchandise for Big Boi of Outkast.",
-        "Expanded wholesale distribution to 10+ retail locations, and designed and opened our branded retail store.",
-        "Designed booths and led trade shows in Las Vegas, Miami, Los Angeles, and New York; managed pop-ups and block parties with City of San Francisco permits.",
-        "Led a team of 5 across design, product, and sales; led sourcing and manufacturing in the USA, China, Mexico, and India, traveling to each factory to hold quality and deadlines."
+        "Design & Art Direction: Designed every product and art-directed graphics, lookbooks, photography, and video; designed tour merchandise for Big Boi of Outkast.",
+        "Manufacturing: Led sourcing and manufacturing in the USA, China, Mexico, and India, traveling to each factory to hold quality and deadlines.",
+        "Retail & Wholesale: Grew wholesale distribution to 10+ retail locations; designed, built out, and opened our branded store.",
+        "Trade Shows & Events: Designed booths and led trade shows in Las Vegas, Miami, Los Angeles, and New York; ran pop-ups and block parties with City of San Francisco permits."
       ],
       "tags": [
         "Entrepreneurship",
@@ -263,14 +261,13 @@
         "Wholesale & DTC sales",
         "Exit (acquisition)"
       ],
-      "exit": "Exit: Full company acquisition · 2019",
+      "exit": "Acquired · 2019",
       "line": "Co-founded an apparel brand and built its wholesale and retail business.",
       "points": [
         "Built the brand identity and apparel collections",
         "Grew wholesale to 10+ retail locations and opened our branded store",
         "Led trade shows in Las Vegas, Miami, Los Angeles, and New York"
-      ],
-      "exit_note": "The company was acquired by a privately held business, including its brand assets, logos, designs, and intellectual property rights."
+      ]
     }
   ],
   "now": {
@@ -303,7 +300,7 @@
           "Go-to-market: a multi-channel acquisition program (Google, Meta, and LinkedIn ads; email; social) that grew enrollment 10% in 2025–2026",
           "Field marketing: research showed our community responds to in-person outreach, so I built and lead a volunteer team at San Francisco farmers markets (Clement Street, then the Ferry Building and Fort Mason). Our new-student survey showed 29 of Fall 2026’s 80+ new students, more than 1 in 3, found us there",
           "B2B sales and partnerships: work with 5+ retirement communities, and 4 now buy Fromm courses so residents can attend from their own locations, with a marketing plan I built to add more",
-          "Media buying: a $20K-a-year Hearst Media account (San Francisco Chronicle, SFGATE) and $3K a month in paid social"
+          "Media buying: a $20K-a-year Hearst Media account (San Francisco Chronicle, SFGATE) and $12K a year in paid social"
         ],
         "work": [
           "Farmers market outreach",
@@ -316,7 +313,7 @@
         "line": "Earned media at national scale.",
         "points": [
           "Lifelong learning survey: ran the survey and wrote the release; PR Newswire syndicated it to 505 outlets (265 newspapers, 180 broadcast media), with a potential audience of 106.7M, including 164 journalists",
-          "Fromm Day and 50th Anniversary gala: a release picked up by 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, with a potential audience of 140.1M and 41.5K views, and 1.7K engagements",
+          "Fromm Day and 50th Anniversary gala: a release picked up by 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar, with a potential audience of 140.1M and 41.5K views, and 1.7K engagements; Fromm also received a Certificate of Honor",
           "Audience growth: 300+ new Facebook and Instagram followers in my first year running social"
         ],
         "work": [
@@ -329,7 +326,7 @@
         "points": [
           "Platforms: designed the Fromm website and its online enrollment in Salesforce, with Stripe payments, replacing in-person enrollment; about 70% of enrollment now happens online, and Zoom classes let students outside San Francisco attend",
           "Product development, idea to market: built Frommcast, a subscription streaming platform for lifelong learning, to 1,500+ subscribers, then moved it to YouTube (200+ free classes, 700+ subscribers)",
-          "Budget and vendor management: a $100K-a-year technology budget, on budget every year; direct an outside development company",
+          "Budget and vendor management: a $100K-a-year technology budget, on budget every year; direct development agencies SND Software and BugID",
           "Next: an AI chatbot to help students who get stuck in enrollment, and redesigned enrollment emails",
           "Applied AI: Certificate in Applied Agentic AI (2026)"
         ],
@@ -476,7 +473,7 @@
       ],
       "year": "2022–Present",
       "summary": "One creative direction across print, digital, events, and press: course catalogs, enrollment ads, the website, and the 50th Anniversary campaign.",
-      "role": "I set the creative direction and design the catalogs, ads, newsletters, and 50th Anniversary materials. I manage the Hearst Media account (San Francisco Chronicle, SFGATE) at $20K a year, plus $3K a month in paid social.",
+      "role": "I set the creative direction and design the catalogs, ads, newsletters, and 50th Anniversary materials. I manage the Hearst Media account (San Francisco Chronicle, SFGATE) at $20K a year, plus $12K a year in paid social.",
       "tags": [
         "Brand system",
         "Integrated marketing",
@@ -828,7 +825,7 @@
         }
       ],
       "imageFit": "contain-light",
-      "details": "Release: “San Francisco Proclaims Fromm Day as the Fromm Institute Turns 50.” PR Newswire results: 493 pickups, 41.5K views, 1.7K engagements, and a potential audience of 140.1M.",
+      "details": "Release: “San Francisco Proclaims Fromm Day as the Fromm Institute Turns 50.” PR Newswire results: 493 pickups, 41.5K views, 1.7K engagements, and a potential audience of 140.1M. Fromm also received a Certificate of Honor.",
       "link": "https://apnews.com/press-release/pr-newswire/press-release-2b4d878065161a1627faa1a87722dceb",
       "linkLabel": "Read the press release on AP News"
     }
@@ -1116,7 +1113,7 @@
     "GitHub",
     "Cloudflare"
   ],
-  "resume_summary": "Brand and creative leader with 20+ years across brand strategy, creative direction, design, marketing, and communications. At USF’s Fromm Institute, a nonprofit in higher education where I’ve worked since 2005, I lead marketing and communications, PR, creative, and technology; I built its marketing from zero, grew enrollment 10% in 2025–2026, moved about 70% of enrollment online, and wrote two national press releases syndicated to 505 and 493 news outlets. I also co-founded and exited two apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (exited, 2024), bringing products to market through direct-to-consumer (DTC), e-commerce, wholesale, and business-to-business (B2B) sales. Completed USF’s Certificate in Applied Agentic AI (2026).",
+  "resume_summary": "Creative director and brand leader with 20+ years building brands end to end: identity, product, campaigns, PR, retail, and the technology behind them. At USF’s Fromm Institute, a nonprofit in higher education, I run marketing and communications, PR, creative, and technology. I also co-founded and exited two San Francisco apparel brands, FAZE Apparel (acquired, 2019) and State of Flux (exited, 2024). A hands-on designer, bilingual in English and Spanish, with USF’s Certificate in Applied Agentic AI (2026).",
   "partners_label": "Collaborations",
   "applied_ai": {
     "lead": "I use AI agents as a review team, then make the final calls myself.",
@@ -1228,11 +1225,11 @@
           ],
           [
             "PR.",
-            "Two national releases (505 and 493 outlets); worked with the Mayor’s office on the Fromm Day proclamation."
+            "Two national releases (505 and 493 outlets); the Mayor’s Fromm Day proclamation and a Certificate of Honor for Fromm."
           ],
           [
             "Technology.",
-            "Replaced in-person enrollment with Salesforce and Stripe; $100K yearly budget, on budget every year."
+            "Replaced in-person enrollment with Salesforce and Stripe; directed SND Software and BugID on a $100K yearly budget."
           ],
           [
             "Product.",
