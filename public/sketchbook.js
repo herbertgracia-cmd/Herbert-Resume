@@ -50,7 +50,7 @@ function hero(d, S) {
   </section>`;
 }
 
-function sheet(s, i) {
+function sheet(s, i, open = true) {
   const keys = "ABCDEFG";
   const media = s.wipe
     ? `<div class="sb-wipe">
@@ -64,7 +64,7 @@ function sheet(s, i) {
       <div class="sb-wipe-cap"><span class="sb-label">${esc(s.wipe.caption)}</span><span class="sb-hand sb-hand-sm">drag me ⇆</span></div>`
     : `<div class="sb-pgrid">${(s.grid || []).map((g) => `<figure><img src="${esc(thumb(g.src))}" data-full="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy"><figcaption class="sb-label">${esc(g.caption)}</figcaption></figure>`).join("")}</div>`;
   const side = (s.side || []).map((g) => `<figure class="${s.side.length === 1 ? "sb-st" : ""}">${g.note ? `<span class="sb-scribble" aria-hidden="true">${esc(g.note)}</span>` : ""}<img src="${esc(thumb(g.src))}" data-full="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy"><figcaption class="sb-label">${esc(g.caption)}</figcaption></figure>`).join("");
-  return `<article class="sb-sheet" id="sb-sheet-${i}" aria-labelledby="sb-sheet-title-${i}">
+  return `<article class="sb-sheet" id="sb-sheet-${i}" aria-labelledby="sb-sheet-title-${i}"${open ? "" : " hidden"}>
     <div class="sb-sheet-hdr">
       <div><b>COMPANY</b><span>${esc(s.company)}</span></div>
       <div><b>${esc((s.when_label || "Years").toUpperCase())}</b><span>${esc(s.when)}</span></div>
@@ -81,10 +81,28 @@ function sheet(s, i) {
       <div class="sb-sheet-right">
         <ol class="sb-callouts">${(s.callouts || []).map(([b, t], k) => `<li><span class="sb-k">${keys[k]}</span><span><b>${esc(b)}</b> ${esc(t)}</span></li>`).join("")}</ol>
         ${side ? `<div class="sb-margin ${s.side.length === 1 ? "sb-one" : "sb-two"}">${side}</div>` : ""}
-        ${s.work ? `<button class="sb-sheet-more" type="button" data-work="${esc(s.work)}">Open the full case study →</button>` : ""}
       </div>
     </div>
   </article>`;
+}
+
+// One box per project: photo, name, years, one result. Clicking it opens that project's sheet in place.
+function box(s, i, open) {
+  const c = s.card || {};
+  return `<button class="sb-box" type="button" id="sb-box-${i}" aria-expanded="${open}" aria-controls="sb-sheet-${i}">
+    ${c.image ? `<img class="sb-box-img" src="${esc(thumb(c.image))}" data-full="${esc(c.image)}" alt="" loading="lazy">` : ""}
+    <span class="sb-box-text">
+      <span class="sb-label">${esc(c.meta || `${s.when} · ${s.status}`)}</span>
+      <span class="sb-box-t">${esc(s.title)}</span>
+      ${c.line ? `<span class="sb-box-l">${esc(c.line)}</span>` : ""}
+      <span class="sb-box-cta"><span class="sb-when-closed">Open ↓</span><span class="sb-when-open">Showing below</span></span>
+    </span>
+  </button>`;
+}
+
+function boxes(S) {
+  const list = S.sheets || [];
+  return `<div class="sb-boxes">${list.map((s, i) => box(s, i, i === 0) + sheet(s, i, i === 0)).join("")}</div>`;
 }
 
 function more(d, S) {
@@ -203,6 +221,19 @@ function wire(root) {
   place();
   if (form && slot.hidden) new MutationObserver((m, o) => { place(); if (!slot.hidden) o.disconnect(); }).observe(form, { attributes: true, attributeFilter: ["hidden"] });
 
+  // Project boxes: one sheet open at a time; clicking the open box closes it.
+  const boxEls = [...root.querySelectorAll(".sb-box")];
+  boxEls.forEach((b) => b.addEventListener("click", () => {
+    const opening = b.getAttribute("aria-expanded") !== "true";
+    boxEls.forEach((o) => { o.setAttribute("aria-expanded", "false"); document.getElementById(o.getAttribute("aria-controls")).hidden = true; });
+    if (!opening) return;
+    b.setAttribute("aria-expanded", "true");
+    const sh = document.getElementById(b.getAttribute("aria-controls"));
+    sh.hidden = false;
+    const r = sh.getBoundingClientRect();
+    if (r.top > innerHeight * 0.85 || r.top < 0) sh.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
+  }));
+
   // Case studies open in the existing work dialog (app.js).
   root.addEventListener("click", (e) => {
     const b = e.target.closest("[data-work]");
@@ -230,7 +261,7 @@ try {
   root.innerHTML = strip(d, S) + `<main id="sb-main" class="sb-main" tabindex="-1">${hero(d, S)}
     <section class="sb-wrap sb-sec" id="sb-work" aria-labelledby="sb-work-title">
       <div class="sb-sec-head"><h2 id="sb-work-title">Selected work</h2><span class="sb-label">Current role first · what I built and what it delivered</span></div>
-      ${(S.sheets || []).map(sheet).join("")}
+      ${boxes(S)}
       ${more(d, S)}
     </section>
     ${experience(d)}${skills(d)}${education(d)}${contact(d)}</main>`;
