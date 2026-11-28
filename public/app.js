@@ -94,14 +94,14 @@ function render(d) {
 
   // Key numbers under the hero.
   const stats = $("#stats");
-  if (d.stats?.length) {
+  if (stats && d.stats?.length) {
     // A long text value (like three partner names) gets one name per line.
     stats.replaceChildren(...d.stats.map((s) => {
       const long = s.value.length > 8;
       const value = long ? s.value.split(" · ").map((v) => h("span", { class: "stat-line" }, v)) : s.value;
       return h("div", { class: long ? "stat stat-text" : "stat" }, h("strong", {}, value), " ", h("span", {}, s.label));
     }));
-  } else stats.remove();
+  } else stats?.remove();
 
   // Experience: 3 key bullets per job; the rest sits behind "More".
   $("#jobs").replaceChildren(...d.experience.map(renderJob));
