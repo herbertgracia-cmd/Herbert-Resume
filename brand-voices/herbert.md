@@ -29,7 +29,7 @@ I'm a brand and creative leader who builds things, from brands and products to r
 
 ## Always
 - First person. Lead with what happened, then how, then why it matters.
-- One number per point, written exactly as verified (493 outlets, not "nearly 500").
+- One number per point, written exactly as verified (10%, not "about 10%").
 - Name real partners and places: Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway, Big Boi (Outkast); Las Vegas, Miami, Los Angeles, New York; the Mayor of San Francisco's office.
 - Thank the people involved (team, volunteers, partners, the City) when sharing a win.
 - Be precise about roles:
@@ -53,12 +53,11 @@ I'm a brand and creative leader who builds things, from brands and products to r
 - **Marketing:** built Fromm's marketing from zero; enrollment grew 10% in 2025–2026.
   - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): 29 of Fall 2026's 80+ new students found Fromm there. The in-person campaign grew new students 15%.
   - 5+ retirement community partners, 4 of which buy courses.
-  - Budgets: $20K a year with Hearst Media (SF Chronicle, SFGATE), $12K a year in paid social, and $100K a year in technology, on budget every year.
+  - Budgets: manages the media and technology budgets, on budget every year. (Herbert, Nov 28: don't cite dollar amounts.)
 - **PR:**
-  - Lifelong learning survey release: 505 outlets, 106.7M potential audience, 164 journalists.
-  - Fromm Day and 50th Anniversary release: 493 outlets, including Yahoo Finance, AP News, KTLA, and Morningstar; 140.1M potential audience; 41.5K views, and 1.7K engagements.
+  - Lifelong learning survey release: picked up nationally, including Yahoo Finance, AP News, KTLA, and Morningstar. (Herbert, Nov 28: don't cite outlet counts, audience numbers, or the number of releases.)
+  - Fromm Day and 50th Anniversary release: picked up nationally, including Yahoo Finance, AP News, KTLA, and Morningstar. (Herbert, Nov 28: don't cite outlet counts, audience numbers, or the number of releases.)
   - Coordinated with the Mayor's office on the proclamation making November 14 "Fromm Day" in San Francisco; Fromm also received a Certificate of Honor.
-  - Marketing budget: $32K a year ($20K newspaper ads, $12K paid social).
 - **50th Anniversary (1976–2026):** designed the logo and campaign across the gala, print, digital, and press.
 - **Technology:**
   - Designed the website and online enrollment in Salesforce with Stripe; about 70% of enrollment is now online.
