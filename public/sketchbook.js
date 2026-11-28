@@ -39,7 +39,7 @@ function hero(d, S) {
       <h1 id="sb-name">${esc(d.name).replace(/ (\S+)$/, " <br><em>$1</em>")}</h1>
       <p class="sb-role">${esc(S.titles)}</p>
       <p class="sb-now"><strong>Now:</strong> ${esc(S.now)}</p>
-      <div class="sb-facts">${facts}</div>
+      ${facts ? `<div class="sb-facts">${facts}</div>` : ""}
     </div>
     <figure class="sb-fig">
       ${H.note ? `<p class="sb-note" aria-hidden="true">${esc(H.note)}</p>` : ""}

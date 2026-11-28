@@ -147,7 +147,7 @@ function renderHome(page, base) {
         ),
     })
     .on("#stats", {
-      element: (el) =>
+      element: (el) => !(d.stats || []).length ? el.remove() :
         el.setInnerContent(
           (d.stats || [])
             .map((s) => {

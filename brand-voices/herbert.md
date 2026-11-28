@@ -23,13 +23,13 @@ I'm a brand and creative leader who builds things, from brands and products to r
 ## How he writes (patterns from his own copy)
 - **Opens with the bigger idea, in first person:** "I've spent my career building things…"
 - **Contrast to show range:** "I wasn't just developing brand identities. I was creating products, building retail spaces, and turning ideas into businesses."
-- **Gives credit with "we" and "our":** "Our marketing efforts contributed to 10% enrollment growth." He uses "I" for what he personally did and "we" for team results.
+- **Gives credit with "we" and "our":** "Our marketing efforts helped grow enrollment." He uses "I" for what he personally did and "we" for team results.
 - **Ends on a short belief line:** "The best creative work does more than look good. It helps people understand something, connect with it, and see what's possible."
 - **Makes complex things clear:** a recurring theme in his work at Fromm and his interest in AI.
 
 ## Always
 - First person. Lead with what happened, then how, then why it matters.
-- One number per point, written exactly as verified (10%, not "about 10%").
+- No result numbers (percentages, ratios, subscriber or follower counts). Herbert, Nov 28: he shares those in interviews.
 - Name real partners and places: Pinterest, Timbuk2, SFMOMA, Harmonic Brewing, Outside Lands, BreakAway, Big Boi (Outkast); Las Vegas, Miami, Los Angeles, New York; the Mayor of San Francisco's office.
 - Thank the people involved (team, volunteers, partners, the City) when sharing a win.
 - Be precise about roles:
@@ -50,9 +50,9 @@ I'm a brand and creative leader who builds things, from brands and products to r
 - Assistant Director, Technology, Marketing & Creative since 2022; at Fromm since 2005, in 4 roles.
 - 3,000 students a year.
 - Leads brand, marketing, communications, PR, and technology. Directs vendors and volunteers.
-- **Marketing:** built Fromm's marketing from zero; enrollment grew 10% in 2025–2026.
-  - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): 29 of Fall 2026's 80+ new students found Fromm there. The in-person campaign grew new students 15%.
-  - 5+ retirement community partners, 4 of which buy courses.
+- **Marketing:** built Fromm's marketing from zero; enrollment grew.
+  - Farmers market outreach (Clement Street, then the Ferry Building and Fort Mason): one of our strongest sources of new students.
+  - Retirement community partners that buy courses.
   - Budgets: manages the media and technology budgets, on budget every year. (Herbert, Nov 28: don't cite dollar amounts.)
 - **PR:**
   - Lifelong learning survey release: picked up nationally, including Yahoo Finance, AP News, KTLA, and Morningstar. (Herbert, Nov 28: don't cite outlet counts, audience numbers, or the number of releases.)
@@ -60,8 +60,8 @@ I'm a brand and creative leader who builds things, from brands and products to r
   - Coordinated with the Mayor's office on the proclamation making November 14 "Fromm Day" in San Francisco; Fromm also received a Certificate of Honor.
 - **50th Anniversary (1976–2026):** designed the logo and campaign across the gala, print, digital, and press.
 - **Technology:**
-  - Designed the website and online enrollment in Salesforce with Stripe; about 70% of enrollment is now online.
-  - Built Frommcast to 1,500+ subscribers, then moved it to YouTube (700+ subscribers, 200+ free classes).
+  - Designed the website and online enrollment in Salesforce with Stripe; most enrollment is now online.
+  - Built Frommcast, a subscription streaming platform, then moved it to YouTube as a free class library.
 
 **Entrepreneur**
 - **FAZE Apparel** (2007–2019), co-founder: acquired in 2019. 10+ retail accounts, a flagship store, and trade shows in Las Vegas, Miami, Los Angeles, and New York. Created a collab with Big Boi of Outkast.
